@@ -8,7 +8,7 @@ import os
 from std_msgs.msg import Float32
 
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'scripts')))
-from slidewindow import SlideWindow
+from slidewindow_sungjin_ver import SlideWindow
 
 class LaneDetectionROS:
     def __init__(self):

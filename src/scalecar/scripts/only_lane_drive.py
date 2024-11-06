@@ -50,11 +50,11 @@ class MotorController:
 
     def process_data(self):
         # x_location에 따라 속도와 조향 각도 설정
-        self.angle = (self.x_location - 256) * 0.003  # 중심 기준으로 조향 계산
+        self.angle = (280 - self.x_location) * 0.003  # 중심 기준으로 조향 계산
         publishing_data = AckermannDriveStamped()
         publishing_data.header.stamp = rospy.Time.now()
         publishing_data.header.frame_id = "base_link"
-        publishing_data.drive.steering_angle = self.angle * 0.003
+        publishing_data.drive.steering_angle = self.angle
         publishing_data.drive.speed = self.motor_speed
         self.drive_pub.publish(publishing_data)
 
