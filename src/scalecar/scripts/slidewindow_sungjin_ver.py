@@ -20,12 +20,12 @@ class SlideWindow:
         self.left_cnt = 25
         self.right_cnt = 25
 
-        self.x_previous = 320
+        self.x_previous = 280
 
 
     def slidewindow(self, img, roi_flag):
 
-        x_location = 320
+        x_location = None
         # init out_img, height, width        
         out_img = np.dstack((img, img, img)) * 255# deleted
         # out_img = img # added 
