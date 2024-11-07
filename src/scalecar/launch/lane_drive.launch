@@ -1,5 +1,8 @@
 <launch>
     <node name="only_lane_drive" type="only_lane_drive.py" pkg="scalecar" output="screen"/>
+    <node name="slidewindow_sungjin_ver" type="slidewindow_sungjin_ver.py" pkg="scalecar" output="screen"/>
+    <node name="lane_detection_hsv" type="lane_detection_hsv.py" pkg="scalecar" output="screen"/>
+
     <!-- <node name="detect_obs" type="detect_clust_obs.py" pkg="scalecar" output="screen"/>
     <node name="child_sign" type="child_sign.py" pkg="scalecar" output="screen"/>
     <node name="rabacon_drive" type="rabacon_drive.py" pkg="scalecar" output="screen"/> -->
