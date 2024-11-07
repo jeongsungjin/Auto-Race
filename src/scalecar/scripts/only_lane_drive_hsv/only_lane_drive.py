@@ -35,7 +35,7 @@ class MotorController:
 
         # 초기 상태 변수 설정
         self.x_location = None
-        self.motor_speed = 0.7  # 기본 속도 설정
+        self.motor_speed = 0.35  # 기본 속도 설정
         self.angle = 0.0
 
         # 주기적인 데이터 처리 설정 (30 Hz)

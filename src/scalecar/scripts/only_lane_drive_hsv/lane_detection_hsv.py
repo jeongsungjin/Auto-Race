@@ -48,7 +48,7 @@ class LaneDetectionROS:
         self.pub_x_location = rospy.Publisher('/lane_x_location', Float32, queue_size=1)
 
         self.cv_image = None
-        self.rate = rospy.Rate(10)  # 10Hz 루프
+        self.rate = rospy.Rate(30)  # 10Hz 루프
 
     def nothing(self, x):
         pass

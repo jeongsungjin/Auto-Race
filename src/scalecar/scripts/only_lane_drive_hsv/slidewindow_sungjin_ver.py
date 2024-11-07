@@ -56,9 +56,9 @@ class SlideWindow:
         win_r_w_l = 455 - 80
         win_r_w_r = 455 + 80
         
-        circle_height = 240
+        circle_height = 200
 
-        road_width = 0.47 # 0.415
+        road_width = 0.5 # 0.415
         half_road_width = 0.5 * road_width
 
         pts_left = np.array([[win_l_w_l, win_h2], [win_l_w_l, win_h1], [win_l_w_r, win_h1], [win_l_w_r, win_h2]], np.int32)
