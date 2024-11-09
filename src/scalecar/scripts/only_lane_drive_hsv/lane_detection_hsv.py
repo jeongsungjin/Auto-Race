@@ -15,7 +15,7 @@ class LaneDetectionROS:
         # ROS 노드 초기화
         rospy.init_node('lane_detection_ros', anonymous=True)
         self.bridge = CvBridge()
-        self.image_sub = rospy.Subscriber('/camera/image', Image, self.image_callback)
+        self.image_sub = rospy.Subscriber('/usb_cam/image_rect_color', Image, self.image_callback)
 
         # SlideWindow 객체 초기화
         self.slidewindow = SlideWindow()

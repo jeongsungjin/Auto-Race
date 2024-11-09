@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/wego/catkin_ws/devel/lib/rplidar_ros/rplidarNodeClient"
-  "/home/wego/catkin_ws/devel/lib/rplidar_ros/rplidarNodeClient.pdb"
+  "/home/foscar/Auto-Race-/devel/lib/rplidar_ros/rplidarNodeClient"
+  "/home/foscar/Auto-Race-/devel/lib/rplidar_ros/rplidarNodeClient.pdb"
   "CMakeFiles/rplidarNodeClient.dir/src/client.cpp.o"
 )
 

@@ -1,17 +1,24 @@
 # CMake generated Testfile for 
-# Source directory: /home/wego/catkin_ws/src
-# Build directory: /home/wego/catkin_ws/build
+# Source directory: /home/foscar/Auto-Race-/src
+# Build directory: /home/foscar/Auto-Race-/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
 subdirs("gtest")
+subdirs("fiducials/fiducials")
 subdirs("racecar/racecar")
-subdirs("vesc/vesc")
-subdirs("vesc/vesc_msgs")
+subdirs("car_planner")
+subdirs("heading")
+subdirs("lane_detection")
+subdirs("cv_detect")
+subdirs("lanenet")
+subdirs("scalecar")
+subdirs("sensor_manager")
+subdirs("sign_slowdown")
 subdirs("racecar/ackermann_cmd_mux")
 subdirs("razor_imu_9dof")
 subdirs("rplidar_ros")
-subdirs("usb_cam")
-subdirs("vesc/vesc_ackermann")
-subdirs("vesc/vesc_driver")
-subdirs("wego")
+subdirs("fiducials/fiducial_msgs")
+subdirs("fiducials/fiducial_slam")
+subdirs("obstacle_detector")
+subdirs("fiducials/aruco_detect")

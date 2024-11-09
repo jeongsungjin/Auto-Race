@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/wego/catkin_ws/devel/include/ackermann_cmd_mux/reloadConfig.h
+/home/foscar/Auto-Race-/devel/include/ackermann_cmd_mux/reloadConfig.h
 dynamic_reconfigure/config_tools.h
 -
 limits
@@ -24,7 +24,7 @@ dynamic_reconfigure/config_init_mutex.h
 boost/any.hpp
 -
 
-/home/wego/catkin_ws/src/racecar/ackermann_cmd_mux/include/ackermann_cmd_mux/ackermann_cmd_mux_nodelet.hpp
+/home/foscar/Auto-Race-/src/racecar/ackermann_cmd_mux/include/ackermann_cmd_mux/ackermann_cmd_mux_nodelet.hpp
 ros/ros.h
 -
 nodelet/nodelet.h
@@ -32,11 +32,11 @@ nodelet/nodelet.h
 dynamic_reconfigure/server.h
 -
 ackermann_cmd_mux/reloadConfig.h
-/home/wego/catkin_ws/src/racecar/ackermann_cmd_mux/include/ackermann_cmd_mux/ackermann_cmd_mux/reloadConfig.h
+/home/foscar/Auto-Race-/src/racecar/ackermann_cmd_mux/include/ackermann_cmd_mux/ackermann_cmd_mux/reloadConfig.h
 ackermann_cmd_mux/ackermann_cmd_subscribers.hpp
-/home/wego/catkin_ws/src/racecar/ackermann_cmd_mux/include/ackermann_cmd_mux/ackermann_cmd_mux/ackermann_cmd_subscribers.hpp
+/home/foscar/Auto-Race-/src/racecar/ackermann_cmd_mux/include/ackermann_cmd_mux/ackermann_cmd_mux/ackermann_cmd_subscribers.hpp
 
-/home/wego/catkin_ws/src/racecar/ackermann_cmd_mux/include/ackermann_cmd_mux/ackermann_cmd_subscribers.hpp
+/home/foscar/Auto-Race-/src/racecar/ackermann_cmd_mux/include/ackermann_cmd_mux/ackermann_cmd_subscribers.hpp
 ros/ros.h
 -
 ackermann_msgs/AckermannDriveStamped.h
@@ -44,11 +44,11 @@ ackermann_msgs/AckermannDriveStamped.h
 yaml-cpp/yaml.h
 -
 
-/home/wego/catkin_ws/src/racecar/ackermann_cmd_mux/include/ackermann_cmd_mux/exceptions.hpp
+/home/foscar/Auto-Race-/src/racecar/ackermann_cmd_mux/include/ackermann_cmd_mux/exceptions.hpp
 exception
 -
 
-/home/wego/catkin_ws/src/racecar/ackermann_cmd_mux/src/ackermann_cmd_mux_nodelet.cpp
+/home/foscar/Auto-Race-/src/racecar/ackermann_cmd_mux/src/ackermann_cmd_mux_nodelet.cpp
 fstream
 -
 std_msgs/String.h
@@ -56,24 +56,16 @@ std_msgs/String.h
 pluginlib/class_list_macros.h
 -
 ackermann_cmd_mux/ackermann_cmd_mux_nodelet.hpp
-/home/wego/catkin_ws/src/racecar/ackermann_cmd_mux/src/ackermann_cmd_mux/ackermann_cmd_mux_nodelet.hpp
+/home/foscar/Auto-Race-/src/racecar/ackermann_cmd_mux/src/ackermann_cmd_mux/ackermann_cmd_mux_nodelet.hpp
 ackermann_cmd_mux/exceptions.hpp
-/home/wego/catkin_ws/src/racecar/ackermann_cmd_mux/src/ackermann_cmd_mux/exceptions.hpp
-
-/home/wego/catkin_ws/src/racecar/ackermann_cmd_mux/src/ackermann_cmd_subscribers.cpp
-fstream
--
-ackermann_cmd_mux/ackermann_cmd_subscribers.hpp
-/home/wego/catkin_ws/src/racecar/ackermann_cmd_mux/src/ackermann_cmd_mux/ackermann_cmd_subscribers.hpp
-ackermann_cmd_mux/exceptions.hpp
-/home/wego/catkin_ws/src/racecar/ackermann_cmd_mux/src/ackermann_cmd_mux/exceptions.hpp
+/home/foscar/Auto-Race-/src/racecar/ackermann_cmd_mux/src/ackermann_cmd_mux/exceptions.hpp
 
 /opt/ros/noetic/include/ackermann_msgs/AckermannDrive.h
 string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -89,7 +81,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -187,7 +179,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -203,7 +195,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -229,7 +221,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -253,7 +245,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -269,7 +261,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -287,7 +279,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -303,7 +295,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -319,7 +311,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -343,7 +335,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -361,7 +353,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -379,7 +371,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -845,6 +837,8 @@ vector
 -
 map
 -
+memory
+-
 boost/array.hpp
 -
 boost/call_traits.hpp
@@ -1103,7 +1097,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -1119,7 +1113,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -

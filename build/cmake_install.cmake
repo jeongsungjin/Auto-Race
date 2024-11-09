@@ -1,8 +1,8 @@
-# Install script for directory: /home/wego/catkin_ws/src
+# Install script for directory: /home/foscar/Auto-Race-/src
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/wego/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/home/foscar/Auto-Race-/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -49,98 +49,105 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/wego/catkin_ws/install/_setup_util.py")
+   "/home/foscar/Auto-Race-/install/_setup_util.py")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/wego/catkin_ws/install" TYPE PROGRAM FILES "/home/wego/catkin_ws/build/catkin_generated/installspace/_setup_util.py")
+file(INSTALL DESTINATION "/home/foscar/Auto-Race-/install" TYPE PROGRAM FILES "/home/foscar/Auto-Race-/build/catkin_generated/installspace/_setup_util.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/wego/catkin_ws/install/env.sh")
+   "/home/foscar/Auto-Race-/install/env.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/wego/catkin_ws/install" TYPE PROGRAM FILES "/home/wego/catkin_ws/build/catkin_generated/installspace/env.sh")
+file(INSTALL DESTINATION "/home/foscar/Auto-Race-/install" TYPE PROGRAM FILES "/home/foscar/Auto-Race-/build/catkin_generated/installspace/env.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/wego/catkin_ws/install/setup.bash;/home/wego/catkin_ws/install/local_setup.bash")
+   "/home/foscar/Auto-Race-/install/setup.bash;/home/foscar/Auto-Race-/install/local_setup.bash")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/wego/catkin_ws/install" TYPE FILE FILES
-    "/home/wego/catkin_ws/build/catkin_generated/installspace/setup.bash"
-    "/home/wego/catkin_ws/build/catkin_generated/installspace/local_setup.bash"
+file(INSTALL DESTINATION "/home/foscar/Auto-Race-/install" TYPE FILE FILES
+    "/home/foscar/Auto-Race-/build/catkin_generated/installspace/setup.bash"
+    "/home/foscar/Auto-Race-/build/catkin_generated/installspace/local_setup.bash"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/wego/catkin_ws/install/setup.sh;/home/wego/catkin_ws/install/local_setup.sh")
+   "/home/foscar/Auto-Race-/install/setup.sh;/home/foscar/Auto-Race-/install/local_setup.sh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/wego/catkin_ws/install" TYPE FILE FILES
-    "/home/wego/catkin_ws/build/catkin_generated/installspace/setup.sh"
-    "/home/wego/catkin_ws/build/catkin_generated/installspace/local_setup.sh"
+file(INSTALL DESTINATION "/home/foscar/Auto-Race-/install" TYPE FILE FILES
+    "/home/foscar/Auto-Race-/build/catkin_generated/installspace/setup.sh"
+    "/home/foscar/Auto-Race-/build/catkin_generated/installspace/local_setup.sh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/wego/catkin_ws/install/setup.zsh;/home/wego/catkin_ws/install/local_setup.zsh")
+   "/home/foscar/Auto-Race-/install/setup.zsh;/home/foscar/Auto-Race-/install/local_setup.zsh")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/wego/catkin_ws/install" TYPE FILE FILES
-    "/home/wego/catkin_ws/build/catkin_generated/installspace/setup.zsh"
-    "/home/wego/catkin_ws/build/catkin_generated/installspace/local_setup.zsh"
+file(INSTALL DESTINATION "/home/foscar/Auto-Race-/install" TYPE FILE FILES
+    "/home/foscar/Auto-Race-/build/catkin_generated/installspace/setup.zsh"
+    "/home/foscar/Auto-Race-/build/catkin_generated/installspace/local_setup.zsh"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   list(APPEND CMAKE_ABSOLUTE_DESTINATION_FILES
-   "/home/wego/catkin_ws/install/.rosinstall")
+   "/home/foscar/Auto-Race-/install/.rosinstall")
   if(CMAKE_WARN_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(WARNING "ABSOLUTE path INSTALL DESTINATION : ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
   if(CMAKE_ERROR_ON_ABSOLUTE_INSTALL_DESTINATION)
     message(FATAL_ERROR "ABSOLUTE path INSTALL DESTINATION forbidden (by caller): ${CMAKE_ABSOLUTE_DESTINATION_FILES}")
   endif()
-file(INSTALL DESTINATION "/home/wego/catkin_ws/install" TYPE FILE FILES "/home/wego/catkin_ws/build/catkin_generated/installspace/.rosinstall")
+file(INSTALL DESTINATION "/home/foscar/Auto-Race-/install" TYPE FILE FILES "/home/foscar/Auto-Race-/build/catkin_generated/installspace/.rosinstall")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/wego/catkin_ws/build/gtest/cmake_install.cmake")
-  include("/home/wego/catkin_ws/build/racecar/racecar/cmake_install.cmake")
-  include("/home/wego/catkin_ws/build/vesc/vesc/cmake_install.cmake")
-  include("/home/wego/catkin_ws/build/vesc/vesc_msgs/cmake_install.cmake")
-  include("/home/wego/catkin_ws/build/racecar/ackermann_cmd_mux/cmake_install.cmake")
-  include("/home/wego/catkin_ws/build/razor_imu_9dof/cmake_install.cmake")
-  include("/home/wego/catkin_ws/build/rplidar_ros/cmake_install.cmake")
-  include("/home/wego/catkin_ws/build/usb_cam/cmake_install.cmake")
-  include("/home/wego/catkin_ws/build/vesc/vesc_ackermann/cmake_install.cmake")
-  include("/home/wego/catkin_ws/build/vesc/vesc_driver/cmake_install.cmake")
-  include("/home/wego/catkin_ws/build/wego/cmake_install.cmake")
+  include("/home/foscar/Auto-Race-/build/gtest/cmake_install.cmake")
+  include("/home/foscar/Auto-Race-/build/fiducials/fiducials/cmake_install.cmake")
+  include("/home/foscar/Auto-Race-/build/racecar/racecar/cmake_install.cmake")
+  include("/home/foscar/Auto-Race-/build/car_planner/cmake_install.cmake")
+  include("/home/foscar/Auto-Race-/build/heading/cmake_install.cmake")
+  include("/home/foscar/Auto-Race-/build/lane_detection/cmake_install.cmake")
+  include("/home/foscar/Auto-Race-/build/cv_detect/cmake_install.cmake")
+  include("/home/foscar/Auto-Race-/build/lanenet/cmake_install.cmake")
+  include("/home/foscar/Auto-Race-/build/scalecar/cmake_install.cmake")
+  include("/home/foscar/Auto-Race-/build/sensor_manager/cmake_install.cmake")
+  include("/home/foscar/Auto-Race-/build/sign_slowdown/cmake_install.cmake")
+  include("/home/foscar/Auto-Race-/build/racecar/ackermann_cmd_mux/cmake_install.cmake")
+  include("/home/foscar/Auto-Race-/build/razor_imu_9dof/cmake_install.cmake")
+  include("/home/foscar/Auto-Race-/build/rplidar_ros/cmake_install.cmake")
+  include("/home/foscar/Auto-Race-/build/fiducials/fiducial_msgs/cmake_install.cmake")
+  include("/home/foscar/Auto-Race-/build/fiducials/fiducial_slam/cmake_install.cmake")
+  include("/home/foscar/Auto-Race-/build/obstacle_detector/cmake_install.cmake")
+  include("/home/foscar/Auto-Race-/build/fiducials/aruco_detect/cmake_install.cmake")
 
 endif()
 
@@ -152,5 +159,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/wego/catkin_ws/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/foscar/Auto-Race-/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

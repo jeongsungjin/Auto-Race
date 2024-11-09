@@ -1,4 +1,4 @@
-prefix=/home/wego/catkin_ws/install
+prefix=/home/foscar/Auto-Race-/install
 
 Name: razor_imu_9dof
 Description: Description of razor_imu_9dof

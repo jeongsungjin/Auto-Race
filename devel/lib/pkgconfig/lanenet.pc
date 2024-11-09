@@ -1,0 +1,8 @@
+prefix=/home/foscar/Auto-Race-/devel
+
+Name: lanenet
+Description: Description of lanenet
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

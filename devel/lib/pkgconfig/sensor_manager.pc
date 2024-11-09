@@ -1,0 +1,8 @@
+prefix=/home/foscar/Auto-Race-/devel
+
+Name: sensor_manager
+Description: Description of sensor_manager
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

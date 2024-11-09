@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/wego/catkin_ws/src/rplidar_ros/src/client.cpp
+/home/foscar/Auto-Race-/src/rplidar_ros/src/client.cpp
 ros/ros.h
-/home/wego/catkin_ws/src/rplidar_ros/src/ros/ros.h
+/home/foscar/Auto-Race-/src/rplidar_ros/src/ros/ros.h
 sensor_msgs/LaserScan.h
-/home/wego/catkin_ws/src/rplidar_ros/src/sensor_msgs/LaserScan.h
+/home/foscar/Auto-Race-/src/rplidar_ros/src/sensor_msgs/LaserScan.h
 
 /opt/ros/noetic/include/ros/advertise_options.h
 ros/forwards.h
@@ -407,6 +407,8 @@ vector
 -
 map
 -
+memory
+-
 boost/array.hpp
 -
 boost/call_traits.hpp
@@ -665,7 +667,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -
@@ -683,7 +685,7 @@ string
 -
 vector
 -
-map
+memory
 -
 ros/types.h
 -

@@ -67,14 +67,14 @@ set(ackermann_cmd_mux_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(ackermann_cmd_mux_SOURCE_PREFIX /home/wego/catkin_ws/src/racecar/ackermann_cmd_mux)
-  set(ackermann_cmd_mux_DEVEL_PREFIX /home/wego/catkin_ws/devel)
+  set(ackermann_cmd_mux_SOURCE_PREFIX /home/foscar/Auto-Race-/src/racecar/ackermann_cmd_mux)
+  set(ackermann_cmd_mux_DEVEL_PREFIX /home/foscar/Auto-Race-/devel)
   set(ackermann_cmd_mux_INSTALL_PREFIX "")
   set(ackermann_cmd_mux_PREFIX ${ackermann_cmd_mux_DEVEL_PREFIX})
 else()
   set(ackermann_cmd_mux_SOURCE_PREFIX "")
   set(ackermann_cmd_mux_DEVEL_PREFIX "")
-  set(ackermann_cmd_mux_INSTALL_PREFIX /home/wego/catkin_ws/install)
+  set(ackermann_cmd_mux_INSTALL_PREFIX /home/foscar/Auto-Race-/install)
   set(ackermann_cmd_mux_PREFIX ${ackermann_cmd_mux_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/wego/catkin_ws/install/lib;/home/wego/catkin_ws/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/foscar/Auto-Race-/install/lib;/home/foscar/Auto-Race-/devel/lib;/home/foscar/iscc_2024/devel/lib;/home/foscar/sensor_fusion_final_2024/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

@@ -1,0 +1,8 @@
+<launch>
+    <arg name="version" default="safe"/>
+
+    <node name="sign_slowdown" pkg="sign_slowdown" type="sign_slowdown.py" output="screen">
+        <param name="version" value="$(arg version)"/>
+    </node>
+
+</launch>

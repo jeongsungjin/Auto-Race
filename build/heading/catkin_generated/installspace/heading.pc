@@ -1,0 +1,8 @@
+prefix=/home/foscar/Auto-Race-/install
+
+Name: heading
+Description: Description of heading
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

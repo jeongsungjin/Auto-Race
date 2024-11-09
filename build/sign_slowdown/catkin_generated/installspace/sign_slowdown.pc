@@ -1,0 +1,8 @@
+prefix=/home/foscar/Auto-Race-/install
+
+Name: sign_slowdown
+Description: Description of sign_slowdown
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
