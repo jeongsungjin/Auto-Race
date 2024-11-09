@@ -48,7 +48,6 @@ class LaneDetection(object):
 
             # 모터 제어 명령과 현재 속도 퍼블리셔 설정
             self.ctrl_cmd_pub = rospy.Publisher('/motor_lane', AckermannDriveStamped, queue_size=1)
-            # self.ctrl_cmd_pub = rospy.Publisher('/xycar_motor', xycar_motor, queue_size=1)
             
             self.bridge = CvBridge()  # CV-Bridge 초기화
             self.ctrl_cmd_msg = AckermannDriveStamped()  # 모터 제어 메시지 초기화
