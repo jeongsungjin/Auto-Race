@@ -9,13 +9,13 @@ find_package(Boost 1.54.0 REQUIRED system)
 find_package(BLAS REQUIRED)
 find_package(LAPACK REQUIRED)
 
-add_message_files(FILES CircleObstacle.msg SegmentObstacle.msg Obstacles.msg Waypoint.msg)
+add_message_files(FILES CircleObstacle.msg SegmentObstacle.msg Obstacles.msg Waypoint.msg, Drive_command.msg)
 generate_messages(DEPENDENCIES std_msgs geometry_msgs)
 
 catkin_package(
   INCLUDE_DIRS include
   LIBRARIES scans_merger obstacle_extractor obstacle_tracker obstacle_publisher obstacle_extractor_rubbercone obstacle_extractor_static ${PROJECT_NAME}_nodelets ${PROJECT_NAME}_gui
-  CATKIN_DEPENDS roscpp nodelet rviz std_msgs std_srvs geometry_msgs sensor_msgs tf laser_geometry message_runtime
+  CATKIN_DEPENDS roscpp nodelet rviz std_msgs std_srvs geometry_msgs sensor_msgs tf laser_geometry message_runtime 
 )
 
 include_directories(include ${catkin_INCLUDE_DIRS} ${ARMADILLO_INCLUDE_DIRS} ${Boost_INCLUDE_DIRS})

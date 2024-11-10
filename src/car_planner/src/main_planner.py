@@ -13,12 +13,11 @@ from collections import deque
 
 ## HSV 50 50 30 그늘 있을 때
 ## battery 9.47
-
+from car_planner.msgs import Drive_command
 from ackermann_msgs.msg import AckermannDriveStamped
 from std_msgs.msg import Int32, String, Float32
 from sensor_msgs.msg import Image
 from obstacle_detector.msg import Obstacles
-
 from cv_bridge import CvBridge
 import cv2
 import os
@@ -54,22 +53,23 @@ class PID():
 class Controller():
 
     def __init__(self):
+        self.publishing_data = AckermannDriveStamped()
 
-        self.ctrl_lane = AckermannDriveStamped()  # 모터 제어 메시지 초기화
-        self.ctrl_static = AckermannDriveStamped()
-        self.ctrl_rabacon = AckermannDriveStamped()
-        self.ctrl_sign = AckermannDriveStamped()
-        self.ctrl_dynamic = AckermannDriveStamped()
+        self.ctrl_lane = Drive_command()  # 모터 제어 메시지 초기화
+        self.ctrl_static = Drive_command()
+        self.ctrl_rabacon = Drive_command()
+        self.ctrl_sign = Drive_command()
+        self.ctrl_dynamic = Drive_command()
 
         rospy.init_node('main_planner', anonymous=True)  # ROS 노드 초기화
 
-        # 이미지 처리 및 장애물 관련 데이터 구독
-        rospy.Subscriber("/motor_lane", AckermannDriveStamped, self.ctrlLaneCB)  # 카메라 이미지 구독 (차선 인식용)
-        rospy.Subscriber("/motor_static", AckermannDriveStamped, self.ctrlStaticCB)  # LiDAR 기반 객체 탐지 경고 신호 구독 (안전/경고)
-        rospy.Subscriber("/motor_dynamic", AckermannDriveStamped, self.ctrlDynamicCB)  # 장애물 상태 데이터 구독
+        # 이미지 처리 및 장애물 관련 데이터 구독 걍 미션 별 메시지 타입 하나로 통일 해야겠다!!!!!!!!!!!!!!
+        rospy.Subscriber("/motor_lane", Drive_command, self.ctrlLaneCB)  # 카메라 이미지 구독 (차선 인식용)
+        rospy.Subscriber("/motor_static", Drive_command, self.ctrlStaticCB)  # LiDAR 기반 객체 탐지 경고 신호 구독 (안전/경고)
+        rospy.Subscriber("/motor_dynamic", Drive_command, self.ctrlDynamicCB)  # 장애물 상태 데이터 구독
        
-        rospy.Subscriber("/motor_sign", AckermannDriveStamped, self.ctrlSIGNCB)  # 표지판 ID (어린이 보호구역 신호 등) 구독
-        rospy.Subscriber("/motor_rabacon", AckermannDriveStamped, self.ctrlRabaconCB)  # rabacon 미션용 주행 데이터 구독
+        rospy.Subscriber("/motor_sign", Drive_command, self.ctrlSIGNCB)  # 표지판 ID (어린이 보호구역 신호 등) 구독
+        rospy.Subscriber("/motor_rabacon", Drive_command, self.ctrlRabaconCB)  # rabacon 미션용 주행 데이터 구독
         
         
         rospy.Subscriber("obstacles", Obstacles, self.staticObstacle_callback)  # 장애물 데이터 구독
@@ -181,12 +181,12 @@ class Controller():
 
     def publishCtrlCmd(self, motor_msg, servo_msg):
 
-        publishing_data = AckermannDriveStamped()  # AckermannDriveStamped 메시지 객체 생성
-        publishing_data.header.stamp = rospy.Time.now()  # 메시지에 현재 시간을 기록
-        publishing_data.header.frame_id = "base_link"  # 메시지의 참조 프레임을 "base_link"로 설정
-        publishing_data.drive.steering_angle = servo_msg * 0.003  # 차선 위치 오차에 따라 조향 각도 결정
-        publishing_data.drive.speed = motor_msg  # 차선 주행 속도(speed_lane)를 설정
-        self.drive_pub.publish(publishing_data)  # 설정한 속도와 조향 각도 메시지를 퍼블리시하여 차량에 적용
+        self.publishing_data = AckermannDriveStamped()  # AckermannDriveStamped 메시지 객체 생성
+        self.publishing_data.header.stamp = rospy.Time.now()  # 메시지에 현재 시간을 기록
+        self.publishing_data.header.frame_id = "base_link"  # 메시지의 참조 프레임을 "base_link"로 설정
+        self.publishing_data.drive.steering_angle = servo_msg * 0.003  # 차선 위치 오차에 따라 조향 각도 결정
+        self.publishing_data.drive.speed = motor_msg  # 차선 주행 속도(speed_lane)를 설정
+        self.drive_pub.publish(self.publishing_data)  # 설정한 속도와 조향 각도 메시지를 퍼블리시하여 차량에 적용
 
 
     def ctrlLaneCB(self, msg):

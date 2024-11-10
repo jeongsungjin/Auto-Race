@@ -92,7 +92,19 @@ find_package(catkin REQUIRED COMPONENTS
 #   cfg/DynReconf1.cfg
 #   cfg/DynReconf2.cfg
 # )
+add_message_files(
+  FILES
+  Drive_command.msg  
+)
 
+generate_messages(
+  DEPENDENCIES
+  std_msgs
+)
+
+catkin_package(
+  CATKIN_DEPENDS message_runtime std_msgs
+)
 ###################################
 ## catkin specific configuration ##
 ###################################

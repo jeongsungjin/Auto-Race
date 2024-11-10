@@ -5,6 +5,7 @@ import rospy
 from obstacle_detector.msg import Obstacles
 from std_msgs.msg import Float64, String
 from ackermann_msgs.msg import AckermannDriveStamped
+from obstacle_detector.msg import Drive_command
 
 class Obstacle:
     def __init__(self, x=None, y=None, distance=None):
@@ -17,13 +18,11 @@ class DynamicAvoidance():
     def __init__(self):
         rospy.Subscriber("/raw_obstacles_static", Obstacles, self.obstacleCB)
         rospy.Subscriber("/mode", String, self.modeCB)
-        rospy.Subscriber("/motor_lane", AckermannDriveStamped, self.ctrlLaneCB)
 
+        self.ctrl_cmd_pub = rospy.Publisher('/motor_static', Drive_command, queue_size=1)
+        self.ctrl_cmd_msg = Drive_command()
 
-        self.ctrl_cmd_pub = rospy.Publisher('/motor_static', AckermannDriveStamped, queue_size=1)
-        self.ctrl_cmd_msg = AckermannDriveStamped()
-
-        self.ctrl_lane = AckermannDriveStamped()
+        self.ctrl_lane = Drive_command()
         self.obstacles = []  # __init__에서 초기화
 
         self.closest_obstacle = Obstacle()
@@ -61,6 +60,8 @@ class DynamicAvoidance():
                             self.dynamic_obstacle_y_list.pop(0)
             else:
                 self.dynamic_obstacle_y_list = []
+                self.flag = False
+
 
             # Obstacle 이 차폭내에 들어올 때 멈추기
             if len(self.dynamic_obstacle_y_list) >= 2:
@@ -69,6 +70,8 @@ class DynamicAvoidance():
                     print('정지!!!')
                     self.publishCtrlCmd(0.0, self.ctrl_lane.angle, self.flag)
                     continue
+                self.flag = False
+
 
             # Obstacle 이 움직일 때 멈추기
             if len(self.dynamic_obstacle_y_list) >= 2:
@@ -79,6 +82,7 @@ class DynamicAvoidance():
                     print('정지!!!')
                     self.publishCtrlCmd(0.0, self.ctrl_lane.angle, self.flag)
                     continue
+                self.flag = False
 
             self.publishCtrlCmd(self.speed, self.angle, self.flag)
 

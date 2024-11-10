@@ -16,7 +16,7 @@ from sensor_msgs.msg import Image  # 이미지 데이터 메시지 모듈 임포
 
 from utils import *
 
-
+from lane_detection.msg import Drive_command
 
 # PID 클래스 정의
 class PID():
@@ -50,7 +50,7 @@ class LaneDetection(object):
             self.ctrl_cmd_pub = rospy.Publisher('/motor_lane', AckermannDriveStamped, queue_size=1)
             
             self.bridge = CvBridge()  # CV-Bridge 초기화
-            self.ctrl_cmd_msg = AckermannDriveStamped()  # 모터 제어 메시지 초기화
+            self.ctrl_cmd_msg = Drive_command()  # 모터 제어 메시지 초기화
             
             self.slidewindow = SlideWindow()  # 슬라이드 윈도우 알고리즘 초기화
 

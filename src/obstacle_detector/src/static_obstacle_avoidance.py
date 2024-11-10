@@ -5,7 +5,7 @@ import rospy
 from obstacle_detector.msg import Obstacles
 from std_msgs.msg import Float64, String
 from ackermann_msgs.msg import AckermannDriveStamped
-
+from obstacle_detector.msg import Drive_command
 class Obstacle:
     def __init__(self, x=None, y=None, distance=None):
         self.x = x
@@ -20,8 +20,8 @@ class StaticAvoidance():
         rospy.Subscriber("/mode", String, self.modeCB)
 
 
-        self.ctrl_cmd_pub = rospy.Publisher('/motor_static', AckermannDriveStamped, queue_size=1)
-        self.ctrl_cmd_msg = AckermannDriveStamped()
+        self.ctrl_cmd_pub = rospy.Publisher('/motor_static', Drive_command, queue_size=1)
+        self.ctrl_cmd_msg = Drive_command()
 
         # self.state
         # L: Lane

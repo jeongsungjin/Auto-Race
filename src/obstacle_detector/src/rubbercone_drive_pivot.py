@@ -9,6 +9,7 @@ from ackermann_msgs.msg import AckermannDriveStamped
 from scipy.stats import linregress
 from std_msgs.msg import String, Bool
 import numpy as np
+from obstacle_detector.msg import Drive_command
 
 class Object:
     def __init__(self, centerX, centerY):
@@ -45,10 +46,10 @@ class WaypointMaker:
         rospy.Subscriber("/mode", String, self.modeCB)
 
         self.maker_pub = rospy.Publisher('visualization_marker', Marker, queue_size=500)
-        self.ctrl_cmd_pub = rospy.Publisher('/motor_rabacon', AckermannDriveStamped, queue_size=1)
+        self.ctrl_cmd_pub = rospy.Publisher('/motor_rabacon', Drive_command, queue_size=1)
 
 
-        self.ctrl_cmd_msg = AckermannDriveStamped()
+        self.ctrl_cmd_msg = Drive_command()
 
         self.flag = False
 
