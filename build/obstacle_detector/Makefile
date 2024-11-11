@@ -233,6 +233,36 @@ obstacle_detector_generate_messages/fast:
 .PHONY : obstacle_detector_generate_messages/fast
 
 # Convenience name for target.
+obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/rule:
+	cd /home/foscar/Auto-Race-/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/rule
+.PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/rule
+
+# Convenience name for target.
+obstacle_extractor_rubbercone_node: obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/rule
+
+.PHONY : obstacle_extractor_rubbercone_node
+
+# fast build rule for target.
+obstacle_extractor_rubbercone_node/fast:
+	cd /home/foscar/Auto-Race-/build && $(MAKE) $(MAKESILENT) -f obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/build
+.PHONY : obstacle_extractor_rubbercone_node/fast
+
+# Convenience name for target.
+obstacle_detector/CMakeFiles/obstacle_extractor.dir/rule:
+	cd /home/foscar/Auto-Race-/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor.dir/rule
+.PHONY : obstacle_detector/CMakeFiles/obstacle_extractor.dir/rule
+
+# Convenience name for target.
+obstacle_extractor: obstacle_detector/CMakeFiles/obstacle_extractor.dir/rule
+
+.PHONY : obstacle_extractor
+
+# fast build rule for target.
+obstacle_extractor/fast:
+	cd /home/foscar/Auto-Race-/build && $(MAKE) $(MAKESILENT) -f obstacle_detector/CMakeFiles/obstacle_extractor.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor.dir/build
+.PHONY : obstacle_extractor/fast
+
+# Convenience name for target.
 obstacle_detector/CMakeFiles/obstacle_detector_gennodejs.dir/rule:
 	cd /home/foscar/Auto-Race-/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_detector_gennodejs.dir/rule
 .PHONY : obstacle_detector/CMakeFiles/obstacle_detector_gennodejs.dir/rule
@@ -773,36 +803,6 @@ obstacle_detector_generate_messages_lisp/fast:
 .PHONY : obstacle_detector_generate_messages_lisp/fast
 
 # Convenience name for target.
-obstacle_detector/CMakeFiles/obstacle_extractor.dir/rule:
-	cd /home/foscar/Auto-Race-/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor.dir/rule
-.PHONY : obstacle_detector/CMakeFiles/obstacle_extractor.dir/rule
-
-# Convenience name for target.
-obstacle_extractor: obstacle_detector/CMakeFiles/obstacle_extractor.dir/rule
-
-.PHONY : obstacle_extractor
-
-# fast build rule for target.
-obstacle_extractor/fast:
-	cd /home/foscar/Auto-Race-/build && $(MAKE) $(MAKESILENT) -f obstacle_detector/CMakeFiles/obstacle_extractor.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor.dir/build
-.PHONY : obstacle_extractor/fast
-
-# Convenience name for target.
-obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/rule:
-	cd /home/foscar/Auto-Race-/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/rule
-.PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/rule
-
-# Convenience name for target.
-obstacle_extractor_rubbercone_node: obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/rule
-
-.PHONY : obstacle_extractor_rubbercone_node
-
-# fast build rule for target.
-obstacle_extractor_rubbercone_node/fast:
-	cd /home/foscar/Auto-Race-/build && $(MAKE) $(MAKESILENT) -f obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/build
-.PHONY : obstacle_extractor_rubbercone_node/fast
-
-# Convenience name for target.
 obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/rule:
 	cd /home/foscar/Auto-Race-/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/rule
 .PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/rule
@@ -846,6 +846,21 @@ scans_merger: obstacle_detector/CMakeFiles/scans_merger.dir/rule
 scans_merger/fast:
 	cd /home/foscar/Auto-Race-/build && $(MAKE) $(MAKESILENT) -f obstacle_detector/CMakeFiles/scans_merger.dir/build.make obstacle_detector/CMakeFiles/scans_merger.dir/build
 .PHONY : scans_merger/fast
+
+# Convenience name for target.
+obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Drive_command.dir/rule:
+	cd /home/foscar/Auto-Race-/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Drive_command.dir/rule
+.PHONY : obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Drive_command.dir/rule
+
+# Convenience name for target.
+_obstacle_detector_generate_messages_check_deps_Drive_command: obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Drive_command.dir/rule
+
+.PHONY : _obstacle_detector_generate_messages_check_deps_Drive_command
+
+# fast build rule for target.
+_obstacle_detector_generate_messages_check_deps_Drive_command/fast:
+	cd /home/foscar/Auto-Race-/build && $(MAKE) $(MAKESILENT) -f obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Drive_command.dir/build.make obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Drive_command.dir/build
+.PHONY : _obstacle_detector_generate_messages_check_deps_Drive_command/fast
 
 # Convenience name for target.
 obstacle_detector/CMakeFiles/obstacle_tracker.dir/rule:
@@ -1599,6 +1614,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... _obstacle_detector_generate_messages_check_deps_CircleObstacle"
+	@echo "... _obstacle_detector_generate_messages_check_deps_Drive_command"
 	@echo "... _obstacle_detector_generate_messages_check_deps_Obstacles"
 	@echo "... _obstacle_detector_generate_messages_check_deps_SegmentObstacle"
 	@echo "... _obstacle_detector_generate_messages_check_deps_Waypoint"

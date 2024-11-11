@@ -55,5 +55,17 @@
   "C_Cpp_Runner.useLeakSanitizer": false,
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
-  "C_Cpp_Runner.msvcSecureNoWarnings": false
+  "C_Cpp_Runner.msvcSecureNoWarnings": false,
+  "python.autoComplete.extraPaths": [
+    "/home/foscar/Auto-Race-/devel/lib/python3/dist-packages",
+    "/home/foscar/iscc_2024/devel/lib/python3/dist-packages",
+    "/home/foscar/sensor_fusion_final_2024/devel/lib/python3/dist-packages",
+    "/opt/ros/noetic/lib/python3/dist-packages"
+  ],
+  "python.analysis.extraPaths": [
+    "/home/foscar/Auto-Race-/devel/lib/python3/dist-packages",
+    "/home/foscar/iscc_2024/devel/lib/python3/dist-packages",
+    "/home/foscar/sensor_fusion_final_2024/devel/lib/python3/dist-packages",
+    "/opt/ros/noetic/lib/python3/dist-packages"
+  ]
 }

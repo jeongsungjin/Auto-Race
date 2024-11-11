@@ -43,6 +43,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
     "/home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg"
     "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg"
     "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Waypoint.msg"
+    "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg"
     )
 endif()
 

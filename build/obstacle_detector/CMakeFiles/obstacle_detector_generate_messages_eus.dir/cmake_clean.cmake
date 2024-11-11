@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "/home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/manifest.l"
   "/home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/CircleObstacle.l"
+  "/home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Drive_command.l"
   "/home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Obstacles.l"
   "/home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/SegmentObstacle.l"
   "/home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Waypoint.l"

@@ -77,12 +77,13 @@ obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp: /home/fosc
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp: /home/foscar/Auto-Race-/devel/include/obstacle_detector/SegmentObstacle.h
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp: /home/foscar/Auto-Race-/devel/include/obstacle_detector/Obstacles.h
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp: /home/foscar/Auto-Race-/devel/include/obstacle_detector/Waypoint.h
+obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp: /home/foscar/Auto-Race-/devel/include/obstacle_detector/Drive_command.h
 
 
 /home/foscar/Auto-Race-/devel/include/obstacle_detector/CircleObstacle.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/foscar/Auto-Race-/devel/include/obstacle_detector/CircleObstacle.h: /home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg
-/home/foscar/Auto-Race-/devel/include/obstacle_detector/CircleObstacle.h: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/foscar/Auto-Race-/devel/include/obstacle_detector/CircleObstacle.h: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/foscar/Auto-Race-/devel/include/obstacle_detector/CircleObstacle.h: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/foscar/Auto-Race-/devel/include/obstacle_detector/CircleObstacle.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C++ code from obstacle_detector/CircleObstacle.msg"
 	cd /home/foscar/Auto-Race-/src/obstacle_detector && /home/foscar/Auto-Race-/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg -Iobstacle_detector:/home/foscar/Auto-Race-/src/obstacle_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p obstacle_detector -o /home/foscar/Auto-Race-/devel/include/obstacle_detector -e /opt/ros/noetic/share/gencpp/cmake/..
@@ -96,11 +97,11 @@ obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp: /home/fosc
 
 /home/foscar/Auto-Race-/devel/include/obstacle_detector/Obstacles.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/foscar/Auto-Race-/devel/include/obstacle_detector/Obstacles.h: /home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg
-/home/foscar/Auto-Race-/devel/include/obstacle_detector/Obstacles.h: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/foscar/Auto-Race-/devel/include/obstacle_detector/Obstacles.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/foscar/Auto-Race-/devel/include/obstacle_detector/Obstacles.h: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
-/home/foscar/Auto-Race-/devel/include/obstacle_detector/Obstacles.h: /home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg
 /home/foscar/Auto-Race-/devel/include/obstacle_detector/Obstacles.h: /home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg
+/home/foscar/Auto-Race-/devel/include/obstacle_detector/Obstacles.h: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/foscar/Auto-Race-/devel/include/obstacle_detector/Obstacles.h: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/foscar/Auto-Race-/devel/include/obstacle_detector/Obstacles.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/foscar/Auto-Race-/devel/include/obstacle_detector/Obstacles.h: /home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg
 /home/foscar/Auto-Race-/devel/include/obstacle_detector/Obstacles.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from obstacle_detector/Obstacles.msg"
 	cd /home/foscar/Auto-Race-/src/obstacle_detector && /home/foscar/Auto-Race-/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg -Iobstacle_detector:/home/foscar/Auto-Race-/src/obstacle_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p obstacle_detector -o /home/foscar/Auto-Race-/devel/include/obstacle_detector -e /opt/ros/noetic/share/gencpp/cmake/..
@@ -111,11 +112,18 @@ obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp: /home/fosc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating C++ code from obstacle_detector/Waypoint.msg"
 	cd /home/foscar/Auto-Race-/src/obstacle_detector && /home/foscar/Auto-Race-/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/foscar/Auto-Race-/src/obstacle_detector/msg/Waypoint.msg -Iobstacle_detector:/home/foscar/Auto-Race-/src/obstacle_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p obstacle_detector -o /home/foscar/Auto-Race-/devel/include/obstacle_detector -e /opt/ros/noetic/share/gencpp/cmake/..
 
+/home/foscar/Auto-Race-/devel/include/obstacle_detector/Drive_command.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
+/home/foscar/Auto-Race-/devel/include/obstacle_detector/Drive_command.h: /home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg
+/home/foscar/Auto-Race-/devel/include/obstacle_detector/Drive_command.h: /opt/ros/noetic/share/gencpp/msg.h.template
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating C++ code from obstacle_detector/Drive_command.msg"
+	cd /home/foscar/Auto-Race-/src/obstacle_detector && /home/foscar/Auto-Race-/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg -Iobstacle_detector:/home/foscar/Auto-Race-/src/obstacle_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p obstacle_detector -o /home/foscar/Auto-Race-/devel/include/obstacle_detector -e /opt/ros/noetic/share/gencpp/cmake/..
+
 obstacle_detector_generate_messages_cpp: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp
 obstacle_detector_generate_messages_cpp: /home/foscar/Auto-Race-/devel/include/obstacle_detector/CircleObstacle.h
 obstacle_detector_generate_messages_cpp: /home/foscar/Auto-Race-/devel/include/obstacle_detector/SegmentObstacle.h
 obstacle_detector_generate_messages_cpp: /home/foscar/Auto-Race-/devel/include/obstacle_detector/Obstacles.h
 obstacle_detector_generate_messages_cpp: /home/foscar/Auto-Race-/devel/include/obstacle_detector/Waypoint.h
+obstacle_detector_generate_messages_cpp: /home/foscar/Auto-Race-/devel/include/obstacle_detector/Drive_command.h
 obstacle_detector_generate_messages_cpp: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp.dir/build.make
 
 .PHONY : obstacle_detector_generate_messages_cpp

@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
-messages_str = "/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/Waypoint.msg"
+messages_str = "/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/Waypoint.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg"
 services_str = ""
 pkg_name = "obstacle_detector"
 dependencies_str = "std_msgs;geometry_msgs"

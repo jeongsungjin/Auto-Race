@@ -161,14 +161,14 @@ class StaticAvoidance():
                     # 장애물의 위치가 중간 or 오른쪽 -> 왼쪽으로 회피
                     if self.direction == 'left': # -> 장애물의 위치 기반 방향 선택
                         if (self.avoid_heading > self.local_heading): # 목표 heading에 도달하지 못했으면 좌조향
-                            self.angle = -13.5 * abs(self.local_heading - self.avoid_heading)
+                            self.angle = -1 * abs(self.local_heading - self.avoid_heading)
                         else:
                             self.state = 'R'
 
                     # 장애물의 위치가 왼쪽 -> 오른쪽으로 회피 
                     else :
                         if (self.avoid_heading < self.local_heading): # 목표 heading에 도달하지 못했으면 우조향
-                            self.angle = 2 * abs(self.local_heading - self.avoid_heading)
+                            self.angle = 1 * abs(self.local_heading - self.avoid_heading)
                         else:
                             self.state = 'R'
 

@@ -3,6 +3,6 @@ prefix=/home/foscar/Auto-Race-/install
 Name: car_planner
 Description: Description of car_planner
 Version: 0.0.0
-Cflags: 
+Cflags: -I${prefix}/include
 Libs: -L${prefix}/lib 
 Requires: 

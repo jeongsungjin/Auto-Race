@@ -77,13 +77,14 @@ obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py: /home/fosca
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py: /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_SegmentObstacle.py
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py: /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Obstacles.py
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py: /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Waypoint.py
+obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py: /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Drive_command.py
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py: /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/__init__.py
 
 
 /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_CircleObstacle.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_CircleObstacle.py: /home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg
-/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_CircleObstacle.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_CircleObstacle.py: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_CircleObstacle.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Python from MSG obstacle_detector/CircleObstacle"
 	cd /home/foscar/Auto-Race-/build/obstacle_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg -Iobstacle_detector:/home/foscar/Auto-Race-/src/obstacle_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p obstacle_detector -o /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg
 
@@ -95,11 +96,11 @@ obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py: /home/fosca
 
 /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Obstacles.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Obstacles.py: /home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg
-/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Obstacles.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Obstacles.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Obstacles.py: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
-/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Obstacles.py: /home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg
 /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Obstacles.py: /home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg
+/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Obstacles.py: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Obstacles.py: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Obstacles.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Obstacles.py: /home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python from MSG obstacle_detector/Obstacles"
 	cd /home/foscar/Auto-Race-/build/obstacle_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg -Iobstacle_detector:/home/foscar/Auto-Race-/src/obstacle_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p obstacle_detector -o /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg
 
@@ -108,12 +109,18 @@ obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py: /home/fosca
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python from MSG obstacle_detector/Waypoint"
 	cd /home/foscar/Auto-Race-/build/obstacle_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/foscar/Auto-Race-/src/obstacle_detector/msg/Waypoint.msg -Iobstacle_detector:/home/foscar/Auto-Race-/src/obstacle_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p obstacle_detector -o /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg
 
+/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Drive_command.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
+/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Drive_command.py: /home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python from MSG obstacle_detector/Drive_command"
+	cd /home/foscar/Auto-Race-/build/obstacle_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg -Iobstacle_detector:/home/foscar/Auto-Race-/src/obstacle_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p obstacle_detector -o /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg
+
 /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/__init__.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/__init__.py: /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_CircleObstacle.py
 /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/__init__.py: /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_SegmentObstacle.py
 /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/__init__.py: /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Obstacles.py
 /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/__init__.py: /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Waypoint.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Python msg __init__.py for obstacle_detector"
+/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/__init__.py: /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Drive_command.py
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating Python msg __init__.py for obstacle_detector"
 	cd /home/foscar/Auto-Race-/build/obstacle_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py -o /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg --initpy
 
 obstacle_detector_generate_messages_py: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py
@@ -121,6 +128,7 @@ obstacle_detector_generate_messages_py: /home/foscar/Auto-Race-/devel/lib/python
 obstacle_detector_generate_messages_py: /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_SegmentObstacle.py
 obstacle_detector_generate_messages_py: /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Obstacles.py
 obstacle_detector_generate_messages_py: /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Waypoint.py
+obstacle_detector_generate_messages_py: /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Drive_command.py
 obstacle_detector_generate_messages_py: /home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/__init__.py
 obstacle_detector_generate_messages_py: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/build.make
 

@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_CircleObstacle.py"
+  "/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Drive_command.py"
   "/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Obstacles.py"
   "/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_SegmentObstacle.py"
   "/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/obstacle_detector/msg/_Waypoint.py"

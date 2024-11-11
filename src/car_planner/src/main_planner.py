@@ -13,7 +13,7 @@ from collections import deque
 
 ## HSV 50 50 30 그늘 있을 때
 ## battery 9.47
-from car_planner.msgs import Drive_command
+from car_planner.msg import Drive_command
 from ackermann_msgs.msg import AckermannDriveStamped
 from std_msgs.msg import Int32, String, Float32
 from sensor_msgs.msg import Image
@@ -82,7 +82,7 @@ class Controller():
 
         self.version = rospy.get_param('~version', 'safe')
 
-        rospy.loginfo(f"PLANNER_FULL: {self.version}")
+        # rospy.loginfo(f"PLANNER_FULL: {self.version}")
 
         self.steer = 0.0  # 조향각 초기화
         self.motor = 0.0  # 모터 속도 초기화
@@ -144,6 +144,7 @@ class Controller():
                 else:               # LANE
                     self.motor = self.ctrl_lane.speed
                     self.steer = self.ctrl_lane.angle
+
             else:
                 rospy.logwarn("SOMETHING WRONG")
                 continue

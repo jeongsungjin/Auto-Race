@@ -77,13 +77,14 @@ obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus: /home/fosc
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus: /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/SegmentObstacle.l
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus: /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Obstacles.l
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus: /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Waypoint.l
+obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus: /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Drive_command.l
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus: /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/manifest.l
 
 
 /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/CircleObstacle.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/CircleObstacle.l: /home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg
-/home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/CircleObstacle.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/CircleObstacle.l: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/CircleObstacle.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating EusLisp code from obstacle_detector/CircleObstacle.msg"
 	cd /home/foscar/Auto-Race-/build/obstacle_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg -Iobstacle_detector:/home/foscar/Auto-Race-/src/obstacle_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p obstacle_detector -o /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg
 
@@ -95,11 +96,11 @@ obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus: /home/fosc
 
 /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Obstacles.l: /opt/ros/noetic/lib/geneus/gen_eus.py
 /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Obstacles.l: /home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg
-/home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Obstacles.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Obstacles.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Obstacles.l: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
-/home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Obstacles.l: /home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg
 /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Obstacles.l: /home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg
+/home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Obstacles.l: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Obstacles.l: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Obstacles.l: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Obstacles.l: /home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating EusLisp code from obstacle_detector/Obstacles.msg"
 	cd /home/foscar/Auto-Race-/build/obstacle_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg -Iobstacle_detector:/home/foscar/Auto-Race-/src/obstacle_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p obstacle_detector -o /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg
 
@@ -108,8 +109,13 @@ obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus: /home/fosc
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating EusLisp code from obstacle_detector/Waypoint.msg"
 	cd /home/foscar/Auto-Race-/build/obstacle_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/foscar/Auto-Race-/src/obstacle_detector/msg/Waypoint.msg -Iobstacle_detector:/home/foscar/Auto-Race-/src/obstacle_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p obstacle_detector -o /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg
 
+/home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Drive_command.l: /opt/ros/noetic/lib/geneus/gen_eus.py
+/home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Drive_command.l: /home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp code from obstacle_detector/Drive_command.msg"
+	cd /home/foscar/Auto-Race-/build/obstacle_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py /home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg -Iobstacle_detector:/home/foscar/Auto-Race-/src/obstacle_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p obstacle_detector -o /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg
+
 /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/manifest.l: /opt/ros/noetic/lib/geneus/gen_eus.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating EusLisp manifest code for obstacle_detector"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Generating EusLisp manifest code for obstacle_detector"
 	cd /home/foscar/Auto-Race-/build/obstacle_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/geneus/cmake/../../../lib/geneus/gen_eus.py -m -o /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector obstacle_detector std_msgs geometry_msgs
 
 obstacle_detector_generate_messages_eus: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus
@@ -117,6 +123,7 @@ obstacle_detector_generate_messages_eus: /home/foscar/Auto-Race-/devel/share/ros
 obstacle_detector_generate_messages_eus: /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/SegmentObstacle.l
 obstacle_detector_generate_messages_eus: /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Obstacles.l
 obstacle_detector_generate_messages_eus: /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Waypoint.l
+obstacle_detector_generate_messages_eus: /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/msg/Drive_command.l
 obstacle_detector_generate_messages_eus: /home/foscar/Auto-Race-/devel/share/roseus/ros/obstacle_detector/manifest.l
 obstacle_detector_generate_messages_eus: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus.dir/build.make
 

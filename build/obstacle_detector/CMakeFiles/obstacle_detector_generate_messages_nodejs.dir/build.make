@@ -77,12 +77,13 @@ obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs: /home/f
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs: /home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/SegmentObstacle.js
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs: /home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/Obstacles.js
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs: /home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/Waypoint.js
+obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs: /home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/Drive_command.js
 
 
 /home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/CircleObstacle.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/CircleObstacle.js: /home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg
-/home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/CircleObstacle.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/CircleObstacle.js: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/CircleObstacle.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating Javascript code from obstacle_detector/CircleObstacle.msg"
 	cd /home/foscar/Auto-Race-/build/obstacle_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg -Iobstacle_detector:/home/foscar/Auto-Race-/src/obstacle_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p obstacle_detector -o /home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg
 
@@ -94,11 +95,11 @@ obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs: /home/f
 
 /home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/Obstacles.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/Obstacles.js: /home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg
-/home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/Obstacles.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
-/home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/Obstacles.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/Obstacles.js: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
-/home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/Obstacles.js: /home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg
 /home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/Obstacles.js: /home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg
+/home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/Obstacles.js: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/Obstacles.js: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/Obstacles.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/Obstacles.js: /home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from obstacle_detector/Obstacles.msg"
 	cd /home/foscar/Auto-Race-/build/obstacle_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg -Iobstacle_detector:/home/foscar/Auto-Race-/src/obstacle_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p obstacle_detector -o /home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg
 
@@ -107,11 +108,17 @@ obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs: /home/f
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from obstacle_detector/Waypoint.msg"
 	cd /home/foscar/Auto-Race-/build/obstacle_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/foscar/Auto-Race-/src/obstacle_detector/msg/Waypoint.msg -Iobstacle_detector:/home/foscar/Auto-Race-/src/obstacle_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p obstacle_detector -o /home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg
 
+/home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/Drive_command.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
+/home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/Drive_command.js: /home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/foscar/Auto-Race-/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating Javascript code from obstacle_detector/Drive_command.msg"
+	cd /home/foscar/Auto-Race-/build/obstacle_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg -Iobstacle_detector:/home/foscar/Auto-Race-/src/obstacle_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p obstacle_detector -o /home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg
+
 obstacle_detector_generate_messages_nodejs: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs
 obstacle_detector_generate_messages_nodejs: /home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/CircleObstacle.js
 obstacle_detector_generate_messages_nodejs: /home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/SegmentObstacle.js
 obstacle_detector_generate_messages_nodejs: /home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/Obstacles.js
 obstacle_detector_generate_messages_nodejs: /home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/Waypoint.js
+obstacle_detector_generate_messages_nodejs: /home/foscar/Auto-Race-/devel/share/gennodejs/ros/obstacle_detector/msg/Drive_command.js
 obstacle_detector_generate_messages_nodejs: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/build.make
 
 .PHONY : obstacle_detector_generate_messages_nodejs

@@ -1,6 +1,6 @@
 # generated from genmsg/cmake/pkg-genmsg.cmake.em
 
-message(STATUS "obstacle_detector: 4 messages, 0 services")
+message(STATUS "obstacle_detector: 5 messages, 0 services")
 
 set(MSG_I_FLAGS "-Iobstacle_detector:/home/foscar/Auto-Race-/src/obstacle_detector/msg;-Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg;-Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg")
 
@@ -19,7 +19,7 @@ add_custom_target(obstacle_detector_generate_messages ALL)
 
 get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg" NAME_WE)
 add_custom_target(_obstacle_detector_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "obstacle_detector" "/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg" "geometry_msgs/Point:geometry_msgs/Vector3"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "obstacle_detector" "/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg" "geometry_msgs/Vector3:geometry_msgs/Point"
 )
 
 get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg" NAME_WE)
@@ -29,12 +29,17 @@ add_custom_target(_obstacle_detector_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg" NAME_WE)
 add_custom_target(_obstacle_detector_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "obstacle_detector" "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg" "geometry_msgs/Point:std_msgs/Header:geometry_msgs/Vector3:obstacle_detector/SegmentObstacle:obstacle_detector/CircleObstacle"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "obstacle_detector" "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg" "obstacle_detector/CircleObstacle:geometry_msgs/Point:geometry_msgs/Vector3:std_msgs/Header:obstacle_detector/SegmentObstacle"
 )
 
 get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Waypoint.msg" NAME_WE)
 add_custom_target(_obstacle_detector_generate_messages_check_deps_${_filename}
   COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "obstacle_detector" "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Waypoint.msg" ""
+)
+
+get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg" NAME_WE)
+add_custom_target(_obstacle_detector_generate_messages_check_deps_${_filename}
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "obstacle_detector" "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg" ""
 )
 
 #
@@ -46,7 +51,7 @@ add_custom_target(_obstacle_detector_generate_messages_check_deps_${_filename}
 _generate_msg_cpp(obstacle_detector
   "/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/obstacle_detector
 )
 _generate_msg_cpp(obstacle_detector
@@ -58,11 +63,17 @@ _generate_msg_cpp(obstacle_detector
 _generate_msg_cpp(obstacle_detector
   "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg"
+  "/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/obstacle_detector
 )
 _generate_msg_cpp(obstacle_detector
   "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Waypoint.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/obstacle_detector
+)
+_generate_msg_cpp(obstacle_detector
+  "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/obstacle_detector
@@ -90,6 +101,8 @@ get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/
 add_dependencies(obstacle_detector_generate_messages_cpp _obstacle_detector_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Waypoint.msg" NAME_WE)
 add_dependencies(obstacle_detector_generate_messages_cpp _obstacle_detector_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg" NAME_WE)
+add_dependencies(obstacle_detector_generate_messages_cpp _obstacle_detector_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(obstacle_detector_gencpp)
@@ -103,7 +116,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS obstacle_detector_generate_messages
 _generate_msg_eus(obstacle_detector
   "/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/obstacle_detector
 )
 _generate_msg_eus(obstacle_detector
@@ -115,11 +128,17 @@ _generate_msg_eus(obstacle_detector
 _generate_msg_eus(obstacle_detector
   "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg"
+  "/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/obstacle_detector
 )
 _generate_msg_eus(obstacle_detector
   "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Waypoint.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/obstacle_detector
+)
+_generate_msg_eus(obstacle_detector
+  "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/obstacle_detector
@@ -147,6 +166,8 @@ get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/
 add_dependencies(obstacle_detector_generate_messages_eus _obstacle_detector_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Waypoint.msg" NAME_WE)
 add_dependencies(obstacle_detector_generate_messages_eus _obstacle_detector_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg" NAME_WE)
+add_dependencies(obstacle_detector_generate_messages_eus _obstacle_detector_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(obstacle_detector_geneus)
@@ -160,7 +181,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS obstacle_detector_generate_messages
 _generate_msg_lisp(obstacle_detector
   "/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/obstacle_detector
 )
 _generate_msg_lisp(obstacle_detector
@@ -172,11 +193,17 @@ _generate_msg_lisp(obstacle_detector
 _generate_msg_lisp(obstacle_detector
   "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg"
+  "/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/obstacle_detector
 )
 _generate_msg_lisp(obstacle_detector
   "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Waypoint.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/obstacle_detector
+)
+_generate_msg_lisp(obstacle_detector
+  "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/obstacle_detector
@@ -204,6 +231,8 @@ get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/
 add_dependencies(obstacle_detector_generate_messages_lisp _obstacle_detector_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Waypoint.msg" NAME_WE)
 add_dependencies(obstacle_detector_generate_messages_lisp _obstacle_detector_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg" NAME_WE)
+add_dependencies(obstacle_detector_generate_messages_lisp _obstacle_detector_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(obstacle_detector_genlisp)
@@ -217,7 +246,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS obstacle_detector_generate_messages
 _generate_msg_nodejs(obstacle_detector
   "/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/obstacle_detector
 )
 _generate_msg_nodejs(obstacle_detector
@@ -229,11 +258,17 @@ _generate_msg_nodejs(obstacle_detector
 _generate_msg_nodejs(obstacle_detector
   "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg"
+  "/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/obstacle_detector
 )
 _generate_msg_nodejs(obstacle_detector
   "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Waypoint.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/obstacle_detector
+)
+_generate_msg_nodejs(obstacle_detector
+  "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/obstacle_detector
@@ -261,6 +296,8 @@ get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/
 add_dependencies(obstacle_detector_generate_messages_nodejs _obstacle_detector_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Waypoint.msg" NAME_WE)
 add_dependencies(obstacle_detector_generate_messages_nodejs _obstacle_detector_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg" NAME_WE)
+add_dependencies(obstacle_detector_generate_messages_nodejs _obstacle_detector_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
 add_custom_target(obstacle_detector_gennodejs)
@@ -274,7 +311,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS obstacle_detector_generate_messages
 _generate_msg_py(obstacle_detector
   "/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/obstacle_detector
 )
 _generate_msg_py(obstacle_detector
@@ -286,11 +323,17 @@ _generate_msg_py(obstacle_detector
 _generate_msg_py(obstacle_detector
   "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg"
+  "/home/foscar/Auto-Race-/src/obstacle_detector/msg/CircleObstacle.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Point.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/home/foscar/Auto-Race-/src/obstacle_detector/msg/SegmentObstacle.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/obstacle_detector
 )
 _generate_msg_py(obstacle_detector
   "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Waypoint.msg"
+  "${MSG_I_FLAGS}"
+  ""
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/obstacle_detector
+)
+_generate_msg_py(obstacle_detector
+  "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/obstacle_detector
@@ -317,6 +360,8 @@ add_dependencies(obstacle_detector_generate_messages_py _obstacle_detector_gener
 get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Obstacles.msg" NAME_WE)
 add_dependencies(obstacle_detector_generate_messages_py _obstacle_detector_generate_messages_check_deps_${_filename})
 get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Waypoint.msg" NAME_WE)
+add_dependencies(obstacle_detector_generate_messages_py _obstacle_detector_generate_messages_check_deps_${_filename})
+get_filename_component(_filename "/home/foscar/Auto-Race-/src/obstacle_detector/msg/Drive_command.msg" NAME_WE)
 add_dependencies(obstacle_detector_generate_messages_py _obstacle_detector_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

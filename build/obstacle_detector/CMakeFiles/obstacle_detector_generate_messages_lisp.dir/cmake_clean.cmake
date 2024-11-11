@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "/home/foscar/Auto-Race-/devel/share/common-lisp/ros/obstacle_detector/msg/CircleObstacle.lisp"
+  "/home/foscar/Auto-Race-/devel/share/common-lisp/ros/obstacle_detector/msg/Drive_command.lisp"
   "/home/foscar/Auto-Race-/devel/share/common-lisp/ros/obstacle_detector/msg/Obstacles.lisp"
   "/home/foscar/Auto-Race-/devel/share/common-lisp/ros/obstacle_detector/msg/SegmentObstacle.lisp"
   "/home/foscar/Auto-Race-/devel/share/common-lisp/ros/obstacle_detector/msg/Waypoint.lisp"

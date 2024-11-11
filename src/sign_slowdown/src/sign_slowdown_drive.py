@@ -6,6 +6,7 @@ from std_msgs.msg import Int32, String
 from sensor_msgs.msg import Image
 from fiducial_msgs.msg import Fiducial, FiducialArray
 from ackermann_msgs.msg import AckermannDriveStamped  # AckermannDrive 메시지를 퍼블리시하기 위한 import
+from sign_slowdown.msg import Drive_command
 
 class Sign():
     def __init__(self):
@@ -14,45 +15,46 @@ class Sign():
         self.sign_data = 0  # 표지판 데이터 저장
         self.child_cnt = 0
         self.slow_down_flag = 0  # 감속 플래그
-        self.slow_flag = 0  # 감속 상태 여부 플래그
+        self.slow_flag = False  # 감속 상태 여부 플래그
         self.slow_t1 = 0  # 감속 시작 시간
         self.speed_slow = 0.35  
         self.speed_lane = 0.7  
         self.angle = 0  
-        self.ctrl_lane = AckermannDriveStamped()
-        self.ctrl_cmd_pub = rospy.Publisher("/motor_sign", AckermannDriveStamped, queue_size=1)  # 모터 제어 퍼블리셔
+        self.ctrl_lane = Drive_command()
+        self.ctrl_cmd_pub = rospy.Publisher("/motor_sign", Drive_command, queue_size=1)  # 모터 제어 퍼블리셔
         rospy.Subscriber("/fiducial_vertices", FiducialArray, self.child_sign_callback)
-        rospy.Subscriber("/motor_lane", AckermannDriveStamped, self.ctrlLaneCB)
+        rospy.Subscriber("/motor_lane", Drive_command, self.ctrlLaneCB)
 
         self.no_sign_cnt = 0
         
         self.rate = rospy.Rate(30)  # 30hz
 
-        self.ctrl_cmd_msg = AckermannDriveStamped()
+        self.ctrl_cmd_msg = Drive_command()
 
         self.version = rospy.get_param('~version', 'safe')
 
-        rospy.loginfo(f"AR: {self.version}")
+        rospy.loginfo(f"SIGN: {self.version}")
 
     def run(self):
         while not rospy.is_shutdown():
             if self.slow_down_flag == 1:
                 if self.sign_data == 3:
                     rospy.loginfo(" ===============   SLOW DETECTED, WAIT!!!! ============")
-                    self.publishCtrlCmd(self.speed_lane, self.ctrl_lane.angle, True)
+                    self.publishCtrlCmd(self.speed_lane, self.ctrl_lane.angle, self.slow_flag)
                 elif self.sign_data == 0:
                     rospy.loginfo("************* SLOW DOWN *****************")
                     self.child_cnt = 0
-                    if self.slow_flag == 0:
+                    if self.slow_flag == False:
                         self.slow_t1 = rospy.get_time()
-                        self.slow_flag = 1
+                        self.slow_flag = True
                     t2 = rospy.get_time()
                     while t2 - self.slow_t1 <= 15:
                         rospy.loginfo("************* SLOW DOWN *****************")
-                        self.publishCtrlCmd(self.speed_slow, self.ctrl_lane.angle, False)
+                        self.publishCtrlCmd(self.speed_slow, self.ctrl_lane.angle, self.slow_flag)
                         t2 = rospy.get_time()
                     self.slow_down_flag = 0
-                    self.slow_flag = 0
+                    self.slow_flag = False
+            
 
             self.rate.sleep()
 
