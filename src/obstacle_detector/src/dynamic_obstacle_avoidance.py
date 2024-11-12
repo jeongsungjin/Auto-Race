@@ -18,10 +18,12 @@ class DynamicAvoidance():
     def __init__(self):
         rospy.Subscriber("/raw_obstacles_static", Obstacles, self.obstacleCB)
         rospy.Subscriber("/mode", String, self.modeCB)
+        rospy.Subscriber("/motor_lane", Drive_command, self.ctrlLaneCB)  # 카메라 이미지 구독 (차선 인식용)
 
         self.ctrl_cmd_pub = rospy.Publisher('/motor_dynamic', Drive_command, queue_size=1)
         self.ctrl_cmd_msg = Drive_command()
 
+        self.ctrl_lane = Drive_command()
         self.obstacles = []  # __init__에서 초기화
 
         self.speed = 0
@@ -106,6 +108,11 @@ class DynamicAvoidance():
 
     def modeCB(self, msg):
         self.mode = msg.data
+
+    def ctrlLaneCB(self, msg):
+        self.ctrl_lane.speed = msg.speed
+        self.ctrl_lane.angle = msg.angle
+        self.lane_mode_flag = msg.flag
 
     def publishCtrlCmd(self, motor_msg, servo_msg, flag):
         self.ctrl_cmd_msg.speed = round(motor_msg)  # 모터 속도 설정

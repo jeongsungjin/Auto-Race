@@ -60,7 +60,7 @@ class Sign():
         if len(_data.fiducials) > 0:
             self.sign_data = _data.fiducials[0].fiducial_id
             if self.sign_data == 3:
-                self.child_cnt += 1
+                self.child_cnt += 1                                
                 if self.child_cnt >= 20:
                     self.slow_down_flag = 1
                     self.child_cnt = 0

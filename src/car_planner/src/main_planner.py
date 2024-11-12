@@ -159,6 +159,8 @@ class Controller():
                     for obstacle in self.static_obstacles:
                         if (-1.2 < obstacle.x < 0) and (-0.25 <= obstacle.y <= 0.25):
                             self.motor = 0.35 #실제 감속 속도에 맞게 튜닝
+                            if(-0.3 < obstacle.x < 0):
+                                self.motor = 0
 
             # --------------------------- 장애물 인지시 감속 ---------------------------------------- # 
 
