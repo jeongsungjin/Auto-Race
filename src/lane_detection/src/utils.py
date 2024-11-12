@@ -2,7 +2,7 @@
 
 import cv2
 import numpy as np
-
+# 전체 튜닝 필요 할 수도 있씁니다
 def roi_for_lane(image):
     """이미지의 하단 부분만 사용하여 ROI를 설정하는 함수"""
     return image[246:396, :]

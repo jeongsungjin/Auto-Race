@@ -43,13 +43,6 @@ class StaticAvoidance():
         self.margin_y = 0.4
 
         self.angle = 0
-        self.prev_angle = 0
-
-
-        self.steer_right_time = 0
-        self.steer_left_time = 0
-        self.final_adjust_time = 0
-
 
         self.static_obstacle_cnt = 0
         self.static_obstacle_cnt_threshold = 15
@@ -98,12 +91,12 @@ class StaticAvoidance():
                         #print(f"거리: {self.obstacles[0].distance:.4f}")
                         self.frames_without_obstacle = 0
                         break
-                else:
-                    self.frames_without_obstacle += 1
-                    if self.frames_without_obstacle > self.allowed_frames_without_obstacle:
-                        # print('장애물이 없어져 카운트 감소 중...111')
-                        self.static_obstacle_cnt -= 1
-                    #self.static_obstacle_cnt -= 1
+                    else:
+                        self.frames_without_obstacle += 1
+                        if self.frames_without_obstacle > self.allowed_frames_without_obstacle:
+                            # print('장애물이 없어져 카운트 감소 중...111')
+                            self.static_obstacle_cnt -= 1
+                        #self.static_obstacle_cnt -= 1
             else:  
                 self.frames_without_obstacle += 1
                 if self.frames_without_obstacle > self.allowed_frames_without_obstacle:
@@ -141,7 +134,7 @@ class StaticAvoidance():
                         # self.avoid_heading = -27.5
                         # self.return_heading = 20
 
-
+                        # --------------튜닝 해야 하는 값 ------------------------#
                         if self.version == 'fast':
                             self.avoid_heading = -25
                             self.return_heading = 10
@@ -149,8 +142,7 @@ class StaticAvoidance():
                             self.avoid_heading = -25
                             self.return_heading = 10
 
-
-
+                        #------------------------------------------------------#
                     # flag
                     self.state = 'A'
                     self.is_static = True
@@ -161,14 +153,14 @@ class StaticAvoidance():
                     # 장애물의 위치가 중간 or 오른쪽 -> 왼쪽으로 회피
                     if self.direction == 'left': # -> 장애물의 위치 기반 방향 선택
                         if (self.avoid_heading > self.local_heading): # 목표 heading에 도달하지 못했으면 좌조향
-                            self.angle = -1 * abs(self.local_heading - self.avoid_heading)
+                            self.angle = -1 * abs(self.local_heading - self.avoid_heading) # 계수 튜닝 필요 할 수도
                         else:
                             self.state = 'R'
 
                     # 장애물의 위치가 왼쪽 -> 오른쪽으로 회피 
                     else :
                         if (self.avoid_heading < self.local_heading): # 목표 heading에 도달하지 못했으면 우조향
-                            self.angle = 1 * abs(self.local_heading - self.avoid_heading)
+                            self.angle = 1 * abs(self.local_heading - self.avoid_heading) # 계수 튜닝 필요 할 수도
                         else:
                             self.state = 'R'
 
@@ -180,7 +172,7 @@ class StaticAvoidance():
                     if self.direction == 'left': # -> 장애물의 위치 기반 방향 선택
 
                         if (self.return_heading < self.local_heading): # 목표 heading에 도달하지 못했으면 우조향
-                            self.angle = 1 * abs(self.local_heading - self.return_heading)
+                            self.angle = 1 * abs(self.local_heading - self.return_heading) # 계수 튜닝 필요 할 수도
                         else:
                             self.state = 'L'
                             self.gt_heading = None
@@ -192,7 +184,7 @@ class StaticAvoidance():
                     # 장애물의 위치가 왼쪽 -> 오른쪽으로 회피 -> 왼쪽 복귀
                     else:
                         if (self.return_heading > self.local_heading): # 목표 heading에 도달하지 못했으면 좌조향
-                            self.angle = -1 * abs(self.local_heading - self.return_heading)
+                            self.angle = -1 * abs(self.local_heading - self.return_heading) # 계수 튜닝 필요 할 수도
                         else:
                             self.state = 'L'
                             self.gt_heading = None
@@ -215,11 +207,7 @@ class StaticAvoidance():
             # rospy.loginfo(f"AVOID: {self.avoid_heading}")
             # rospy.loginfo(f"RETURN: {self.return_heading}")
 
-
-
-
             self.publishCtrlCmd(self.speed, self.angle, self.is_static)
-
 
             # self.static_pub.publish(self.steer)
             rate.sleep()

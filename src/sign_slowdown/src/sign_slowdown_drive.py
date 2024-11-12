@@ -19,7 +19,6 @@ class Sign():
         self.slow_t1 = 0  # 감속 시작 시간
         self.speed_slow = 0.35  
         self.speed_lane = 0.7  
-        self.angle = 0  
         self.ctrl_lane = Drive_command()
         self.ctrl_cmd_pub = rospy.Publisher("/motor_sign", Drive_command, queue_size=1)  # 모터 제어 퍼블리셔
         rospy.Subscriber("/fiducial_vertices", FiducialArray, self.child_sign_callback)
@@ -42,7 +41,6 @@ class Sign():
                     rospy.loginfo(" ===============   SLOW DETECTED, WAIT!!!! ============")
                     self.publishCtrlCmd(self.speed_lane, self.ctrl_lane.angle, self.slow_flag)
                 elif self.sign_data == 0:
-                    rospy.loginfo("************* SLOW DOWN *****************")
                     self.child_cnt = 0
                     if self.slow_flag == False:
                         self.slow_t1 = rospy.get_time()
@@ -54,7 +52,6 @@ class Sign():
                         t2 = rospy.get_time()
                     self.slow_down_flag = 0
                     self.slow_flag = False
-            
 
             self.rate.sleep()
 

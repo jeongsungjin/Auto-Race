@@ -29,7 +29,7 @@ class ConeArray:
         cones_str = ", ".join([f"({cone.centerX}, {cone.centerY})" for cone in self.cones])
         return f"ConeArray(size={self.size}, cones=[{cones_str}])"
     
-
+# -----------------튜닝 필요 할 수도 있습니다-------------------
 pivot_reset_area = [0.4, 0.0, 0.7, -0.7]
 
 class WaypointMaker:
@@ -94,9 +94,10 @@ class WaypointMaker:
         for cone in self.objects:
             leftPivotToConeDistance = self.get_distance(left_point, cone)
             rightPivotToConeDistance = self.get_distance(right_point, cone)
-
+            # ------------------------------ 튜닝 필요 ---------------------------------- #
             if leftPivotToConeDistance > 0.75 and rightPivotToConeDistance > 0.75:
                 continue
+            # ------------------------------ 튜닝 필요 ---------------------------------- #
 
             if leftPivotToConeDistance <= rightPivotToConeDistance:
                 # 콘이 왼쪽 라인에 해당함
@@ -185,20 +186,20 @@ class WaypointMaker:
 
         self.publishCtrlCmd(self.motor, angle_deg, self.flag)
 
-    def interpolate_objects(self, objects, points_per_segment=50):
-        interpolated_objects = []
+    # def interpolate_objects(self, objects, points_per_segment=50):
+    #     interpolated_objects = []
 
-        for i in range(len(objects) - 1):
-            start_obj = objects[i]
-            end_obj = objects[i + 1]
+    #     for i in range(len(objects) - 1):
+    #         start_obj = objects[i]
+    #         end_obj = objects[i + 1]
 
-            for j in range(points_per_segment):
-                t = j / (points_per_segment - 1)
-                interpolated_centerX = (1 - t) * start_obj.centerX + t * end_obj.centerX
-                interpolated_centerY = (1 - t) * start_obj.centerY + t * end_obj.centerY
-                interpolated_objects.append(Object(interpolated_centerX, interpolated_centerY))
+    #         for j in range(points_per_segment):
+    #             t = j / (points_per_segment - 1)
+    #             interpolated_centerX = (1 - t) * start_obj.centerX + t * end_obj.centerX
+    #             interpolated_centerY = (1 - t) * start_obj.centerY + t * end_obj.centerY
+    #             interpolated_objects.append(Object(interpolated_centerX, interpolated_centerY))
 
-        return interpolated_objects
+    #     return interpolated_objects
     
 
     def publishCtrlCmd(self, motor_msg, servo_msg, flag):

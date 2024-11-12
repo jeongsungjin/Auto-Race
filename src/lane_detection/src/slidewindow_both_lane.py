@@ -5,7 +5,7 @@ from scipy.interpolate import *
 from matplotlib.pyplot import *
 import math
 # float로 조향값 public
-
+# 전체 튜닝 해야할수 있씁니다...
 class SlideWindow:
     
     def __init__(self):

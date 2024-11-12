@@ -12,6 +12,25 @@ from lane_detection.msg import Drive_command
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), 'scripts')))
 from slidewindow_both_lane import SlideWindow
 
+# PID 클래스 정의
+class PID():
+    def __init__(self, kp, ki, kd):
+        self.kp = kp  # 비례 이득 설정
+        self.ki = ki  # 적분 이득 설정
+        self.kd = kd  # 미분 이득 설정
+        self.p_error = 0.0  # 이전 비례 오차 초기화
+        self.i_error = 0.0  # 적분 오차 초기화
+        self.d_error = 0.0  # 미분 오차 초기화
+
+    def pid_control(self, cte):
+        self.d_error = cte - self.p_error  # 미분 오차 계산
+        self.p_error = cte  # 비례 오차 갱신
+        self.i_error += cte  # 적분 오차 갱신
+
+        # PID 제어 계산
+        return self.kp * self.p_error + self.ki * self.i_error + self.kd * self.d_error
+
+
 class LaneDetectionROS:
     def __init__(self):
         # ROS 노드 초기화
@@ -21,17 +40,23 @@ class LaneDetectionROS:
 
         self.ctrl_cmd_pub = rospy.Publisher('/motor_lane', Drive_command, queue_size=1)
         
-        self.bridge = CvBridge()  # CV-Bridge 초기화
         
         self.ctrl_cmd_msg = Drive_command()  # 모터 제어 메시지 초기화
 
         # SlideWindow 객체 초기화
         self.slidewindow = SlideWindow()
+        
+        self.version = rospy.get_param('~version', 'safe')
 
-
+        # ---------------------------튜닝 해야하는 값 ------------------------------#
         self.steer = 0.0  # 조향각 초기화
-        self.motor = 0.0  # 모터 속도 초기화
+        self.motor = 0.5  # 모터 속도 초기화
            
+        if self.version == 'fast':
+            self.pid = PID(0.78, 0.0005, 0.405) 
+        else:
+            self.pid = PID(0.7, 0.0008, 0.15)
+        # -----------------------------------------------------------------------#
 
         # 초기 HSV 범위 설정
         self.lower_yellow = np.array([20, 110, 40])
@@ -147,11 +172,13 @@ class LaneDetectionROS:
                 # 슬라이딩 윈도우 차선 검출
                 out_img, x_location, _ = self.slidewindow.slidewindow(bin_img, False)
 
-                self.steer = (x_location - 320)
+                self.steer = round(self.pid.pid_control(x_location - 320))  # PID 제어를 통한 각도 계산
+
                 if self.version == 'fast':
                     self.motor = 0.7 
                 else:
-                    self.motor = 0.35               
+                    self.motor = 0.35        
+
                 self.publishCtrlCmd(self.motor, self.steer) 
                 
                 # 결과 표시

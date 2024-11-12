@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 from __future__ import print_function
-from this import d
 import rospy
 from time import sleep, time
 import statistics
@@ -84,8 +83,7 @@ class Controller():
 
         # rospy.loginfo(f"PLANNER_FULL: {self.version}")
 
-        self.steer = 0.0  # 조향각 초기화
-        self.motor = 0.0  # 모터 속도 초기화
+
 
         self.sign_mode_flag = False
         self.rabacon_mode_flag = False
@@ -102,8 +100,12 @@ class Controller():
 
         self.steer_queue_size = 30
         self.steer_queue = np.zeros(self.steer_queue_size, dtype=int)
-
-        self.pid = PID(0.7, 0.0008, 0.15)
+        
+        # ------------------------계수 튜닝 필요------------------------------ #
+        self.pid = PID(0.7, 0.0008, 0.15) 
+        self.steer = 0.0  # 조향각 초기화
+        self.motor = 0.5  # 모터 속도 초기화
+        # ------------------------------------------------------------------ #
 
         self.static_obstacles = []
         self.rubbercone_obstacles = []
@@ -149,16 +151,17 @@ class Controller():
                 rospy.logwarn("SOMETHING WRONG")
                 continue
 
-            # --------------------------- 장애물 인지시 감속 --------------------------- # 
+            # ---------------------------  튜닝 필요 ! 장애물 인지시 감속 --------------------------- # 
             if (len(self.static_obstacles) > 0) and (self.mode != "RABACON") and (self.mode != "SIGN"):
 
                 if (-10 <= np.mean(self.steer_queue) <= 10) and (np.var(self.steer_queue) < 150):
-                    # 특정 roi에 인지가 들어오면 일단 감속, 우리의 차에 맞는 스티어링 값에 따라 값 조정 해야함!!!!!!!!!!!!!!!
+                    # 특정 roi에 인지가 들어오면 일단 감속, 우리의 차에 맞는 스티어링 값에 따라 값 조정 해야함.
                     for obstacle in self.static_obstacles:
-                        if (0 < obstacle.x < 1.5) and (-0.25 <= obstacle.y <= 0.25):
+                        if (-1.2 < obstacle.x < 0) and (-0.25 <= obstacle.y <= 0.25):
                             self.motor = 0.35 #실제 감속 속도에 맞게 튜닝
 
-            # --------------------------- 장애물 인지시 감속 --------------------------- # 
+            # --------------------------- 장애물 인지시 감속 ---------------------------------------- # 
+
 
 
             # --------------------------- 라바콘 인지시 감속 --------------------------- # 
@@ -168,9 +171,13 @@ class Controller():
             #         if (0 < obstacle.x < 2.0) and (-0.45 <= obstacle.y <= 0.45):
             #             self.motor = 30
             # --------------------------- 라바콘 인지시 감속 --------------------------- # 
+            
 
             rospy.loginfo(f"MODE: {self.mode}")
             rospy.loginfo(f"SPEED: {self.motor}")
+            rospy.loginfo(f"STEER: {self.steer}")
+            rospy.loginfo(f"")
+
 
             self.publishCtrlCmd(self.motor, self.steer)
 
@@ -227,10 +234,10 @@ class Controller():
         
         self.static_obstacles.sort(key=lambda obs: obs.distance)
 
-        if len(self.static_obstacles) > 0:
-            self.closest_static_obstacle = self.static_obstacles[0]
-        else:
-            self.closest_static_obstacle = Obstacle()
+        # if len(self.static_obstacles) > 0:
+        #     self.closest_static_obstacle = self.static_obstacles[0]
+        # else:
+        #     self.closest_static_obstacle = Obstacle()
 
     def rubberconeObstacleCB(self, msg):
         self.rubbercone_obstacles = []

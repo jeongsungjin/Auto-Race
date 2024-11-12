@@ -37,7 +37,6 @@ class PID():
         return self.kp * self.p_error + self.ki * self.i_error + self.kd * self.d_error
 
 
-
 class LaneDetection(object):
     def __init__(self):
         rospy.init_node('lane_detection', anonymous=True)  # ROS 노드 초기화
@@ -58,25 +57,16 @@ class LaneDetection(object):
 
             rospy.loginfo(f"LANE: {self.version}")
 
-            
+            # ---------------------------튜닝 해야하는 값 ------------------------------#
             self.steer = 0.0  # 조향각 초기화
-            self.motor = 0.0  # 모터 속도 초기화
+            self.motor = 0.5  # 모터 속도 초기화
            
             # 원래 잘되던 버전
             if self.version == 'fast':
-                # self.pid = PID(0.79, 0.001, 0.21)
-
                 self.pid = PID(0.78, 0.0005, 0.405) 
-
-                # self.pid = PID(0.78, 0.0005, 0.40375)
-                # self.pid = PID(0.8, 0.0005, 0.43)
             else:
                 self.pid = PID(0.7, 0.0008, 0.15)
-
-
-            # self.pid = PID(0.6, 0.002, 0.15)
-
-            # self.pid = PID(0.69, 0.0008, 0.15)
+            #--------------------------------------------------------------------------#
             self.cv_image = None  # 카메라 이미지 초기화
             
             
