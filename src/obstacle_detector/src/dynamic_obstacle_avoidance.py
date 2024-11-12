@@ -19,7 +19,7 @@ class DynamicAvoidance():
         rospy.Subscriber("/raw_obstacles_static", Obstacles, self.obstacleCB)
         rospy.Subscriber("/mode", String, self.modeCB)
 
-        self.ctrl_cmd_pub = rospy.Publisher('/motor_static', Drive_command, queue_size=1)
+        self.ctrl_cmd_pub = rospy.Publisher('/motor_dynamic', Drive_command, queue_size=1)
         self.ctrl_cmd_msg = Drive_command()
 
         self.ctrl_lane = Drive_command()

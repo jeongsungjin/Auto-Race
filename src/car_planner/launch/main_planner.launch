@@ -3,8 +3,13 @@
     <arg name="version" default="safe"/>
     <arg name="direction" default="left"/>
 
-    <!-- LANE 기반 주행  -->
-    <include file="$(find lane_detection)/launch/lane_detection.launch">
+    <!-- LANE 기반 주행  이진화-->
+    <!-- <include file="$(find lane_detection)/launch/lane_detection_binarization.launch">
+        <arg name="version" value="$(arg version)"/>
+    </include> -->
+
+    <!-- LANE 기반 주행  hsv-->
+    <include file="$(find lane_detection)/launch/lane_detection_hsv.launch">
         <arg name="version" value="$(arg version)"/>
     </include>
 
