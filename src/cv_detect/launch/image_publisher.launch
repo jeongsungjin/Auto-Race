@@ -1,0 +1,3 @@
+<launch>
+  <node name="image_publisher_node" pkg="cv_detect" type="image_publisher.py" output="screen"/>
+</launch>

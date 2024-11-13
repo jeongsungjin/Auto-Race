@@ -10,4 +10,8 @@
 
     <!-- 라바콘 Clustering -->
     <include file="$(find obstacle_detector)/launch/obstacle_detector_rubbercone.launch"/>
+
+    <!-- 카메라 켜기 -->
+    <include file="$(find cv_detect)/launch/image_publisher.launch.launch"/>
+
 </launch>

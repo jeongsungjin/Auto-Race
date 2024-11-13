@@ -9,11 +9,12 @@ from collections import deque
 # Steering_angle --> 입력 가능한 범위가 -0.34 ~ +0.34 까지 입력 가능
 # speed --> 실차량 기준은 -10m/s ~ 10m/s (권장 사항은 -2.5~ 2.5m/s 만 사용하는 것을 권장)
 
-
 ## HSV 50 50 30 그늘 있을 때
 ## battery 9.47
 from car_planner.msg import Drive_command
 from ackermann_msgs.msg import AckermannDriveStamped
+import RPi.GPIO as GPIO  # 라즈베리 파이 GPIO 라이브러리 추가
+
 from std_msgs.msg import Int32, String, Float32
 from sensor_msgs.msg import Image
 from obstacle_detector.msg import Obstacles
@@ -21,6 +22,25 @@ from cv_bridge import CvBridge
 import cv2
 import os
 import numpy as np
+
+# 핀 설정
+STEERING_PIN = 18  # 스티어링 제어 핀
+MOTOR_PIN = 19     # 모터 제어 핀
+FREQUENCY = 50     # PWM 신호 주파수 (Hz)
+
+# GPIO 설정
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(STEERING_PIN, GPIO.OUT)
+GPIO.setup(MOTOR_PIN, GPIO.OUT)
+
+# PWM 인스턴스 생성
+steering_pwm = GPIO.PWM(STEERING_PIN, FREQUENCY)
+motor_pwm = GPIO.PWM(MOTOR_PIN, FREQUENCY)
+
+# PWM 시작 (duty cycle 0으로 시작)
+steering_pwm.start(0)
+motor_pwm.start(0)
+
 
 class Obstacle:
     def __init__(self, x=None, y=None, distance=None):
@@ -94,7 +114,7 @@ class Controller():
         # mode
         self.mode = ''
         self.prev_mode = ''
-
+        self.pwm_steer = 1500
         self.start_flag = False
         self.kill_flag = False
 
@@ -180,23 +200,46 @@ class Controller():
             rospy.loginfo(f"STEER: {self.steer}")
             rospy.loginfo(f"")
 
-
-            self.publishCtrlCmd(self.motor, self.steer)
-
+            self.pwm_steer = self.angle_to_pwm(self.steer)
+            self.publishCtrlCmd(self.motor, self.pwm_steer)
 
             cv2.waitKey(1)  # 키 입력 대기
             rate.sleep()  # 주기마다 대기
                 
         cv2.destroyAllWindows()  # 창 닫기
 
-    def publishCtrlCmd(self, motor_msg, servo_msg):
+    def angle_to_pwm(self, angle):
+        # 각도 (-45도에서 45도)를 서보 PWM 범위 (1100에서 1900)으로 매핑
+        min_angle = -45
+        max_angle = 45
+        min_pwm = 1200
+        max_pwm = 1800
 
-        self.publishing_data = AckermannDriveStamped()  # AckermannDriveStamped 메시지 객체 생성
-        self.publishing_data.header.stamp = rospy.Time.now()  # 메시지에 현재 시간을 기록
-        self.publishing_data.header.frame_id = "base_link"  # 메시지의 참조 프레임을 "base_link"로 설정
-        self.publishing_data.drive.steering_angle = servo_msg * 0.003  # 차선 위치 오차에 따라 조향 각도 결정
-        self.publishing_data.drive.speed = motor_msg  # 차선 주행 속도(speed_lane)를 설정
-        self.drive_pub.publish(self.publishing_data)  # 설정한 속도와 조향 각도 메시지를 퍼블리시하여 차량에 적용
+        # 각도를 [0, 1] 범위로 정규화
+        normalized_angle = (angle - min_angle) / (max_angle - min_angle)
+        # 정규화된 각도를 PWM 범위로 매핑
+        pwm_value = min_pwm + (max_pwm - min_pwm) * normalized_angle
+        return int(pwm_value)
+    
+    def publishCtrlCmd(self, motor_msg, servo_msg):
+        # AckermannDriveStamped 메시지 객체 생성
+        self.publishing_data = AckermannDriveStamped()
+        self.publishing_data.header.stamp = rospy.Time.now()
+        self.publishing_data.header.frame_id = "base_link"
+        
+        # PWM 신호로 변환 (servo_msg와 motor_msg는 -1.0 ~ +1.0 범위의 값을 갖는다고 가정)
+        # 라즈베리 파이에서 PWM 제어에 맞는 duty cycle로 변환
+        steering_duty_cycle = servo_msg
+        if motor_msg == 0.7:
+            motor_duty_cycle = 1620
+        elif motor_msg == 0.35:
+            motor_duty_cycle = 1570
+        else:
+            motor_duty_cycle = 1450
+
+        # PWM 신호 전송
+        steering_pwm.ChangeDutyCycle(steering_duty_cycle)
+        motor_pwm.ChangeDutyCycle(motor_duty_cycle)
 
 
     def ctrlLaneCB(self, msg):
@@ -259,6 +302,11 @@ class Controller():
 
 if __name__ == '__main__':
     try:
-        controller = Controller()  
+        controller = Controller()
     except rospy.ROSInterruptException:
-        pass 
+        pass
+    finally:
+        # 종료 시 PWM 및 GPIO 정리
+        steering_pwm.stop()
+        motor_pwm.stop()
+        GPIO.cleanup()
