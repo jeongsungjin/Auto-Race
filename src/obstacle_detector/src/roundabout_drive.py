@@ -28,6 +28,7 @@ class ROUNDABOUT:
         self.mode = ''
         self.flag = False
         self.speed = 0.5
+
         self.rate = rospy.Rate(30)
 
         while not rospy.is_shutdown():
@@ -40,25 +41,7 @@ class ROUNDABOUT:
             
             self.rate.sleep()
 
-    def detectRoundabout(self, msg):
-        for circle in msg.circles:
-            x = circle.center.x
-            y = circle.center.y
-            distance = math.sqrt(x**2 + y**2)
-
-            if -1.0 < x < 0 and abs(y) < 1.0:
-                if self.prev_obstacle:
-                    distance_diff = abs(self.prev_obstacle.distance - distance)
-                    if distance_diff < self.distance_threshold:
-                        self.flag = True
-                        rospy.loginfo("회전 교차로 차량 감지: 회전 교차로 모드 활성화")
-                        return
-                self.prev_obstacle = Obstacle(x, y, distance)
-        self.flag = False
-
     def obstacleCB(self, msg):
-        if not self.flag:
-            return
 
         self.obstacles = []
         for circle in msg.circles:
@@ -71,19 +54,25 @@ class ROUNDABOUT:
         self.obstacles.sort(key=lambda obs: obs.distance)
 
     def processObstacle(self, closest_obstacle):
-        if self.prev_obstacle is not None:
-            distance_diff = abs(self.prev_obstacle.distance - closest_obstacle.distance)
-            if distance_diff > self.distance_threshold:
-                rospy.loginfo("장애물이 멀어짐: 주행 재개 및 회전 교차로 모드 비활성화")
-                self.publishCtrlCmd(self.speed, 0.0, True)
-                self.flag = False  # 회전 교차로 모드 비활성화
-            else:
-                rospy.loginfo("장애물이 가까워짐: 정지")
+        # 장애물과의 거리 변화 비교
+        if self.prev_distance is not None:
+            distance_diff = self.prev_distance - closest_obstacle.distance
+
+            # 장애물이 다가오고 있다면 flag 활성화 및 정지
+            if distance_diff > 0.05:  # 다가오는 중 (0.05m 이상 가까워질 때)
+                rospy.loginfo("장애물이 다가옴: 정지")
                 self.publishCtrlCmd(0.0, 0.0, True)
-        else:
-            rospy.loginfo("장애물 감지: 정지")
-            self.flag = False
-        self.prev_obstacle = closest_obstacle
+                self.flag = True  # flag를 활성화해 회전 교차로 상태 알림
+                self.flag_pub.publish(Bool(self.flag))
+
+            # 장애물이 멀어지고 있다면 flag 비활성화 및 주행 재개
+            elif distance_diff < -self.distance_threshold:  # 멀어지고 있는 경우
+                rospy.loginfo("장애물이 멀어짐: 주행 재개")
+                self.publishCtrlCmd(self.speed, 0.0, True)
+                self.flag = False  # flag를 비활성화해 회전 교차로 상태 해제
+
+        # 이전 장애물의 거리를 현재 거리로 업데이트
+        self.prev_distance = closest_obstacle.distance
 
     def modeCB(self, msg):
         self.mode = msg.data
