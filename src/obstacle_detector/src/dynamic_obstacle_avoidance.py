@@ -16,7 +16,7 @@ class Obstacle:
 
 class DynamicAvoidance():
     def __init__(self):
-        rospy.Subscriber("/raw_obstacles_static", Obstacles, self.obstacleCB)
+        rospy.Subscriber("/raw_obstacles", Obstacles, self.obstacleCB)
         rospy.Subscriber("/mode", String, self.modeCB)
         rospy.Subscriber("/motor_lane", Drive_command, self.ctrlLaneCB)  # 카메라 이미지 구독 (차선 인식용)
 

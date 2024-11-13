@@ -59,6 +59,7 @@ class Controller():
         self.ctrl_rabacon = Drive_command()
         self.ctrl_sign = Drive_command()
         self.ctrl_dynamic = Drive_command()
+        self.ctrl_roundabout = Drive_command()
 
         rospy.init_node('main_planner', anonymous=True)  # ROS 노드 초기화
 
@@ -66,7 +67,6 @@ class Controller():
         rospy.Subscriber("/motor_lane", Drive_command, self.ctrlLaneCB)  # 카메라 이미지 구독 (차선 인식용)
         rospy.Subscriber("/motor_static", Drive_command, self.ctrlStaticCB)  # LiDAR 기반 객체 탐지 경고 신호 구독 (안전/경고)
         rospy.Subscriber("/motor_dynamic", Drive_command, self.ctrlDynamicCB)  # 장애물 상태 데이터 구독
-       
         rospy.Subscriber("/motor_sign", Drive_command, self.ctrlSIGNCB)  # 표지판 ID (어린이 보호구역 신호 등) 구독
         rospy.Subscriber("/motor_rabacon", Drive_command, self.ctrlRabaconCB)  # rabacon 미션용 주행 데이터 구독
         rospy.Subscriber('/motor_roundabout', Drive_command, self.crtlRoundaboutCB)
@@ -89,7 +89,7 @@ class Controller():
         self.rabacon_mode_flag = False
         self.static_mode_flag = False
         self.dynamic_mode_flag = False
-        self.roundabout_mode_flag == False
+        self.roundabout_mode_flag = False
         self.lane_mode_flag = True
 
         # mode
@@ -146,6 +146,9 @@ class Controller():
                 elif self.mode == "DYNAMIC":
                     self.motor = self.ctrl_dynamic.speed
                     self.steer = self.ctrl_dynamic.angle
+                elif self.mode == "ROUNDABOUT":
+                    self.motor = self.ctrl_roundabout.speed
+                    self.steer = self.ctrl_roundabout.angle
                 else:               # LANE
                     self.motor = self.ctrl_lane.speed
                     self.steer = self.ctrl_lane.angle
@@ -227,9 +230,9 @@ class Controller():
         self.sign_mode_flag = msg.flag
 
     def crtlRoundaboutCB(self, msg):
-        self.ctrl_sign.speed = msg.speed
-        self.ctrl_sign.angle = msg.angle
-        self.sign_mode_flag = msg.flag
+        self.ctrl_roundabout.speed = msg.speed
+        self.ctrl_roundabout.angle = msg.angle
+        self.roundabout_mode_flag = msg.flag
 
         
     def staticObstacle_callback(self, msg):

@@ -15,7 +15,7 @@ class Obstacle:
 
 class ROUNDABOUT:
     def __init__(self):
-        rospy.Subscriber("/raw_obstacles_static", Obstacles, self.obstacleCB)
+        rospy.Subscriber("/raw_obstacles", Obstacles, self.obstacleCB)
         rospy.Subscriber("/mode", String, self.modeCB)
         
         self.ctrl_cmd_pub = rospy.Publisher('/motor_roundabout', Drive_command, queue_size=1)

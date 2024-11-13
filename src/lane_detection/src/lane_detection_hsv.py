@@ -7,7 +7,7 @@ import cv2
 import numpy as np
 import sys
 import os
-from std_msgs.msg import Float32, Float64
+from std_msgs.msg import Float32, Float64, String
 from lane_detection.msg import Drive_command
 from obstacle_detector.msg import Obstacles
 
@@ -46,7 +46,8 @@ class LaneDetectionROS:
         self.bridge = CvBridge()
         self.image_sub = rospy.Subscriber('/usb_cam/image_rect_color', Image, self.image_callback)
         rospy.Subscriber("/heading", Float64, self.headingCB)
-        rospy.Subscriber("/raw_obstacles_static", Obstacles, self.obstacleCB)
+        rospy.Subscriber("/raw_obstacles", Obstacles, self.obstacleCB)
+        rospy.Subscriber('/lane_topic', String, self.lane_topic_callback)
 
         self.ctrl_cmd_pub = rospy.Publisher('/motor_lane', Drive_command, queue_size=1)
         
@@ -73,6 +74,7 @@ class LaneDetectionROS:
         self.local_heading = None
         self.obstacles = []
         self.gt_heading_list = []
+        self.lane_state = None
         # 초기 HSV 범위 설정
         self.lower_yellow = np.array([20, 110, 40])
         self.upper_yellow = np.array([53, 240, 255])
@@ -265,6 +267,14 @@ class LaneDetectionROS:
                 self.local_heading += 360
         else:
             self.local_heading = None
+
+    def lane_topic_callback(self, msg):
+        # /lane_topic의 메시지를 받아서 현재 lane_state 업데이트
+        if msg.data == "LEFT_LANE":
+            self.lane_state = "LEFT_LANE"
+        elif msg.data == "RIGHT_LANE":
+            self.lane_state = "RIGHT_LANE"
+        rospy.loginfo(f"Current lane state: {self.lane_state}")
 
     def publishCtrlCmd(self, motor_msg, servo_msg):
         self.ctrl_cmd_msg.speed = motor_msg  # 모터 속도 설정

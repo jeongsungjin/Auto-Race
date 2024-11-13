@@ -1,12 +1,19 @@
 import cv2  # OpenCV 라이브러리 임포트
 import numpy as np  # NumPy 라이브러리 임포트
 from matplotlib.pyplot import *  # matplotlib.pyplot 모듈 임포트
+import rospy  # ROS 라이브러리 임포트
+from std_msgs.msg import String  # String 메시지 타입 임포트
 
 TOTAL_CNT = 50  # 총 카운트 설정
 
 class SlideWindow:
 
     def __init__(self):
+        rospy.init_node('slide_window_node', anonymous=True)  # ROS 노드 초기화
+        rospy.Subscriber('/lane_topic', String, self.lane_callback)  # /lane_topic 토픽 구독
+        self.current_line = "DEFAULT"  # 현재 라인 초기화
+        self.lane_side = "BOTH"  # 기본값으로 양쪽 차선을 탐색하도록 설정
+
         self.current_line = "DEFAULT"  # 현재 라인 초기화
         self.left_fit = None  # 왼쪽 라인 피팅 초기화
         self.right_fit = None  # 오른쪽 라인 피팅 초기화
@@ -18,6 +25,14 @@ class SlideWindow:
 
         self.x_previous = 320  # 이전 x 위치 초기화
         # self.x_temp = 320
+
+    def lane_callback(self, msg):
+        if msg.data == "LEFT_LANE":
+            self.lane_side = "LEFT"
+        elif msg.data == "RIGHT_LANE":
+            self.lane_side = "RIGHT"
+        else:
+            self.lane_side = "BOTH"
 
     def slidewindow(self, img):
         x_location = 320  # x 위치 초기화
@@ -67,26 +82,37 @@ class SlideWindow:
         road_width = 0.465  # 도로 너비 설정
         half_road_width = 0.5 * road_width  # 도로 반 너비 설정
 
-        # 왼쪽 폴리라인 설정
-        pts_left = np.array([[win_l_w_l, win_h2], [win_l_w_l, win_h1], [win_l_w_r, win_h1], [win_l_w_r, win_h2]], np.int32)
-        cv2.polylines(out_img, [pts_left], False, (0, 255, 0), 1)
-        
-        # 오른쪽 폴리라인 설정
-        pts_right = np.array([[win_r_w_l, win_h2], [win_r_w_l, win_h1], [win_r_w_r, win_h1], [win_r_w_r, win_h2]], np.int32)
-        cv2.polylines(out_img, [pts_right], False, (255, 0, 0), 1)
+        if self.lane_side == "LEFT":
+            pts_left = np.array([[win_l_w_l, win_h2], [win_l_w_l, win_h1], [win_l_w_r, win_h1], [win_l_w_r, win_h2]], np.int32)
+            cv2.polylines(out_img, [pts_left], False, (0, 255, 0), 1)
 
-        # 원 폴리라인 설정
-        pts_catch = np.array([[0, circle_height], [width, circle_height]], np.int32)
-        cv2.polylines(out_img, [pts_catch], False, (0, 120, 120), 1)
+            good_left_inds = ((nonzerox >= win_l_w_l) & (nonzeroy <= win_h2) & (nonzeroy > win_h1) & (nonzerox <= win_l_w_r)).nonzero()[0]
+            line_flag = 1 if len(good_left_inds) > 0 else 3
 
-        # 좋은 왼쪽 및 오른쪽 인덱스 찾기
-        good_left_inds = ((nonzerox >= win_l_w_l) & (nonzeroy <= win_h2) & (nonzeroy > win_h1) & (nonzerox <= win_l_w_r)).nonzero()[0]
-        good_right_inds = ((nonzerox >= win_r_w_l) & (nonzeroy <= win_h2) & (nonzeroy > win_h1) & (nonzerox <= win_r_w_r)).nonzero()[0]
+        elif self.lane_side == "RIGHT":
+            pts_right = np.array([[win_r_w_l, win_h2], [win_r_w_l, win_h1], [win_r_w_r, win_h1], [win_r_w_r, win_h2]], np.int32)
+            cv2.polylines(out_img, [pts_right], False, (255, 0, 0), 1)
 
-        # print(f"L: {len(good_left_inds)}\nR: {len(good_right_inds)}")
+            good_right_inds = ((nonzerox >= win_r_w_l) & (nonzeroy <= win_h2) & (nonzeroy > win_h1) & (nonzerox <= win_r_w_r)).nonzero()[0]
+            line_flag = 2 if len(good_right_inds) > 0 else 3
 
-        y_current = height - 1  # 현재 y 위치 초기화
-        x_current = None  # 현재 x 위치 초기화
+        else:
+            pts_left = np.array([[win_l_w_l, win_h2], [win_l_w_l, win_h1], [win_l_w_r, win_h1], [win_l_w_r, win_h2]], np.int32)
+            cv2.polylines(out_img, [pts_left], False, (0, 255, 0), 1)
+            pts_right = np.array([[win_r_w_l, win_h2], [win_r_w_l, win_h1], [win_r_w_r, win_h1], [win_r_w_r, win_h2]], np.int32)
+            cv2.polylines(out_img, [pts_right], False, (255, 0, 0), 1)
+
+            good_left_inds = ((nonzerox >= win_l_w_l) & (nonzeroy <= win_h2) & (nonzeroy > win_h1) & (nonzerox <= win_l_w_r)).nonzero()[0]
+            good_right_inds = ((nonzerox >= win_r_w_l) & (nonzeroy <= win_h2) & (nonzeroy > win_h1) & (nonzerox <= win_r_w_r)).nonzero()[0]
+            if len(good_left_inds) > len(good_right_inds):
+                line_flag = 1
+            elif len(good_left_inds) < len(good_right_inds):
+                line_flag = 2
+            else:
+                line_flag = 3
+
+        y_current = height - 1
+        x_current = int(np.mean(nonzerox[good_left_inds])) if line_flag == 1 else int(np.mean(nonzerox[good_right_inds])) if line_flag == 2 else None
 
         # 더 많은 픽셀을 포함하는 라인을 찾기
         if len(good_left_inds) > len(good_right_inds): 

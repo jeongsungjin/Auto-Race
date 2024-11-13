@@ -34,6 +34,16 @@
         <arg name="version" value="$(arg version)"/>
     </include>
 
+    <!-- 원형교차로 기반 주행  -->
+    <include file="$(find obstacle_detector)/launch/roundabout_drive.launch">
+        <arg name="version" value="$(arg version)"/>
+    </include>
+
+    <!-- 차단기 기반 주행  -->
+    <include file="$(find obstacle_detector)/launch/gwang_crossing_gate.launch">
+        <arg name="version" value="$(arg version)"/>
+    </include>
+
     <!-- main planner 주행  -->
     <node name="main_planner" type="main_planner.py" pkg="car_planner" output="screen">
         <param name="version" value="$(arg version)"/>

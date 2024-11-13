@@ -1,0 +1,6 @@
+<launch>
+    <arg name="version" default="safe"/>
+    <node name="gwang_crossing_gate" pkg="obstacle_detector" type="gwang_crossing_gate.py" output="screen">
+        <param name="version" value="$(arg version)"/>
+    </node>
+</launch>

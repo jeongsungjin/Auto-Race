@@ -18,7 +18,7 @@ class Obstacle:
 
 class CrossingGate():
     def __init__(self):
-        rospy.Subscriber("/raw_obstacles_static", Obstacles, self.obstacleCB)
+        rospy.Subscriber("/raw_obstacles", Obstacles, self.obstacleCB)
         rospy.Subscriber("/mode", String, self.modeCB)
         rospy.Subscriber("/scan", LaserScan, self.lidar_callback)
 

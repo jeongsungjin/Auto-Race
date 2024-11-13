@@ -1,0 +1,6 @@
+<launch>
+    <arg name="version" default="safe"/>
+    <node name="roundabout_drive" pkg="obstacle_detector" type="roundabout_drive.py" output="screen">
+        <param name="version" value="$(arg version)"/>
+    </node>
+</launch>
