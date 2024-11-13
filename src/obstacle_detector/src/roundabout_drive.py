@@ -63,7 +63,6 @@ class ROUNDABOUT:
                 rospy.loginfo("장애물이 다가옴: 정지")
                 self.publishCtrlCmd(0.0, 0.0, True)
                 self.flag = True  # flag를 활성화해 회전 교차로 상태 알림
-                self.flag_pub.publish(Bool(self.flag))
 
             # 장애물이 멀어지고 있다면 flag 비활성화 및 주행 재개
             elif distance_diff < -self.distance_threshold:  # 멀어지고 있는 경우
@@ -73,6 +72,7 @@ class ROUNDABOUT:
 
         # 이전 장애물의 거리를 현재 거리로 업데이트
         self.prev_distance = closest_obstacle.distance
+
 
     def modeCB(self, msg):
         self.mode = msg.data

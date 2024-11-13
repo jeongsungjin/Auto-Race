@@ -13,15 +13,13 @@ class Sign():
         rospy.init_node('sign_slowdown', anonymous=True)  # 노드 초기화 추가
 
         self.sign_data = 0  # 표지판 데이터 저장
-        self.child_cnt = 0
-        self.slow_down_flag = 0  # 감속 플래그
-        self.slow_flag = False  # 감속 상태 여부 플래그
-        self.slow_t1 = 0  # 감속 시작 시간
-        self.speed_slow = 0.35  
+        self.A_cnt = 0        
+        self.B_cnt = 0
+        self.flag = False  
         self.speed_lane = 0.7  
         self.ctrl_lane = Drive_command()
         self.ctrl_cmd_pub = rospy.Publisher("/motor_sign", Drive_command, queue_size=1)  # 모터 제어 퍼블리셔
-        rospy.Subscriber("/fiducial_vertices", FiducialArray, self.child_sign_callback)
+        rospy.Subscriber("/fiducial_vertices", FiducialArray, self.sign_callback)
         rospy.Subscriber("/motor_lane", Drive_command, self.ctrlLaneCB)
 
         self.no_sign_cnt = 0
@@ -56,14 +54,19 @@ class Sign():
             self.rate.sleep()
 
 
-    def child_sign_callback(self, _data):
+    def sign_callback(self, _data):
         if len(_data.fiducials) > 0:
             self.sign_data = _data.fiducials[0].fiducial_id
-            if self.sign_data == 3:
-                self.child_cnt += 1                                
-                if self.child_cnt >= 20:
-                    self.slow_down_flag = 1
-                    self.child_cnt = 0
+            if self.sign_data == "A":
+                self.A_cnt += 1                                
+                if self.A_cnt >= 20:
+                    self.flag = True
+                    self.A_cnt = 0
+            elif self.sign_data == "B":
+                self.B_cnt += 1                                
+                if self.B_cnt >= 20:
+                    self.flag = True
+                    self.B_cnt = 0
         else:
             self.no_sign_cnt += 1
             if self.no_sign_cnt > 20:

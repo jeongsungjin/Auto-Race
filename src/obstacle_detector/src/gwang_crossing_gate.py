@@ -7,6 +7,7 @@ from obstacle_detector.msg import Obstacles
 from std_msgs.msg import Float64, String
 from ackermann_msgs.msg import AckermannDriveStamped
 from obstacle_detector.msg import Drive_command
+import math
 
 class Obstacle:
     def __init__(self, x=None, y=None, distance=None):
@@ -63,6 +64,7 @@ class CrossingGate():
                 for obstacle in self.obstacles:
                     if len(-2.5 < obstacle.x < 0) and (-0.5 <= obstacle.y <= 0.5): # 좌표기반 말고 뭐든지.. 새로운 조건을 and로 주세요 카메라를 쓰던, 라이다클러스터링을 쓰던, 카운터를 쓰던
                         if self.point_count_in_y_range >= self.point_count_threshold:
+
                             
                             self.publishCtrlCmd(0.0 , 0.0, True)
                             self.gate_obstacle_y_list.append(obstacle.y)
