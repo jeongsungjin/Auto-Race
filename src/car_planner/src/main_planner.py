@@ -69,7 +69,7 @@ class Controller():
        
         rospy.Subscriber("/motor_sign", Drive_command, self.ctrlSIGNCB)  # 표지판 ID (어린이 보호구역 신호 등) 구독
         rospy.Subscriber("/motor_rabacon", Drive_command, self.ctrlRabaconCB)  # rabacon 미션용 주행 데이터 구독
-        
+        rospy.Subscriber('/motor_roundabout', Drive_command, self.crtlRoundaboutCB)
         
         rospy.Subscriber("obstacles", Obstacles, self.staticObstacle_callback)  # 장애물 데이터 구독
         rospy.Subscriber("/raw_obstacles_rubbercone", Obstacles, self.rubberconeObstacleCB)
@@ -89,6 +89,7 @@ class Controller():
         self.rabacon_mode_flag = False
         self.static_mode_flag = False
         self.dynamic_mode_flag = False
+        self.roundabout_mode_flag == False
         self.lane_mode_flag = True
 
         # mode
@@ -122,6 +123,8 @@ class Controller():
                 self.mode = 'STATIC'
             elif self.dynamic_mode_flag == True:
                 self.mode = 'DYNAMIC'
+            elif self.roundabout_mode_flag == True:
+                self.mode = 'ROUNDABOUT'
             else:
                 self.mode = 'LANE'
 
@@ -159,8 +162,7 @@ class Controller():
                     for obstacle in self.static_obstacles:
                         if (-1.2 < obstacle.x < 0) and (-0.25 <= obstacle.y <= 0.25):
                             self.motor = 0.35 #실제 감속 속도에 맞게 튜닝
-                            if(-0.3 < obstacle.x < 0):
-                                self.motor = 0
+
 
             # --------------------------- 장애물 인지시 감속 ---------------------------------------- # 
 
@@ -220,6 +222,11 @@ class Controller():
         self.rabacon_mode_flag = msg.flag
 
     def ctrlSIGNCB(self, msg):
+        self.ctrl_sign.speed = msg.speed
+        self.ctrl_sign.angle = msg.angle
+        self.sign_mode_flag = msg.flag
+
+    def crtlRoundaboutCB(self, msg):
         self.ctrl_sign.speed = msg.speed
         self.ctrl_sign.angle = msg.angle
         self.sign_mode_flag = msg.flag
