@@ -90,7 +90,7 @@ class Controller():
         self.drive_pub = rospy.Publisher("high_level/ackermann_cmd_mux/input/nav_0", AckermannDriveStamped, queue_size=1)  # 차량 주행 명령 퍼블리셔
 
         # 이미지 처리 및 장애물 관련 데이터 구독
-        rospy.Subscriber("usb_cam/image_rect_color", Image, self.lane_callback)  # 카메라 이미지 구독 (차선 인식용)
+        rospy.Subscriber("usb_cam/image_raw", Image, self.lane_callback)  # 카메라 이미지 구독 (차선 인식용)
         # rospy.Subscriber("obstacle_mission", String, self.warning_callback)  # 사용되지 않는 장애물 미션 구독
         rospy.Subscriber("lidar_warning", String, self.warning_callback)  # LiDAR 기반 객체 탐지 경고 신호 구독 (안전/경고)
         rospy.Subscriber("object_condition", Float32, self.object_callback)  # 장애물 상태 데이터 구독
@@ -243,7 +243,7 @@ class Controller():
             # rospy.loginfo("sign data :{}".format(self.sign_data))
             if self.sign_data == 3:  # sign_data가 3인 경우, 차량이 대기해야 할 상황을 의미
                 rospy.loginfo(" ===============   SLOW DETECTED, WAIT!!!! ============")
-                self.error_lane = 280 - self.slide_x_location  # 차량의 차선 위치 오차(error)를 계산 (280은 기준 위치)
+                self.error_lane = 320 - self.slide_x_location  # 차량의 차선 위치 오차(error)를 계산 (280은 기준 위치)
                                                             # error가 음수면 오른쪽 차선에 가까움, 양수면 왼쪽 차선에 가까움을 의미
                 publishing_data = AckermannDriveStamped()  # AckermannDriveStamped 메시지 객체 생성
                 publishing_data.header.stamp = rospy.Time.now()  # 메시지에 현재 시간을 기록
@@ -264,7 +264,7 @@ class Controller():
                 while t2 - self.slow_t1 <= 15:  # 현재 시간(t2)과 감속 시작 시간(slow_t1) 차이가 15초 이하일 동안 반복
                     rospy.loginfo("************* SLOW DOWN *****************")
                     # rospy.loginfo("slow_down time{}, {}".format(self.slow_t1, t2))
-                    self.error_lane = 280 - self.slide_x_location  # 차량의 차선 위치 오차를 다시 계산
+                    self.error_lane = 320 - self.slide_x_location  # 차량의 차선 위치 오차를 다시 계산
                     publishing_data = AckermannDriveStamped()  # 새로운 AckermannDriveStamped 메시지 생성
                     publishing_data.header.stamp = rospy.Time.now()  # 현재 시간을 메시지에 기록
                     publishing_data.header.frame_id = "base_link"  # 참조 프레임을 "base_link"로 설정
@@ -373,7 +373,7 @@ class Controller():
         # no obstalce, no rabacon, no slow sign, just drive
         else:
             rospy.loginfo("DEFAULT DRIVE!!!!!!!!!")
-            self.error_lane = 280 - self.slide_x_location # error가 음수 --> 오른쪽 차선이랑 멈 / error가 양수 --> 오른쪽 차선이랑 가까움
+            self.error_lane = 320 - self.slide_x_location # error가 음수 --> 오른쪽 차선이랑 멈 / error가 양수 --> 오른쪽 차선이랑 가까움
             publishing_data = AckermannDriveStamped()
             publishing_data.header.stamp = rospy.Time.now() # 이 데이터를 보낼 때의 시점
             publishing_data.header.frame_id = "base_link"

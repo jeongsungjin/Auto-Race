@@ -1,26 +1,18 @@
-import cv2  # OpenCV 라이브러리 임포트
-import numpy as np  # NumPy 라이브러리 임포트
-from matplotlib.pyplot import *  # matplotlib.pyplot 모듈 임포트
-import rospy  # ROS 라이브러리 임포트
-from std_msgs.msg import String  # String 메시지 타입 임포트
+#!/usr/bin/env python
+import cv2
+import numpy as np
+import rospy
+from std_msgs.msg import String
+
 class SlideWindow:
 
     def __init__(self):
-        rospy.Subscriber('/lane_topic', String, self.lane_callback)  # /lane_topic 토픽 구독
-        self.current_line = "DEFAULT"  # 현재 라인 초기화
-        self.lane_side = "BOTH"  # 기본값으로 양쪽 차선을 탐색하도록 설정
-
-        self.current_line = "DEFAULT"  # 현재 라인 초기화
-        self.left_fit = None  # 왼쪽 라인 피팅 초기화
-        self.right_fit = None  # 오른쪽 라인 피팅 초기화
-        self.leftx = None  # 왼쪽 x 좌표 초기화
-        self.rightx = None  # 오른쪽 x 좌표 초기화
-        self.lhd = 240  # ?
-        self.left_cnt = 25  # 왼쪽 카운트 초기화
-        self.right_cnt = 25  # 오른쪽 카운트 초기화
-
-        self.x_previous = 320  # 이전 x 위치 초기화
-        # self.x_temp = 320
+        rospy.Subscriber('/lane_topic', String, self.lane_callback)
+        self.current_line = "DEFAULT"
+        self.lane_side = "BOTH"
+        self.left_fit = None
+        self.right_fit = None
+        self.x_previous = 320
 
     def lane_callback(self, msg):
         if msg.data == "LEFT_LANE":
@@ -31,123 +23,129 @@ class SlideWindow:
             self.lane_side = "BOTH"
 
     def slidewindow(self, img):
-        x_location = 320  # x 위치 초기화
-        # 출력 이미지 초기화 및 높이, 너비 설정
+        x_location = 320
         out_img = np.dstack((img, img, img)) * 255
+        height, width = img.shape[0], img.shape[1]
 
-        height = img.shape[0]  # 이미지 높이
-        width = img.shape[1]  # 이미지 너비
+        window_height = 20
+        nwindows = 20
+        nonzero = img.nonzero()
+        nonzeroy = np.array(nonzero[0])
+        nonzerox = np.array(nonzero[1])
+        margin = 40
+        minpix = 0
+        left_lane_inds = np.array([], dtype=int)
+        right_lane_inds = np.array([], dtype=int)
 
-        # 윈도우 개수 및 높이 초기화
-        window_height = 10  # 윈도우 높이
-        nwindows = 10
+        win_h1 = 380 
+        win_h2 = 480
         
-        # 이미지에서 비영점 위치 찾기
-        nonzero = img.nonzero()  # 이미지에서 비영점 찾기
-        nonzeroy = np.array(nonzero[0])  # y 좌표 배열로 변환
-        nonzerox = np.array(nonzero[1])  # x 좌표 배열로 변환
-        margin = 40  # 윈도우 마진 설정
-        minpix = 0  # 최소 픽셀 수 설정
-        left_lane_inds = []  # 왼쪽 차선 인덱스 초기화
-        right_lane_inds = []  # 오른쪽 차선 인덱스 초기화
+        
+        # win_l_w_l = 185 - 80
+        # win_l_w_r = 185 + 80
+        # win_r_w_l = 455 - 80
+        # win_r_w_r = 455 + 80
 
-        # 윈도우 설정 값 초기화
-        win_h1 = 100  # 윈도우 높이 1
-        win_h2 = 150  # 윈도우 높이 2
-        win_l_w_l = 180 - 65  # 왼쪽 윈도우 왼쪽 경계
-        win_l_w_r = 180 + 50  # 왼쪽 윈도우 오른쪽 경계
-        win_r_w_l = 480 - 65  # 오른쪽 윈도우 왼쪽 경계
-        win_r_w_r = 480 + 50  # 오른쪽 윈도우 오른쪽 경계
+        win_l_w_l = 145 - 80
+        win_l_w_r = 145 + 80
+        win_r_w_l = 495 - 80
+        win_r_w_r = 495 + 80
+        
+        circle_height = 100
+        road_width = 0.5
+        half_road_width = 0.5 * road_width
 
-        circle_height = 100  # 원 높이 설정
-        road_width = 0.465  # 도로 너비 설정
-        half_road_width = 0.5 * road_width  # 도로 반 너비 설정
-
-        # self.lane_side가 "LEFT"일 경우 왼쪽 차선 추적
+        print(self.lane_side)
         if self.lane_side == "LEFT" or self.lane_side == "BOTH":
             pts_left = np.array([[win_l_w_l, win_h2], [win_l_w_l, win_h1], [win_l_w_r, win_h1], [win_l_w_r, win_h2]], np.int32)
             cv2.polylines(out_img, [pts_left], False, (0, 255, 0), 1)
-
             good_left_inds = ((nonzerox >= win_l_w_l) & (nonzeroy <= win_h2) & (nonzeroy > win_h1) & (nonzerox <= win_l_w_r)).nonzero()[0]
-            line_flag = 1 if len(good_left_inds) > 0 else 3
+            if len(good_left_inds) > 0:
+                line_flag = 1
+                left_lane_inds = np.concatenate((left_lane_inds, good_left_inds))
+            else:
+                line_flag = 3
 
-        # self.lane_side가 "RIGHT"일 경우 오른쪽 차선 추적
         if self.lane_side == "RIGHT" or self.lane_side == "BOTH":
             pts_right = np.array([[win_r_w_l, win_h2], [win_r_w_l, win_h1], [win_r_w_r, win_h1], [win_r_w_r, win_h2]], np.int32)
             cv2.polylines(out_img, [pts_right], False, (255, 0, 0), 1)
-
             good_right_inds = ((nonzerox >= win_r_w_l) & (nonzeroy <= win_h2) & (nonzeroy > win_h1) & (nonzerox <= win_r_w_r)).nonzero()[0]
-            line_flag = 2 if len(good_right_inds) > 0 else 3
-
-        y_current = height - 1
-        x_current = int(np.mean(nonzerox[good_left_inds])) if line_flag == 1 else int(np.mean(nonzerox[good_right_inds])) if line_flag == 2 else None
-
-        # 더 많은 픽셀을 포함하는 라인을 찾기
-        if len(good_left_inds) > len(good_right_inds): 
-            line_flag = 1  # 왼쪽 라인 플래그 설정
-            x_current = int(np.mean(nonzerox[good_left_inds]))  # 현재 x 위치 설정
-        elif len(good_left_inds) < len(good_right_inds):
-            line_flag = 2  # 오른쪽 라인 플래그 설정
-            x_current = int(np.mean(nonzerox[good_right_inds]))  # 현재 x 위치 설정
-        else:
-            self.current_line = "MID"  # 중앙 라인 설정
-            line_flag = 3  # 중앙 라인 플래그 설정
-
-        # 왼쪽 라인 픽셀 시각화
-        if line_flag == 1:
-            for i in range(len(good_left_inds)):
-                img = cv2.circle(out_img, (nonzerox[good_left_inds[i]], nonzeroy[good_left_inds[i]]), 1, (0, 255, 0), -1)
-        # 오른쪽 라인 픽셀 시각화
-        elif line_flag == 2:
-            for i in range(len(good_right_inds)):
-                img = cv2.circle(out_img, (nonzerox[good_right_inds[i]], nonzeroy[good_right_inds[i]]), 1, (255, 0, 0), -1)
-
-        # 윈도우를 반복하며 라인 찾기
-        for window in range(nwindows):
-
-            if line_flag == 3:
-                x_location = self.x_previous
-                cv2.circle(out_img, (x_location, circle_height), 10, (0, 0, 255), 5)
-
+            if len(good_right_inds) > 0:
+                line_flag = 2
+                right_lane_inds = np.concatenate((right_lane_inds, good_right_inds))
             else:
-                win_y_low = y_current - (window + 1) * window_height  # 윈도우 아래쪽 y 좌표
-                win_y_high = y_current - window * window_height  # 윈도우 위쪽 y 좌표
-                win_x_low = x_current - margin  # 윈도우 왼쪽 x 좌표
-                win_x_high = x_current + margin  # 윈도우 오른쪽 x 좌표
+                line_flag = 3
+        y_current = height - 1
+        x_current = None
 
-                if line_flag == 1:  # 왼쪽 라인일 경우
-                    cv2.rectangle(out_img, (win_x_low, win_y_low), (win_x_high, win_y_high), (0, 255, 0), 1)
-                    cv2.rectangle(out_img, (win_x_low + int(width * road_width), win_y_low), (win_x_high + int(width * road_width), win_y_high), (255, 0, 0), 1)
-                    good_left_inds = ((nonzeroy >= win_y_low) & (nonzeroy < win_y_high) & (nonzerox >= win_x_low) & (nonzerox < win_x_high)).nonzero()[0]
+        if line_flag == 1 and len(left_lane_inds) > 0:
+            x_current = int(np.mean(nonzerox[left_lane_inds]))
+        elif line_flag == 2 and len(right_lane_inds) > 0:
+            x_current = int(np.mean(nonzerox[right_lane_inds]))
+        else:
+            self.current_line = "MID"
+            alpha = 0.9  # 이동 평균 계수 (0.9에 가까울수록 더 느리게 변화)
+            self.x_previous = int(alpha * self.x_previous + (1 - alpha) * x_location)
+            x_location = self.x_previous
 
-                    if len(good_left_inds) > minpix:
-                        x_current = int(np.mean(nonzerox[good_left_inds]))
-                    elif nonzeroy[left_lane_inds] != [] and nonzerox[left_lane_inds] != []:
-                        p_left = np.polyfit(nonzeroy[left_lane_inds], nonzerox[left_lane_inds], 2) 
-                        x_current = int(np.polyval(p_left, win_y_high))
-                    if circle_height - 10 <= win_y_low < circle_height + 10:
-                        x_location = x_current
-                    left_lane_inds.append(good_left_inds)
+        for window in range(nwindows):
+            if line_flag == 1: 
+                # rectangle x,y range init
+                win_y_low = y_current - (window + 1) * window_height
+                win_y_high = y_current - (window) * window_height
+                win_x_low = x_current - margin
+                win_x_high = x_current + margin
                 
-                # 오른쪽 라인일 경우
-                if line_flag == 2:
-                    cv2.rectangle(out_img, (win_x_low, win_y_low), (win_x_high, win_y_high), (0, 255, 0), 1)
-                    cv2.rectangle(out_img, (win_x_low - int(width * road_width), win_y_low), (win_x_high - int(width * road_width), win_y_high), (255, 0, 0), 1)
-                    good_right_inds = ((nonzeroy >= win_y_low) & (nonzeroy < win_y_high) & (nonzerox >= win_x_low) & (nonzerox < win_x_high)).nonzero()[0]
-
-                    if len(good_right_inds) > minpix:
-                        x_current = int(np.mean(nonzerox[good_right_inds]))
-                    elif nonzeroy[right_lane_inds] != [] and nonzerox[right_lane_inds] != []:
-                        p_right = np.polyfit(nonzeroy[right_lane_inds], nonzerox[right_lane_inds], 2)
-                        x_current = int(np.polyval(p_right, win_y_high))
-
-                    right_lane_inds.append(good_right_inds)
+                # draw rectangle
+                # 0.33 is for width of the road
+                cv2.rectangle(out_img, (win_x_low, win_y_low), (win_x_high, win_y_high), (0, 255, 0), 1)
+                cv2.rectangle(out_img, (win_x_low + int(width * road_width), win_y_low), (win_x_high + int(width * road_width), win_y_high), (255, 0, 0), 1)
                 
-                # "MID"일 경우
-                else:
-                    if self.x_previous != x_location:
-                        self.x_previous = x_location
-                        break
+                # indicies of dots in nonzerox in one square
+                good_left_inds = ((nonzeroy >= win_y_low) & (nonzeroy < win_y_high) & (nonzerox >= win_x_low) & (nonzerox < win_x_high)).nonzero()[0]
+                
+                # check num of indicies in square and put next location to current 
+                if len(good_left_inds) > minpix:
+                    x_current = int(np.mean(nonzerox[good_left_inds]))
+                
+                elif nonzeroy[left_lane_inds] != [] and nonzerox[left_lane_inds] != []:
+                    p_left = np.polyfit(nonzeroy[left_lane_inds], nonzerox[left_lane_inds], 2) 
+                    x_current = int(np.polyval(p_left, win_y_high))
+                    
+                # 338~344 is for recognize line which is yellow line in processed image(you can check in imshow)
+                # print("win:", win_y_low)          
+                          
+                if circle_height - 10 <= win_y_low < circle_height + 10:
+                    # 0.165 is the half of the road(0.33)
+                    x_location = int(x_current + width * half_road_width)
+                    # self.x_previous = x_location
+                    cv2.circle(out_img, (x_location, circle_height), 10, (0, 0, 255), 5)
 
-            return out_img, x_location, self.current_line  # 출력 이미지, x 위치, 현재 라인 반환
+            elif line_flag == 2: # change line from left to right above(if)
+                
+                win_y_low = y_current - (window + 1) * window_height
+                win_y_high = y_current - (window) * window_height
+                win_x_low = x_current - margin
+                win_x_high = x_current + margin
+                
+                
+                cv2.rectangle(out_img, (win_x_low - int(width * road_width), win_y_low), (win_x_high - int(width * road_width), win_y_high), (0, 255, 0), 1)
+                cv2.rectangle(out_img, (win_x_low, win_y_low), (win_x_high, win_y_high), (255, 0, 0), 1)
+                
+                good_right_inds = ((nonzeroy >= win_y_low) & (nonzeroy < win_y_high) & (nonzerox >= win_x_low) & (nonzerox < win_x_high)).nonzero()[0]
 
+                if len(good_right_inds) > minpix:
+                    x_current = int(np.mean(nonzerox[good_right_inds]))
+
+                elif nonzeroy[right_lane_inds] != [] and nonzerox[right_lane_inds] != []:
+                    p_right = np.polyfit(nonzeroy[right_lane_inds], nonzerox[right_lane_inds], 2) 
+                    x_current = int(np.polyval(p_right, win_y_high))
+                    
+                if circle_height - 10 <= win_y_low < circle_height + 10:
+                    # 0.165 is the half of the road(0.33)
+                    x_location = int(x_current - width * half_road_width) 
+                    # self.x_previous = x_location
+                    cv2.circle(out_img, (x_location, circle_height), 10, (0, 0, 255), 5)
+            
+
+        return out_img, x_location, self.current_line

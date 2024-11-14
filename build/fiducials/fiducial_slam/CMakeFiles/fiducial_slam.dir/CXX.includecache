@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/foscar/Auto-Race-/devel/include/fiducial_msgs/Fiducial.h
+/home/wego/Auto-Race/devel/include/fiducial_msgs/Fiducial.h
 string
 -
 vector
@@ -22,7 +22,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/foscar/Auto-Race-/devel/include/fiducial_msgs/FiducialArray.h
+/home/wego/Auto-Race/devel/include/fiducial_msgs/FiducialArray.h
 string
 -
 vector
@@ -42,7 +42,7 @@ std_msgs/Header.h
 fiducial_msgs/Fiducial.h
 -
 
-/home/foscar/Auto-Race-/devel/include/fiducial_msgs/FiducialMapEntry.h
+/home/wego/Auto-Race/devel/include/fiducial_msgs/FiducialMapEntry.h
 string
 -
 vector
@@ -58,7 +58,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/foscar/Auto-Race-/devel/include/fiducial_msgs/FiducialMapEntryArray.h
+/home/wego/Auto-Race/devel/include/fiducial_msgs/FiducialMapEntryArray.h
 string
 -
 vector
@@ -76,7 +76,7 @@ ros/message_operations.h
 fiducial_msgs/FiducialMapEntry.h
 -
 
-/home/foscar/Auto-Race-/devel/include/fiducial_msgs/FiducialTransform.h
+/home/wego/Auto-Race/devel/include/fiducial_msgs/FiducialTransform.h
 string
 -
 vector
@@ -94,7 +94,7 @@ ros/message_operations.h
 geometry_msgs/Transform.h
 -
 
-/home/foscar/Auto-Race-/devel/include/fiducial_msgs/FiducialTransformArray.h
+/home/wego/Auto-Race/devel/include/fiducial_msgs/FiducialTransformArray.h
 string
 -
 vector
@@ -114,7 +114,7 @@ std_msgs/Header.h
 fiducial_msgs/FiducialTransform.h
 -
 
-/home/foscar/Auto-Race-/devel/include/fiducial_slam/AddFiducial.h
+/home/wego/Auto-Race/devel/include/fiducial_slam/AddFiducial.h
 ros/service_traits.h
 -
 fiducial_slam/AddFiducialRequest.h
@@ -122,7 +122,7 @@ fiducial_slam/AddFiducialRequest.h
 fiducial_slam/AddFiducialResponse.h
 -
 
-/home/foscar/Auto-Race-/devel/include/fiducial_slam/AddFiducialRequest.h
+/home/wego/Auto-Race/devel/include/fiducial_slam/AddFiducialRequest.h
 string
 -
 vector
@@ -138,7 +138,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/foscar/Auto-Race-/devel/include/fiducial_slam/AddFiducialResponse.h
+/home/wego/Auto-Race/devel/include/fiducial_slam/AddFiducialResponse.h
 string
 -
 vector
@@ -154,13 +154,13 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/include/fiducial_slam/helpers.h
+/home/wego/Auto-Race/src/fiducials/fiducial_slam/include/fiducial_slam/helpers.h
 cmath
 -
 memory
 -
 
-/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/include/fiducial_slam/map.h
+/home/wego/Auto-Race/src/fiducials/fiducial_slam/include/fiducial_slam/map.h
 ros/ros.h
 -
 tf2/LinearMath/Quaternion.h
@@ -202,7 +202,7 @@ fiducial_slam/AddFiducial.h
 fiducial_slam/transform_with_variance.h
 -
 
-/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/include/fiducial_slam/transform_with_variance.h
+/home/wego/Auto-Race/src/fiducials/fiducial_slam/include/fiducial_slam/transform_with_variance.h
 geometry_msgs/PoseWithCovarianceStamped.h
 -
 tf2/LinearMath/Quaternion.h
@@ -214,7 +214,7 @@ tf2/transform_datatypes.h
 tf2_geometry_msgs/tf2_geometry_msgs.h
 -
 
-/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/src/fiducial_slam.cpp
+/home/wego/Auto-Race/src/fiducials/fiducial_slam/src/fiducial_slam.cpp
 fiducial_slam/helpers.h
 -
 assert.h
@@ -242,15 +242,15 @@ tf2_ros/transform_listener.h
 visualization_msgs/Marker.h
 -
 fiducial_msgs/Fiducial.h
-/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/src/fiducial_msgs/Fiducial.h
+/home/wego/Auto-Race/src/fiducials/fiducial_slam/src/fiducial_msgs/Fiducial.h
 fiducial_msgs/FiducialArray.h
-/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/src/fiducial_msgs/FiducialArray.h
+/home/wego/Auto-Race/src/fiducials/fiducial_slam/src/fiducial_msgs/FiducialArray.h
 fiducial_msgs/FiducialTransform.h
-/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/src/fiducial_msgs/FiducialTransform.h
+/home/wego/Auto-Race/src/fiducials/fiducial_slam/src/fiducial_msgs/FiducialTransform.h
 fiducial_msgs/FiducialTransformArray.h
-/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/src/fiducial_msgs/FiducialTransformArray.h
+/home/wego/Auto-Race/src/fiducials/fiducial_slam/src/fiducial_msgs/FiducialTransformArray.h
 fiducial_slam/map.h
-/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/src/fiducial_slam/map.h
+/home/wego/Auto-Race/src/fiducials/fiducial_slam/src/fiducial_slam/map.h
 opencv2/calib3d.hpp
 -
 opencv2/highgui.hpp
@@ -260,7 +260,7 @@ list
 string
 -
 
-/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/src/map.cpp
+/home/wego/Auto-Race/src/fiducials/fiducial_slam/src/map.cpp
 fiducial_slam/helpers.h
 -
 fiducial_slam/map.h
@@ -286,7 +286,7 @@ visualization_msgs/Marker.h
 boost/filesystem.hpp
 -
 
-/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/src/transform_with_variance.cpp
+/home/wego/Auto-Race/src/fiducials/fiducial_slam/src/transform_with_variance.cpp
 fiducial_slam/transform_with_variance.h
 -
 cmath
@@ -859,8 +859,6 @@ ros/init.h
 /opt/ros/noetic/include/ros/ros/init.h
 common.h
 /opt/ros/noetic/include/ros/common.h
-boost/bind.hpp
--
 xmlrpcpp/XmlRpcValue.h
 -
 
@@ -905,7 +903,7 @@ ros/message.h
 /opt/ros/noetic/include/ros/ros/message.h
 ros/serialization.h
 /opt/ros/noetic/include/ros/ros/serialization.h
-boost/bind.hpp
+boost/bind/bind.hpp
 -
 boost/thread/mutex.hpp
 -

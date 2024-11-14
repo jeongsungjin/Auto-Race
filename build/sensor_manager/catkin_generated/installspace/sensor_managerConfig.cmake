@@ -67,14 +67,14 @@ set(sensor_manager_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(sensor_manager_SOURCE_PREFIX /home/foscar/Auto-Race-/src/sensor_manager)
-  set(sensor_manager_DEVEL_PREFIX /home/foscar/Auto-Race-/devel)
+  set(sensor_manager_SOURCE_PREFIX /home/wego/Auto-Race/src/sensor_manager)
+  set(sensor_manager_DEVEL_PREFIX /home/wego/Auto-Race/devel)
   set(sensor_manager_INSTALL_PREFIX "")
   set(sensor_manager_PREFIX ${sensor_manager_DEVEL_PREFIX})
 else()
   set(sensor_manager_SOURCE_PREFIX "")
   set(sensor_manager_DEVEL_PREFIX "")
-  set(sensor_manager_INSTALL_PREFIX /home/foscar/Auto-Race-/install)
+  set(sensor_manager_INSTALL_PREFIX /home/wego/Auto-Race/install)
   set(sensor_manager_PREFIX ${sensor_manager_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/foscar/Auto-Race-/install/lib;/home/foscar/Auto-Race-/devel/lib;/home/foscar/iscc_2024/devel/lib;/home/foscar/sensor_fusion_final_2024/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/wego/Auto-Race/install/lib;/home/wego/Auto-Race/devel/lib;/home/wego/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

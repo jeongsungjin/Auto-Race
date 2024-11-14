@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/foscar/Auto-Race-/src/obstacle_detector/include/obstacle_detector/scans_merger.h
+/home/wego/Auto-Race/src/obstacle_detector/include/obstacle_detector/scans_merger.h
 ros/ros.h
 -
 std_srvs/Empty.h
@@ -22,9 +22,9 @@ tf/transform_listener.h
 laser_geometry/laser_geometry.h
 -
 
-/home/foscar/Auto-Race-/src/obstacle_detector/src/scans_merger.cpp
+/home/wego/Auto-Race/src/obstacle_detector/src/scans_merger.cpp
 obstacle_detector/scans_merger.h
-/home/foscar/Auto-Race-/src/obstacle_detector/src/obstacle_detector/scans_merger.h
+/home/wego/Auto-Race/src/obstacle_detector/src/obstacle_detector/scans_merger.h
 
 /opt/ros/noetic/include/geometry_msgs/Point.h
 string
@@ -615,8 +615,6 @@ ros/init.h
 /opt/ros/noetic/include/ros/ros/init.h
 common.h
 /opt/ros/noetic/include/ros/common.h
-boost/bind.hpp
--
 xmlrpcpp/XmlRpcValue.h
 -
 
@@ -661,7 +659,7 @@ ros/message.h
 /opt/ros/noetic/include/ros/ros/message.h
 ros/serialization.h
 /opt/ros/noetic/include/ros/ros/serialization.h
-boost/bind.hpp
+boost/bind/bind.hpp
 -
 boost/thread/mutex.hpp
 -

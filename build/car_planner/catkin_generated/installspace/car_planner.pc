@@ -1,4 +1,4 @@
-prefix=/home/foscar/Auto-Race-/install
+prefix=/home/wego/Auto-Race/install
 
 Name: car_planner
 Description: Description of car_planner

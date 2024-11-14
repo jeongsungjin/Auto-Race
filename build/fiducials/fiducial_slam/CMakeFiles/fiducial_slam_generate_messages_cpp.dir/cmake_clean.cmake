@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/include/fiducial_slam/AddFiducial.h"
+  "/home/wego/Auto-Race/devel/include/fiducial_slam/AddFiducial.h"
   "CMakeFiles/fiducial_slam_generate_messages_cpp"
 )
 

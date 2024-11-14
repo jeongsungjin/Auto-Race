@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/share/gennodejs/ros/lane_detection/msg/Drive_command.js"
+  "/home/wego/Auto-Race/devel/share/gennodejs/ros/lane_detection/msg/Drive_command.js"
   "CMakeFiles/lane_detection_generate_messages_nodejs"
 )
 

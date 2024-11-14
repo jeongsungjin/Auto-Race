@@ -17,7 +17,7 @@ class RubberconeOrangeDetection:
         try:
             self.bridge = CvBridge()
 
-            rospy.Subscriber("/usb_cam/image_rect_color", Image, self.cameraCB)
+            rospy.Subscriber("/usb_cam/image_raw", Image, self.cameraCB)
             self.is_orange_pub = rospy.Publisher("/is_orange", Bool, queue_size=1)
 
 

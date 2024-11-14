@@ -1,4 +1,4 @@
-prefix=/home/foscar/Auto-Race-/devel
+prefix=/home/wego/Auto-Race/devel
 
 Name: rplidar_ros
 Description: Description of rplidar_ros

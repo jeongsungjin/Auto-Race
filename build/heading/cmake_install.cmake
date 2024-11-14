@@ -1,8 +1,8 @@
-# Install script for directory: /home/foscar/Auto-Race-/src/heading
+# Install script for directory: /home/wego/Auto-Race/src/heading
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/foscar/Auto-Race-/install")
+  set(CMAKE_INSTALL_PREFIX "/home/wego/Auto-Race/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/foscar/Auto-Race-/build/heading/catkin_generated/installspace/heading.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/wego/Auto-Race/build/heading/catkin_generated/installspace/heading.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/heading/cmake" TYPE FILE FILES
-    "/home/foscar/Auto-Race-/build/heading/catkin_generated/installspace/headingConfig.cmake"
-    "/home/foscar/Auto-Race-/build/heading/catkin_generated/installspace/headingConfig-version.cmake"
+    "/home/wego/Auto-Race/build/heading/catkin_generated/installspace/headingConfig.cmake"
+    "/home/wego/Auto-Race/build/heading/catkin_generated/installspace/headingConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/heading" TYPE FILE FILES "/home/foscar/Auto-Race-/src/heading/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/heading" TYPE FILE FILES "/home/wego/Auto-Race/src/heading/package.xml")
 endif()
 

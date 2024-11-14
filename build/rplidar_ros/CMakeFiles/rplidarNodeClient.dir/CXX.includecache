@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/foscar/Auto-Race-/src/rplidar_ros/src/client.cpp
+/home/wego/Auto-Race/src/rplidar_ros/src/client.cpp
 ros/ros.h
-/home/foscar/Auto-Race-/src/rplidar_ros/src/ros/ros.h
+/home/wego/Auto-Race/src/rplidar_ros/src/ros/ros.h
 sensor_msgs/LaserScan.h
-/home/foscar/Auto-Race-/src/rplidar_ros/src/sensor_msgs/LaserScan.h
+/home/wego/Auto-Race/src/rplidar_ros/src/sensor_msgs/LaserScan.h
 
 /opt/ros/noetic/include/ros/advertise_options.h
 ros/forwards.h
@@ -283,8 +283,6 @@ ros/init.h
 /opt/ros/noetic/include/ros/ros/init.h
 common.h
 /opt/ros/noetic/include/ros/common.h
-boost/bind.hpp
--
 xmlrpcpp/XmlRpcValue.h
 -
 
@@ -329,7 +327,7 @@ ros/message.h
 /opt/ros/noetic/include/ros/ros/message.h
 ros/serialization.h
 /opt/ros/noetic/include/ros/ros/serialization.h
-boost/bind.hpp
+boost/bind/bind.hpp
 -
 boost/thread/mutex.hpp
 -

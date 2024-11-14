@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/lib/libobstacle_extractor.pdb"
-  "/home/foscar/Auto-Race-/devel/lib/libobstacle_extractor.so"
+  "/home/wego/Auto-Race/devel/lib/libobstacle_extractor.pdb"
+  "/home/wego/Auto-Race/devel/lib/libobstacle_extractor.so"
   "CMakeFiles/obstacle_extractor.dir/src/obstacle_extractor.cpp.o"
 )
 

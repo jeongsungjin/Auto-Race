@@ -7,4 +7,4 @@
 # new environment variables
 
 # modified environment variables
-export PWD='/home/foscar/Auto-Race-/build'
+export PWD='/home/wego/Auto-Race/build'

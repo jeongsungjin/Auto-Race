@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/lib/libobstacle_detector_nodelets.pdb"
-  "/home/foscar/Auto-Race-/devel/lib/libobstacle_detector_nodelets.so"
+  "/home/wego/Auto-Race/devel/lib/libobstacle_detector_nodelets.pdb"
+  "/home/wego/Auto-Race/devel/lib/libobstacle_detector_nodelets.so"
   "CMakeFiles/obstacle_detector_nodelets.dir/src/nodelets/obstacle_extractor_nodelet.cpp.o"
   "CMakeFiles/obstacle_detector_nodelets.dir/src/nodelets/obstacle_publisher_nodelet.cpp.o"
   "CMakeFiles/obstacle_detector_nodelets.dir/src/nodelets/obstacle_tracker_nodelet.cpp.o"

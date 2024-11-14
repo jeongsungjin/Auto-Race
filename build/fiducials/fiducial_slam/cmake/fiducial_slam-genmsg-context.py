@@ -1,7 +1,7 @@
 # generated from genmsg/cmake/pkg-genmsg.context.in
 
 messages_str = ""
-services_str = "/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/srv/AddFiducial.srv"
+services_str = "/home/wego/Auto-Race/src/fiducials/fiducial_slam/srv/AddFiducial.srv"
 pkg_name = "fiducial_slam"
 dependencies_str = "std_msgs"
 langs = "gencpp;geneus;genlisp;gennodejs;genpy"

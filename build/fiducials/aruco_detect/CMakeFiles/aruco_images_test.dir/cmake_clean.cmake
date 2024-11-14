@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/lib/aruco_detect/aruco_images_test"
-  "/home/foscar/Auto-Race-/devel/lib/aruco_detect/aruco_images_test.pdb"
+  "/home/wego/Auto-Race/devel/lib/aruco_detect/aruco_images_test"
+  "/home/wego/Auto-Race/devel/lib/aruco_detect/aruco_images_test.pdb"
   "CMakeFiles/aruco_images_test.dir/test/aruco_images_test.cpp.o"
 )
 

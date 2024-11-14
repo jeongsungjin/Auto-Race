@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/share/gennodejs/ros/car_planner/msg/Drive_command.js"
+  "/home/wego/Auto-Race/devel/share/gennodejs/ros/car_planner/msg/Drive_command.js"
   "CMakeFiles/car_planner_generate_messages_nodejs"
 )
 

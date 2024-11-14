@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt
@@ -20,7 +22,7 @@ class SlideWindow:
         self.left_cnt = 25
         self.right_cnt = 25
 
-        self.x_previous = 280
+        self.x_previous = 320
 
 
     def slidewindow(self, img, roi_flag):

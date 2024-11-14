@@ -17,9 +17,9 @@ add_custom_target(fiducial_slam_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/srv/AddFiducial.srv" NAME_WE)
+get_filename_component(_filename "/home/wego/Auto-Race/src/fiducials/fiducial_slam/srv/AddFiducial.srv" NAME_WE)
 add_custom_target(_fiducial_slam_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "fiducial_slam" "/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/srv/AddFiducial.srv" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "fiducial_slam" "/home/wego/Auto-Race/src/fiducials/fiducial_slam/srv/AddFiducial.srv" ""
 )
 
 #
@@ -31,7 +31,7 @@ add_custom_target(_fiducial_slam_generate_messages_check_deps_${_filename}
 
 ### Generating Services
 _generate_srv_cpp(fiducial_slam
-  "/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/srv/AddFiducial.srv"
+  "/home/wego/Auto-Race/src/fiducials/fiducial_slam/srv/AddFiducial.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/fiducial_slam
@@ -49,7 +49,7 @@ add_custom_target(fiducial_slam_generate_messages_cpp
 add_dependencies(fiducial_slam_generate_messages fiducial_slam_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/srv/AddFiducial.srv" NAME_WE)
+get_filename_component(_filename "/home/wego/Auto-Race/src/fiducials/fiducial_slam/srv/AddFiducial.srv" NAME_WE)
 add_dependencies(fiducial_slam_generate_messages_cpp _fiducial_slam_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -64,7 +64,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS fiducial_slam_generate_messages_cpp
 
 ### Generating Services
 _generate_srv_eus(fiducial_slam
-  "/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/srv/AddFiducial.srv"
+  "/home/wego/Auto-Race/src/fiducials/fiducial_slam/srv/AddFiducial.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/fiducial_slam
@@ -82,7 +82,7 @@ add_custom_target(fiducial_slam_generate_messages_eus
 add_dependencies(fiducial_slam_generate_messages fiducial_slam_generate_messages_eus)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/srv/AddFiducial.srv" NAME_WE)
+get_filename_component(_filename "/home/wego/Auto-Race/src/fiducials/fiducial_slam/srv/AddFiducial.srv" NAME_WE)
 add_dependencies(fiducial_slam_generate_messages_eus _fiducial_slam_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -97,7 +97,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS fiducial_slam_generate_messages_eus
 
 ### Generating Services
 _generate_srv_lisp(fiducial_slam
-  "/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/srv/AddFiducial.srv"
+  "/home/wego/Auto-Race/src/fiducials/fiducial_slam/srv/AddFiducial.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/fiducial_slam
@@ -115,7 +115,7 @@ add_custom_target(fiducial_slam_generate_messages_lisp
 add_dependencies(fiducial_slam_generate_messages fiducial_slam_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/srv/AddFiducial.srv" NAME_WE)
+get_filename_component(_filename "/home/wego/Auto-Race/src/fiducials/fiducial_slam/srv/AddFiducial.srv" NAME_WE)
 add_dependencies(fiducial_slam_generate_messages_lisp _fiducial_slam_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -130,7 +130,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS fiducial_slam_generate_messages_lis
 
 ### Generating Services
 _generate_srv_nodejs(fiducial_slam
-  "/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/srv/AddFiducial.srv"
+  "/home/wego/Auto-Race/src/fiducials/fiducial_slam/srv/AddFiducial.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/fiducial_slam
@@ -148,7 +148,7 @@ add_custom_target(fiducial_slam_generate_messages_nodejs
 add_dependencies(fiducial_slam_generate_messages fiducial_slam_generate_messages_nodejs)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/srv/AddFiducial.srv" NAME_WE)
+get_filename_component(_filename "/home/wego/Auto-Race/src/fiducials/fiducial_slam/srv/AddFiducial.srv" NAME_WE)
 add_dependencies(fiducial_slam_generate_messages_nodejs _fiducial_slam_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -163,7 +163,7 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS fiducial_slam_generate_messages_nod
 
 ### Generating Services
 _generate_srv_py(fiducial_slam
-  "/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/srv/AddFiducial.srv"
+  "/home/wego/Auto-Race/src/fiducials/fiducial_slam/srv/AddFiducial.srv"
   "${MSG_I_FLAGS}"
   ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/fiducial_slam
@@ -181,7 +181,7 @@ add_custom_target(fiducial_slam_generate_messages_py
 add_dependencies(fiducial_slam_generate_messages fiducial_slam_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/home/foscar/Auto-Race-/src/fiducials/fiducial_slam/srv/AddFiducial.srv" NAME_WE)
+get_filename_component(_filename "/home/wego/Auto-Race/src/fiducials/fiducial_slam/srv/AddFiducial.srv" NAME_WE)
 add_dependencies(fiducial_slam_generate_messages_py _fiducial_slam_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

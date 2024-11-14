@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/lib/libackermann_cmd_mux_nodelet.pdb"
-  "/home/foscar/Auto-Race-/devel/lib/libackermann_cmd_mux_nodelet.so"
+  "/home/wego/Auto-Race/devel/lib/libackermann_cmd_mux_nodelet.pdb"
+  "/home/wego/Auto-Race/devel/lib/libackermann_cmd_mux_nodelet.so"
   "CMakeFiles/ackermann_cmd_mux_nodelet.dir/src/ackermann_cmd_mux_nodelet.cpp.o"
   "CMakeFiles/ackermann_cmd_mux_nodelet.dir/src/ackermann_cmd_subscribers.cpp.o"
 )

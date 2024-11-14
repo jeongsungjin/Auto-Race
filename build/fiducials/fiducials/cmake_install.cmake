@@ -1,8 +1,8 @@
-# Install script for directory: /home/foscar/Auto-Race-/src/fiducials/fiducials
+# Install script for directory: /home/wego/Auto-Race/src/fiducials/fiducials
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/foscar/Auto-Race-/install")
+  set(CMAKE_INSTALL_PREFIX "/home/wego/Auto-Race/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,6 +38,6 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/fiducials" TYPE FILE FILES "/home/foscar/Auto-Race-/src/fiducials/fiducials/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/fiducials" TYPE FILE FILES "/home/wego/Auto-Race/src/fiducials/fiducials/package.xml")
 endif()
 

@@ -1,16 +1,16 @@
 
 "use strict";
 
-let CircleObstacle = require('./CircleObstacle.js');
+let Drive_command = require('./Drive_command.js');
 let Obstacles = require('./Obstacles.js');
 let Waypoint = require('./Waypoint.js');
-let Drive_command = require('./Drive_command.js');
+let CircleObstacle = require('./CircleObstacle.js');
 let SegmentObstacle = require('./SegmentObstacle.js');
 
 module.exports = {
-  CircleObstacle: CircleObstacle,
+  Drive_command: Drive_command,
   Obstacles: Obstacles,
   Waypoint: Waypoint,
-  Drive_command: Drive_command,
+  CircleObstacle: CircleObstacle,
   SegmentObstacle: SegmentObstacle,
 };

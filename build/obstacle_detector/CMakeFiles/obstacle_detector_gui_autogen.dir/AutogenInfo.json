@@ -1,53 +1,51 @@
 {
-	"BUILD_DIR" : "/home/foscar/Auto-Race-/build/obstacle_detector/obstacle_detector_gui_autogen",
-	"CMAKE_BINARY_DIR" : "/home/foscar/Auto-Race-/build",
-	"CMAKE_CURRENT_BINARY_DIR" : "/home/foscar/Auto-Race-/build/obstacle_detector",
-	"CMAKE_CURRENT_SOURCE_DIR" : "/home/foscar/Auto-Race-/src/obstacle_detector",
-	"CMAKE_EXECUTABLE" : "/home/foscar/.local/lib/python3.8/site-packages/cmake/data/bin/cmake",
-	"CMAKE_SOURCE_DIR" : "/home/foscar/Auto-Race-/src",
-	"DEP_FILE" : "",
-	"DEP_FILE_RULE_NAME" : "",
+	"BUILD_DIR" : "/home/wego/Auto-Race/build/obstacle_detector/obstacle_detector_gui_autogen",
+	"CMAKE_BINARY_DIR" : "/home/wego/Auto-Race/build",
+	"CMAKE_CURRENT_BINARY_DIR" : "/home/wego/Auto-Race/build/obstacle_detector",
+	"CMAKE_CURRENT_SOURCE_DIR" : "/home/wego/Auto-Race/src/obstacle_detector",
+	"CMAKE_EXECUTABLE" : "/usr/bin/cmake",
+	"CMAKE_SOURCE_DIR" : "/home/wego/Auto-Race/src",
 	"HEADERS" : 
 	[
 		[
-			"/home/foscar/Auto-Race-/src/obstacle_detector/include/obstacle_detector/displays/circle_visual.h",
+			"/home/wego/Auto-Race/src/obstacle_detector/include/obstacle_detector/displays/circle_visual.h",
 			"Mu",
 			"3BZPV6XJTP/moc_circle_visual.cpp"
 		],
 		[
-			"/home/foscar/Auto-Race-/src/obstacle_detector/include/obstacle_detector/displays/obstacles_display.h",
+			"/home/wego/Auto-Race/src/obstacle_detector/include/obstacle_detector/displays/obstacles_display.h",
 			"Mu",
 			"3BZPV6XJTP/moc_obstacles_display.cpp"
 		],
 		[
-			"/home/foscar/Auto-Race-/src/obstacle_detector/include/obstacle_detector/displays/segment_visual.h",
+			"/home/wego/Auto-Race/src/obstacle_detector/include/obstacle_detector/displays/segment_visual.h",
 			"Mu",
 			"3BZPV6XJTP/moc_segment_visual.cpp"
 		],
 		[
-			"/home/foscar/Auto-Race-/src/obstacle_detector/include/obstacle_detector/panels/obstacle_extractor_panel.h",
+			"/home/wego/Auto-Race/src/obstacle_detector/include/obstacle_detector/panels/obstacle_extractor_panel.h",
 			"Mu",
 			"ICV2ETXXBG/moc_obstacle_extractor_panel.cpp"
 		],
 		[
-			"/home/foscar/Auto-Race-/src/obstacle_detector/include/obstacle_detector/panels/obstacle_publisher_panel.h",
+			"/home/wego/Auto-Race/src/obstacle_detector/include/obstacle_detector/panels/obstacle_publisher_panel.h",
 			"Mu",
 			"ICV2ETXXBG/moc_obstacle_publisher_panel.cpp"
 		],
 		[
-			"/home/foscar/Auto-Race-/src/obstacle_detector/include/obstacle_detector/panels/obstacle_tracker_panel.h",
+			"/home/wego/Auto-Race/src/obstacle_detector/include/obstacle_detector/panels/obstacle_tracker_panel.h",
 			"Mu",
 			"ICV2ETXXBG/moc_obstacle_tracker_panel.cpp"
 		],
 		[
-			"/home/foscar/Auto-Race-/src/obstacle_detector/include/obstacle_detector/panels/scans_merger_panel.h",
+			"/home/wego/Auto-Race/src/obstacle_detector/include/obstacle_detector/panels/scans_merger_panel.h",
 			"Mu",
 			"ICV2ETXXBG/moc_scans_merger_panel.cpp"
 		]
 	],
 	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
-	"INCLUDE_DIR" : "/home/foscar/Auto-Race-/build/obstacle_detector/obstacle_detector_gui_autogen/include",
-	"MOC_COMPILATION_FILE" : "/home/foscar/Auto-Race-/build/obstacle_detector/obstacle_detector_gui_autogen/mocs_compilation.cpp",
+	"INCLUDE_DIR" : "/home/wego/Auto-Race/build/obstacle_detector/obstacle_detector_gui_autogen/include",
+	"MOC_COMPILATION_FILE" : "/home/wego/Auto-Race/build/obstacle_detector/obstacle_detector_gui_autogen/mocs_compilation.cpp",
 	"MOC_DEFINITIONS" : 
 	[
 		"QT_CORE_LIB",
@@ -69,9 +67,8 @@
 	],
 	"MOC_INCLUDES" : 
 	[
-		"/home/foscar/Auto-Race-/devel/include",
-		"/home/foscar/Auto-Race-/src/include",
-		"/home/foscar/Auto-Race-/src/obstacle_detector/include",
+		"/home/wego/Auto-Race/devel/include",
+		"/home/wego/Auto-Race/src/obstacle_detector/include",
 		"/opt/ros/noetic/include",
 		"/opt/ros/noetic/include/xmlrpcpp",
 		"/usr/include/eigen3",
@@ -90,7 +87,7 @@
 		"/usr/local/include",
 		"/usr/include/x86_64-linux-gnu"
 	],
-	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE", "Q_NAMESPACE_EXPORT" ],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE" ],
 	"MOC_OPTIONS" : [],
 	"MOC_PATH_PREFIX" : true,
 	"MOC_PREDEFS_CMD" : 
@@ -99,47 +96,46 @@
 		"-dM",
 		"-E",
 		"-c",
-		"/home/foscar/.local/lib/python3.8/site-packages/cmake/data/share/cmake-3.17/Modules/CMakeCXXCompilerABI.cpp"
+		"/usr/share/cmake-3.16/Modules/CMakeCXXCompilerABI.cpp"
 	],
-	"MOC_PREDEFS_FILE" : "/home/foscar/Auto-Race-/build/obstacle_detector/obstacle_detector_gui_autogen/moc_predefs.h",
+	"MOC_PREDEFS_FILE" : "/home/wego/Auto-Race/build/obstacle_detector/obstacle_detector_gui_autogen/moc_predefs.h",
 	"MOC_RELAXED_MODE" : false,
 	"MOC_SKIP" : [],
 	"MULTI_CONFIG" : false,
-	"PARALLEL" : 8,
-	"PARSE_CACHE_FILE" : "/home/foscar/Auto-Race-/build/obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/ParseCache.txt",
+	"PARALLEL" : 4,
+	"PARSE_CACHE_FILE" : "/home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/ParseCache.txt",
 	"QT_MOC_EXECUTABLE" : "/usr/lib/qt5/bin/moc",
 	"QT_UIC_EXECUTABLE" : "",
 	"QT_VERSION_MAJOR" : 5,
-	"QT_VERSION_MINOR" : 12,
-	"SETTINGS_FILE" : "/home/foscar/Auto-Race-/build/obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/AutogenUsed.txt",
+	"SETTINGS_FILE" : "/home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
 		[
-			"/home/foscar/Auto-Race-/src/obstacle_detector/src/displays/circle_visual.cpp",
+			"/home/wego/Auto-Race/src/obstacle_detector/src/displays/circle_visual.cpp",
 			"Mu"
 		],
 		[
-			"/home/foscar/Auto-Race-/src/obstacle_detector/src/displays/obstacles_display.cpp",
+			"/home/wego/Auto-Race/src/obstacle_detector/src/displays/obstacles_display.cpp",
 			"Mu"
 		],
 		[
-			"/home/foscar/Auto-Race-/src/obstacle_detector/src/displays/segment_visual.cpp",
+			"/home/wego/Auto-Race/src/obstacle_detector/src/displays/segment_visual.cpp",
 			"Mu"
 		],
 		[
-			"/home/foscar/Auto-Race-/src/obstacle_detector/src/panels/obstacle_extractor_panel.cpp",
+			"/home/wego/Auto-Race/src/obstacle_detector/src/panels/obstacle_extractor_panel.cpp",
 			"Mu"
 		],
 		[
-			"/home/foscar/Auto-Race-/src/obstacle_detector/src/panels/obstacle_publisher_panel.cpp",
+			"/home/wego/Auto-Race/src/obstacle_detector/src/panels/obstacle_publisher_panel.cpp",
 			"Mu"
 		],
 		[
-			"/home/foscar/Auto-Race-/src/obstacle_detector/src/panels/obstacle_tracker_panel.cpp",
+			"/home/wego/Auto-Race/src/obstacle_detector/src/panels/obstacle_tracker_panel.cpp",
 			"Mu"
 		],
 		[
-			"/home/foscar/Auto-Race-/src/obstacle_detector/src/panels/scans_merger_panel.cpp",
+			"/home/wego/Auto-Race/src/obstacle_detector/src/panels/scans_merger_panel.cpp",
 			"Mu"
 		]
 	],

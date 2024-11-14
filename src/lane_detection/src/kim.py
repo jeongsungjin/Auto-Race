@@ -37,7 +37,7 @@ class LaneDetectionROS:
         rospy.init_node('lane_detection_ros', anonymous=True)  # ROS 노드 초기화
         self.bridge = CvBridge()  # CvBridge 초기화
         # 카메라 이미지를 구독하고 콜백 함수 지정
-        self.image_sub = rospy.Subscriber('/usb_cam/image_rect_color', Image, self.image_callback)
+        self.image_sub = rospy.Subscriber('/usb_cam/image_raw', Image, self.image_callback)
         # 차량의 속도 및 조향 명령을 퍼블리시할 주제와 메시지 타입 설정
         self.ctrl_cmd_pub = rospy.Publisher('/motor_lane', Drive_command, queue_size=1)
         self.ctrl_cmd_msg = Drive_command()  # 제어 명령 메시지 초기화

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/foscar/Auto-Race-/devel/include/aruco_detect/DetectorParamsConfig.h
+/home/wego/Auto-Race/devel/include/aruco_detect/DetectorParamsConfig.h
 dynamic_reconfigure/config_tools.h
 -
 limits
@@ -24,7 +24,7 @@ dynamic_reconfigure/config_init_mutex.h
 boost/any.hpp
 -
 
-/home/foscar/Auto-Race-/devel/include/fiducial_msgs/Fiducial.h
+/home/wego/Auto-Race/devel/include/fiducial_msgs/Fiducial.h
 string
 -
 vector
@@ -40,7 +40,7 @@ ros/builtin_message_traits.h
 ros/message_operations.h
 -
 
-/home/foscar/Auto-Race-/devel/include/fiducial_msgs/FiducialArray.h
+/home/wego/Auto-Race/devel/include/fiducial_msgs/FiducialArray.h
 string
 -
 vector
@@ -60,7 +60,7 @@ std_msgs/Header.h
 fiducial_msgs/Fiducial.h
 -
 
-/home/foscar/Auto-Race-/devel/include/fiducial_msgs/FiducialTransform.h
+/home/wego/Auto-Race/devel/include/fiducial_msgs/FiducialTransform.h
 string
 -
 vector
@@ -78,7 +78,7 @@ ros/message_operations.h
 geometry_msgs/Transform.h
 -
 
-/home/foscar/Auto-Race-/devel/include/fiducial_msgs/FiducialTransformArray.h
+/home/wego/Auto-Race/devel/include/fiducial_msgs/FiducialTransformArray.h
 string
 -
 vector
@@ -98,7 +98,7 @@ std_msgs/Header.h
 fiducial_msgs/FiducialTransform.h
 -
 
-/home/foscar/Auto-Race-/src/fiducials/aruco_detect/src/aruco_detect.cpp
+/home/wego/Auto-Race/src/fiducials/aruco_detect/src/aruco_detect.cpp
 assert.h
 -
 sys/time.h
@@ -136,15 +136,15 @@ std_srvs/SetBool.h
 std_msgs/String.h
 -
 fiducial_msgs/Fiducial.h
-/home/foscar/Auto-Race-/src/fiducials/aruco_detect/src/fiducial_msgs/Fiducial.h
+/home/wego/Auto-Race/src/fiducials/aruco_detect/src/fiducial_msgs/Fiducial.h
 fiducial_msgs/FiducialArray.h
-/home/foscar/Auto-Race-/src/fiducials/aruco_detect/src/fiducial_msgs/FiducialArray.h
+/home/wego/Auto-Race/src/fiducials/aruco_detect/src/fiducial_msgs/FiducialArray.h
 fiducial_msgs/FiducialTransform.h
-/home/foscar/Auto-Race-/src/fiducials/aruco_detect/src/fiducial_msgs/FiducialTransform.h
+/home/wego/Auto-Race/src/fiducials/aruco_detect/src/fiducial_msgs/FiducialTransform.h
 fiducial_msgs/FiducialTransformArray.h
-/home/foscar/Auto-Race-/src/fiducials/aruco_detect/src/fiducial_msgs/FiducialTransformArray.h
+/home/wego/Auto-Race/src/fiducials/aruco_detect/src/fiducial_msgs/FiducialTransformArray.h
 aruco_detect/DetectorParamsConfig.h
-/home/foscar/Auto-Race-/src/fiducials/aruco_detect/src/aruco_detect/DetectorParamsConfig.h
+/home/wego/Auto-Race/src/fiducials/aruco_detect/src/aruco_detect/DetectorParamsConfig.h
 vision_msgs/Detection2D.h
 -
 vision_msgs/Detection2DArray.h
@@ -1091,8 +1091,6 @@ ros/init.h
 /opt/ros/noetic/include/ros/ros/init.h
 common.h
 /opt/ros/noetic/include/ros/common.h
-boost/bind.hpp
--
 xmlrpcpp/XmlRpcValue.h
 -
 
@@ -1137,7 +1135,7 @@ ros/message.h
 /opt/ros/noetic/include/ros/ros/message.h
 ros/serialization.h
 /opt/ros/noetic/include/ros/ros/serialization.h
-boost/bind.hpp
+boost/bind/bind.hpp
 -
 boost/thread/mutex.hpp
 -

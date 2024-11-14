@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/share/gennodejs/ros/sign_slowdown/msg/Drive_command.js"
+  "/home/wego/Auto-Race/devel/share/gennodejs/ros/sign_slowdown/msg/Drive_command.js"
   "CMakeFiles/sign_slowdown_generate_messages_nodejs"
 )
 

@@ -1,4 +1,4 @@
-prefix=/home/foscar/Auto-Race-/devel
+prefix=/home/wego/Auto-Race/devel
 
 Name: scalecar
 Description: Description of scalecar

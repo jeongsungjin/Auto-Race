@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/share/common-lisp/ros/fiducial_slam/srv/AddFiducial.lisp"
+  "/home/wego/Auto-Race/devel/share/common-lisp/ros/fiducial_slam/srv/AddFiducial.lisp"
   "CMakeFiles/fiducial_slam_generate_messages_lisp"
 )
 

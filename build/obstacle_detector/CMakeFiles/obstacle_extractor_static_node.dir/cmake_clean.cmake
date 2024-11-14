@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/lib/obstacle_detector/obstacle_extractor_static_node"
-  "/home/foscar/Auto-Race-/devel/lib/obstacle_detector/obstacle_extractor_static_node.pdb"
+  "/home/wego/Auto-Race/devel/lib/obstacle_detector/obstacle_extractor_static_node"
+  "/home/wego/Auto-Race/devel/lib/obstacle_detector/obstacle_extractor_static_node.pdb"
   "CMakeFiles/obstacle_extractor_static_node.dir/src/nodes/obstacle_extractor_static_node.cpp.o"
 )
 

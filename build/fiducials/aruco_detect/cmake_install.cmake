@@ -1,8 +1,8 @@
-# Install script for directory: /home/foscar/Auto-Race-/src/fiducials/aruco_detect
+# Install script for directory: /home/wego/Auto-Race/src/fiducials/aruco_detect
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/foscar/Auto-Race-/install")
+  set(CMAKE_INSTALL_PREFIX "/home/wego/Auto-Race/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,38 +38,38 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/foscar/Auto-Race-/build/fiducials/aruco_detect/catkin_generated/safe_execute_install.cmake")
+  include("/home/wego/Auto-Race/build/fiducials/aruco_detect/catkin_generated/safe_execute_install.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/aruco_detect" TYPE FILE FILES "/home/foscar/Auto-Race-/devel/include/aruco_detect/DetectorParamsConfig.h")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include/aruco_detect" TYPE FILE FILES "/home/wego/Auto-Race/devel/include/aruco_detect/DetectorParamsConfig.h")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/aruco_detect" TYPE FILE FILES "/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/aruco_detect/__init__.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/aruco_detect" TYPE FILE FILES "/home/wego/Auto-Race/devel/lib/python3/dist-packages/aruco_detect/__init__.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/aruco_detect/cfg")
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/wego/Auto-Race/devel/lib/python3/dist-packages/aruco_detect/cfg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/aruco_detect" TYPE DIRECTORY FILES "/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/aruco_detect/cfg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages/aruco_detect" TYPE DIRECTORY FILES "/home/wego/Auto-Race/devel/lib/python3/dist-packages/aruco_detect/cfg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/foscar/Auto-Race-/build/fiducials/aruco_detect/catkin_generated/installspace/aruco_detect.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/wego/Auto-Race/build/fiducials/aruco_detect/catkin_generated/installspace/aruco_detect.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_detect/cmake" TYPE FILE FILES
-    "/home/foscar/Auto-Race-/build/fiducials/aruco_detect/catkin_generated/installspace/aruco_detectConfig.cmake"
-    "/home/foscar/Auto-Race-/build/fiducials/aruco_detect/catkin_generated/installspace/aruco_detectConfig-version.cmake"
+    "/home/wego/Auto-Race/build/fiducials/aruco_detect/catkin_generated/installspace/aruco_detectConfig.cmake"
+    "/home/wego/Auto-Race/build/fiducials/aruco_detect/catkin_generated/installspace/aruco_detectConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_detect" TYPE FILE FILES "/home/foscar/Auto-Race-/src/fiducials/aruco_detect/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_detect" TYPE FILE FILES "/home/wego/Auto-Race/src/fiducials/aruco_detect/package.xml")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -79,7 +79,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
          FILE "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/aruco_detect/aruco_detect"
          RPATH "")
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/aruco_detect" TYPE EXECUTABLE FILES "/home/foscar/Auto-Race-/devel/lib/aruco_detect/aruco_detect")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/aruco_detect" TYPE EXECUTABLE FILES "/home/wego/Auto-Race/devel/lib/aruco_detect/aruco_detect")
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/aruco_detect/aruco_detect" AND
      NOT IS_SYMLINK "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/aruco_detect/aruco_detect")
     file(RPATH_CHANGE
@@ -93,10 +93,10 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/aruco_detect" TYPE PROGRAM FILES "/home/foscar/Auto-Race-/build/fiducials/aruco_detect/catkin_generated/installspace/create_markers.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/aruco_detect" TYPE PROGRAM FILES "/home/wego/Auto-Race/build/fiducials/aruco_detect/catkin_generated/installspace/create_markers.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_detect/launch" TYPE DIRECTORY FILES "/home/foscar/Auto-Race-/src/fiducials/aruco_detect/launch/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/aruco_detect/launch" TYPE DIRECTORY FILES "/home/wego/Auto-Race/src/fiducials/aruco_detect/launch/")
 endif()
 

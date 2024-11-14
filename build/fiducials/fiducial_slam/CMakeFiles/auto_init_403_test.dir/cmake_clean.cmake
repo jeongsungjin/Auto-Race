@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/lib/fiducial_slam/auto_init_403_test"
-  "/home/foscar/Auto-Race-/devel/lib/fiducial_slam/auto_init_403_test.pdb"
+  "/home/wego/Auto-Race/devel/lib/fiducial_slam/auto_init_403_test"
+  "/home/wego/Auto-Race/devel/lib/fiducial_slam/auto_init_403_test.pdb"
   "CMakeFiles/auto_init_403_test.dir/test/auto_init_403_test.cpp.o"
 )
 

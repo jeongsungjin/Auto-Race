@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/share/common-lisp/ros/lane_detection/msg/Drive_command.lisp"
+  "/home/wego/Auto-Race/devel/share/common-lisp/ros/lane_detection/msg/Drive_command.lisp"
   "CMakeFiles/lane_detection_generate_messages_lisp"
 )
 

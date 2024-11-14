@@ -67,14 +67,14 @@ set(razor_imu_9dof_CONFIG_INCLUDED TRUE)
 
 # set variables for source/devel/install prefixes
 if("FALSE" STREQUAL "TRUE")
-  set(razor_imu_9dof_SOURCE_PREFIX /home/foscar/Auto-Race-/src/razor_imu_9dof)
-  set(razor_imu_9dof_DEVEL_PREFIX /home/foscar/Auto-Race-/devel)
+  set(razor_imu_9dof_SOURCE_PREFIX /home/wego/Auto-Race/src/razor_imu_9dof)
+  set(razor_imu_9dof_DEVEL_PREFIX /home/wego/Auto-Race/devel)
   set(razor_imu_9dof_INSTALL_PREFIX "")
   set(razor_imu_9dof_PREFIX ${razor_imu_9dof_DEVEL_PREFIX})
 else()
   set(razor_imu_9dof_SOURCE_PREFIX "")
   set(razor_imu_9dof_DEVEL_PREFIX "")
-  set(razor_imu_9dof_INSTALL_PREFIX /home/foscar/Auto-Race-/install)
+  set(razor_imu_9dof_INSTALL_PREFIX /home/wego/Auto-Race/install)
   set(razor_imu_9dof_PREFIX ${razor_imu_9dof_INSTALL_PREFIX})
 endif()
 
@@ -154,7 +154,7 @@ foreach(library ${libraries})
     set(lib_path "")
     set(lib "${library}-NOTFOUND")
     # since the path where the library is found is returned we have to iterate over the paths manually
-    foreach(path /home/foscar/Auto-Race-/install/lib;/home/foscar/Auto-Race-/devel/lib;/home/foscar/iscc_2024/devel/lib;/home/foscar/sensor_fusion_final_2024/devel/lib;/opt/ros/noetic/lib)
+    foreach(path /home/wego/Auto-Race/install/lib;/home/wego/Auto-Race/devel/lib;/home/wego/catkin_ws/devel/lib;/opt/ros/noetic/lib)
       find_library(lib ${library}
         PATHS ${path}
         NO_DEFAULT_PATH NO_CMAKE_FIND_ROOT_PATH)

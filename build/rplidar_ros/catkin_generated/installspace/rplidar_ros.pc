@@ -1,4 +1,4 @@
-prefix=/home/foscar/Auto-Race-/install
+prefix=/home/wego/Auto-Race/install
 
 Name: rplidar_ros
 Description: Description of rplidar_ros

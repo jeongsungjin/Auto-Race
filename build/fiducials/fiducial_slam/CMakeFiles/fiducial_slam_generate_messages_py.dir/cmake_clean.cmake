@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/fiducial_slam/srv/_AddFiducial.py"
-  "/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/fiducial_slam/srv/__init__.py"
+  "/home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_slam/srv/_AddFiducial.py"
+  "/home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_slam/srv/__init__.py"
   "CMakeFiles/fiducial_slam_generate_messages_py"
 )
 

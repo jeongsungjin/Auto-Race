@@ -43,7 +43,7 @@ class LaneDetection(object):
         
         try:
             # 카메라와 IMU 데이터 구독
-            rospy.Subscriber("/usb_cam/image_rect_color", Image, self.cameraCB)
+            rospy.Subscriber("/usb_cam/image_raw", Image, self.cameraCB)
 
             # 모터 제어 명령과 현재 속도 퍼블리셔 설정
             self.ctrl_cmd_pub = rospy.Publisher('/motor_lane', Drive_command, queue_size=1)
@@ -59,13 +59,13 @@ class LaneDetection(object):
 
             # ---------------------------튜닝 해야하는 값 ------------------------------#
             self.steer = 0.0  # 조향각 초기화
-            self.motor = 0.5  # 모터 속도 초기화
+            self.motor = 0.2  # 모터 속도 초기화
            
             # 원래 잘되던 버전
             if self.version == 'fast':
                 self.pid = PID(0.78, 0.0005, 0.405) 
             else:
-                self.pid = PID(0.7, 0.0008, 0.15)
+                self.pid = PID(0.7, 0.0, 0.15)
             #--------------------------------------------------------------------------#
             self.cv_image = None  # 카메라 이미지 초기화
             
@@ -91,7 +91,7 @@ class LaneDetection(object):
                     if self.version == 'fast':
                         self.motor = 0.7 
                     else:
-                        self.motor = 0.35
+                        self.motor = 0.2
                     
                     self.publishCtrlCmd(self.motor, self.steer)  # 제어 명령 퍼블리시
 

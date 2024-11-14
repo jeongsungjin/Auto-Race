@@ -1,11 +1,11 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/include/fiducial_msgs/Fiducial.h"
-  "/home/foscar/Auto-Race-/devel/include/fiducial_msgs/FiducialArray.h"
-  "/home/foscar/Auto-Race-/devel/include/fiducial_msgs/FiducialMapEntry.h"
-  "/home/foscar/Auto-Race-/devel/include/fiducial_msgs/FiducialMapEntryArray.h"
-  "/home/foscar/Auto-Race-/devel/include/fiducial_msgs/FiducialTransform.h"
-  "/home/foscar/Auto-Race-/devel/include/fiducial_msgs/FiducialTransformArray.h"
-  "/home/foscar/Auto-Race-/devel/include/fiducial_msgs/InitializeMap.h"
+  "/home/wego/Auto-Race/devel/include/fiducial_msgs/Fiducial.h"
+  "/home/wego/Auto-Race/devel/include/fiducial_msgs/FiducialArray.h"
+  "/home/wego/Auto-Race/devel/include/fiducial_msgs/FiducialMapEntry.h"
+  "/home/wego/Auto-Race/devel/include/fiducial_msgs/FiducialMapEntryArray.h"
+  "/home/wego/Auto-Race/devel/include/fiducial_msgs/FiducialTransform.h"
+  "/home/wego/Auto-Race/devel/include/fiducial_msgs/FiducialTransformArray.h"
+  "/home/wego/Auto-Race/devel/include/fiducial_msgs/InitializeMap.h"
   "CMakeFiles/fiducial_msgs_generate_messages_cpp"
 )
 

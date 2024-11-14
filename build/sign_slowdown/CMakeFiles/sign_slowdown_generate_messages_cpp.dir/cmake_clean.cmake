@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/include/sign_slowdown/Drive_command.h"
+  "/home/wego/Auto-Race/devel/include/sign_slowdown/Drive_command.h"
   "CMakeFiles/sign_slowdown_generate_messages_cpp"
 )
 

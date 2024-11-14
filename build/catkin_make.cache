@@ -1,2 +1,2 @@
-car_planner:cv_detect:fiducials/aruco_detect:fiducials/fiducial_msgs:fiducials/fiducial_slam:fiducials/fiducials:heading:lane_detection:lanenet:obstacle_detector:racecar/ackermann_cmd_mux:racecar/racecar:razor_imu_9dof:rplidar_ros:scalecar:sensor_manager:sign_slowdown
--DCATKIN_DEVEL_PREFIX=/home/foscar/Auto-Race-/devel -DCMAKE_INSTALL_PREFIX=/home/foscar/Auto-Race-/install -G Unix Makefiles
+car_planner:cv_detect:fiducials/aruco_detect:fiducials/fiducial_msgs:fiducials/fiducial_slam:fiducials/fiducials:heading:lane_detection:obstacle_detector:racecar/ackermann_cmd_mux:racecar/racecar:razor_imu_9dof:rplidar_ros:scalecar:sensor_manager:sign_slowdown
+-DCATKIN_DEVEL_PREFIX=/home/wego/Auto-Race/devel -DCMAKE_INSTALL_PREFIX=/home/wego/Auto-Race/install -G Unix Makefiles

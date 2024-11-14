@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/share/common-lisp/ros/sign_slowdown/msg/Drive_command.lisp"
+  "/home/wego/Auto-Race/devel/share/common-lisp/ros/sign_slowdown/msg/Drive_command.lisp"
   "CMakeFiles/sign_slowdown_generate_messages_lisp"
 )
 

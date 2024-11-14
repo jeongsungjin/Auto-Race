@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/foscar/Auto-Race-/src
-# Build directory: /home/foscar/Auto-Race-/build
+# Source directory: /home/wego/Auto-Race/src
+# Build directory: /home/wego/Auto-Race/build
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
@@ -11,7 +11,6 @@ subdirs("car_planner")
 subdirs("heading")
 subdirs("lane_detection")
 subdirs("cv_detect")
-subdirs("lanenet")
 subdirs("scalecar")
 subdirs("sensor_manager")
 subdirs("sign_slowdown")

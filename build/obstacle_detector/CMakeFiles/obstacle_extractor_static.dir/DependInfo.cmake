@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/foscar/Auto-Race-/src/obstacle_detector/src/obstacle_extractor_static.cpp" "/home/foscar/Auto-Race-/build/obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/src/obstacle_extractor_static.cpp.o"
+  "/home/wego/Auto-Race/src/obstacle_detector/src/obstacle_extractor_static.cpp" "/home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/src/obstacle_extractor_static.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -19,9 +19,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/foscar/Auto-Race-/devel/include"
-  "/home/foscar/Auto-Race-/src/include"
-  "/home/foscar/Auto-Race-/src/obstacle_detector/include"
+  "/home/wego/Auto-Race/devel/include"
+  "/home/wego/Auto-Race/src/obstacle_detector/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   "/usr/include/eigen3"

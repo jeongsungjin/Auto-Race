@@ -1,8 +1,8 @@
-prefix=/home/foscar/Auto-Race-/devel
+prefix=/home/wego/Auto-Race/devel
 
 Name: fiducial_msgs
 Description: Description of fiducial_msgs
 Version: 0.12.0
-Cflags: -I/home/foscar/Auto-Race-/devel/include
+Cflags: -I/home/wego/Auto-Race/devel/include
 Libs: -L${prefix}/lib 
 Requires: message_runtime

@@ -71,7 +71,7 @@ class Controller():
         rospy.Subscriber("/motor_rabacon", Drive_command, self.ctrlRabaconCB)  # rabacon 미션용 주행 데이터 구독
         rospy.Subscriber('/motor_roundabout', Drive_command, self.crtlRoundaboutCB)
         
-        rospy.Subscriber("obstacles", Obstacles, self.staticObstacle_callback)  # 장애물 데이터 구독
+        rospy.Subscriber("/obstacles", Obstacles, self.staticObstacle_callback)  # 장애물 데이터 구독
         rospy.Subscriber("/raw_obstacles_rubbercone", Obstacles, self.rubberconeObstacleCB)
 
         self.drive_pub = rospy.Publisher("high_level/ackermann_cmd_mux/input/nav_0", AckermannDriveStamped, queue_size=1)  # 차량 주행 명령 퍼블리셔
@@ -185,7 +185,11 @@ class Controller():
             rospy.loginfo(f"STEER: {self.steer}")
             rospy.loginfo(f"")
 
-
+            if self.steer > 110:
+                self.steer = 110
+            elif self.steer < -110:
+                self.steer = -110
+                
             self.publishCtrlCmd(self.motor, self.steer)
 
 
@@ -199,7 +203,7 @@ class Controller():
         self.publishing_data = AckermannDriveStamped()  # AckermannDriveStamped 메시지 객체 생성
         self.publishing_data.header.stamp = rospy.Time.now()  # 메시지에 현재 시간을 기록
         self.publishing_data.header.frame_id = "base_link"  # 메시지의 참조 프레임을 "base_link"로 설정
-        self.publishing_data.drive.steering_angle = servo_msg * 0.003  # 차선 위치 오차에 따라 조향 각도 결정
+        self.publishing_data.drive.steering_angle = -servo_msg * 0.002  # 차선 위치 오차에 따라 조향 각도 결정
         self.publishing_data.drive.speed = motor_msg  # 차선 주행 속도(speed_lane)를 설정
         self.drive_pub.publish(self.publishing_data)  # 설정한 속도와 조향 각도 메시지를 퍼블리시하여 차량에 적용
 

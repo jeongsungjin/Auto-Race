@@ -1,8 +1,8 @@
-prefix=/home/foscar/Auto-Race-/devel
+prefix=/home/wego/Auto-Race/devel
 
 Name: car_planner
 Description: Description of car_planner
 Version: 0.0.0
-Cflags: -I/home/foscar/Auto-Race-/devel/include
+Cflags: -I/home/wego/Auto-Race/devel/include
 Libs: -L${prefix}/lib 
 Requires: 

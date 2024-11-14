@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/lib/libscans_merger.pdb"
-  "/home/foscar/Auto-Race-/devel/lib/libscans_merger.so"
+  "/home/wego/Auto-Race/devel/lib/libscans_merger.pdb"
+  "/home/wego/Auto-Race/devel/lib/libscans_merger.so"
   "CMakeFiles/scans_merger.dir/src/scans_merger.cpp.o"
 )
 

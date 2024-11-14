@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import rospy
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
@@ -15,7 +17,7 @@ class LaneDetectionROS:
         # ROS 노드 초기화
         rospy.init_node('lane_detection_ros', anonymous=True)
         self.bridge = CvBridge()
-        self.image_sub = rospy.Subscriber('/usb_cam/image_rect_color', Image, self.image_callback)
+        self.image_sub = rospy.Subscriber('/usb_cam/image_raw', Image, self.image_callback)
 
         # SlideWindow 객체 초기화
         self.slidewindow = SlideWindow()

@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/foscar/Auto-Race-/devel/include/obstacle_detector/CircleObstacle.h
+/home/wego/Auto-Race/devel/include/obstacle_detector/CircleObstacle.h
 string
 -
 vector
@@ -26,7 +26,7 @@ geometry_msgs/Point.h
 geometry_msgs/Vector3.h
 -
 
-/home/foscar/Auto-Race-/devel/include/obstacle_detector/Obstacles.h
+/home/wego/Auto-Race/devel/include/obstacle_detector/Obstacles.h
 string
 -
 vector
@@ -48,7 +48,7 @@ obstacle_detector/SegmentObstacle.h
 obstacle_detector/CircleObstacle.h
 -
 
-/home/foscar/Auto-Race-/devel/include/obstacle_detector/SegmentObstacle.h
+/home/wego/Auto-Race/devel/include/obstacle_detector/SegmentObstacle.h
 string
 -
 vector
@@ -68,7 +68,7 @@ geometry_msgs/Point.h
 geometry_msgs/Point.h
 -
 
-/home/foscar/Auto-Race-/src/obstacle_detector/include/obstacle_detector/obstacle_publisher.h
+/home/wego/Auto-Race/src/obstacle_detector/include/obstacle_detector/obstacle_publisher.h
 ros/ros.h
 -
 std_srvs/Empty.h
@@ -76,9 +76,9 @@ std_srvs/Empty.h
 obstacle_detector/Obstacles.h
 -
 
-/home/foscar/Auto-Race-/src/obstacle_detector/src/obstacle_publisher.cpp
+/home/wego/Auto-Race/src/obstacle_detector/src/obstacle_publisher.cpp
 obstacle_detector/obstacle_publisher.h
-/home/foscar/Auto-Race-/src/obstacle_detector/src/obstacle_detector/obstacle_publisher.h
+/home/wego/Auto-Race/src/obstacle_detector/src/obstacle_detector/obstacle_publisher.h
 
 /opt/ros/noetic/include/geometry_msgs/Point.h
 string
@@ -383,8 +383,6 @@ ros/init.h
 /opt/ros/noetic/include/ros/ros/init.h
 common.h
 /opt/ros/noetic/include/ros/common.h
-boost/bind.hpp
--
 xmlrpcpp/XmlRpcValue.h
 -
 
@@ -429,7 +427,7 @@ ros/message.h
 /opt/ros/noetic/include/ros/ros/message.h
 ros/serialization.h
 /opt/ros/noetic/include/ros/ros/serialization.h
-boost/bind.hpp
+boost/bind/bind.hpp
 -
 boost/thread/mutex.hpp
 -

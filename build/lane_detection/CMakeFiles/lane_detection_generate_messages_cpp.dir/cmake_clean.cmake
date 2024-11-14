@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/include/lane_detection/Drive_command.h"
+  "/home/wego/Auto-Race/devel/include/lane_detection/Drive_command.h"
   "CMakeFiles/lane_detection_generate_messages_cpp"
 )
 

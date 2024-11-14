@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/foscar/Auto-Race-/src/fiducials/aruco_detect/src/aruco_detect.cpp" "/home/foscar/Auto-Race-/build/fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/src/aruco_detect.cpp.o"
+  "/home/wego/Auto-Race/src/fiducials/aruco_detect/src/aruco_detect.cpp" "/home/wego/Auto-Race/build/fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/src/aruco_detect.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -17,8 +17,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/home/foscar/Auto-Race-/devel/include"
-  "/home/foscar/Auto-Race-/src/include"
+  "/home/wego/Auto-Race/devel/include"
   "/opt/ros/noetic/include"
   "/opt/ros/noetic/share/xmlrpcpp/cmake/../../../include/xmlrpcpp"
   "/usr/include/eigen3"

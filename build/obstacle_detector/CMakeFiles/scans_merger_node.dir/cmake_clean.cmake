@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/lib/obstacle_detector/scans_merger_node"
-  "/home/foscar/Auto-Race-/devel/lib/obstacle_detector/scans_merger_node.pdb"
+  "/home/wego/Auto-Race/devel/lib/obstacle_detector/scans_merger_node"
+  "/home/wego/Auto-Race/devel/lib/obstacle_detector/scans_merger_node.pdb"
   "CMakeFiles/scans_merger_node.dir/src/nodes/scans_merger_node.cpp.o"
 )
 

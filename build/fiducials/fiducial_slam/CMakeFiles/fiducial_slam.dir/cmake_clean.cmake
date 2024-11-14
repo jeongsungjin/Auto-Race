@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/lib/fiducial_slam/fiducial_slam"
-  "/home/foscar/Auto-Race-/devel/lib/fiducial_slam/fiducial_slam.pdb"
+  "/home/wego/Auto-Race/devel/lib/fiducial_slam/fiducial_slam"
+  "/home/wego/Auto-Race/devel/lib/fiducial_slam/fiducial_slam.pdb"
   "CMakeFiles/fiducial_slam.dir/src/fiducial_slam.cpp.o"
   "CMakeFiles/fiducial_slam.dir/src/map.cpp.o"
   "CMakeFiles/fiducial_slam.dir/src/transform_with_variance.cpp.o"

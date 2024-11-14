@@ -14,10 +14,10 @@
     </include>
 
     <!-- STATIC 주행 로직 진행 -->
-    <include file="$(find obstacle_detector)/launch/static_obstacle.launch">
+    <!-- <include file="$(find obstacle_detector)/launch/static_obstacle.launch">
         <arg name="version" value="$(arg version)"/>
         <arg name="direction" value="$(arg direction)"/>
-    </include>
+    </include> -->
 
     <!-- DYNAMIC 주행 로직 진행 -->
     <include file="$(find obstacle_detector)/launch/dynamic_obstacle.launch">
@@ -49,14 +49,14 @@
         <param name="version" value="$(arg version)"/>
     </node>
 
-    <!-- <include file="$(find racecar)/launch/teleop.launch"/> -->
+    <include file="$(find racecar)/launch/teleop.launch"/> 
     <!-- 장애물 탐지 관련 -->
-    <!-- <include file="$(find obstacle_detector)/launch/nodelets.launch">
-        <arg name="manager" value="obstacle_detector_manager"/>
-    </include> -->
-    <!-- <include file="$(find aruco_detect)/launch/aruco_detect.launch"/>
+    <!-- <include file="$(find obstacle_detector)/launch/nodelets.launch"> -->
 
-    <include file="$(find sensor_manager)/launch/sensor_process.launch" /> -->
+    <include file="$(find aruco_detect)/launch/aruco_detect.launch"/>
+
+    <include file="$(find sensor_manager)/launch/sensor_process.launch" />
+
 
     <!-- RViz 설정 -->
     <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rplidar_ros)/rviz/rplidar.rviz"/>

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/share/roseus/ros/fiducial_slam/manifest.l"
-  "/home/foscar/Auto-Race-/devel/share/roseus/ros/fiducial_slam/srv/AddFiducial.l"
+  "/home/wego/Auto-Race/devel/share/roseus/ros/fiducial_slam/manifest.l"
+  "/home/wego/Auto-Race/devel/share/roseus/ros/fiducial_slam/srv/AddFiducial.l"
   "CMakeFiles/fiducial_slam_generate_messages_eus"
 )
 

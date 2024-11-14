@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/share/gennodejs/ros/fiducial_slam/srv/AddFiducial.js"
+  "/home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_slam/srv/AddFiducial.js"
   "CMakeFiles/fiducial_slam_generate_messages_nodejs"
 )
 

@@ -1,8 +1,8 @@
-# Install script for directory: /home/foscar/Auto-Race-/src/lane_detection
+# Install script for directory: /home/wego/Auto-Race/src/lane_detection
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/foscar/Auto-Race-/install")
+  set(CMAKE_INSTALL_PREFIX "/home/wego/Auto-Race/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,72 +38,72 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lane_detection/msg" TYPE FILE FILES "/home/foscar/Auto-Race-/src/lane_detection/msg/Drive_command.msg")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lane_detection/msg" TYPE FILE FILES "/home/wego/Auto-Race/src/lane_detection/msg/Drive_command.msg")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lane_detection/cmake" TYPE FILE FILES "/home/foscar/Auto-Race-/build/lane_detection/catkin_generated/installspace/lane_detection-msg-paths.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lane_detection/cmake" TYPE FILE FILES "/home/wego/Auto-Race/build/lane_detection/catkin_generated/installspace/lane_detection-msg-paths.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/foscar/Auto-Race-/devel/include/lane_detection")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "/home/wego/Auto-Race/devel/include/lane_detection")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/foscar/Auto-Race-/devel/share/roseus/ros/lane_detection")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/roseus/ros" TYPE DIRECTORY FILES "/home/wego/Auto-Race/devel/share/roseus/ros/lane_detection")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/foscar/Auto-Race-/devel/share/common-lisp/ros/lane_detection")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/common-lisp/ros" TYPE DIRECTORY FILES "/home/wego/Auto-Race/devel/share/common-lisp/ros/lane_detection")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/foscar/Auto-Race-/devel/share/gennodejs/ros/lane_detection")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/gennodejs/ros" TYPE DIRECTORY FILES "/home/wego/Auto-Race/devel/share/gennodejs/ros/lane_detection")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/lane_detection")
+  execute_process(COMMAND "/usr/bin/python3" -m compileall "/home/wego/Auto-Race/devel/lib/python3/dist-packages/lane_detection")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/foscar/Auto-Race-/devel/lib/python3/dist-packages/lane_detection")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/python3/dist-packages" TYPE DIRECTORY FILES "/home/wego/Auto-Race/devel/lib/python3/dist-packages/lane_detection")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/foscar/Auto-Race-/build/lane_detection/catkin_generated/installspace/lane_detection.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/wego/Auto-Race/build/lane_detection/catkin_generated/installspace/lane_detection.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lane_detection/cmake" TYPE FILE FILES "/home/foscar/Auto-Race-/build/lane_detection/catkin_generated/installspace/lane_detection-msg-extras.cmake")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lane_detection/cmake" TYPE FILE FILES
-    "/home/foscar/Auto-Race-/build/lane_detection/catkin_generated/installspace/lane_detectionConfig.cmake"
-    "/home/foscar/Auto-Race-/build/lane_detection/catkin_generated/installspace/lane_detectionConfig-version.cmake"
-    )
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lane_detection" TYPE FILE FILES "/home/foscar/Auto-Race-/src/lane_detection/package.xml")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/foscar/Auto-Race-/build/lane_detection/catkin_generated/installspace/lane_detection.pc")
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lane_detection/cmake" TYPE FILE FILES "/home/foscar/Auto-Race-/build/lane_detection/catkin_generated/installspace/lane_detection-msg-extras.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lane_detection/cmake" TYPE FILE FILES "/home/wego/Auto-Race/build/lane_detection/catkin_generated/installspace/lane_detection-msg-extras.cmake")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lane_detection/cmake" TYPE FILE FILES
-    "/home/foscar/Auto-Race-/build/lane_detection/catkin_generated/installspace/lane_detectionConfig.cmake"
-    "/home/foscar/Auto-Race-/build/lane_detection/catkin_generated/installspace/lane_detectionConfig-version.cmake"
+    "/home/wego/Auto-Race/build/lane_detection/catkin_generated/installspace/lane_detectionConfig.cmake"
+    "/home/wego/Auto-Race/build/lane_detection/catkin_generated/installspace/lane_detectionConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lane_detection" TYPE FILE FILES "/home/foscar/Auto-Race-/src/lane_detection/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lane_detection" TYPE FILE FILES "/home/wego/Auto-Race/src/lane_detection/package.xml")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/wego/Auto-Race/build/lane_detection/catkin_generated/installspace/lane_detection.pc")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lane_detection/cmake" TYPE FILE FILES "/home/wego/Auto-Race/build/lane_detection/catkin_generated/installspace/lane_detection-msg-extras.cmake")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lane_detection/cmake" TYPE FILE FILES
+    "/home/wego/Auto-Race/build/lane_detection/catkin_generated/installspace/lane_detectionConfig.cmake"
+    "/home/wego/Auto-Race/build/lane_detection/catkin_generated/installspace/lane_detectionConfig-version.cmake"
+    )
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/lane_detection" TYPE FILE FILES "/home/wego/Auto-Race/src/lane_detection/package.xml")
 endif()
 

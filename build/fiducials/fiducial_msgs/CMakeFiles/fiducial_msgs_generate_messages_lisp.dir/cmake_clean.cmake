@@ -1,11 +1,11 @@
 file(REMOVE_RECURSE
-  "/home/foscar/Auto-Race-/devel/share/common-lisp/ros/fiducial_msgs/msg/Fiducial.lisp"
-  "/home/foscar/Auto-Race-/devel/share/common-lisp/ros/fiducial_msgs/msg/FiducialArray.lisp"
-  "/home/foscar/Auto-Race-/devel/share/common-lisp/ros/fiducial_msgs/msg/FiducialMapEntry.lisp"
-  "/home/foscar/Auto-Race-/devel/share/common-lisp/ros/fiducial_msgs/msg/FiducialMapEntryArray.lisp"
-  "/home/foscar/Auto-Race-/devel/share/common-lisp/ros/fiducial_msgs/msg/FiducialTransform.lisp"
-  "/home/foscar/Auto-Race-/devel/share/common-lisp/ros/fiducial_msgs/msg/FiducialTransformArray.lisp"
-  "/home/foscar/Auto-Race-/devel/share/common-lisp/ros/fiducial_msgs/srv/InitializeMap.lisp"
+  "/home/wego/Auto-Race/devel/share/common-lisp/ros/fiducial_msgs/msg/Fiducial.lisp"
+  "/home/wego/Auto-Race/devel/share/common-lisp/ros/fiducial_msgs/msg/FiducialArray.lisp"
+  "/home/wego/Auto-Race/devel/share/common-lisp/ros/fiducial_msgs/msg/FiducialMapEntry.lisp"
+  "/home/wego/Auto-Race/devel/share/common-lisp/ros/fiducial_msgs/msg/FiducialMapEntryArray.lisp"
+  "/home/wego/Auto-Race/devel/share/common-lisp/ros/fiducial_msgs/msg/FiducialTransform.lisp"
+  "/home/wego/Auto-Race/devel/share/common-lisp/ros/fiducial_msgs/msg/FiducialTransformArray.lisp"
+  "/home/wego/Auto-Race/devel/share/common-lisp/ros/fiducial_msgs/srv/InitializeMap.lisp"
   "CMakeFiles/fiducial_msgs_generate_messages_lisp"
 )
 
