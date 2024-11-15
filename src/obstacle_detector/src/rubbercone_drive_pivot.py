@@ -61,7 +61,7 @@ class WaypointMaker:
         if self.version == 'fast':
             self.motor = 0.7 # 일단
         else:
-            self.motor = 0.35
+            self.motor = 0.2
 
         rospy.loginfo(f"RUBBERCONE: {self.version}")
         
@@ -180,7 +180,7 @@ class WaypointMaker:
             self.flag = True
 
         angle_rad = math.atan(slope)
-        angle_deg = -math.degrees(angle_rad)
+        angle_deg = -8 * math.degrees(angle_rad)
         # print(angle_deg)
 
 
@@ -203,8 +203,8 @@ class WaypointMaker:
     
 
     def publishCtrlCmd(self, motor_msg, servo_msg, flag):
-        self.ctrl_cmd_msg.speed = round(motor_msg)  # 모터 속도 설정
-        self.ctrl_cmd_msg.angle = round(servo_msg)  # 조향각 설정
+        self.ctrl_cmd_msg.speed = (motor_msg)  # 모터 속도 설정
+        self.ctrl_cmd_msg.angle = (servo_msg)  # 조향각 설정
         self.ctrl_cmd_msg.flag = flag
         self.ctrl_cmd_pub.publish(self.ctrl_cmd_msg)  # 명령 퍼블리시
 

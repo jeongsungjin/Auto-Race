@@ -58,7 +58,7 @@ class CrossingGate():
                 continue
 
             if len(self.obstacles) > 0:
-                if (-0.6 < self.closest_obstacle.x < 0) and (-0.15 <= self.closest_obstacle.y <= 0.15): # 좌표기반 말고 뭐든지.. 새로운 조건을 and로 주세요 카메라를 쓰던, 라이다클러스터링을 쓰던, 카운터를 쓰던
+                if (-0.9< self.closest_obstacle.x < 0) and (-0.2 <= self.closest_obstacle.y <= 0.2): # 좌표기반 말고 뭐든지.. 새로운 조건을 and로 주세요 카메라를 쓰던, 라이다클러스터링을 쓰던, 카운터를 쓰던
                     self.publishCtrlCmd(0.0 , 0.0, True)
 
                 else:

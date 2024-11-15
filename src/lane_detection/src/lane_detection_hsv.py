@@ -54,6 +54,9 @@ class LaneDetectionROS:
         
         self.ctrl_cmd_msg = Drive_command()  # 모터 제어 메시지 초기화
 
+        self.crosswalk = True
+        self.stop_count = 0
+        self.closest_obstacle = None
         # SlideWindow 객체 초기화
         self.slidewindow = SlideWindow()
         
@@ -62,7 +65,7 @@ class LaneDetectionROS:
         # ---------------------------튜닝 해야하는 값 ------------------------------#
         self.steer = 0.0  # 조향각 초기화
         self.motor = 0.5  # 모터 속도 초기화
-        self.k_p = 0.5
+        self.k_p = 10
 
         if self.version == 'fast':
             self.pid = PID(0.78, 0.0005, 0.405) 
@@ -78,8 +81,10 @@ class LaneDetectionROS:
         #초기 HSV 범위 설정
         self.lower_yellow = np.array([29, 66, 105])
         self.upper_yellow = np.array([68, 192, 255])
-        self.lower_white = np.array([179, 255, 255])
-        self.upper_white = np.array([0, 0, 0])
+        self.lower_white = np.array([0, 0, 235])
+        self.upper_white = np.array([0, 255, 255])
+        self.lower_red = np.array([0, 25, 150])
+        self.upper_red = np.array([5, 255, 255])
 
         # 트랙바 윈도우 생성
         cv2.namedWindow("Trackbars")
@@ -99,6 +104,13 @@ class LaneDetectionROS:
         cv2.createTrackbar("White Upper H", "Trackbars", self.upper_white[0], 179, self.nothing)
         cv2.createTrackbar("White Upper S", "Trackbars", self.upper_white[1], 255, self.nothing)
         cv2.createTrackbar("White Upper V", "Trackbars", self.upper_white[2], 255, self.nothing)
+
+        cv2.createTrackbar("Red Lower H", "Trackbars", self.lower_red[0], 179, self.nothing)
+        cv2.createTrackbar("Red Lower S", "Trackbars", self.lower_red[1], 255, self.nothing)
+        cv2.createTrackbar("Red Lower V", "Trackbars", self.lower_red[2], 255, self.nothing)
+        cv2.createTrackbar("Red Upper H", "Trackbars", self.upper_red[0], 179, self.nothing)
+        cv2.createTrackbar("Red Upper S", "Trackbars", self.upper_red[1], 255, self.nothing)
+        cv2.createTrackbar("Red Upper V", "Trackbars", self.upper_red[2], 255, self.nothing)
 
         self.pub_x_location = rospy.Publisher('/lane_x_location', Float32, queue_size=1)
 
@@ -145,6 +157,17 @@ class LaneDetectionROS:
                     cv2.getTrackbarPos("White Upper S", "Trackbars"),
                     cv2.getTrackbarPos("White Upper V", "Trackbars")
                 ])
+                
+                self.lower_red = np.array([
+                    cv2.getTrackbarPos("Red Lower H", "Trackbars"),
+                    cv2.getTrackbarPos("Red Lower S", "Trackbars"),
+                    cv2.getTrackbarPos("Red Lower V", "Trackbars")
+                ])
+                self.upper_red = np.array([
+                    cv2.getTrackbarPos("Red Upper H", "Trackbars"),
+                    cv2.getTrackbarPos("Red Upper S", "Trackbars"),
+                    cv2.getTrackbarPos("Red Upper V", "Trackbars")
+                ])
 
                 # 이미지 처리
                 y, x = frame_resized.shape[0:2]
@@ -156,15 +179,83 @@ class LaneDetectionROS:
                 # 노란색 및 흰색 마스크 생성
                 mask_yellow = cv2.inRange(img_hsv, self.lower_yellow, self.upper_yellow)
                 mask_white = cv2.inRange(img_hsv, self.lower_white, self.upper_white)
+
+                # 빨간색 감속
+                mask_red = cv2.inRange(img_hsv, self.lower_red, self.upper_red) 
+
                 filtered_yellow = cv2.bitwise_and(frame_resized, frame_resized, mask=mask_yellow)
                 filtered_white = cv2.bitwise_and(frame_resized, frame_resized, mask=mask_white)
-                masks = cv2.bitwise_or(mask_yellow, mask_white)
-                filtered_img = cv2.bitwise_and(frame_resized, frame_resized, mask=masks)
-                yellow_pixels = cv2.countNonZero(mask_yellow)
+                filtered_red = cv2.bitwise_and(frame_resized, frame_resized, mask=mask_red)
 
-                if yellow_pixels < 500:  # 노란색 픽셀 수 500은 환경에 따라 조정 가능
+                filtered_img = cv2.bitwise_and(frame_resized, frame_resized, mask=mask_yellow)
+                yellow_pixels = cv2.countNonZero(mask_yellow)                       
+
+
+                # Perspective Transform
+                left_margin = 200
+                top_margin = 340
+                # src_point1 = [100, 460]      # 왼쪽 아래
+                # src_point2 = [left_margin+20, top_margin]
+                # src_point3 = [x-left_margin-20, top_margin]
+                # src_point4 = [x -100, 460]  
+
+                src_point1 = [128, 400]      # 왼쪽 아래
+                src_point2 = [left_margin, top_margin]
+                src_point3 = [x-left_margin, top_margin]
+                src_point4 = [520, 400] 
+
+                src_points = np.float32([src_point1, src_point2, src_point3, src_point4])
+
+                dst_point1 = [x//4, 460]    # 왼쪽 아래
+                dst_point2 = [x//4, 0]      # 왼쪽 위
+                dst_point3 = [x//4*3, 0]    # 오른쪽 위
+                dst_point4 = [x//4*3, 460]  # 오른쪽 아래
+
+                dst_points = np.float32([dst_point1, dst_point2, dst_point3, dst_point4])
+                
+
+                matrix = cv2.getPerspectiveTransform(src_points, dst_points)
+                
+
+                warped_img = cv2.warpPerspective(filtered_img, matrix, (640, 480))
+                warped_img_white = cv2.warpPerspective(mask_white, matrix, (640, 480))
+
+                # 기존 HSV 방식에서 다시 살리기
+                grayed_img = cv2.cvtColor(warped_img , cv2.COLOR_BGR2GRAY)
+
+                # 이미지 이진화
+                bin_img = np.zeros_like(grayed_img)
+                bin_img[grayed_img > 20] = 1 
+
+                # 슬라이딩 윈도우 차선 검출
+                out_img, x_location, _ = self.slidewindow.slidewindow(bin_img)
+
+                # self.steer = (self.pid.pid_control(x_location - 320))  # PID 제어를 통한 각도 계산
+                self.steer = (x_location - 320)
+                if self.version == 'fast':
+                    self.motor = 0.5 
+                else:
+                    self.motor = 0.4      
+
+                
+                # 미션 2: 빨간색 차로 구간에서 감속
+                if np.count_nonzero(mask_red) > 5000:  # 빨간색 픽셀 개수 기준 감속 여부 판단
+                    self.motor = 0.1  # 감속
+                    print("빨강빨강~")
+
+                # 미션 3: 흰색 횡단보도 구간에서 정지
+                elif self.stop_count < 220 and np.count_nonzero(warped_img_white) > 50000: # 흰색 픽셀 개수 기준 정지 여부 판단
+                    print("흰색 만나서 정지한 횟수", self.stop_count)
+                    self.motor = 0.0
+                    self.stop_count += 1
+                    # rospy.sleep(8)  # 8초 동안 정지
+                    # self.motor = 0.5
+
+                elif yellow_pixels < 5000:  # 노란색 픽셀 수 500은 환경에 따라 조정 가능
                     # 노란색 차선이 없을 때 수행할 로직
                     print("Yellow lane not detected!")
+                    print(yellow_pixels)
+
                     if self.gt_heading is None:
                         # 초기 gt_heading 설정
                         if self.real_heading is not None:  # self.real_heading이 None이 아닌지 확인
@@ -180,78 +271,36 @@ class LaneDetectionROS:
 
                     else:
                         if(len(self.obstacles) > 0):
-                            for obstacle in self.obstacles:
-                                # 좌측 터널 벽 감지 (x 좌표가 left_threshold_x 이상이고 장애물의 거리가 임계값 이하일 때)
-                                if - 0.3 < obstacle.x < 0.0 and 0.0 < obstacle.y < 0.3: # 왼쪽 벽 근접
-                                    self.gt_heading -= 0.05  # 우측으로 살짝 이동하도록 헤딩 조정
+                            # 좌측 터널 벽 감지 (x 좌표가 left_threshold_x 이상이고 장애물의 거리가 임계값 이하일 때)
+                            if 0.0 < self.closest_obstacle.y < 0.35: # 오른쪽 벽 근접
+                                self.gt_heading += 5  # 우측으로 살짝 이동하도록 헤딩 조정
+                                print("오른쪽 벽 잡힘!!!! 왼쪽으로 틀거임!!!!!!!!!!!!", self.gt_heading)
 
-                                # 우측 터널 벽 감지 (x 좌표가 right_threshold_x 이하이고 장애물의 거리가 임계값 이하일 때)
-                                elif - 0.3 < obstacle.x < 0.0 and -0.3 < obstacle.y < 0.0: # 오른쪽 벽 근접
-                                    self.gt_heading += 0.05  # 좌측으로 살짝 이동하도록 헤딩 조정
+                            # 우측 터널 벽 감지 (x 좌표가 right_threshold_x 이하이고 장애물의 거리가 임계값 이하일 때)
+                            elif -0.35 < self.closest_obstacle.y < 0.0: # 왼쪽 벽 근접
+                                self.gt_heading -= 5  # 좌측으로 살짝 이동하도록 헤딩 조정
+                                print("왼쪽 벽 잡힘!!!! 오른쪽으로 틀거임!!!!!!!!!!!!", self.gt_heading)
 
                         if self.local_heading is not None and self.gt_heading is not None: 
                             self.steer = self.k_p * (self.local_heading - self.gt_heading)
                             self.publishCtrlCmd(self.motor, self.steer)
-
                 else:
-                    print(yellow_pixels)
-                    # Perspective Transform
-                    left_margin = 200
-                    top_margin = 340
-                    # src_point1 = [100, 460]      # 왼쪽 아래
-                    # src_point2 = [left_margin+20, top_margin]
-                    # src_point3 = [x-left_margin-20, top_margin]
-                    # src_point4 = [x -100, 460]  
-
-                    src_point1 = [128, 400]      # 왼쪽 아래
-                    src_point2 = [left_margin, top_margin]
-                    src_point3 = [x-left_margin, top_margin]
-                    src_point4 = [520, 400] 
-
-                    src_points = np.float32([src_point1, src_point2, src_point3, src_point4])
-
-                    dst_point1 = [x//4, 460]    # 왼쪽 아래
-                    dst_point2 = [x//4, 0]      # 왼쪽 위
-                    dst_point3 = [x//4*3, 0]    # 오른쪽 위
-                    dst_point4 = [x//4*3, 460]  # 오른쪽 아래
-
-                    dst_points = np.float32([dst_point1, dst_point2, dst_point3, dst_point4])
-                    
-
-                    matrix = cv2.getPerspectiveTransform(src_points, dst_points)
-                    
-
-                    warped_img = cv2.warpPerspective(filtered_img, matrix, (640, 480))
-
-                    # 기존 HSV 방식에서 다시 살리기
-                    grayed_img = cv2.cvtColor(warped_img , cv2.COLOR_BGR2GRAY)
-
-                    # 이미지 이진화
-                    bin_img = np.zeros_like(grayed_img)
-                    bin_img[grayed_img > 20] = 1 
-
-                    # 슬라이딩 윈도우 차선 검출
-                    out_img, x_location, _ = self.slidewindow.slidewindow(bin_img)
-
-                    # self.steer = (self.pid.pid_control(x_location - 320))  # PID 제어를 통한 각도 계산
-                    self.steer = (x_location - 320)
-                    if self.version == 'fast':
-                        self.motor = 0.5 
-                    else:
-                        self.motor = 0.4      
-
                     self.publishCtrlCmd(self.motor, self.steer) 
-                    
-                    # 결과 표시
-                    cv2.imshow('Original Image', frame_resized)
-                    cv2.imshow("Yellow Mask", filtered_yellow)
-                    cv2.imshow("White Mask", filtered_white)
-                    cv2.imshow("Filtered Image", filtered_img)
-                    cv2.imshow("Warped Image", warped_img)
-                    cv2.imshow("Output Image", out_img)
-                    print("x_location", x_location)
-                    # 화면 업데이트 및 이벤트 처리
-                    cv2.waitKey(1)  # 1ms 동안 대기
+                print(np.count_nonzero(warped_img_white))
+
+                # 결과 표시
+                cv2.imshow('Original Image', frame_resized)
+                cv2.imshow("Yellow Mask", filtered_yellow)
+                cv2.imshow("White Mask", filtered_white)
+                cv2.imshow("Red Mask", filtered_red)
+                cv2.imshow("Filtered Image", filtered_img)
+                cv2.imshow("Warped Image", warped_img)
+                cv2.imshow("Output Image", out_img)
+                cv2.imshow("Warped White Stop Line", warped_img_white)
+
+                print("x_location", x_location)
+                # 화면 업데이트 및 이벤트 처리
+                cv2.waitKey(1)  # 1ms 동안 대기
 
             
             

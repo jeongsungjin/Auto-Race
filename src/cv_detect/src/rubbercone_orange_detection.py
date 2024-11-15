@@ -58,11 +58,11 @@ class RubberconeOrangeDetection:
 
         # Red trackbar values
         h_min_orange = 0
-        h_max_orange = 17
-        s_min_orange = 133
-        s_max_orange = 205
-        v_min_orange = 113
-        v_max_orange = 161
+        h_max_orange = 107
+        s_min_orange = 0
+        s_max_orange = 255
+        v_min_orange = 190
+        v_max_orange = 255
 
         lower_orange = np.array([h_min_orange, s_min_orange, v_min_orange])
         upper_orange = np.array([h_max_orange, s_max_orange, v_max_orange])
@@ -73,7 +73,7 @@ class RubberconeOrangeDetection:
         orange_pixel_counts = np.count_nonzero(orange_mask)
         # rospy.loginfo(f'orange_pixel_counts: {orange_pixel_counts}')
         #
-        if orange_pixel_counts > 7000:
+        if orange_pixel_counts > 30000:
             self.is_orange_msg.data = True
         else:
             self.is_orange_msg.data = False

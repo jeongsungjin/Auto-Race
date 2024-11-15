@@ -37,28 +37,28 @@ class Sign():
 
     def run(self):
         while not rospy.is_shutdown():
-            if self.lane_topic:  # self.lane_topic이 None이 아니면 퍼블리시
-                self.publish_Lane_topic(self.lane_topic)
+            # rospy.loginfo("################## ID : {}".format(self.sign_data))            if self.lane_topic:  # self.lane_topic이 None이 아니면 퍼블리시
+            self.publish_Lane_topic(self.lane_topic)
             self.rate.sleep()
 
 
     def sign_callback(self, _data):
-        if len(_data.fiducials) > 0:
+        if (len(_data.fiducials) > 0):
             self.sign_data = _data.fiducials[0].fiducial_id
-            if self.sign_data == "A":
-                self.A_cnt += 1                                
-                if self.A_cnt >= 20:
-                    self.lane_topic = "LEFT"
-                    self.A_cnt = 0
-            elif self.sign_data == "B":
-                self.B_cnt += 1                                
-                if self.B_cnt >= 20:
-                    self.lane_topic = "RIGHT"
-                    self.B_cnt = 0
+            if isinstance(self.sign_data, int):
+                if self.sign_data == 0:  # 0을 "A"로 매핑
+                    self.A_cnt += 1                                
+                    if self.A_cnt >= 20:
+                        self.lane_topic = "LEFT"
+                        self.A_cnt = 0
+                elif self.sign_data == 1:  # 1을 "B"로 매핑
+                    self.B_cnt += 1                                
+                    if self.B_cnt >= 20:
+                        self.lane_topic = "RIGHT"
+                        self.B_cnt = 0
             else:
-                self.no_sign_cnt += 1
-                if self.no_sign_cnt >= 300:
-                    self.lane_topic = None
+                rospy.logwarn("Unknown fiducial_id format")
+
 
 
     def ctrlLaneCB(self, msg):
