@@ -28,7 +28,7 @@ class CrossingGate():
         self.obstacles = []
         self.speed = 0
         self.angle = 0
-
+        self.closest_obstacle = None
         self.y_min = -0.5
         self.y_max = 0.5
         self.point_count_threshold = 50  # 차단기로 간주할 점의 개수 기준
@@ -51,37 +51,22 @@ class CrossingGate():
 
         rospy.loginfo(f"STATIC: {self.version}")
 
-        
-
+    
         rate = rospy.Rate(30)
         while not rospy.is_shutdown():
             if self.mode == 'RABACON' or self.mode == 'SIGN' or self.mode == 'DYNAMIC':
                 continue
 
             if len(self.obstacles) > 0:
-                self.publishCtrlCmd(0.0 , 0.0, True)
+                if (-0.6 < self.closest_obstacle.x < 0) and (-0.15 <= self.closest_obstacle.y <= 0.15): # 좌표기반 말고 뭐든지.. 새로운 조건을 and로 주세요 카메라를 쓰던, 라이다클러스터링을 쓰던, 카운터를 쓰던
+                    self.publishCtrlCmd(0.0 , 0.0, True)
 
-                for obstacle in self.obstacles:
-                    if len(-0.3 < obstacle.x < 0) and (-0.25 <= obstacle.y <= 0.25): # 좌표기반 말고 뭐든지.. 새로운 조건을 and로 주세요 카메라를 쓰던, 라이다클러스터링을 쓰던, 카운터를 쓰던
-                        self.publishCtrlCmd(0.0 , 0.0, True)
+                else:
+                    self.flag = False
+                    self.publishCtrlCmd(self.speed , self.angle, False)
 
-                        if self.point_count_in_y_range >= self.point_count_threshold:
-
-                            
-                            self.publishCtrlCmd(0.0 , 0.0, True)
-                            self.gate_obstacle_y_list.append(obstacle.y)
-                            
-                            if len(self.gate_obstacle_y_list) > self.gate_obstacle_y_list_max_len:
-                                self.gate_obstacle_y_list.pop(0)
-
-                            if len(self.gate_obstacle_y_list) > 2:
-                                self.gate_obstacle_y_diff = abs(self.gate_obstacle_y_list[1]-self.gate_obstacle_y_list[-2])
-                                
-                                if len(self.gate_obstacle_y_diff) > self.y_diff_threshold:
-                                    self.flag=False
-                                    continue
-
-            self.publishCtrlCmd(self.speed , self.angle, self.flag)
+            else:
+                self.publishCtrlCmd(self.speed , self.angle, False)
 
             rate.sleep()
                         

@@ -26,13 +26,13 @@ class RubberconeOrangeDetection:
             self.is_orange_msg = Bool()
 
             # 트랙바 윈도우 생성
-            # cv2.namedWindow('ORANGE Trackbars')
-            # cv2.createTrackbar('H_min_orange', 'ORANGE Trackbars', 0, 179, self.nothing)
-            # cv2.createTrackbar('H_max_orange', 'ORANGE Trackbars', 17, 179, self.nothing)
-            # cv2.createTrackbar('S_min_orange', 'ORANGE Trackbars', 133, 255, self.nothing)
-            # cv2.createTrackbar('S_max_orange', 'ORANGE Trackbars', 205, 255, self.nothing)
-            # cv2.createTrackbar('V_min_orange', 'ORANGE Trackbars', 113, 255, self.nothing)
-            # cv2.createTrackbar('V_max_orange', 'ORANGE Trackbars', 161, 255, self.nothing)
+            cv2.namedWindow('ORANGE Trackbars')
+            cv2.createTrackbar('H_min_orange', 'ORANGE Trackbars', 0, 179, self.nothing)
+            cv2.createTrackbar('H_max_orange', 'ORANGE Trackbars', 17, 179, self.nothing)
+            cv2.createTrackbar('S_min_orange', 'ORANGE Trackbars', 133, 255, self.nothing)
+            cv2.createTrackbar('S_max_orange', 'ORANGE Trackbars', 205, 255, self.nothing)
+            cv2.createTrackbar('V_min_orange', 'ORANGE Trackbars', 113, 255, self.nothing)
+            cv2.createTrackbar('V_max_orange', 'ORANGE Trackbars', 161, 255, self.nothing)
             
             rate = rospy.Rate(30)
             while not rospy.is_shutdown():
@@ -73,14 +73,12 @@ class RubberconeOrangeDetection:
         orange_pixel_counts = np.count_nonzero(orange_mask)
         # rospy.loginfo(f'orange_pixel_counts: {orange_pixel_counts}')
         #
-        if orange_pixel_counts > 10000:
+        if orange_pixel_counts > 7000:
             self.is_orange_msg.data = True
         else:
             self.is_orange_msg.data = False
         
         self.is_orange_pub.publish(self.is_orange_msg)
-
-
 
 
 if __name__ == '__main__':

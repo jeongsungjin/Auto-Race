@@ -162,97 +162,100 @@ class LaneDetectionROS:
                 filtered_img = cv2.bitwise_and(frame_resized, frame_resized, mask=masks)
                 yellow_pixels = cv2.countNonZero(mask_yellow)
 
-                # if yellow_pixels < 500:  # 노란색 픽셀 수 50은 환경에 따라 조정 가능
-                #     # 노란색 차선이 없을 때 수행할 로직
-                #     print("Yellow lane not detected!")
-                #     # if self.gt_heading is None:
-                #     #     # 터널 들어 갈 때 값이 아닌, 실험적으로 값 찾아서 하드코딩 하는게 더 좋을거같음(imu값 잘변함 heading을 하드코딩은 위험)
-                #     #     # 초기 heading n개의 평균을 내서 안정적인 초기 heading 채택 방법도 괜찮을듯
-                #     #     # 라이다로 충돌 방지도 추가 우측, 좌측 근접한 roi에 터널 벽이 잡힌다면, 이와 멀어지는 방향으로 gt_heading 수정
-                #     #     if self.gt_heading is None:
-                #     #         if len(self.gt_heading_list) < 10:
-                #     #             self.gt_heading_list.append(self.real_heading)
-                #     #         else:
-                #     #             self.gt_heading = np.mean(self.gt_heading_list)
+                if yellow_pixels < 500:  # 노란색 픽셀 수 500은 환경에 따라 조정 가능
+                    # 노란색 차선이 없을 때 수행할 로직
+                    print("Yellow lane not detected!")
+                    if self.gt_heading is None:
+                        # 초기 gt_heading 설정
+                        if self.real_heading is not None:  # self.real_heading이 None이 아닌지 확인
+                            self.gt_heading_list = [h for h in self.gt_heading_list if h is not None]  # None 값 제거
+                            if len(self.gt_heading_list) < 10:  # 리스트가 10개 미만이면 값 추가
+                                self.gt_heading_list.append(self.real_heading)
+                            else:
+                                # gt_heading_list가 충분한 값이 있으면 평균 계산
+                                if len(self.gt_heading_list) > 0:
+                                    self.gt_heading = np.mean(self.gt_heading_list)
+                                else:
+                                    rospy.logwarn("gt_heading_list is empty, cannot calculate mean.")
 
-                #     # else:
-                #     #     if(len(self.obstacles) > 0):
-                #     #         for obstacle in self.obstacles:
-                #     #             # 좌측 터널 벽 감지 (x 좌표가 left_threshold_x 이상이고 장애물의 거리가 임계값 이하일 때)
-                #     #             if - 0.3 < obstacle.x < 0.0 and 0.0 < obstacle.y < 0.3: # 왼쪽 벽 근접
-                #     #                 self.gt_heading -= 0.05  # 우측으로 살짝 이동하도록 헤딩 조정
+                    else:
+                        if(len(self.obstacles) > 0):
+                            for obstacle in self.obstacles:
+                                # 좌측 터널 벽 감지 (x 좌표가 left_threshold_x 이상이고 장애물의 거리가 임계값 이하일 때)
+                                if - 0.3 < obstacle.x < 0.0 and 0.0 < obstacle.y < 0.3: # 왼쪽 벽 근접
+                                    self.gt_heading -= 0.05  # 우측으로 살짝 이동하도록 헤딩 조정
 
-                #     #             # 우측 터널 벽 감지 (x 좌표가 right_threshold_x 이하이고 장애물의 거리가 임계값 이하일 때)
-                #     #             elif - 0.3 < obstacle.x < 0.0 and -0.3 < obstacle.y < 0.0: # 오른쪽 벽 근접
-                #     #                 self.gt_heading += 0.05  # 좌측으로 살짝 이동하도록 헤딩 조정
+                                # 우측 터널 벽 감지 (x 좌표가 right_threshold_x 이하이고 장애물의 거리가 임계값 이하일 때)
+                                elif - 0.3 < obstacle.x < 0.0 and -0.3 < obstacle.y < 0.0: # 오른쪽 벽 근접
+                                    self.gt_heading += 0.05  # 좌측으로 살짝 이동하도록 헤딩 조정
 
-                #     #     if self.local_heading is not None and self.gt_heading is not None: 
-                #     #         self.steer = self.k_p * (self.local_heading - self.gt_heading)
-                #     #         self.publishCtrlCmd(self.motor, self.steer)
+                        if self.local_heading is not None and self.gt_heading is not None: 
+                            self.steer = self.k_p * (self.local_heading - self.gt_heading)
+                            self.publishCtrlCmd(self.motor, self.steer)
 
-                # else:
-                print(yellow_pixels)
-                # Perspective Transform
-                left_margin = 200
-                top_margin = 340
-                # src_point1 = [100, 460]      # 왼쪽 아래
-                # src_point2 = [left_margin+20, top_margin]
-                # src_point3 = [x-left_margin-20, top_margin]
-                # src_point4 = [x -100, 460]  
-
-                src_point1 = [128, 400]      # 왼쪽 아래
-                src_point2 = [left_margin, top_margin]
-                src_point3 = [x-left_margin, top_margin]
-                src_point4 = [520, 400] 
-
-                src_points = np.float32([src_point1, src_point2, src_point3, src_point4])
-
-                dst_point1 = [x//4, 460]    # 왼쪽 아래
-                dst_point2 = [x//4, 0]      # 왼쪽 위
-                dst_point3 = [x//4*3, 0]    # 오른쪽 위
-                dst_point4 = [x//4*3, 460]  # 오른쪽 아래
-
-                dst_points = np.float32([dst_point1, dst_point2, dst_point3, dst_point4])
-                
-
-                matrix = cv2.getPerspectiveTransform(src_points, dst_points)
-                
-
-                warped_img = cv2.warpPerspective(filtered_img, matrix, (640, 480))
-
-                # 기존 HSV 방식에서 다시 살리기
-                grayed_img = cv2.cvtColor(warped_img , cv2.COLOR_BGR2GRAY)
-
-                # 이미지 이진화
-                bin_img = np.zeros_like(grayed_img)
-                bin_img[grayed_img > 20] = 1 
-
-                # 슬라이딩 윈도우 차선 검출
-                out_img, x_location, _ = self.slidewindow.slidewindow(bin_img)
-
-                # self.steer = (self.pid.pid_control(x_location - 320))  # PID 제어를 통한 각도 계산
-                self.steer = (x_location - 320)
-                if self.version == 'fast':
-                    self.motor = 0.5 
                 else:
-                    self.motor = 0.4      
+                    print(yellow_pixels)
+                    # Perspective Transform
+                    left_margin = 200
+                    top_margin = 340
+                    # src_point1 = [100, 460]      # 왼쪽 아래
+                    # src_point2 = [left_margin+20, top_margin]
+                    # src_point3 = [x-left_margin-20, top_margin]
+                    # src_point4 = [x -100, 460]  
 
+                    src_point1 = [128, 400]      # 왼쪽 아래
+                    src_point2 = [left_margin, top_margin]
+                    src_point3 = [x-left_margin, top_margin]
+                    src_point4 = [520, 400] 
+
+                    src_points = np.float32([src_point1, src_point2, src_point3, src_point4])
+
+                    dst_point1 = [x//4, 460]    # 왼쪽 아래
+                    dst_point2 = [x//4, 0]      # 왼쪽 위
+                    dst_point3 = [x//4*3, 0]    # 오른쪽 위
+                    dst_point4 = [x//4*3, 460]  # 오른쪽 아래
+
+                    dst_points = np.float32([dst_point1, dst_point2, dst_point3, dst_point4])
+                    
+
+                    matrix = cv2.getPerspectiveTransform(src_points, dst_points)
+                    
+
+                    warped_img = cv2.warpPerspective(filtered_img, matrix, (640, 480))
+
+                    # 기존 HSV 방식에서 다시 살리기
+                    grayed_img = cv2.cvtColor(warped_img , cv2.COLOR_BGR2GRAY)
+
+                    # 이미지 이진화
+                    bin_img = np.zeros_like(grayed_img)
+                    bin_img[grayed_img > 20] = 1 
+
+                    # 슬라이딩 윈도우 차선 검출
+                    out_img, x_location, _ = self.slidewindow.slidewindow(bin_img)
+
+                    # self.steer = (self.pid.pid_control(x_location - 320))  # PID 제어를 통한 각도 계산
+                    self.steer = (x_location - 320)
+                    if self.version == 'fast':
+                        self.motor = 0.5 
+                    else:
+                        self.motor = 0.4      
+
+                    self.publishCtrlCmd(self.motor, self.steer) 
+                    
+                    # 결과 표시
+                    cv2.imshow('Original Image', frame_resized)
+                    cv2.imshow("Yellow Mask", filtered_yellow)
+                    cv2.imshow("White Mask", filtered_white)
+                    cv2.imshow("Filtered Image", filtered_img)
+                    cv2.imshow("Warped Image", warped_img)
+                    cv2.imshow("Output Image", out_img)
+                    print("x_location", x_location)
+                    # 화면 업데이트 및 이벤트 처리
+                    cv2.waitKey(1)  # 1ms 동안 대기
+
+            
+            
                 self.publishCtrlCmd(self.motor, self.steer) 
-                
-                # 결과 표시
-                cv2.imshow('Original Image', frame_resized)
-                cv2.imshow("Yellow Mask", filtered_yellow)
-                cv2.imshow("White Mask", filtered_white)
-                cv2.imshow("Filtered Image", filtered_img)
-                cv2.imshow("Warped Image", warped_img)
-                cv2.imshow("Output Image", out_img)
-                print("x_location", x_location)
-                # 화면 업데이트 및 이벤트 처리
-                cv2.waitKey(1)  # 1ms 동안 대기
-
-            
-            
-            self.publishCtrlCmd(self.motor, self.steer) 
 
             self.rate.sleep()
 

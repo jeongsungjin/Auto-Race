@@ -1,4 +1,3 @@
-<!-- -->
 <launch>
 
   <arg name="manager" default="nodelet_manager" doc="Name of the nodelet manager"/>
@@ -6,7 +5,7 @@
   <node name="$(arg manager)" pkg="nodelet" type="nodelet" args="manager"/>
 
   <node name="scans_merger" pkg="nodelet" type="nodelet" args="load obstacle_detector/ScansMerger $(arg manager)">
-    <param name="active"            value="true"/>
+    <param name="active"            value="false"/>
     <param name="publish_scan"      value="true"/>
     <param name="publish_pcl"       value="true"/>
 
@@ -32,23 +31,27 @@
     <param name="use_split_and_merge"    value="true"/>
     <param name="circles_from_visibles"  value="true"/>
     <param name="discard_converted_segments" value="true"/>
-    <param name="transform_coordinates"  value="true"/>
+    <param name="transform_coordinates"  value="false"/>
 
     <param name="min_group_points"     value="5"/>
 
-    <param name="max_group_distance"   value="0.1"/>
+    <param name="max_group_distance"   value="0.03"/>
     <param name="distance_proportion"  value="0.00628"/>
-    <param name="max_split_distance"   value="0.2"/>
-    <param name="max_merge_separation" value="0.2"/>
-    <param name="max_merge_spread"     value="0.2"/>
-    <param name="max_circle_radius"    value="0.6"/>
-    <param name="radius_enlargement"   value="0.3"/>
+    <param name="max_split_distance"   value="0.03"/>
+    <param name="max_merge_separation" value="0.03"/>
+    <param name="max_merge_spread"     value="0.1"/>
+    <param name="max_circle_radius"    value="0.3"/>
+    <param name="radius_enlargement"   value="0.15"/>
 
     <param name="frame_id"             value="map"/>
+    <param name="min_x_limit" value="-1.0"/>
+    <param name="max_x_limit" value="0.0"/>
+    <param name="min_y_limit" value="-0.5"/>
+    <param name="max_y_limit" value="0.5"/>
   </node>
 
   <node name="obstacle_tracker" pkg="nodelet" type="nodelet" args="load obstacle_detector/ObstacleTracker $(arg manager)">
-    <param name="active"                  value="true"/>
+    <param name="active"                  value="false"/>
 
     <param name="loop_rate"               value="100.0"/>
     <param name="tracking_duration"       value="2.0"/>
@@ -83,4 +86,3 @@
   </node>
 
 </launch>
-<!-- -->

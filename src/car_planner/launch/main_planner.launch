@@ -35,9 +35,9 @@
     </include>
 
     <!-- 원형교차로 기반 주행  -->
-    <include file="$(find obstacle_detector)/launch/roundabout_drive.launch">
+    <!-- <include file="$(find obstacle_detector)/launch/roundabout_drive.launch">
         <arg name="version" value="$(arg version)"/>
-    </include>
+    </include> -->
 
     <!-- 차단기 기반 주행  -->
     <include file="$(find obstacle_detector)/launch/gwang_crossing_gate.launch">
@@ -51,8 +51,7 @@
 
     <include file="$(find racecar)/launch/teleop.launch"/> 
     <!-- 장애물 탐지 관련 -->
-    <!-- <include file="$(find obstacle_detector)/launch/nodelets.launch"> -->
-
+    <include file="$(find obstacle_detector)/launch/nodelets.launch"/>
     <include file="$(find aruco_detect)/launch/aruco_detect.launch"/>
 
     <include file="$(find sensor_manager)/launch/sensor_process.launch" />

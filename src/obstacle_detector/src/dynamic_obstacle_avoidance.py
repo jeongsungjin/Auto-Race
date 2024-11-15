@@ -25,7 +25,7 @@ class DynamicAvoidance():
 
         self.ctrl_lane = Drive_command()
         self.obstacles = []  # __init__에서 초기화
-
+        self.closest_obstacle = None
         self.speed = 0
         self.angle = 0
         self.dynamic_obstacle_y_list = []
@@ -50,18 +50,19 @@ class DynamicAvoidance():
                 continue
 
             if len(self.obstacles) > 0:
-                for obstacle in self.obstacles:
-                    #----------------- 튜닝 필요 합니다. roi!-------------------------# 
-                    if (-0.6 < obstacle.x < 0) and (-0.6 <= obstacle.y <= 0.6): 
-                    #----------------- 튜닝 필요 합니다. roi!-------------------------# 
-                        # self.flag = True
-                        self.speed = 0.35
-                        self.dynamic_obstacle_y_list.append(obstacle.y)
-                        if len(self.dynamic_obstacle_y_list) > self.dynamic_obstacle_y_list_max_len:
-                            self.dynamic_obstacle_y_list.pop(0)
+                #----------------- 튜닝 필요 합니다. roi!-------------------------# 
+                if (-0.6 < self.closest_obstacle.x < 0) and (-0.6 <= self.closest_obstacle.y <= 0.6): 
+                #----------------- 튜닝 필요 합니다. roi!-------------------------# 
+                    # self.flag = True
+                    self.speed = 0.35
+                    self.dynamic_obstacle_y_list.append(self.closest_obstacle.y)
+                    if len(self.dynamic_obstacle_y_list) > self.dynamic_obstacle_y_list_max_len:
+                        self.dynamic_obstacle_y_list.pop(0)
             else:
                 self.dynamic_obstacle_y_list = []
                 self.flag = False
+                self.publishCtrlCmd(0.0, self.ctrl_lane.angle, False)
+
 
 
             # # Obstacle 이 차폭내에 들어올 때 멈추기
@@ -81,11 +82,16 @@ class DynamicAvoidance():
                 self.obstacle_y_diff = abs(self.dynamic_obstacle_y_list[1] - self.dynamic_obstacle_y_list[-2])
                 if self.obstacle_y_diff > self.obstacle_y_diff_threshold: # threshold 값 튜닝 필요
                     print('정지!!!')
-                    self.publishCtrlCmd(0.0, self.ctrl_lane.angle, self.flag)
-                    continue
-                self.flag = False
+                    self.publishCtrlCmd(0.0, self.ctrl_lane.angle, True)
+                else:
+                    self.flag = False
+                    self.publishCtrlCmd(0.0, self.ctrl_lane.angle, False)
 
-            self.publishCtrlCmd(self.speed, self.angle, self.flag)
+            else:
+                self.flag = False
+                self.publishCtrlCmd(0.0, self.ctrl_lane.angle, False)
+
+            
 
             rate.sleep()
                         
@@ -101,10 +107,10 @@ class DynamicAvoidance():
         
         self.obstacles.sort(key=lambda obs: obs.distance)
 
-        # if len(self.obstacles) > 0:
-        #     self.closest_obstacle = self.obstacles[0]
-        # else:
-        #     self.closest_obstacle = Obstacle()
+        if len(self.obstacles) > 0:
+            self.closest_obstacle = self.obstacles[0]
+        else:
+            self.closest_obstacle = Obstacle()
 
     def modeCB(self, msg):
         self.mode = msg.data

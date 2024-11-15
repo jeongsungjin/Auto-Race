@@ -40,7 +40,7 @@ class WaypointMaker:
         self.leftPivot = self.reset_pivot("LEFT")
         self.rightPivot = self.reset_pivot("RIGHT")
         
-        rospy.Subscriber("raw_obstacles_rubbercone", Obstacles, self.update_objects)
+        rospy.Subscriber("/raw_obstacles_rubbercone", Obstacles, self.update_objects)
         rospy.Subscriber("/is_orange", Bool, self.orangeCB)
 
         rospy.Subscriber("/mode", String, self.modeCB)

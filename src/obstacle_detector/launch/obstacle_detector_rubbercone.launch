@@ -8,7 +8,7 @@
     <param name="use_split_and_merge"    value="true"/>
     <param name="circles_from_visibles"  value="true"/>
     <param name="discard_converted_segments" value="true"/>
-    <param name="transform_coordinates"  value="true"/>
+    <param name="transform_coordinates"  value="false"/>
 
     <param name="min_group_points"     value="5"/>
 
@@ -22,8 +22,8 @@
 
     <param name="frame_id"             value="laser_frame"/>
     
-    <param name="min_x_limit" value="0.0"/>
-    <param name="max_x_limit" value="0.75"/>
+    <param name="min_x_limit" value="-0.75"/>
+    <param name="max_x_limit" value="0.00"/>
     <param name="min_y_limit" value="-0.9"/>
     <param name="max_y_limit" value="0.9"/>
   </node>
