@@ -11,7 +11,7 @@ ObstacleExtractor::ObstacleExtractor(ros::NodeHandle& nh, ros::NodeHandle& nh_lo
   params_srv_ = nh_local_.advertiseService("params", &ObstacleExtractor::updateParams, this);
 
   // Initialize the ROI points publisher
-  roi_points_pub_ = nh_.advertise<sensor_msgs::PointCloud>("roi_points_static", 10);
+  roi_points_pub_ = nh_.advertise<sensor_msgs::PointCloud>("roi_points_roundabout", 10);
 
   initialize();
 }
@@ -83,7 +83,7 @@ bool ObstacleExtractor::updateParams(std_srvs::Empty::Request &req, std_srvs::Em
       else if (p_use_pcl_)
         pcl_sub_ = nh_.subscribe("pcl", 10, &ObstacleExtractor::pclCallback, this);
 
-      obstacles_pub_ = nh_.advertise<obstacle_detector::Obstacles>("raw_obstacles_static", 10);
+      obstacles_pub_ = nh_.advertise<obstacle_detector::Obstacles>("raw_obstacles_roundabout", 10);
     }
     else {
       // Send empty message

@@ -1,0 +1,6 @@
+<launch>
+  <arg name="version" default="safe"/>
+  <node name="tunnel_drive_pivot" pkg="obstacle_detector" type="tunnel_drive_pivot.py" output="screen">
+    <param name="version" value="$(arg version)"/>
+  </node>
+</launch>

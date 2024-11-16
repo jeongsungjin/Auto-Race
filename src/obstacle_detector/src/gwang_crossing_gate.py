@@ -54,7 +54,7 @@ class CrossingGate():
     
         rate = rospy.Rate(30)
         while not rospy.is_shutdown():
-            if self.mode == 'RABACON' or self.mode == 'SIGN' or self.mode == 'DYNAMIC':
+            if self.mode == 'RABACON' or self.mode == 'SIGN' or self.mode == 'DYNAMIC' or 'ROUNDABOUT':
                 continue
 
             if len(self.obstacles) > 0:

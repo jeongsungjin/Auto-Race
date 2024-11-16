@@ -7,7 +7,7 @@ import cv2
 import numpy as np
 import sys
 import os
-from std_msgs.msg import Float32, Float64, String
+from std_msgs.msg import Float32, Float64, String, Int32
 from lane_detection.msg import Drive_command
 from obstacle_detector.msg import Obstacles
 
@@ -50,11 +50,13 @@ class LaneDetectionROS:
         rospy.Subscriber('/lane_topic', String, self.lane_topic_callback)
 
         self.ctrl_cmd_pub = rospy.Publisher('/motor_lane', Drive_command, queue_size=1)
-        
-        
+        self.white_cnt = rospy.Publisher('/white_cnt', Int32, queue_size=1)
+        self.yellow_pixel = rospy.Publisher('/yellow_pixel', Int32, queue_size=1)
+
+        self.white_count = 0
         self.ctrl_cmd_msg = Drive_command()  # 모터 제어 메시지 초기화
 
-        self.crosswalk = True
+        self.after_white = False
         self.stop_count = 0
         self.closest_obstacle = None
         # SlideWindow 객체 초기화
@@ -189,7 +191,7 @@ class LaneDetectionROS:
 
                 filtered_img = cv2.bitwise_and(frame_resized, frame_resized, mask=mask_yellow)
                 yellow_pixels = cv2.countNonZero(mask_yellow)                       
-
+                self.publish_yellow_pixel(yellow_pixels)
 
                 # Perspective Transform
                 left_margin = 200
@@ -250,42 +252,15 @@ class LaneDetectionROS:
                     self.stop_count += 1
                     # rospy.sleep(8)  # 8초 동안 정지
                     # self.motor = 0.5
-
-                elif yellow_pixels < 5000:  # 노란색 픽셀 수 500은 환경에 따라 조정 가능
-                    # 노란색 차선이 없을 때 수행할 로직
-                    print("Yellow lane not detected!")
-                    print(yellow_pixels)
-
-                    if self.gt_heading is None:
-                        # 초기 gt_heading 설정
-                        if self.real_heading is not None:  # self.real_heading이 None이 아닌지 확인
-                            self.gt_heading_list = [h for h in self.gt_heading_list if h is not None]  # None 값 제거
-                            if len(self.gt_heading_list) < 10:  # 리스트가 10개 미만이면 값 추가
-                                self.gt_heading_list.append(self.real_heading)
-                            else:
-                                # gt_heading_list가 충분한 값이 있으면 평균 계산
-                                if len(self.gt_heading_list) > 0:
-                                    self.gt_heading = np.mean(self.gt_heading_list)
-                                else:
-                                    rospy.logwarn("gt_heading_list is empty, cannot calculate mean.")
-
-                    else:
-                        if(len(self.obstacles) > 0):
-                            # 좌측 터널 벽 감지 (x 좌표가 left_threshold_x 이상이고 장애물의 거리가 임계값 이하일 때)
-                            if 0.0 < self.closest_obstacle.y < 0.35: # 오른쪽 벽 근접
-                                self.gt_heading += 5  # 우측으로 살짝 이동하도록 헤딩 조정
-                                print("오른쪽 벽 잡힘!!!! 왼쪽으로 틀거임!!!!!!!!!!!!", self.gt_heading)
-
-                            # 우측 터널 벽 감지 (x 좌표가 right_threshold_x 이하이고 장애물의 거리가 임계값 이하일 때)
-                            elif -0.35 < self.closest_obstacle.y < 0.0: # 왼쪽 벽 근접
-                                self.gt_heading -= 5  # 좌측으로 살짝 이동하도록 헤딩 조정
-                                print("왼쪽 벽 잡힘!!!! 오른쪽으로 틀거임!!!!!!!!!!!!", self.gt_heading)
-
-                        if self.local_heading is not None and self.gt_heading is not None: 
-                            self.steer = self.k_p * (self.local_heading - self.gt_heading)
-                            self.publishCtrlCmd(self.motor, self.steer)
+                    self.after_white = True
+                
                 else:
                     self.publishCtrlCmd(self.motor, self.steer) 
+                
+                if self.after_white == True:
+                    self.white_count += 1
+                    self.publish_white_cnt(self.white_count)
+                
                 print(np.count_nonzero(warped_img_white))
 
                 # 결과 표시
@@ -301,9 +276,6 @@ class LaneDetectionROS:
                 print("x_location", x_location)
                 # 화면 업데이트 및 이벤트 처리
                 cv2.waitKey(1)  # 1ms 동안 대기
-
-            
-            
                 self.publishCtrlCmd(self.motor, self.steer) 
 
             self.rate.sleep()
@@ -334,6 +306,14 @@ class LaneDetectionROS:
                 self.local_heading += 360
         else:
             self.local_heading = None
+
+    def publish_white_cnt(self, white_cnt):
+        self.white_cnt.publish(white_cnt)
+
+
+    def publish_yellow_pixel(self, yellow_pixel):
+        self.yellow_pixel.publish(yellow_pixel)
+
 
     def lane_topic_callback(self, msg):
         # /lane_topic의 메시지를 받아서 현재 lane_state 업데이트

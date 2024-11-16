@@ -3,7 +3,7 @@
 
 import rospy
 from obstacle_detector.msg import Obstacles
-from std_msgs.msg import String
+from std_msgs.msg import String, Int32
 from lane_detection.msg import Drive_command
 import math
 
@@ -15,10 +15,13 @@ class Obstacle:
 
 class ROUNDABOUT:
     def __init__(self):
-        rospy.Subscriber("/raw_obstacles", Obstacles, self.obstacleCB)
+        rospy.Subscriber("/raw_obstacles_static", Obstacles, self.obstacleCB)
         rospy.Subscriber("/mode", String, self.modeCB)
-        
+        rospy.Subscriber("/white_cnt ", Int32, self.whiteCB)
+
         self.ctrl_cmd_pub = rospy.Publisher('/motor_roundabout', Drive_command, queue_size=1)
+        self.lane_topic_pub = rospy.Publisher("/lane_topic", String, queue_size=1)  
+
         self.ctrl_cmd_msg = Drive_command()
 
         # 변수 초기화
@@ -28,17 +31,21 @@ class ROUNDABOUT:
         self.mode = ''
         self.flag = False
         self.speed = 0.5
+        self.lane_topic = ""
 
+        self.white_cnt = 0
         self.rate = rospy.Rate(30)
 
         while not rospy.is_shutdown():
-            if self.mode == 'RABACON' or self.mode == 'SIGN' or self.mode == 'DYNAMIC':
+            if self.mode == 'RABACON' or self.mode == 'SIGN' or self.mode == 'DYNAMIC' or self.mode == 'STATIC':
                 continue
 
-            if (len(self.obstacles) > 0):
-                closest_obstacle = self.obstacles[0]
-                self.processObstacle(closest_obstacle)
-            
+            if (len(self.obstacles) > 0) and 300 < self.white_cnt < 3000:
+                self.publishCtrlCmd(0.0 , 0.0, True)
+                self.publish_Lane_topic("RIGHT")
+
+
+
             self.rate.sleep()
 
     def obstacleCB(self, msg):
@@ -53,29 +60,15 @@ class ROUNDABOUT:
 
         self.obstacles.sort(key=lambda obs: obs.distance)
 
-    def processObstacle(self, closest_obstacle):
-        # 장애물과의 거리 변화 비교
-        if self.prev_distance is not None:
-            distance_diff = self.prev_distance - closest_obstacle.distance
-
-            # 장애물이 다가오고 있다면 flag 활성화 및 정지
-            if distance_diff > 0.05:  # 다가오는 중 (0.05m 이상 가까워질 때)
-                rospy.loginfo("장애물이 다가옴: 정지")
-                self.publishCtrlCmd(0.0, 0.0, True)
-                self.flag = True  # flag를 활성화해 회전 교차로 상태 알림
-
-            # 장애물이 멀어지고 있다면 flag 비활성화 및 주행 재개
-            elif distance_diff < -self.distance_threshold:  # 멀어지고 있는 경우
-                rospy.loginfo("장애물이 멀어짐: 주행 재개")
-                self.publishCtrlCmd(self.speed, 0.0, True)
-                self.flag = False  # flag를 비활성화해 회전 교차로 상태 해제
-
-        # 이전 장애물의 거리를 현재 거리로 업데이트
-        self.prev_distance = closest_obstacle.distance
-
-
     def modeCB(self, msg):
         self.mode = msg.data
+
+    def whiteCB(self, msg):
+        self.white_cnt = msg.data
+
+    def publish_Lane_topic(self, lane_topic):
+        self.lane_topic_pub.publish(lane_topic)
+        
 
     def publishCtrlCmd(self, motor_msg, servo_msg, flag):
         self.ctrl_cmd_msg.speed = round(motor_msg)

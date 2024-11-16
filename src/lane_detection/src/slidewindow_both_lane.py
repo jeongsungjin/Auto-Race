@@ -2,12 +2,14 @@
 import cv2
 import numpy as np
 import rospy
-from std_msgs.msg import String
+from std_msgs.msg import String, Int32
 
 class SlideWindow:
 
     def __init__(self):
         rospy.Subscriber('/lane_topic', String, self.lane_callback)
+        rospy.Subscriber("/white_cnt", Int32, self.whiteCB)
+
         self.current_line = "DEFAULT"
         self.lane_side = "BOTH"
         self.left_fit = None
@@ -22,10 +24,14 @@ class SlideWindow:
         else:
             self.lane_side = "BOTH"
 
+    def whiteCB(self, msg):
+        self.white_cnt = msg.data
+
     def slidewindow(self, img):
         x_location = 320
         out_img = np.dstack((img, img, img)) * 255
         height, width = img.shape[0], img.shape[1]
+        self.white_cnt = 0
 
         window_height = 20
         nwindows = 20
@@ -54,7 +60,9 @@ class SlideWindow:
         circle_height = 100
         road_width = 0.5
         half_road_width = 0.5 * road_width
-
+        if 300 < self.white_cnt < 3000:
+            self.lane_side = "RIGHT"
+        
         print(self.lane_side)
         if self.lane_side == "LEFT" or self.lane_side == "BOTH":
             pts_left = np.array([[win_l_w_l, win_h2], [win_l_w_l, win_h1], [win_l_w_r, win_h1], [win_l_w_r, win_h2]], np.int32)
