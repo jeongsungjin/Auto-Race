@@ -288,79 +288,19 @@ obstacle_detector_genpy/fast:
 .PHONY : obstacle_detector_genpy/fast
 
 # Convenience name for target.
-obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/rule:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/rule
-.PHONY : obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/rule
+obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/rule:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/rule
+.PHONY : obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/rule
 
 # Convenience name for target.
-obstacle_detector_generate_messages_nodejs: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/rule
+obstacle_detector_generate_messages_py: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/rule
 
-.PHONY : obstacle_detector_generate_messages_nodejs
+.PHONY : obstacle_detector_generate_messages_py
 
 # fast build rule for target.
-obstacle_detector_generate_messages_nodejs/fast:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/build
-.PHONY : obstacle_detector_generate_messages_nodejs/fast
-
-# Convenience name for target.
-obstacle_detector/CMakeFiles/obstacle_detector_genlisp.dir/rule:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_detector_genlisp.dir/rule
-.PHONY : obstacle_detector/CMakeFiles/obstacle_detector_genlisp.dir/rule
-
-# Convenience name for target.
-obstacle_detector_genlisp: obstacle_detector/CMakeFiles/obstacle_detector_genlisp.dir/rule
-
-.PHONY : obstacle_detector_genlisp
-
-# fast build rule for target.
-obstacle_detector_genlisp/fast:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_genlisp.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_genlisp.dir/build
-.PHONY : obstacle_detector_genlisp/fast
-
-# Convenience name for target.
-obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/rule:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/rule
-.PHONY : obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-obstacle_detector_generate_messages_lisp: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/rule
-
-.PHONY : obstacle_detector_generate_messages_lisp
-
-# fast build rule for target.
-obstacle_detector_generate_messages_lisp/fast:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/build
-.PHONY : obstacle_detector_generate_messages_lisp/fast
-
-# Convenience name for target.
-obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/rule:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/rule
-.PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/rule
-
-# Convenience name for target.
-obstacle_extractor_static_node: obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/rule
-
-.PHONY : obstacle_extractor_static_node
-
-# fast build rule for target.
-obstacle_extractor_static_node/fast:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/build
-.PHONY : obstacle_extractor_static_node/fast
-
-# Convenience name for target.
-obstacle_detector/CMakeFiles/obstacle_detector_geneus.dir/rule:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_detector_geneus.dir/rule
-.PHONY : obstacle_detector/CMakeFiles/obstacle_detector_geneus.dir/rule
-
-# Convenience name for target.
-obstacle_detector_geneus: obstacle_detector/CMakeFiles/obstacle_detector_geneus.dir/rule
-
-.PHONY : obstacle_detector_geneus
-
-# fast build rule for target.
-obstacle_detector_geneus/fast:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_geneus.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_geneus.dir/build
-.PHONY : obstacle_detector_geneus/fast
+obstacle_detector_generate_messages_py/fast:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/build
+.PHONY : obstacle_detector_generate_messages_py/fast
 
 # Convenience name for target.
 obstacle_detector/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule:
@@ -408,34 +348,19 @@ nav_msgs_generate_messages_eus/fast:
 .PHONY : nav_msgs_generate_messages_eus/fast
 
 # Convenience name for target.
-obstacle_detector/CMakeFiles/obstacle_detector_gennodejs.dir/rule:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_detector_gennodejs.dir/rule
-.PHONY : obstacle_detector/CMakeFiles/obstacle_detector_gennodejs.dir/rule
+obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/rule:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/rule
+.PHONY : obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-obstacle_detector_gennodejs: obstacle_detector/CMakeFiles/obstacle_detector_gennodejs.dir/rule
+obstacle_detector_generate_messages_lisp: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/rule
 
-.PHONY : obstacle_detector_gennodejs
+.PHONY : obstacle_detector_generate_messages_lisp
 
 # fast build rule for target.
-obstacle_detector_gennodejs/fast:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_gennodejs.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_gennodejs.dir/build
-.PHONY : obstacle_detector_gennodejs/fast
-
-# Convenience name for target.
-obstacle_detector/CMakeFiles/map_msgs_generate_messages_eus.dir/rule:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/map_msgs_generate_messages_eus.dir/rule
-.PHONY : obstacle_detector/CMakeFiles/map_msgs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-map_msgs_generate_messages_eus: obstacle_detector/CMakeFiles/map_msgs_generate_messages_eus.dir/rule
-
-.PHONY : map_msgs_generate_messages_eus
-
-# fast build rule for target.
-map_msgs_generate_messages_eus/fast:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/map_msgs_generate_messages_eus.dir/build.make obstacle_detector/CMakeFiles/map_msgs_generate_messages_eus.dir/build
-.PHONY : map_msgs_generate_messages_eus/fast
+obstacle_detector_generate_messages_lisp/fast:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/build
+.PHONY : obstacle_detector_generate_messages_lisp/fast
 
 # Convenience name for target.
 obstacle_detector/CMakeFiles/map_msgs_generate_messages_lisp.dir/rule:
@@ -558,6 +483,21 @@ rviz_generate_messages_eus/fast:
 .PHONY : rviz_generate_messages_eus/fast
 
 # Convenience name for target.
+obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/rule:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/rule
+.PHONY : obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/rule
+
+# Convenience name for target.
+obstacle_detector_generate_messages_nodejs: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/rule
+
+.PHONY : obstacle_detector_generate_messages_nodejs
+
+# fast build rule for target.
+obstacle_detector_generate_messages_nodejs/fast:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/build
+.PHONY : obstacle_detector_generate_messages_nodejs/fast
+
+# Convenience name for target.
 obstacle_detector/CMakeFiles/map_msgs_generate_messages_nodejs.dir/rule:
 	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/map_msgs_generate_messages_nodejs.dir/rule
 .PHONY : obstacle_detector/CMakeFiles/map_msgs_generate_messages_nodejs.dir/rule
@@ -603,6 +543,21 @@ nav_msgs_generate_messages_nodejs/fast:
 .PHONY : nav_msgs_generate_messages_nodejs/fast
 
 # Convenience name for target.
+obstacle_detector/CMakeFiles/obstacle_detector_genlisp.dir/rule:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_detector_genlisp.dir/rule
+.PHONY : obstacle_detector/CMakeFiles/obstacle_detector_genlisp.dir/rule
+
+# Convenience name for target.
+obstacle_detector_genlisp: obstacle_detector/CMakeFiles/obstacle_detector_genlisp.dir/rule
+
+.PHONY : obstacle_detector_genlisp
+
+# fast build rule for target.
+obstacle_detector_genlisp/fast:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_genlisp.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_genlisp.dir/build
+.PHONY : obstacle_detector_genlisp/fast
+
+# Convenience name for target.
 obstacle_detector/CMakeFiles/nav_msgs_generate_messages_py.dir/rule:
 	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
 .PHONY : obstacle_detector/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
@@ -618,81 +573,6 @@ nav_msgs_generate_messages_py/fast:
 .PHONY : nav_msgs_generate_messages_py/fast
 
 # Convenience name for target.
-obstacle_detector/CMakeFiles/std_srvs_generate_messages_eus.dir/rule:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-.PHONY : obstacle_detector/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_eus: obstacle_detector/CMakeFiles/std_srvs_generate_messages_eus.dir/rule
-
-.PHONY : std_srvs_generate_messages_eus
-
-# fast build rule for target.
-std_srvs_generate_messages_eus/fast:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/std_srvs_generate_messages_eus.dir/build.make obstacle_detector/CMakeFiles/std_srvs_generate_messages_eus.dir/build
-.PHONY : std_srvs_generate_messages_eus/fast
-
-# Convenience name for target.
-obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/rule:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/rule
-.PHONY : obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/rule
-
-# Convenience name for target.
-obstacle_detector_generate_messages_py: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/rule
-
-.PHONY : obstacle_detector_generate_messages_py
-
-# fast build rule for target.
-obstacle_detector_generate_messages_py/fast:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/build
-.PHONY : obstacle_detector_generate_messages_py/fast
-
-# Convenience name for target.
-obstacle_detector/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-.PHONY : obstacle_detector/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_lisp: obstacle_detector/CMakeFiles/std_srvs_generate_messages_lisp.dir/rule
-
-.PHONY : std_srvs_generate_messages_lisp
-
-# fast build rule for target.
-std_srvs_generate_messages_lisp/fast:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/std_srvs_generate_messages_lisp.dir/build.make obstacle_detector/CMakeFiles/std_srvs_generate_messages_lisp.dir/build
-.PHONY : std_srvs_generate_messages_lisp/fast
-
-# Convenience name for target.
-obstacle_detector/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-.PHONY : obstacle_detector/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_nodejs: obstacle_detector/CMakeFiles/std_srvs_generate_messages_nodejs.dir/rule
-
-.PHONY : std_srvs_generate_messages_nodejs
-
-# fast build rule for target.
-std_srvs_generate_messages_nodejs/fast:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build.make obstacle_detector/CMakeFiles/std_srvs_generate_messages_nodejs.dir/build
-.PHONY : std_srvs_generate_messages_nodejs/fast
-
-# Convenience name for target.
-obstacle_detector/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-.PHONY : obstacle_detector/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_cpp: obstacle_detector/CMakeFiles/std_srvs_generate_messages_cpp.dir/rule
-
-.PHONY : std_srvs_generate_messages_cpp
-
-# fast build rule for target.
-std_srvs_generate_messages_cpp/fast:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/std_srvs_generate_messages_cpp.dir/build.make obstacle_detector/CMakeFiles/std_srvs_generate_messages_cpp.dir/build
-.PHONY : std_srvs_generate_messages_cpp/fast
-
-# Convenience name for target.
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages.dir/rule:
 	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages.dir/rule
 .PHONY : obstacle_detector/CMakeFiles/obstacle_detector_generate_messages.dir/rule
@@ -706,21 +586,6 @@ obstacle_detector_generate_messages: obstacle_detector/CMakeFiles/obstacle_detec
 obstacle_detector_generate_messages/fast:
 	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_generate_messages.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_generate_messages.dir/build
 .PHONY : obstacle_detector_generate_messages/fast
-
-# Convenience name for target.
-obstacle_detector/CMakeFiles/std_srvs_generate_messages_py.dir/rule:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-.PHONY : obstacle_detector/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-# Convenience name for target.
-std_srvs_generate_messages_py: obstacle_detector/CMakeFiles/std_srvs_generate_messages_py.dir/rule
-
-.PHONY : std_srvs_generate_messages_py
-
-# fast build rule for target.
-std_srvs_generate_messages_py/fast:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/std_srvs_generate_messages_py.dir/build.make obstacle_detector/CMakeFiles/std_srvs_generate_messages_py.dir/build
-.PHONY : std_srvs_generate_messages_py/fast
 
 # Convenience name for target.
 obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Drive_command.dir/rule:
@@ -828,6 +693,36 @@ _obstacle_detector_generate_messages_check_deps_Waypoint/fast:
 .PHONY : _obstacle_detector_generate_messages_check_deps_Waypoint/fast
 
 # Convenience name for target.
+obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/rule:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/rule
+.PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/rule
+
+# Convenience name for target.
+obstacle_extractor_static_node: obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/rule
+
+.PHONY : obstacle_extractor_static_node
+
+# fast build rule for target.
+obstacle_extractor_static_node/fast:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/build
+.PHONY : obstacle_extractor_static_node/fast
+
+# Convenience name for target.
+obstacle_detector/CMakeFiles/obstacle_detector_geneus.dir/rule:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_detector_geneus.dir/rule
+.PHONY : obstacle_detector/CMakeFiles/obstacle_detector_geneus.dir/rule
+
+# Convenience name for target.
+obstacle_detector_geneus: obstacle_detector/CMakeFiles/obstacle_detector_geneus.dir/rule
+
+.PHONY : obstacle_detector_geneus
+
+# fast build rule for target.
+obstacle_detector_geneus/fast:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_geneus.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_geneus.dir/build
+.PHONY : obstacle_detector_geneus/fast
+
+# Convenience name for target.
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp.dir/rule:
 	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp.dir/rule
 .PHONY : obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp.dir/rule
@@ -916,6 +811,36 @@ obstacle_detector_generate_messages_eus: obstacle_detector/CMakeFiles/obstacle_d
 obstacle_detector_generate_messages_eus/fast:
 	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus.dir/build
 .PHONY : obstacle_detector_generate_messages_eus/fast
+
+# Convenience name for target.
+obstacle_detector/CMakeFiles/map_msgs_generate_messages_eus.dir/rule:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/map_msgs_generate_messages_eus.dir/rule
+.PHONY : obstacle_detector/CMakeFiles/map_msgs_generate_messages_eus.dir/rule
+
+# Convenience name for target.
+map_msgs_generate_messages_eus: obstacle_detector/CMakeFiles/map_msgs_generate_messages_eus.dir/rule
+
+.PHONY : map_msgs_generate_messages_eus
+
+# fast build rule for target.
+map_msgs_generate_messages_eus/fast:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/map_msgs_generate_messages_eus.dir/build.make obstacle_detector/CMakeFiles/map_msgs_generate_messages_eus.dir/build
+.PHONY : map_msgs_generate_messages_eus/fast
+
+# Convenience name for target.
+obstacle_detector/CMakeFiles/obstacle_detector_gennodejs.dir/rule:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_detector_gennodejs.dir/rule
+.PHONY : obstacle_detector/CMakeFiles/obstacle_detector_gennodejs.dir/rule
+
+# Convenience name for target.
+obstacle_detector_gennodejs: obstacle_detector/CMakeFiles/obstacle_detector_gennodejs.dir/rule
+
+.PHONY : obstacle_detector_gennodejs
+
+# fast build rule for target.
+obstacle_detector_gennodejs/fast:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_gennodejs.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_gennodejs.dir/build
+.PHONY : obstacle_detector_gennodejs/fast
 
 # Convenience name for target.
 obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/rule:
@@ -1599,17 +1524,12 @@ help:
 	@echo "... obstacle_extractor_rubbercone"
 	@echo "... list_install_components"
 	@echo "... obstacle_detector_genpy"
-	@echo "... obstacle_detector_generate_messages_nodejs"
-	@echo "... obstacle_detector_genlisp"
-	@echo "... obstacle_detector_generate_messages_lisp"
-	@echo "... obstacle_extractor_static_node"
-	@echo "... obstacle_detector_geneus"
+	@echo "... obstacle_detector_generate_messages_py"
 	@echo "... nav_msgs_generate_messages_lisp"
 	@echo "... install/local"
 	@echo "... nav_msgs_generate_messages_cpp"
 	@echo "... nav_msgs_generate_messages_eus"
-	@echo "... obstacle_detector_gennodejs"
-	@echo "... map_msgs_generate_messages_eus"
+	@echo "... obstacle_detector_generate_messages_lisp"
 	@echo "... map_msgs_generate_messages_lisp"
 	@echo "... rviz_generate_messages_cpp"
 	@echo "... map_msgs_generate_messages_cpp"
@@ -1618,18 +1538,14 @@ help:
 	@echo "... rviz_generate_messages_nodejs"
 	@echo "... obstacle_extractor"
 	@echo "... rviz_generate_messages_eus"
+	@echo "... obstacle_detector_generate_messages_nodejs"
 	@echo "... map_msgs_generate_messages_nodejs"
 	@echo "... rviz_generate_messages_lisp"
 	@echo "... nav_msgs_generate_messages_nodejs"
+	@echo "... obstacle_detector_genlisp"
 	@echo "... nav_msgs_generate_messages_py"
-	@echo "... std_srvs_generate_messages_eus"
-	@echo "... obstacle_detector_generate_messages_py"
-	@echo "... std_srvs_generate_messages_lisp"
-	@echo "... std_srvs_generate_messages_nodejs"
-	@echo "... std_srvs_generate_messages_cpp"
 	@echo "... obstacle_detector_generate_messages"
 	@echo "... test"
-	@echo "... std_srvs_generate_messages_py"
 	@echo "... _obstacle_detector_generate_messages_check_deps_Drive_command"
 	@echo "... map_msgs_generate_messages_py"
 	@echo "... _obstacle_detector_generate_messages_check_deps_CircleObstacle"
@@ -1637,12 +1553,16 @@ help:
 	@echo "... _obstacle_detector_generate_messages_check_deps_Obstacles"
 	@echo "... obstacle_tracker"
 	@echo "... _obstacle_detector_generate_messages_check_deps_Waypoint"
+	@echo "... obstacle_extractor_static_node"
+	@echo "... obstacle_detector_geneus"
 	@echo "... obstacle_detector_generate_messages_cpp"
 	@echo "... scans_merger"
 	@echo "... obstacle_detector_gencpp"
 	@echo "... obstacle_tracker_node"
 	@echo "... obstacle_publisher"
 	@echo "... obstacle_detector_generate_messages_eus"
+	@echo "... map_msgs_generate_messages_eus"
+	@echo "... obstacle_detector_gennodejs"
 	@echo "... obstacle_detector_gui_autogen"
 	@echo "... obstacle_detector_gui_autogen/mocs_compilation.o"
 	@echo "... obstacle_detector_gui_autogen/mocs_compilation.i"

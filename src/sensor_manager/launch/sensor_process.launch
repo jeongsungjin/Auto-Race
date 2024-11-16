@@ -12,4 +12,7 @@
 
     <!-- 라바콘 Clustering -->
     <include file="$(find obstacle_detector)/launch/obstacle_detector_rubbercone.launch"/>
+
+    <include file="$(find ar_track_alvar)/launch/pr2_indiv_no_kinect.launch"/>
+
 </launch>

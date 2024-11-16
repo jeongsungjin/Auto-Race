@@ -61,7 +61,7 @@ class WaypointMaker:
         if self.version == 'fast':
             self.motor = 0.7 # 일단
         else:
-            self.motor = 0.2
+            self.motor = 0.25
 
         rospy.loginfo(f"RUBBERCONE: {self.version}")
         

@@ -240,7 +240,7 @@ class LaneDetectionROS:
                 
                 # 미션 2: 빨간색 차로 구간에서 감속
                 if np.count_nonzero(mask_red) > 5000:  # 빨간색 픽셀 개수 기준 감속 여부 판단
-                    self.motor = 0.1  # 감속
+                    self.motor = 0.21  # 감속
                     print("빨강빨강~")
 
                 # 미션 3: 흰색 횡단보도 구간에서 정지
@@ -337,10 +337,10 @@ class LaneDetectionROS:
 
     def lane_topic_callback(self, msg):
         # /lane_topic의 메시지를 받아서 현재 lane_state 업데이트
-        if msg.data == "LEFT_LANE":
-            self.lane_state = "LEFT_LANE"
-        elif msg.data == "RIGHT_LANE":
-            self.lane_state = "RIGHT_LANE"
+        if msg.data == "LEFT":
+            self.lane_state = "LEFT"
+        elif msg.data == "RIGHT":
+            self.lane_state = "RIGHT"
         rospy.loginfo(f"Current lane state: {self.lane_state}")
 
     def publishCtrlCmd(self, motor_msg, servo_msg):

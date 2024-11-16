@@ -345,9 +345,24 @@ void FiducialsNode::imageCallback(const sensor_msgs::ImageConstPtr & msg)
     fva.image_seq = msg->header.seq;
 
     try {
+        // Convert ROS image to OpenCV image
         cv_ptr = cv_bridge::toCvCopy(msg, sensor_msgs::image_encodings::BGR8);
 
-        aruco::detectMarkers(cv_ptr->image, dictionary, corners, ids, detectorParams);
+        // K와 D의 크기 확인 및 수정
+        if (cameraMatrix.size() != cv::Size(3, 3)) {
+            ROS_ERROR("Invalid camera matrix size");
+            cameraMatrix = cv::Mat::eye(3, 3, CV_64F); // 기본값
+        }
+        if (distortionCoeffs.total() > 4) {
+            distortionCoeffs = distortionCoeffs(cv::Range::all(), cv::Range(0, 4)).clone();
+        }
+
+        // Undistort the image
+        cv::Mat undistorted;
+        cv::fisheye::undistortImage(cv_ptr->image, undistorted, cameraMatrix, distortionCoeffs);
+
+        // Aruco detection
+        aruco::detectMarkers(undistorted, dictionary, corners, ids, detectorParams);
 
         int detected_count = (int)ids.size();
         if(verbose || detected_count != prev_detected_count){
@@ -379,10 +394,12 @@ void FiducialsNode::imageCallback(const sensor_msgs::ImageConstPtr & msg)
         vertices_pub.publish(fva);
 
         if(ids.size() > 0) {
-            aruco::drawDetectedMarkers(cv_ptr->image, corners, ids);
+            aruco::drawDetectedMarkers(undistorted, corners, ids);
         }
 
         if (publish_images) {
+            // Convert back to ROS image for publishing
+            cv_ptr->image = undistorted;
             image_pub.publish(cv_ptr->toImageMsg());
         }
     }

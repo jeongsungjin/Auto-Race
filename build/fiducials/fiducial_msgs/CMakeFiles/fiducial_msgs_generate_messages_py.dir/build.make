@@ -79,18 +79,18 @@ fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_py: /home/weg
 /home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg/_FiducialTransform.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg/_FiducialTransform.py: /home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg
 /home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg/_FiducialTransform.py: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
-/home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg/_FiducialTransform.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
 /home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg/_FiducialTransform.py: /opt/ros/noetic/share/geometry_msgs/msg/Transform.msg
+/home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg/_FiducialTransform.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Python from MSG fiducial_msgs/FiducialTransform"
 	cd /home/wego/Auto-Race/build/fiducials/fiducial_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg -Ifiducial_msgs:/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p fiducial_msgs -o /home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg
 
 /home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg/_FiducialTransformArray.py: /opt/ros/noetic/lib/genpy/genmsg_py.py
 /home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg/_FiducialTransformArray.py: /home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransformArray.msg
-/home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg/_FiducialTransformArray.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
-/home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg/_FiducialTransformArray.py: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
-/home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg/_FiducialTransformArray.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
-/home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg/_FiducialTransformArray.py: /opt/ros/noetic/share/geometry_msgs/msg/Transform.msg
 /home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg/_FiducialTransformArray.py: /home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg
+/home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg/_FiducialTransformArray.py: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
+/home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg/_FiducialTransformArray.py: /opt/ros/noetic/share/geometry_msgs/msg/Transform.msg
+/home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg/_FiducialTransformArray.py: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
+/home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg/_FiducialTransformArray.py: /opt/ros/noetic/share/std_msgs/msg/Header.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Python from MSG fiducial_msgs/FiducialTransformArray"
 	cd /home/wego/Auto-Race/build/fiducials/fiducial_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genpy/cmake/../../../lib/genpy/genmsg_py.py /home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransformArray.msg -Ifiducial_msgs:/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p fiducial_msgs -o /home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg
 

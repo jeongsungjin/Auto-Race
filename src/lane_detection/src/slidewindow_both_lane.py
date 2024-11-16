@@ -15,9 +15,9 @@ class SlideWindow:
         self.x_previous = 320
 
     def lane_callback(self, msg):
-        if msg.data == "LEFT_LANE":
+        if msg.data == "LEFT":
             self.lane_side = "LEFT"
-        elif msg.data == "RIGHT_LANE":
+        elif msg.data == "RIGHT":
             self.lane_side = "RIGHT"
         else:
             self.lane_side = "BOTH"

@@ -64,6 +64,7 @@
   <exec_depend>rospy</exec_depend>
   <exec_depend>message_runtime</exec_depend>
 
+  <depend>ar_track_alvar_msgs</depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
