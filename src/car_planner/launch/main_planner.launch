@@ -19,10 +19,10 @@
         <arg name="direction" value="$(arg direction)"/>
     </include> -->
 
-    <!-- DYNAMIC 주행 로직 진행 -->
+    <!-- DYNAMIC 주행 로직 진행
     <include file="$(find obstacle_detector)/launch/dynamic_obstacle.launch">
         <arg name="version" value="$(arg version)"/>
-    </include>
+    </include> -->
 
     <!-- RUBBERCONE 주행 로직 진행 -->
     <include file="$(find obstacle_detector)/launch/rubbercone_drive.launch">
@@ -54,6 +54,10 @@
     <node name="main_planner" type="main_planner.py" pkg="car_planner" output="screen">
         <param name="version" value="$(arg version)"/>
     </node>
+
+    <!-- <include file="$(find obstacle_detector)/launch/parking_paralle.launch">
+        <arg name="version" value="$(arg version)"/>
+    </include> -->
 
     <include file="$(find racecar)/launch/teleop.launch"/> 
     <!-- 장애물 탐지 관련 -->

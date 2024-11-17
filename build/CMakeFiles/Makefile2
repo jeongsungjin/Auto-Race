@@ -579,10 +579,12 @@ obstacle_detector/all: obstacle_detector/CMakeFiles/obstacle_extractor_rubbercon
 obstacle_detector/all: obstacle_detector/CMakeFiles/scans_merger_node.dir/all
 obstacle_detector/all: obstacle_detector/CMakeFiles/obstacle_extractor_node.dir/all
 obstacle_detector/all: obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all
+obstacle_detector/all: obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all
 obstacle_detector/all: obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all
 obstacle_detector/all: obstacle_detector/CMakeFiles/obstacle_publisher_node.dir/all
 obstacle_detector/all: obstacle_detector/CMakeFiles/obstacle_extractor.dir/all
 obstacle_detector/all: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages.dir/all
+obstacle_detector/all: obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/all
 obstacle_detector/all: obstacle_detector/CMakeFiles/obstacle_tracker.dir/all
 obstacle_detector/all: obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/all
 obstacle_detector/all: obstacle_detector/CMakeFiles/scans_merger.dir/all
@@ -603,6 +605,7 @@ obstacle_detector/clean: obstacle_detector/CMakeFiles/obstacle_extractor_rubberc
 obstacle_detector/clean: obstacle_detector/CMakeFiles/scans_merger_node.dir/clean
 obstacle_detector/clean: obstacle_detector/CMakeFiles/obstacle_extractor_node.dir/clean
 obstacle_detector/clean: obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/clean
+obstacle_detector/clean: obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/clean
 obstacle_detector/clean: obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/clean
 obstacle_detector/clean: obstacle_detector/CMakeFiles/obstacle_detector_genpy.dir/clean
 obstacle_detector/clean: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/clean
@@ -626,6 +629,7 @@ obstacle_detector/clean: obstacle_detector/CMakeFiles/obstacle_detector_genlisp.
 obstacle_detector/clean: obstacle_detector/CMakeFiles/nav_msgs_generate_messages_py.dir/clean
 obstacle_detector/clean: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages.dir/clean
 obstacle_detector/clean: obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Drive_command.dir/clean
+obstacle_detector/clean: obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/clean
 obstacle_detector/clean: obstacle_detector/CMakeFiles/map_msgs_generate_messages_py.dir/clean
 obstacle_detector/clean: obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_CircleObstacle.dir/clean
 obstacle_detector/clean: obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_SegmentObstacle.dir/clean
@@ -975,7 +979,7 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googlemock/CMakeFiles/gmoc
 gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num= "Built target gmock_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=50 "Built target gmock_main"
 .PHONY : gtest/googlemock/CMakeFiles/gmock_main.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1002,12 +1006,12 @@ gtest/googlemock/CMakeFiles/gmock_main.dir/clean:
 gtest/googlemock/CMakeFiles/gmock.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock.dir/build.make gtest/googlemock/CMakeFiles/gmock.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=50 "Built target gmock"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=49 "Built target gmock"
 .PHONY : gtest/googlemock/CMakeFiles/gmock.dir/all
 
 # Build rule for subdir invocation for target.
 gtest/googlemock/CMakeFiles/gmock.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 gtest/googlemock/CMakeFiles/gmock.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : gtest/googlemock/CMakeFiles/gmock.dir/rule
@@ -1029,12 +1033,12 @@ gtest/googlemock/CMakeFiles/gmock.dir/clean:
 gtest/googletest/CMakeFiles/gtest_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest_main.dir/build.make gtest/googletest/CMakeFiles/gtest_main.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=52 "Built target gtest_main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=51 "Built target gtest_main"
 .PHONY : gtest/googletest/CMakeFiles/gtest_main.dir/all
 
 # Build rule for subdir invocation for target.
 gtest/googletest/CMakeFiles/gtest_main.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 gtest/googletest/CMakeFiles/gtest_main.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : gtest/googletest/CMakeFiles/gtest_main.dir/rule
@@ -1056,12 +1060,12 @@ gtest/googletest/CMakeFiles/gtest_main.dir/clean:
 gtest/googletest/CMakeFiles/gtest.dir/all:
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/depend
 	$(MAKE) -f gtest/googletest/CMakeFiles/gtest.dir/build.make gtest/googletest/CMakeFiles/gtest.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=51 "Built target gtest"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num= "Built target gtest"
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/all
 
 # Build rule for subdir invocation for target.
 gtest/googletest/CMakeFiles/gtest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 gtest/googletest/CMakeFiles/gtest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/rule
@@ -1755,7 +1759,7 @@ car_planner/CMakeFiles/car_planner_genpy.dir/all: car_planner/CMakeFiles/car_pla
 
 # Build rule for subdir invocation for target.
 car_planner/CMakeFiles/car_planner_genpy.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 car_planner/CMakeFiles/car_planner_genpy.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : car_planner/CMakeFiles/car_planner_genpy.dir/rule
@@ -1782,7 +1786,7 @@ car_planner/CMakeFiles/car_planner_gennodejs.dir/all: car_planner/CMakeFiles/car
 
 # Build rule for subdir invocation for target.
 car_planner/CMakeFiles/car_planner_gennodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 car_planner/CMakeFiles/car_planner_gennodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : car_planner/CMakeFiles/car_planner_gennodejs.dir/rule
@@ -1832,7 +1836,7 @@ car_planner/CMakeFiles/car_planner_generate_messages_eus.dir/all: ar_track_alvar
 car_planner/CMakeFiles/car_planner_generate_messages_eus.dir/all: car_planner/CMakeFiles/_car_planner_generate_messages_check_deps_Drive_command.dir/all
 	$(MAKE) -f car_planner/CMakeFiles/car_planner_generate_messages_eus.dir/build.make car_planner/CMakeFiles/car_planner_generate_messages_eus.dir/depend
 	$(MAKE) -f car_planner/CMakeFiles/car_planner_generate_messages_eus.dir/build.make car_planner/CMakeFiles/car_planner_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=24 "Built target car_planner_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=23 "Built target car_planner_generate_messages_eus"
 .PHONY : car_planner/CMakeFiles/car_planner_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
@@ -1860,12 +1864,12 @@ car_planner/CMakeFiles/car_planner_generate_messages_nodejs.dir/all: ar_track_al
 car_planner/CMakeFiles/car_planner_generate_messages_nodejs.dir/all: car_planner/CMakeFiles/_car_planner_generate_messages_check_deps_Drive_command.dir/all
 	$(MAKE) -f car_planner/CMakeFiles/car_planner_generate_messages_nodejs.dir/build.make car_planner/CMakeFiles/car_planner_generate_messages_nodejs.dir/depend
 	$(MAKE) -f car_planner/CMakeFiles/car_planner_generate_messages_nodejs.dir/build.make car_planner/CMakeFiles/car_planner_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=25 "Built target car_planner_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num= "Built target car_planner_generate_messages_nodejs"
 .PHONY : car_planner/CMakeFiles/car_planner_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
 car_planner/CMakeFiles/car_planner_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 car_planner/CMakeFiles/car_planner_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : car_planner/CMakeFiles/car_planner_generate_messages_nodejs.dir/rule
@@ -1888,12 +1892,12 @@ car_planner/CMakeFiles/car_planner_generate_messages_lisp.dir/all: ar_track_alva
 car_planner/CMakeFiles/car_planner_generate_messages_lisp.dir/all: car_planner/CMakeFiles/_car_planner_generate_messages_check_deps_Drive_command.dir/all
 	$(MAKE) -f car_planner/CMakeFiles/car_planner_generate_messages_lisp.dir/build.make car_planner/CMakeFiles/car_planner_generate_messages_lisp.dir/depend
 	$(MAKE) -f car_planner/CMakeFiles/car_planner_generate_messages_lisp.dir/build.make car_planner/CMakeFiles/car_planner_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num= "Built target car_planner_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=24 "Built target car_planner_generate_messages_lisp"
 .PHONY : car_planner/CMakeFiles/car_planner_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 car_planner/CMakeFiles/car_planner_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 car_planner/CMakeFiles/car_planner_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : car_planner/CMakeFiles/car_planner_generate_messages_lisp.dir/rule
@@ -1920,7 +1924,7 @@ car_planner/CMakeFiles/car_planner_gencpp.dir/all: car_planner/CMakeFiles/car_pl
 
 # Build rule for subdir invocation for target.
 car_planner/CMakeFiles/car_planner_gencpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 car_planner/CMakeFiles/car_planner_gencpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : car_planner/CMakeFiles/car_planner_gencpp.dir/rule
@@ -1997,12 +2001,12 @@ car_planner/CMakeFiles/car_planner_generate_messages_cpp.dir/all: ar_track_alvar
 car_planner/CMakeFiles/car_planner_generate_messages_cpp.dir/all: car_planner/CMakeFiles/_car_planner_generate_messages_check_deps_Drive_command.dir/all
 	$(MAKE) -f car_planner/CMakeFiles/car_planner_generate_messages_cpp.dir/build.make car_planner/CMakeFiles/car_planner_generate_messages_cpp.dir/depend
 	$(MAKE) -f car_planner/CMakeFiles/car_planner_generate_messages_cpp.dir/build.make car_planner/CMakeFiles/car_planner_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=23 "Built target car_planner_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num= "Built target car_planner_generate_messages_cpp"
 .PHONY : car_planner/CMakeFiles/car_planner_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 car_planner/CMakeFiles/car_planner_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 car_planner/CMakeFiles/car_planner_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : car_planner/CMakeFiles/car_planner_generate_messages_cpp.dir/rule
@@ -2029,7 +2033,7 @@ car_planner/CMakeFiles/car_planner_genlisp.dir/all: car_planner/CMakeFiles/car_p
 
 # Build rule for subdir invocation for target.
 car_planner/CMakeFiles/car_planner_genlisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 car_planner/CMakeFiles/car_planner_genlisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : car_planner/CMakeFiles/car_planner_genlisp.dir/rule
@@ -2214,12 +2218,12 @@ car_planner/CMakeFiles/car_planner_generate_messages_py.dir/all: ar_track_alvar/
 car_planner/CMakeFiles/car_planner_generate_messages_py.dir/all: car_planner/CMakeFiles/_car_planner_generate_messages_check_deps_Drive_command.dir/all
 	$(MAKE) -f car_planner/CMakeFiles/car_planner_generate_messages_py.dir/build.make car_planner/CMakeFiles/car_planner_generate_messages_py.dir/depend
 	$(MAKE) -f car_planner/CMakeFiles/car_planner_generate_messages_py.dir/build.make car_planner/CMakeFiles/car_planner_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num= "Built target car_planner_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=25 "Built target car_planner_generate_messages_py"
 .PHONY : car_planner/CMakeFiles/car_planner_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
 car_planner/CMakeFiles/car_planner_generate_messages_py.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 car_planner/CMakeFiles/car_planner_generate_messages_py.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : car_planner/CMakeFiles/car_planner_generate_messages_py.dir/rule
@@ -3089,7 +3093,7 @@ lane_detection/CMakeFiles/lane_detection_generate_messages_py.dir/all: ar_track_
 lane_detection/CMakeFiles/lane_detection_generate_messages_py.dir/all: lane_detection/CMakeFiles/_lane_detection_generate_messages_check_deps_Drive_command.dir/all
 	$(MAKE) -f lane_detection/CMakeFiles/lane_detection_generate_messages_py.dir/build.make lane_detection/CMakeFiles/lane_detection_generate_messages_py.dir/depend
 	$(MAKE) -f lane_detection/CMakeFiles/lane_detection_generate_messages_py.dir/build.make lane_detection/CMakeFiles/lane_detection_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=58 "Built target lane_detection_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=57 "Built target lane_detection_generate_messages_py"
 .PHONY : lane_detection/CMakeFiles/lane_detection_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3117,7 +3121,7 @@ lane_detection/CMakeFiles/lane_detection_generate_messages_nodejs.dir/all: ar_tr
 lane_detection/CMakeFiles/lane_detection_generate_messages_nodejs.dir/all: lane_detection/CMakeFiles/_lane_detection_generate_messages_check_deps_Drive_command.dir/all
 	$(MAKE) -f lane_detection/CMakeFiles/lane_detection_generate_messages_nodejs.dir/build.make lane_detection/CMakeFiles/lane_detection_generate_messages_nodejs.dir/depend
 	$(MAKE) -f lane_detection/CMakeFiles/lane_detection_generate_messages_nodejs.dir/build.make lane_detection/CMakeFiles/lane_detection_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=57 "Built target lane_detection_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=56 "Built target lane_detection_generate_messages_nodejs"
 .PHONY : lane_detection/CMakeFiles/lane_detection_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3172,7 +3176,7 @@ lane_detection/CMakeFiles/lane_detection_generate_messages_eus.dir/all: ar_track
 lane_detection/CMakeFiles/lane_detection_generate_messages_eus.dir/all: lane_detection/CMakeFiles/_lane_detection_generate_messages_check_deps_Drive_command.dir/all
 	$(MAKE) -f lane_detection/CMakeFiles/lane_detection_generate_messages_eus.dir/build.make lane_detection/CMakeFiles/lane_detection_generate_messages_eus.dir/depend
 	$(MAKE) -f lane_detection/CMakeFiles/lane_detection_generate_messages_eus.dir/build.make lane_detection/CMakeFiles/lane_detection_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=56 "Built target lane_detection_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=55 "Built target lane_detection_generate_messages_eus"
 .PHONY : lane_detection/CMakeFiles/lane_detection_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
@@ -3258,7 +3262,7 @@ sign_slowdown/CMakeFiles/sign_slowdown_genlisp.dir/all: sign_slowdown/CMakeFiles
 
 # Build rule for subdir invocation for target.
 sign_slowdown/CMakeFiles/sign_slowdown_genlisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 sign_slowdown/CMakeFiles/sign_slowdown_genlisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : sign_slowdown/CMakeFiles/sign_slowdown_genlisp.dir/rule
@@ -3309,12 +3313,12 @@ sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_lisp.dir/all: ar_track_
 sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_lisp.dir/all: sign_slowdown/CMakeFiles/_sign_slowdown_generate_messages_check_deps_Drive_command.dir/all
 	$(MAKE) -f sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_lisp.dir/build.make sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_lisp.dir/depend
 	$(MAKE) -f sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_lisp.dir/build.make sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num= "Built target sign_slowdown_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=95 "Built target sign_slowdown_generate_messages_lisp"
 .PHONY : sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_lisp.dir/rule
@@ -3396,12 +3400,12 @@ sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_nodejs.dir/all: ar_trac
 sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_nodejs.dir/all: sign_slowdown/CMakeFiles/_sign_slowdown_generate_messages_check_deps_Drive_command.dir/all
 	$(MAKE) -f sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_nodejs.dir/build.make sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_nodejs.dir/depend
 	$(MAKE) -f sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_nodejs.dir/build.make sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=95 "Built target sign_slowdown_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num= "Built target sign_slowdown_generate_messages_nodejs"
 .PHONY : sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
 sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : sign_slowdown/CMakeFiles/sign_slowdown_generate_messages_nodejs.dir/rule
@@ -3455,7 +3459,7 @@ sign_slowdown/CMakeFiles/sign_slowdown_gennodejs.dir/all: sign_slowdown/CMakeFil
 
 # Build rule for subdir invocation for target.
 sign_slowdown/CMakeFiles/sign_slowdown_gennodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 sign_slowdown/CMakeFiles/sign_slowdown_gennodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : sign_slowdown/CMakeFiles/sign_slowdown_gennodejs.dir/rule
@@ -4436,7 +4440,7 @@ fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_gennodejs.dir/all: fiducials/fi
 
 # Build rule for subdir invocation for target.
 fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_gennodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_gennodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_gennodejs.dir/rule
@@ -4686,12 +4690,12 @@ fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_eus.dir/all: 
 fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_eus.dir/all: fiducials/fiducial_msgs/CMakeFiles/_fiducial_msgs_generate_messages_check_deps_InitializeMap.dir/all
 	$(MAKE) -f fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_eus.dir/build.make fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_eus.dir/depend
 	$(MAKE) -f fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_eus.dir/build.make fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=30,31,32,33 "Built target fiducial_msgs_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=30,31,32 "Built target fiducial_msgs_generate_messages_eus"
 .PHONY : fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
 fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_eus.dir/rule
@@ -4718,7 +4722,7 @@ fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_geneus.dir/all: fiducials/fiduc
 
 # Build rule for subdir invocation for target.
 fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_geneus.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_geneus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_geneus.dir/rule
@@ -4802,7 +4806,7 @@ fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_lisp.dir/all:
 fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_lisp.dir/all: fiducials/fiducial_msgs/CMakeFiles/_fiducial_msgs_generate_messages_check_deps_InitializeMap.dir/all
 	$(MAKE) -f fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_lisp.dir/build.make fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_lisp.dir/depend
 	$(MAKE) -f fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_lisp.dir/build.make fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=34,35,36 "Built target fiducial_msgs_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=33,34,35 "Built target fiducial_msgs_generate_messages_lisp"
 .PHONY : fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -4899,12 +4903,12 @@ fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_nodejs.dir/al
 fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_nodejs.dir/all: fiducials/fiducial_msgs/CMakeFiles/_fiducial_msgs_generate_messages_check_deps_InitializeMap.dir/all
 	$(MAKE) -f fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_nodejs.dir/build.make fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_nodejs.dir/depend
 	$(MAKE) -f fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_nodejs.dir/build.make fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=37,38 "Built target fiducial_msgs_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=36,37,38 "Built target fiducial_msgs_generate_messages_nodejs"
 .PHONY : fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
 fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_nodejs.dir/rule
@@ -5130,7 +5134,7 @@ ar_track_alvar/ar_track_alvar/CMakeFiles/kinect_filtering.dir/all: ar_track_alva
 ar_track_alvar/ar_track_alvar/CMakeFiles/kinect_filtering.dir/all: ar_track_alvar/ar_track_alvar/CMakeFiles/std_srvs_generate_messages_eus.dir/all
 	$(MAKE) -f ar_track_alvar/ar_track_alvar/CMakeFiles/kinect_filtering.dir/build.make ar_track_alvar/ar_track_alvar/CMakeFiles/kinect_filtering.dir/depend
 	$(MAKE) -f ar_track_alvar/ar_track_alvar/CMakeFiles/kinect_filtering.dir/build.make ar_track_alvar/ar_track_alvar/CMakeFiles/kinect_filtering.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=55 "Built target kinect_filtering"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=54 "Built target kinect_filtering"
 .PHONY : ar_track_alvar/ar_track_alvar/CMakeFiles/kinect_filtering.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5499,7 +5503,7 @@ ar_track_alvar/ar_track_alvar/CMakeFiles/findMarkerBundles.dir/all: ar_track_alv
 ar_track_alvar/ar_track_alvar/CMakeFiles/findMarkerBundles.dir/all: ar_track_alvar/ar_track_alvar/CMakeFiles/std_srvs_generate_messages_eus.dir/all
 	$(MAKE) -f ar_track_alvar/ar_track_alvar/CMakeFiles/findMarkerBundles.dir/build.make ar_track_alvar/ar_track_alvar/CMakeFiles/findMarkerBundles.dir/depend
 	$(MAKE) -f ar_track_alvar/ar_track_alvar/CMakeFiles/findMarkerBundles.dir/build.make ar_track_alvar/ar_track_alvar/CMakeFiles/findMarkerBundles.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=48 "Built target findMarkerBundles"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=47 "Built target findMarkerBundles"
 .PHONY : ar_track_alvar/ar_track_alvar/CMakeFiles/findMarkerBundles.dir/all
 
 # Build rule for subdir invocation for target.
@@ -5704,7 +5708,7 @@ ar_track_alvar/ar_track_alvar/CMakeFiles/individualMarkersNoKinect.dir/all: ar_t
 ar_track_alvar/ar_track_alvar/CMakeFiles/individualMarkersNoKinect.dir/all: ar_track_alvar/ar_track_alvar/CMakeFiles/std_srvs_generate_messages_eus.dir/all
 	$(MAKE) -f ar_track_alvar/ar_track_alvar/CMakeFiles/individualMarkersNoKinect.dir/build.make ar_track_alvar/ar_track_alvar/CMakeFiles/individualMarkersNoKinect.dir/depend
 	$(MAKE) -f ar_track_alvar/ar_track_alvar/CMakeFiles/individualMarkersNoKinect.dir/build.make ar_track_alvar/ar_track_alvar/CMakeFiles/individualMarkersNoKinect.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=54 "Built target individualMarkersNoKinect"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=53 "Built target individualMarkersNoKinect"
 .PHONY : ar_track_alvar/ar_track_alvar/CMakeFiles/individualMarkersNoKinect.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6485,7 +6489,7 @@ ar_track_alvar/ar_track_alvar/CMakeFiles/findMarkerBundlesNoKinect.dir/all: ar_t
 ar_track_alvar/ar_track_alvar/CMakeFiles/findMarkerBundlesNoKinect.dir/all: ar_track_alvar/ar_track_alvar/CMakeFiles/std_srvs_generate_messages_eus.dir/all
 	$(MAKE) -f ar_track_alvar/ar_track_alvar/CMakeFiles/findMarkerBundlesNoKinect.dir/build.make ar_track_alvar/ar_track_alvar/CMakeFiles/findMarkerBundlesNoKinect.dir/depend
 	$(MAKE) -f ar_track_alvar/ar_track_alvar/CMakeFiles/findMarkerBundlesNoKinect.dir/build.make ar_track_alvar/ar_track_alvar/CMakeFiles/findMarkerBundlesNoKinect.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=49 "Built target findMarkerBundlesNoKinect"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=48 "Built target findMarkerBundlesNoKinect"
 .PHONY : ar_track_alvar/ar_track_alvar/CMakeFiles/findMarkerBundlesNoKinect.dir/all
 
 # Build rule for subdir invocation for target.
@@ -6746,7 +6750,7 @@ ar_track_alvar/ar_track_alvar/CMakeFiles/individualMarkers.dir/all: ar_track_alv
 ar_track_alvar/ar_track_alvar/CMakeFiles/individualMarkers.dir/all: ar_track_alvar/ar_track_alvar/CMakeFiles/std_srvs_generate_messages_eus.dir/all
 	$(MAKE) -f ar_track_alvar/ar_track_alvar/CMakeFiles/individualMarkers.dir/build.make ar_track_alvar/ar_track_alvar/CMakeFiles/individualMarkers.dir/depend
 	$(MAKE) -f ar_track_alvar/ar_track_alvar/CMakeFiles/individualMarkers.dir/build.make ar_track_alvar/ar_track_alvar/CMakeFiles/individualMarkers.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=53 "Built target individualMarkers"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=52 "Built target individualMarkers"
 .PHONY : ar_track_alvar/ar_track_alvar/CMakeFiles/individualMarkers.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7355,7 +7359,7 @@ fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_gtest.dir/all: fiduci
 
 # Build rule for subdir invocation for target.
 fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_gtest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_gtest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_gtest.dir/rule
@@ -7378,12 +7382,12 @@ fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_lisp.dir/all:
 fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_lisp.dir/all: fiducials/fiducial_slam/CMakeFiles/_fiducial_slam_generate_messages_check_deps_AddFiducial.dir/all
 	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_lisp.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_lisp.dir/depend
 	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_lisp.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=46 "Built target fiducial_slam_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num= "Built target fiducial_slam_generate_messages_lisp"
 .PHONY : fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
 fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_lisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_lisp.dir/rule
@@ -7460,12 +7464,12 @@ fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_cpp.dir/all: 
 fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_cpp.dir/all: fiducials/fiducial_slam/CMakeFiles/_fiducial_slam_generate_messages_check_deps_AddFiducial.dir/all
 	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_cpp.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_cpp.dir/depend
 	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_cpp.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num= "Built target fiducial_slam_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=44 "Built target fiducial_slam_generate_messages_cpp"
 .PHONY : fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
 fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_cpp.dir/rule
@@ -7570,12 +7574,12 @@ fiducials/fiducial_slam/CMakeFiles/fiducial_slam.dir/all: fiducials/fiducial_sla
 fiducials/fiducial_slam/CMakeFiles/fiducial_slam.dir/all: fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_py.dir/all
 	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam.dir/depend
 	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=43,44 "Built target fiducial_slam"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=43 "Built target fiducial_slam"
 .PHONY : fiducials/fiducial_slam/CMakeFiles/fiducial_slam.dir/all
 
 # Build rule for subdir invocation for target.
 fiducials/fiducial_slam/CMakeFiles/fiducial_slam.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 21
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 20
 	$(MAKE) -f CMakeFiles/Makefile2 fiducials/fiducial_slam/CMakeFiles/fiducial_slam.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : fiducials/fiducial_slam/CMakeFiles/fiducial_slam.dir/rule
@@ -7629,7 +7633,7 @@ fiducials/fiducial_slam/CMakeFiles/fiducial_slam_genlisp.dir/all: fiducials/fidu
 
 # Build rule for subdir invocation for target.
 fiducials/fiducial_slam/CMakeFiles/fiducial_slam_genlisp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 fiducials/fiducial_slam/CMakeFiles/fiducial_slam_genlisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : fiducials/fiducial_slam/CMakeFiles/fiducial_slam_genlisp.dir/rule
@@ -7679,7 +7683,7 @@ fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_py.dir/all: a
 fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_py.dir/all: fiducials/fiducial_slam/CMakeFiles/_fiducial_slam_generate_messages_check_deps_AddFiducial.dir/all
 	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_py.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_py.dir/depend
 	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_py.dir/build.make fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=47 "Built target fiducial_slam_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=46 "Built target fiducial_slam_generate_messages_py"
 .PHONY : fiducials/fiducial_slam/CMakeFiles/fiducial_slam_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
@@ -7798,7 +7802,7 @@ fiducials/fiducial_slam/CMakeFiles/transform_var_test.dir/all: gtest/googletest/
 
 # Build rule for subdir invocation for target.
 fiducials/fiducial_slam/CMakeFiles/transform_var_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 fiducials/fiducial_slam/CMakeFiles/transform_var_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : fiducials/fiducial_slam/CMakeFiles/transform_var_test.dir/rule
@@ -7880,7 +7884,7 @@ fiducials/fiducial_slam/CMakeFiles/fiducial_slam_gencpp.dir/all: fiducials/fiduc
 
 # Build rule for subdir invocation for target.
 fiducials/fiducial_slam/CMakeFiles/fiducial_slam_gencpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 fiducials/fiducial_slam/CMakeFiles/fiducial_slam_gencpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : fiducials/fiducial_slam/CMakeFiles/fiducial_slam_gencpp.dir/rule
@@ -8017,7 +8021,7 @@ fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_gtest_transform_var_t
 
 # Build rule for subdir invocation for target.
 fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_gtest_transform_var_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_gtest_transform_var_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : fiducials/fiducial_slam/CMakeFiles/run_tests_fiducial_slam_gtest_transform_var_test.dir/rule
@@ -8096,7 +8100,7 @@ fiducials/fiducial_slam/CMakeFiles/_run_tests_fiducial_slam_rostest_test_auto_in
 fiducials/fiducial_slam/CMakeFiles/auto_init_403_test.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/auto_init_403_test.dir/build.make fiducials/fiducial_slam/CMakeFiles/auto_init_403_test.dir/depend
 	$(MAKE) -f fiducials/fiducial_slam/CMakeFiles/auto_init_403_test.dir/build.make fiducials/fiducial_slam/CMakeFiles/auto_init_403_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num= "Built target auto_init_403_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=22 "Built target auto_init_403_test"
 .PHONY : fiducials/fiducial_slam/CMakeFiles/auto_init_403_test.dir/all
 
 # Build rule for subdir invocation for target.
@@ -8170,7 +8174,7 @@ obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: racecar/ackermann_cm
 obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_cpp.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/bond_generate_messages_lisp.dir/all
-obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_py.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_eus.dir/all
@@ -8192,7 +8196,7 @@ obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: obstacle_detector/CM
 obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_lisp.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_cpp.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_cpp.dir/all
-obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_eus.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_lisp.dir/all
@@ -8203,7 +8207,7 @@ obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: obstacle_detector/CM
 obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all: obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/depend
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=71,72,73,74 "Built target obstacle_detector_gui"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=70,71,72 "Built target obstacle_detector_gui"
 .PHONY : obstacle_detector/CMakeFiles/obstacle_detector_gui.dir/all
 
 # Build rule for subdir invocation for target.
@@ -8233,12 +8237,12 @@ obstacle_detector/CMakeFiles/obstacle_detector_nodelets.dir/all: obstacle_detect
 obstacle_detector/CMakeFiles/obstacle_detector_nodelets.dir/all: obstacle_detector/CMakeFiles/obstacle_publisher.dir/all
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_nodelets.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_nodelets.dir/depend
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_nodelets.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_nodelets.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=75,76 "Built target obstacle_detector_nodelets"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=74,75 "Built target obstacle_detector_nodelets"
 .PHONY : obstacle_detector/CMakeFiles/obstacle_detector_nodelets.dir/all
 
 # Build rule for subdir invocation for target.
 obstacle_detector/CMakeFiles/obstacle_detector_nodelets.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 18
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 17
 	$(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_detector_nodelets.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : obstacle_detector/CMakeFiles/obstacle_detector_nodelets.dir/rule
@@ -8260,12 +8264,12 @@ obstacle_detector/CMakeFiles/obstacle_detector_nodelets.dir/clean:
 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/all: obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/depend
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=80 "Built target obstacle_extractor_rubbercone_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=78 "Built target obstacle_extractor_rubbercone_node"
 .PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/all
 
 # Build rule for subdir invocation for target.
 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 13
 	$(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone_node.dir/rule
@@ -8314,7 +8318,7 @@ obstacle_detector/CMakeFiles/scans_merger_node.dir/clean:
 obstacle_detector/CMakeFiles/obstacle_extractor_node.dir/all: obstacle_detector/CMakeFiles/obstacle_extractor.dir/all
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_node.dir/depend
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=78 "Built target obstacle_extractor_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=77 "Built target obstacle_extractor_node"
 .PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_node.dir/all
 
 # Build rule for subdir invocation for target.
@@ -8388,7 +8392,7 @@ obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: racecar/ackerman
 obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_cpp.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/bond_generate_messages_lisp.dir/all
-obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_py.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_eus.dir/all
@@ -8412,7 +8416,7 @@ obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: obstacle_detecto
 obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_lisp.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_cpp.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_cpp.dir/all
-obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_eus.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_nodejs.dir/all
@@ -8425,12 +8429,12 @@ obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: obstacle_detecto
 obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_eus.dir/all
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/depend
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num= "Built target obstacle_extractor_static"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=79 "Built target obstacle_extractor_static"
 .PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all
 
 # Build rule for subdir invocation for target.
 obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 13
 	$(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/rule
@@ -8444,6 +8448,117 @@ obstacle_extractor_static: obstacle_detector/CMakeFiles/obstacle_extractor_stati
 obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/clean:
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/clean
 .PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/clean
+
+#=============================================================================
+# Target rules for target obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir
+
+# All Build rule for target.
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar_msgs/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar_msgs/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar_msgs/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar_msgs/CMakeFiles/std_msgs_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar_msgs/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar_msgs/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar_msgs/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar_msgs/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar_msgs/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar_msgs/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: car_planner/CMakeFiles/roscpp_generate_messages_eus.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: car_planner/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: car_planner/CMakeFiles/roscpp_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: car_planner/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: car_planner/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: car_planner/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: car_planner/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: car_planner/CMakeFiles/roscpp_generate_messages_lisp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: car_planner/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: car_planner/CMakeFiles/roscpp_generate_messages_cpp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/actionlib_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/actionlib_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/actionlib_generate_messages_eus.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/actionlib_msgs_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/actionlib_generate_messages_lisp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/tf2_msgs_generate_messages_cpp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/tf2_msgs_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/actionlib_generate_messages_cpp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/tf2_msgs_generate_messages_eus.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/tf2_msgs_generate_messages_lisp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/tf2_msgs_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: heading/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_eus.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/bond_generate_messages_cpp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/bond_generate_messages_eus.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_lisp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/bond_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/bond_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_cpp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/bond_generate_messages_lisp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_eus.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_cpp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_lisp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar/CMakeFiles/std_srvs_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar/CMakeFiles/visualization_msgs_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar/CMakeFiles/std_srvs_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar/CMakeFiles/visualization_msgs_generate_messages_eus.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar/CMakeFiles/visualization_msgs_generate_messages_lisp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar/CMakeFiles/visualization_msgs_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar/CMakeFiles/std_srvs_generate_messages_cpp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar/CMakeFiles/std_srvs_generate_messages_lisp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar/CMakeFiles/visualization_msgs_generate_messages_cpp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: ar_track_alvar/ar_track_alvar/CMakeFiles/std_srvs_generate_messages_eus.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/nav_msgs_generate_messages_lisp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/nav_msgs_generate_messages_cpp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/nav_msgs_generate_messages_eus.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_lisp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_cpp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_cpp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_eus.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_lisp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/nav_msgs_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_eus.dir/all
+	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/depend
+	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=81 "Built target obstacle_extractor_tunnel"
+.PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all
+
+# Build rule for subdir invocation for target.
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 13
+	$(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
+.PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/rule
+
+# Convenience name for target.
+obstacle_extractor_tunnel: obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/rule
+
+.PHONY : obstacle_extractor_tunnel
+
+# clean rule for target.
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/clean:
+	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/clean
+.PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/clean
 
 #=============================================================================
 # Target rules for target obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir
@@ -8499,7 +8614,7 @@ obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: racecar/acke
 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_cpp.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/bond_generate_messages_lisp.dir/all
-obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_py.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_eus.dir/all
@@ -8523,7 +8638,7 @@ obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: obstacle_det
 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_lisp.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_cpp.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_cpp.dir/all
-obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_eus.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_nodejs.dir/all
@@ -8536,12 +8651,12 @@ obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: obstacle_det
 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_eus.dir/all
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/depend
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=79 "Built target obstacle_extractor_rubbercone"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num= "Built target obstacle_extractor_rubbercone"
 .PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all
 
 # Build rule for subdir invocation for target.
 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 13
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/rule
@@ -8596,7 +8711,7 @@ obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/all: obs
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/all: obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Waypoint.dir/all
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/depend
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=68,69,70 "Built target obstacle_detector_generate_messages_py"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=67,68,69 "Built target obstacle_detector_generate_messages_py"
 .PHONY : obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
@@ -8710,7 +8825,7 @@ obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/all: o
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/all: obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Waypoint.dir/all
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/depend
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=64,65 "Built target obstacle_detector_generate_messages_lisp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=63,64 "Built target obstacle_detector_generate_messages_lisp"
 .PHONY : obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -8823,7 +8938,7 @@ obstacle_detector/CMakeFiles/obstacle_publisher_node.dir/all: obstacle_detector/
 
 # Build rule for subdir invocation for target.
 obstacle_detector/CMakeFiles/obstacle_publisher_node.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 14
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 13
 	$(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_publisher_node.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : obstacle_detector/CMakeFiles/obstacle_publisher_node.dir/rule
@@ -8946,7 +9061,7 @@ obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: racecar/ackermann_cmd_m
 obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_cpp.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/bond_generate_messages_lisp.dir/all
-obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_py.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_eus.dir/all
@@ -8970,7 +9085,7 @@ obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: obstacle_detector/CMake
 obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_lisp.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_cpp.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_cpp.dir/all
-obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_eus.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_nodejs.dir/all
@@ -8983,7 +9098,7 @@ obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: obstacle_detector/CMake
 obstacle_detector/CMakeFiles/obstacle_extractor.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_eus.dir/all
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor.dir/depend
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=77 "Built target obstacle_extractor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=76 "Built target obstacle_extractor"
 .PHONY : obstacle_detector/CMakeFiles/obstacle_extractor.dir/all
 
 # Build rule for subdir invocation for target.
@@ -9043,7 +9158,7 @@ obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/all:
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/all: obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Waypoint.dir/all
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/depend
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=66,67 "Built target obstacle_detector_generate_messages_nodejs"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=65,66 "Built target obstacle_detector_generate_messages_nodejs"
 .PHONY : obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
@@ -9257,6 +9372,33 @@ obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Dri
 .PHONY : obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Drive_command.dir/clean
 
 #=============================================================================
+# Target rules for target obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir
+
+# All Build rule for target.
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/all: obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/all
+	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/depend
+	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=82 "Built target obstacle_extractor_tunnel_node"
+.PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/all
+
+# Build rule for subdir invocation for target.
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 14
+	$(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
+.PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/rule
+
+# Convenience name for target.
+obstacle_extractor_tunnel_node: obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/rule
+
+.PHONY : obstacle_extractor_tunnel_node
+
+# clean rule for target.
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/clean:
+	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/clean
+.PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/clean
+
+#=============================================================================
 # Target rules for target obstacle_detector/CMakeFiles/map_msgs_generate_messages_py.dir
 
 # All Build rule for target.
@@ -9418,7 +9560,7 @@ obstacle_detector/CMakeFiles/obstacle_tracker.dir/all: racecar/ackermann_cmd_mux
 obstacle_detector/CMakeFiles/obstacle_tracker.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_tracker.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_cpp.dir/all
 obstacle_detector/CMakeFiles/obstacle_tracker.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/bond_generate_messages_lisp.dir/all
-obstacle_detector/CMakeFiles/obstacle_tracker.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_tracker.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/all
 obstacle_detector/CMakeFiles/obstacle_tracker.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_tracker.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_py.dir/all
 obstacle_detector/CMakeFiles/obstacle_tracker.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_eus.dir/all
@@ -9442,7 +9584,7 @@ obstacle_detector/CMakeFiles/obstacle_tracker.dir/all: obstacle_detector/CMakeFi
 obstacle_detector/CMakeFiles/obstacle_tracker.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_lisp.dir/all
 obstacle_detector/CMakeFiles/obstacle_tracker.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_cpp.dir/all
 obstacle_detector/CMakeFiles/obstacle_tracker.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_cpp.dir/all
-obstacle_detector/CMakeFiles/obstacle_tracker.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_tracker.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_tracker.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_eus.dir/all
 obstacle_detector/CMakeFiles/obstacle_tracker.dir/all: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_tracker.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_nodejs.dir/all
@@ -9509,12 +9651,12 @@ obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Way
 obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/all: obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/all
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/depend
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=81 "Built target obstacle_extractor_static_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=80 "Built target obstacle_extractor_static_node"
 .PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/all
 
 # Build rule for subdir invocation for target.
 obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 13
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 14
 	$(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/rule
@@ -9569,7 +9711,7 @@ obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp.dir/all: ob
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp.dir/all: obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Waypoint.dir/all
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp.dir/depend
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=59,60,61 "Built target obstacle_detector_generate_messages_cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=58,59,60 "Built target obstacle_detector_generate_messages_cpp"
 .PHONY : obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
@@ -9643,7 +9785,7 @@ obstacle_detector/CMakeFiles/scans_merger.dir/all: racecar/ackermann_cmd_mux/CMa
 obstacle_detector/CMakeFiles/scans_merger.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/scans_merger.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_cpp.dir/all
 obstacle_detector/CMakeFiles/scans_merger.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/bond_generate_messages_lisp.dir/all
-obstacle_detector/CMakeFiles/scans_merger.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/scans_merger.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/all
 obstacle_detector/CMakeFiles/scans_merger.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/scans_merger.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_py.dir/all
 obstacle_detector/CMakeFiles/scans_merger.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_eus.dir/all
@@ -9665,7 +9807,7 @@ obstacle_detector/CMakeFiles/scans_merger.dir/all: obstacle_detector/CMakeFiles/
 obstacle_detector/CMakeFiles/scans_merger.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_lisp.dir/all
 obstacle_detector/CMakeFiles/scans_merger.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_cpp.dir/all
 obstacle_detector/CMakeFiles/scans_merger.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_cpp.dir/all
-obstacle_detector/CMakeFiles/scans_merger.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/scans_merger.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/scans_merger.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_eus.dir/all
 obstacle_detector/CMakeFiles/scans_merger.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/scans_merger.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_lisp.dir/all
@@ -9803,7 +9945,7 @@ obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: racecar/ackermann_cmd_m
 obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_cpp.dir/all
 obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/bond_generate_messages_lisp.dir/all
-obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/all
 obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_py.dir/all
 obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_eus.dir/all
@@ -9827,7 +9969,7 @@ obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: obstacle_detector/CMake
 obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_lisp.dir/all
 obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_cpp.dir/all
 obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_cpp.dir/all
-obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_eus.dir/all
 obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_nodejs.dir/all
@@ -9840,12 +9982,12 @@ obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: obstacle_detector/CMake
 obstacle_detector/CMakeFiles/obstacle_publisher.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_eus.dir/all
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_publisher.dir/build.make obstacle_detector/CMakeFiles/obstacle_publisher.dir/depend
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_publisher.dir/build.make obstacle_detector/CMakeFiles/obstacle_publisher.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=82 "Built target obstacle_publisher"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num= "Built target obstacle_publisher"
 .PHONY : obstacle_detector/CMakeFiles/obstacle_publisher.dir/all
 
 # Build rule for subdir invocation for target.
 obstacle_detector/CMakeFiles/obstacle_publisher.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 13
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 12
 	$(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_publisher.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : obstacle_detector/CMakeFiles/obstacle_publisher.dir/rule
@@ -9873,7 +10015,7 @@ obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus.dir/all: ob
 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus.dir/all: obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Waypoint.dir/all
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus.dir/depend
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=62,63 "Built target obstacle_detector_generate_messages_eus"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=61,62 "Built target obstacle_detector_generate_messages_eus"
 .PHONY : obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
@@ -10001,7 +10143,7 @@ obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: racecar/acke
 obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/nodelet_generate_messages_cpp.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: racecar/ackermann_cmd_mux/CMakeFiles/bond_generate_messages_lisp.dir/all
-obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_nodejs.dir/all
+obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_py.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: fiducials/fiducial_msgs/CMakeFiles/tf_generate_messages_eus.dir/all
@@ -10023,7 +10165,7 @@ obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: obstacle_det
 obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_lisp.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_cpp.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_cpp.dir/all
-obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/all
+obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_eus.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_nodejs.dir/all
 obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: obstacle_detector/CMakeFiles/rviz_generate_messages_lisp.dir/all
@@ -10033,12 +10175,12 @@ obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: obstacle_det
 obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all: obstacle_detector/CMakeFiles/map_msgs_generate_messages_eus.dir/all
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/depend
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num= "Built target obstacle_detector_gui_autogen"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=73 "Built target obstacle_detector_gui_autogen"
 .PHONY : obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all
 
 # Build rule for subdir invocation for target.
 obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : obstacle_detector/CMakeFiles/obstacle_detector_gui_autogen.dir/rule
@@ -10175,7 +10317,7 @@ fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/all: fiduci
 
 # Build rule for subdir invocation for target.
 fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest.dir/rule
@@ -10256,7 +10398,7 @@ fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/all: fiducials/aruc
 
 # Build rule for subdir invocation for target.
 fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect.dir/rule
@@ -10359,12 +10501,12 @@ fiducials/aruco_detect/CMakeFiles/vision_msgs_generate_messages_py.dir/clean:
 fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/all:
 	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/build.make fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/depend
 	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/build.make fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=21 "Built target aruco_detect_gencfg"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num= "Built target aruco_detect_gencfg"
 .PHONY : fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/all
 
 # Build rule for subdir invocation for target.
 fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 	$(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : fiducials/aruco_detect/CMakeFiles/aruco_detect_gencfg.dir/rule
@@ -10506,7 +10648,7 @@ fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/all: fiducials/aruco_detect/C
 
 # Build rule for subdir invocation for target.
 fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 18
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 17
 	$(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : fiducials/aruco_detect/CMakeFiles/aruco_detect.dir/rule
@@ -10533,7 +10675,7 @@ fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_imag
 
 # Build rule for subdir invocation for target.
 fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_images.test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_images.test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_images.test.dir/rule
@@ -10555,12 +10697,12 @@ fiducials/aruco_detect/CMakeFiles/run_tests_aruco_detect_rostest_test_aruco_imag
 fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
 	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/build.make fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/depend
 	$(MAKE) -f fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/build.make fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=22 "Built target aruco_images_test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=21 "Built target aruco_images_test"
 .PHONY : fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/all
 
 # Build rule for subdir invocation for target.
 fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 1
 	$(MAKE) -f CMakeFiles/Makefile2 fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/wego/Auto-Race/build/CMakeFiles 0
 .PHONY : fiducials/aruco_detect/CMakeFiles/aruco_images_test.dir/rule

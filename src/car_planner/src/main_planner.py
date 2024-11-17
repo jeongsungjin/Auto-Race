@@ -60,6 +60,7 @@ class Controller():
         self.ctrl_sign = Drive_command()
         self.ctrl_dynamic = Drive_command()
         self.ctrl_roundabout = Drive_command()
+        self.ctrl_tunnel = Drive_command()
 
         rospy.init_node('main_planner', anonymous=True)  # ROS 노드 초기화
 
@@ -70,7 +71,8 @@ class Controller():
         rospy.Subscriber("/motor_sign", Drive_command, self.ctrlSIGNCB)  # 표지판 ID (어린이 보호구역 신호 등) 구독
         rospy.Subscriber("/motor_rabacon", Drive_command, self.ctrlRabaconCB)  # rabacon 미션용 주행 데이터 구독
         rospy.Subscriber('/motor_roundabout', Drive_command, self.crtlRoundaboutCB)
-        
+        rospy.Subscriber('/motor_tunnel', Drive_command, self.crtlTunnelCB)
+
         rospy.Subscriber("/obstacles", Obstacles, self.staticObstacle_callback)  # 장애물 데이터 구독
         rospy.Subscriber("/raw_obstacles_rubbercone", Obstacles, self.rubberconeObstacleCB)
 
@@ -90,6 +92,7 @@ class Controller():
         self.static_mode_flag = False
         self.dynamic_mode_flag = False
         self.roundabout_mode_flag = False
+        self.tunnel_mode_flag = False
         self.lane_mode_flag = True
 
         # mode
@@ -105,7 +108,7 @@ class Controller():
         # ------------------------계수 튜닝 필요------------------------------ #
         self.pid = PID(0.7, 0.0008, 0.15) 
         self.steer = 0.0  # 조향각 초기화
-        self.motor = 0.5  # 모터 속도 초기화
+        self.motor = 0.7  # 모터 속도 초기화
         # ------------------------------------------------------------------ #
 
         self.static_obstacles = []
@@ -125,6 +128,8 @@ class Controller():
                 self.mode = 'DYNAMIC'
             elif self.roundabout_mode_flag == True:
                 self.mode = 'ROUNDABOUT'
+            elif self.tunnel_mode_flag == True:
+                self.mode = 'TUNNEL'
             else:
                 self.mode = 'LANE'
 
@@ -149,6 +154,10 @@ class Controller():
                 elif self.mode == "ROUNDABOUT":
                     self.motor = self.ctrl_roundabout.speed
                     self.steer = self.ctrl_roundabout.angle
+                elif self.mode == "TUNNEL":
+                    self.motor = self.ctrl_tunnel.speed
+                    self.steer = self.ctrl_tunnel.angle
+
                 else:               # LANE
                     self.motor = self.ctrl_lane.speed
                     self.steer = self.ctrl_lane.angle
@@ -207,7 +216,6 @@ class Controller():
         self.publishing_data.drive.speed = motor_msg  # 차선 주행 속도(speed_lane)를 설정
         self.drive_pub.publish(self.publishing_data)  # 설정한 속도와 조향 각도 메시지를 퍼블리시하여 차량에 적용
 
-
     def ctrlLaneCB(self, msg):
         self.ctrl_lane.speed = msg.speed
         self.ctrl_lane.angle = msg.angle
@@ -238,7 +246,11 @@ class Controller():
         self.ctrl_roundabout.angle = msg.angle
         self.roundabout_mode_flag = msg.flag
 
-        
+    def crtlTunnelCB(self, msg):
+        self.ctrl_tunnel.speed = msg.speed
+        self.ctrl_tunnel.angle = msg.angle
+        self.tunnel_mode_flag = msg.flag
+
     def staticObstacle_callback(self, msg):
         self.static_obstacles = []
         for circle in msg.circles:

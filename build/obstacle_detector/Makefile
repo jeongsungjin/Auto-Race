@@ -258,6 +258,21 @@ obstacle_extractor_static/fast:
 .PHONY : obstacle_extractor_static/fast
 
 # Convenience name for target.
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/rule:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/rule
+.PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/rule
+
+# Convenience name for target.
+obstacle_extractor_tunnel: obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/rule
+
+.PHONY : obstacle_extractor_tunnel
+
+# fast build rule for target.
+obstacle_extractor_tunnel/fast:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/build
+.PHONY : obstacle_extractor_tunnel/fast
+
+# Convenience name for target.
 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/rule:
 	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/rule
 .PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/rule
@@ -601,6 +616,21 @@ _obstacle_detector_generate_messages_check_deps_Drive_command: obstacle_detector
 _obstacle_detector_generate_messages_check_deps_Drive_command/fast:
 	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Drive_command.dir/build.make obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Drive_command.dir/build
 .PHONY : _obstacle_detector_generate_messages_check_deps_Drive_command/fast
+
+# Convenience name for target.
+obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/rule:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/rule
+.PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/rule
+
+# Convenience name for target.
+obstacle_extractor_tunnel_node: obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/rule
+
+.PHONY : obstacle_extractor_tunnel_node
+
+# fast build rule for target.
+obstacle_extractor_tunnel_node/fast:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/build
+.PHONY : obstacle_extractor_tunnel_node/fast
 
 # Convenience name for target.
 obstacle_detector/CMakeFiles/map_msgs_generate_messages_py.dir/rule:
@@ -1154,6 +1184,33 @@ src/nodes/obstacle_extractor_static_node.cpp.s:
 	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_static_node.dir/src/nodes/obstacle_extractor_static_node.cpp.s
 .PHONY : src/nodes/obstacle_extractor_static_node.cpp.s
 
+src/nodes/obstacle_extractor_tunnel_node.o: src/nodes/obstacle_extractor_tunnel_node.cpp.o
+
+.PHONY : src/nodes/obstacle_extractor_tunnel_node.o
+
+# target to build an object file
+src/nodes/obstacle_extractor_tunnel_node.cpp.o:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/src/nodes/obstacle_extractor_tunnel_node.cpp.o
+.PHONY : src/nodes/obstacle_extractor_tunnel_node.cpp.o
+
+src/nodes/obstacle_extractor_tunnel_node.i: src/nodes/obstacle_extractor_tunnel_node.cpp.i
+
+.PHONY : src/nodes/obstacle_extractor_tunnel_node.i
+
+# target to preprocess a source file
+src/nodes/obstacle_extractor_tunnel_node.cpp.i:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/src/nodes/obstacle_extractor_tunnel_node.cpp.i
+.PHONY : src/nodes/obstacle_extractor_tunnel_node.cpp.i
+
+src/nodes/obstacle_extractor_tunnel_node.s: src/nodes/obstacle_extractor_tunnel_node.cpp.s
+
+.PHONY : src/nodes/obstacle_extractor_tunnel_node.s
+
+# target to generate assembly for a file
+src/nodes/obstacle_extractor_tunnel_node.cpp.s:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/src/nodes/obstacle_extractor_tunnel_node.cpp.s
+.PHONY : src/nodes/obstacle_extractor_tunnel_node.cpp.s
+
 src/nodes/obstacle_publisher_node.o: src/nodes/obstacle_publisher_node.cpp.o
 
 .PHONY : src/nodes/obstacle_publisher_node.o
@@ -1315,6 +1372,33 @@ src/obstacle_extractor_static.s: src/obstacle_extractor_static.cpp.s
 src/obstacle_extractor_static.cpp.s:
 	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_static.dir/src/obstacle_extractor_static.cpp.s
 .PHONY : src/obstacle_extractor_static.cpp.s
+
+src/obstacle_extractor_tunnel.o: src/obstacle_extractor_tunnel.cpp.o
+
+.PHONY : src/obstacle_extractor_tunnel.o
+
+# target to build an object file
+src/obstacle_extractor_tunnel.cpp.o:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/src/obstacle_extractor_tunnel.cpp.o
+.PHONY : src/obstacle_extractor_tunnel.cpp.o
+
+src/obstacle_extractor_tunnel.i: src/obstacle_extractor_tunnel.cpp.i
+
+.PHONY : src/obstacle_extractor_tunnel.i
+
+# target to preprocess a source file
+src/obstacle_extractor_tunnel.cpp.i:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/src/obstacle_extractor_tunnel.cpp.i
+.PHONY : src/obstacle_extractor_tunnel.cpp.i
+
+src/obstacle_extractor_tunnel.s: src/obstacle_extractor_tunnel.cpp.s
+
+.PHONY : src/obstacle_extractor_tunnel.s
+
+# target to generate assembly for a file
+src/obstacle_extractor_tunnel.cpp.s:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/src/obstacle_extractor_tunnel.cpp.s
+.PHONY : src/obstacle_extractor_tunnel.cpp.s
 
 src/obstacle_publisher.o: src/obstacle_publisher.cpp.o
 
@@ -1520,6 +1604,7 @@ help:
 	@echo "... scans_merger_node"
 	@echo "... obstacle_extractor_node"
 	@echo "... obstacle_extractor_static"
+	@echo "... obstacle_extractor_tunnel"
 	@echo "... install/strip"
 	@echo "... obstacle_extractor_rubbercone"
 	@echo "... list_install_components"
@@ -1547,6 +1632,7 @@ help:
 	@echo "... obstacle_detector_generate_messages"
 	@echo "... test"
 	@echo "... _obstacle_detector_generate_messages_check_deps_Drive_command"
+	@echo "... obstacle_extractor_tunnel_node"
 	@echo "... map_msgs_generate_messages_py"
 	@echo "... _obstacle_detector_generate_messages_check_deps_CircleObstacle"
 	@echo "... _obstacle_detector_generate_messages_check_deps_SegmentObstacle"
@@ -1597,6 +1683,9 @@ help:
 	@echo "... src/nodes/obstacle_extractor_static_node.o"
 	@echo "... src/nodes/obstacle_extractor_static_node.i"
 	@echo "... src/nodes/obstacle_extractor_static_node.s"
+	@echo "... src/nodes/obstacle_extractor_tunnel_node.o"
+	@echo "... src/nodes/obstacle_extractor_tunnel_node.i"
+	@echo "... src/nodes/obstacle_extractor_tunnel_node.s"
 	@echo "... src/nodes/obstacle_publisher_node.o"
 	@echo "... src/nodes/obstacle_publisher_node.i"
 	@echo "... src/nodes/obstacle_publisher_node.s"
@@ -1615,6 +1704,9 @@ help:
 	@echo "... src/obstacle_extractor_static.o"
 	@echo "... src/obstacle_extractor_static.i"
 	@echo "... src/obstacle_extractor_static.s"
+	@echo "... src/obstacle_extractor_tunnel.o"
+	@echo "... src/obstacle_extractor_tunnel.i"
+	@echo "... src/obstacle_extractor_tunnel.s"
 	@echo "... src/obstacle_publisher.o"
 	@echo "... src/obstacle_publisher.i"
 	@echo "... src/obstacle_publisher.s"

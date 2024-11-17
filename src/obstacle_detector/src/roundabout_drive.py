@@ -15,9 +15,9 @@ class Obstacle:
 
 class ROUNDABOUT:
     def __init__(self):
-        rospy.Subscriber("/raw_obstacles_static", Obstacles, self.obstacleCB)
+        rospy.Subscriber("/raw_obstacles_roundabout", Obstacles, self.obstacleCB)
         rospy.Subscriber("/mode", String, self.modeCB)
-        rospy.Subscriber("/white_cnt ", Int32, self.whiteCB)
+        rospy.Subscriber("/white_cnt", Int32, self.whiteCB)
 
         self.ctrl_cmd_pub = rospy.Publisher('/motor_roundabout', Drive_command, queue_size=1)
         self.lane_topic_pub = rospy.Publisher("/lane_topic", String, queue_size=1)  
@@ -39,10 +39,15 @@ class ROUNDABOUT:
         while not rospy.is_shutdown():
             if self.mode == 'RABACON' or self.mode == 'SIGN' or self.mode == 'DYNAMIC' or self.mode == 'STATIC':
                 continue
+            print("white count!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1",self.white_cnt)
 
-            if (len(self.obstacles) > 0) and 300 < self.white_cnt < 3000:
+            if (len(self.obstacles) > 0) and 200 < self.white_cnt < 800:
                 self.publishCtrlCmd(0.0 , 0.0, True)
                 self.publish_Lane_topic("RIGHT")
+                print("white count!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1",self.white_cnt)
+            else:
+                self.publishCtrlCmd(0.0 , 0.0, False)
+
 
 
 

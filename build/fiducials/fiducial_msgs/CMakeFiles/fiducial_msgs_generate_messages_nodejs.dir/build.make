@@ -69,16 +69,16 @@ fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_nodejs: /home
 
 /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg/FiducialArray.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg/FiducialArray.js: /home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialArray.msg
-/home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg/FiducialArray.js: /home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/Fiducial.msg
 /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg/FiducialArray.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg/FiducialArray.js: /home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/Fiducial.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating Javascript code from fiducial_msgs/FiducialArray.msg"
 	cd /home/wego/Auto-Race/build/fiducials/fiducial_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialArray.msg -Ifiducial_msgs:/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p fiducial_msgs -o /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg
 
 /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg/FiducialTransform.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg/FiducialTransform.js: /home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg
+/home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg/FiducialTransform.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
 /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg/FiducialTransform.js: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
 /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg/FiducialTransform.js: /opt/ros/noetic/share/geometry_msgs/msg/Transform.msg
-/home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg/FiducialTransform.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Javascript code from fiducial_msgs/FiducialTransform.msg"
 	cd /home/wego/Auto-Race/build/fiducials/fiducial_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg -Ifiducial_msgs:/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p fiducial_msgs -o /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg
 
@@ -87,8 +87,8 @@ fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_nodejs: /home
 /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg/FiducialTransformArray.js: /home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg
 /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg/FiducialTransformArray.js: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
 /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg/FiducialTransformArray.js: /opt/ros/noetic/share/geometry_msgs/msg/Transform.msg
-/home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg/FiducialTransformArray.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
 /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg/FiducialTransformArray.js: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg/FiducialTransformArray.js: /opt/ros/noetic/share/geometry_msgs/msg/Quaternion.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating Javascript code from fiducial_msgs/FiducialTransformArray.msg"
 	cd /home/wego/Auto-Race/build/fiducials/fiducial_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransformArray.msg -Ifiducial_msgs:/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p fiducial_msgs -o /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg
 
@@ -105,8 +105,8 @@ fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_nodejs: /home
 
 /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/srv/InitializeMap.js: /opt/ros/noetic/lib/gennodejs/gen_nodejs.py
 /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/srv/InitializeMap.js: /home/wego/Auto-Race/src/fiducials/fiducial_msgs/srv/InitializeMap.srv
-/home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/srv/InitializeMap.js: /home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntry.msg
 /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/srv/InitializeMap.js: /home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntryArray.msg
+/home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/srv/InitializeMap.js: /home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntry.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Generating Javascript code from fiducial_msgs/InitializeMap.srv"
 	cd /home/wego/Auto-Race/build/fiducials/fiducial_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gennodejs/cmake/../../../lib/gennodejs/gen_nodejs.py /home/wego/Auto-Race/src/fiducials/fiducial_msgs/srv/InitializeMap.srv -Ifiducial_msgs:/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p fiducial_msgs -o /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/srv
 

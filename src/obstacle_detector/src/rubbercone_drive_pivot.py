@@ -30,7 +30,7 @@ class ConeArray:
         return f"ConeArray(size={self.size}, cones=[{cones_str}])"
     
 # -----------------튜닝 필요 할 수도 있습니다-------------------
-pivot_reset_area = [0.4, 0.0, 0.7, -0.7]
+pivot_reset_area = [-0.4, 0.0, 0.7, -0.7]
 
 class WaypointMaker:
     def __init__(self):
@@ -180,7 +180,7 @@ class WaypointMaker:
             self.flag = True
 
         angle_rad = math.atan(slope)
-        angle_deg = -8 * math.degrees(angle_rad)
+        angle_deg = -7 * math.degrees(angle_rad)
         # print(angle_deg)
 
 

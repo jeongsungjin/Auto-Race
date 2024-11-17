@@ -8,7 +8,6 @@ class SlideWindow:
 
     def __init__(self):
         rospy.Subscriber('/lane_topic', String, self.lane_callback)
-        rospy.Subscriber("/white_cnt", Int32, self.whiteCB)
 
         self.current_line = "DEFAULT"
         self.lane_side = "BOTH"
@@ -23,9 +22,6 @@ class SlideWindow:
             self.lane_side = "RIGHT"
         else:
             self.lane_side = "BOTH"
-
-    def whiteCB(self, msg):
-        self.white_cnt = msg.data
 
     def slidewindow(self, img):
         x_location = 320
@@ -60,8 +56,6 @@ class SlideWindow:
         circle_height = 100
         road_width = 0.5
         half_road_width = 0.5 * road_width
-        if 300 < self.white_cnt < 3000:
-            self.lane_side = "RIGHT"
         
         print(self.lane_side)
         if self.lane_side == "LEFT" or self.lane_side == "BOTH":

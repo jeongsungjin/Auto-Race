@@ -1,0 +1,15 @@
+<launch>
+  <!-- Gmapping 노드 실행 -->
+  <node pkg="slam_gmapping" type="slam_gmapping" name="slam_gmapping" output="screen">
+    <param name="base_frame" value="base_link" />
+    <param name="map_frame" value="map" />
+    <param name="odom_frame" value="odom" />
+    <param name="delta" value="0.1" />
+    <param name="linearUpdate" value="0.1" />
+    <param name="angularUpdate" value="0.1" />
+    <param name="map_update_interval" value="5.0" />
+  </node>
+
+  <!-- RViz 시각화 -->
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find your_package)/rviz/slam_config.rviz" />
+</launch>

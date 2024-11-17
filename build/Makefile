@@ -3275,6 +3275,19 @@ obstacle_extractor_static/fast:
 .PHONY : obstacle_extractor_static/fast
 
 #=============================================================================
+# Target rules for targets named obstacle_extractor_tunnel
+
+# Build rule for target.
+obstacle_extractor_tunnel: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 obstacle_extractor_tunnel
+.PHONY : obstacle_extractor_tunnel
+
+# fast build rule for target.
+obstacle_extractor_tunnel/fast:
+	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir/build
+.PHONY : obstacle_extractor_tunnel/fast
+
+#=============================================================================
 # Target rules for targets named obstacle_extractor_rubbercone
 
 # Build rule for target.
@@ -3572,6 +3585,19 @@ _obstacle_detector_generate_messages_check_deps_Drive_command: cmake_check_build
 _obstacle_detector_generate_messages_check_deps_Drive_command/fast:
 	$(MAKE) -f obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Drive_command.dir/build.make obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Drive_command.dir/build
 .PHONY : _obstacle_detector_generate_messages_check_deps_Drive_command/fast
+
+#=============================================================================
+# Target rules for targets named obstacle_extractor_tunnel_node
+
+# Build rule for target.
+obstacle_extractor_tunnel_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 obstacle_extractor_tunnel_node
+.PHONY : obstacle_extractor_tunnel_node
+
+# fast build rule for target.
+obstacle_extractor_tunnel_node/fast:
+	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir/build
+.PHONY : obstacle_extractor_tunnel_node/fast
 
 #=============================================================================
 # Target rules for targets named map_msgs_generate_messages_py
@@ -4267,6 +4293,7 @@ help:
 	@echo "... scans_merger_node"
 	@echo "... obstacle_extractor_node"
 	@echo "... obstacle_extractor_static"
+	@echo "... obstacle_extractor_tunnel"
 	@echo "... obstacle_extractor_rubbercone"
 	@echo "... obstacle_detector_genpy"
 	@echo "... obstacle_detector_generate_messages_py"
@@ -4290,6 +4317,7 @@ help:
 	@echo "... nav_msgs_generate_messages_py"
 	@echo "... obstacle_detector_generate_messages"
 	@echo "... _obstacle_detector_generate_messages_check_deps_Drive_command"
+	@echo "... obstacle_extractor_tunnel_node"
 	@echo "... map_msgs_generate_messages_py"
 	@echo "... _obstacle_detector_generate_messages_check_deps_CircleObstacle"
 	@echo "... _obstacle_detector_generate_messages_check_deps_SegmentObstacle"

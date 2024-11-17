@@ -380,6 +380,7 @@
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/scans_merger_node.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/obstacle_extractor_node.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/obstacle_extractor_static.dir
+/home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/obstacle_extractor_tunnel.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/install/strip.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/list_install_components.dir
@@ -407,6 +408,7 @@
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/obstacle_detector_generate_messages.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/test.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Drive_command.dir
+/home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/obstacle_extractor_tunnel_node.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/map_msgs_generate_messages_py.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_CircleObstacle.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_SegmentObstacle.dir

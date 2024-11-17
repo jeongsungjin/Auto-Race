@@ -246,7 +246,7 @@ class LaneDetectionROS:
                     print("빨강빨강~")
 
                 # 미션 3: 흰색 횡단보도 구간에서 정지
-                elif self.stop_count < 220 and np.count_nonzero(warped_img_white) > 50000: # 흰색 픽셀 개수 기준 정지 여부 판단
+                elif self.stop_count < 220 and np.count_nonzero(warped_img_white) > 40000: # 흰색 픽셀 개수 기준 정지 여부 판단
                     print("흰색 만나서 정지한 횟수", self.stop_count)
                     self.motor = 0.0
                     self.stop_count += 1
@@ -307,8 +307,8 @@ class LaneDetectionROS:
         else:
             self.local_heading = None
 
-    def publish_white_cnt(self, white_cnt):
-        self.white_cnt.publish(white_cnt)
+    def publish_white_cnt(self, white_count):
+        self.white_cnt.publish(white_count)
 
 
     def publish_yellow_pixel(self, yellow_pixel):

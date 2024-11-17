@@ -1,0 +1,6 @@
+<launch>
+  <arg name="version" default="safe"/>
+  <node name="parking_paralle" pkg="obstacle_detector" type="parking_paralle.py" output="screen">
+    <param name="version" value="$(arg version)"/>
+  </node>
+</launch>

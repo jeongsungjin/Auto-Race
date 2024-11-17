@@ -14,7 +14,7 @@ generate_messages(DEPENDENCIES std_msgs geometry_msgs)
 
 catkin_package(
   INCLUDE_DIRS include
-  LIBRARIES scans_merger obstacle_extractor obstacle_tracker obstacle_publisher obstacle_extractor_rubbercone obstacle_extractor_static ${PROJECT_NAME}_nodelets ${PROJECT_NAME}_gui
+  LIBRARIES scans_merger obstacle_extractor obstacle_tracker obstacle_publisher obstacle_extractor_rubbercone obstacle_extractor_static obstacles_extractor_tunnel ${PROJECT_NAME}_nodelets ${PROJECT_NAME}_gui
   CATKIN_DEPENDS roscpp nodelet rviz std_msgs std_srvs geometry_msgs sensor_msgs tf laser_geometry message_runtime 
 )
 
@@ -43,6 +43,10 @@ add_library(obstacle_extractor_rubbercone src/obstacle_extractor_rubbercone.cpp)
 target_link_libraries(obstacle_extractor_rubbercone ${catkin_LIBRARIES} ${ARMADILLO_LIBRARIES} ${BLAS_LIBRARIES} ${LAPACK_LIBRARIES})
 add_dependencies(obstacle_extractor_rubbercone ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
 
+add_library(obstacle_extractor_tunnel src/obstacle_extractor_tunnel.cpp)
+target_link_libraries(obstacle_extractor_tunnel ${catkin_LIBRARIES} ${ARMADILLO_LIBRARIES} ${BLAS_LIBRARIES} ${LAPACK_LIBRARIES})
+add_dependencies(obstacle_extractor_tunnel ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
+
 add_library(obstacle_extractor_static src/obstacle_extractor_static.cpp)
 target_link_libraries(obstacle_extractor_static ${catkin_LIBRARIES} ${ARMADILLO_LIBRARIES} ${BLAS_LIBRARIES} ${LAPACK_LIBRARIES})
 add_dependencies(obstacle_extractor_static ${catkin_EXPORTED_TARGETS} ${${PROJECT_NAME}_EXPORTED_TARGETS})
@@ -64,6 +68,9 @@ target_link_libraries(obstacle_publisher_node obstacle_publisher)
 
 add_executable(obstacle_extractor_rubbercone_node src/nodes/obstacle_extractor_rubbercone_node.cpp)
 target_link_libraries(obstacle_extractor_rubbercone_node obstacle_extractor_rubbercone ${ARMADILLO_LIBRARIES} ${BLAS_LIBRARIES} ${LAPACK_LIBRARIES})
+
+add_executable(obstacle_extractor_tunnel_node src/nodes/obstacle_extractor_tunnel_node.cpp)
+target_link_libraries(obstacle_extractor_tunnel_node obstacle_extractor_tunnel ${ARMADILLO_LIBRARIES} ${BLAS_LIBRARIES} ${LAPACK_LIBRARIES})
 
 add_executable(obstacle_extractor_static_node src/nodes/obstacle_extractor_static_node.cpp)
 target_link_libraries(obstacle_extractor_static_node obstacle_extractor_static ${ARMADILLO_LIBRARIES} ${BLAS_LIBRARIES} ${LAPACK_LIBRARIES})
@@ -118,7 +125,7 @@ install(TARGETS scans_merger obstacle_extractor obstacle_tracker obstacle_publis
 #
 # Install nodes
 #
-install(TARGETS scans_merger_node obstacle_extractor_node obstacle_tracker_node obstacle_publisher_node obstacle_extractor_rubbercone_node obstacle_extractor_static_node
+install(TARGETS scans_merger_node obstacle_extractor_node obstacle_tracker_node obstacle_publisher_node obstacle_extractor_rubbercone_node obstacle_extractor_static_node obstacle_extractor_tunnel_node
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION})
 
 #
