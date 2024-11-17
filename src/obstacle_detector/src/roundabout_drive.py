@@ -3,7 +3,7 @@
 
 import rospy
 from obstacle_detector.msg import Obstacles
-from std_msgs.msg import String, Int32
+from std_msgs.msg import String, Int32, Bool
 from lane_detection.msg import Drive_command
 import math
 
@@ -21,6 +21,7 @@ class ROUNDABOUT:
 
         self.ctrl_cmd_pub = rospy.Publisher('/motor_roundabout', Drive_command, queue_size=1)
         self.lane_topic_pub = rospy.Publisher("/lane_topic", String, queue_size=1)  
+        self.roundabout_done_pub = rospy.Publisher("/roundabout_done", Bool, queue_size=1)  
 
         self.ctrl_cmd_msg = Drive_command()
 
@@ -30,6 +31,7 @@ class ROUNDABOUT:
         self.distance_threshold = 0.3
         self.mode = ''
         self.flag = False
+        self.roundabout_done_flag = False
         self.speed = 0.5
         self.lane_topic = ""
 
@@ -45,6 +47,9 @@ class ROUNDABOUT:
                 self.publishCtrlCmd(0.0 , 0.0, True)
                 self.publish_Lane_topic("RIGHT")
                 print("white count!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1",self.white_cnt)
+            elif self.white_cnt > 800:
+                self.roundabout_done_flag
+                self.publish_roundabout_done(self.roundabout_done_flag)
             else:
                 self.publishCtrlCmd(0.0 , 0.0, False)
 
@@ -70,6 +75,8 @@ class ROUNDABOUT:
 
     def whiteCB(self, msg):
         self.white_cnt = msg.data
+    def publish_roundabout_done(self, roundabout_done):
+        self.roundabout_done_pub.publish(roundabout_done)
 
     def publish_Lane_topic(self, lane_topic):
         self.lane_topic_pub.publish(lane_topic)

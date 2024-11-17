@@ -4,7 +4,7 @@
 import rospy
 from sensor_msgs.msg import LaserScan
 from obstacle_detector.msg import Obstacles
-from std_msgs.msg import Float64, String, Int32
+from std_msgs.msg import Float64, String, Int32, Bool
 from ackermann_msgs.msg import AckermannDriveStamped
 from obstacle_detector.msg import Drive_command
 import math
@@ -22,9 +22,11 @@ class CrossingGate():
         rospy.Subscriber("/mode", String, self.modeCB)
         rospy.Subscriber("/scan", LaserScan, self.lidar_callback)
         rospy.Subscriber("/white_cnt", Int32, self.whiteCB)
+        rospy.Subscriber("/roundabout_done", Bool, self.roundabout_done_callback)
 
         self.ctrl_cmd_pub = rospy.Publisher('/motor_static', Drive_command, queue_size=1)
         self.ctrl_cmd_msg = Drive_command()
+        self.crossing_gate_done_pub = rospy.Publisher('/crossing_gate_done', Bool, queue_size=1)
 
         self.obstacles = []
         self.speed = 0
@@ -41,6 +43,8 @@ class CrossingGate():
         # self.avg_y = None
         self.mode = ''
         self.flag= False
+        self.roundabout_completed = False
+        self.crossing_gate_done_flag = False
         self.point_count_in_y_range = 0  # y 범위 내 점 개수
 
         self.version = rospy.get_param('~version', 'safe')
@@ -59,13 +63,15 @@ class CrossingGate():
             if self.mode == 'RABACON' or self.mode == 'SIGN' or self.mode == 'DYNAMIC' or self.mode == 'ROUNDABOUT':
                 continue
 
-            if len(self.obstacles) > 0 and self.white_cnt > 300:
+            if len(self.obstacles) > 0 and self.white_cnt > 300 and self.roundabout_completed == True:
                 if (-0.7< self.closest_obstacle.x < 0) and (-0.18 <= self.closest_obstacle.y <= 0.18): # 좌표기반 말고 뭐든지.. 새로운 조건을 and로 주세요 카메라를 쓰던, 라이다클러스터링을 쓰던, 카운터를 쓰던
                     self.publishCtrlCmd(0.0 , 0.0, True)
 
                 else:
                     self.flag = False
+                    self.crossing_gate_done_flag = True
                     self.publishCtrlCmd(self.speed , self.angle, False)
+                    self.publish_crossing_gate(self.crossing_gate_done_flag)
 
             else:
                 self.publishCtrlCmd(self.speed , self.angle, False)
@@ -74,6 +80,9 @@ class CrossingGate():
                         
     def whiteCB(self, msg):
         self.white_cnt = msg.data
+
+    def roundabout_done_callback(self, msg):
+        self.roundabout_completed = msg.data
 
     def lidar_callback(self, msg):
         # y 범위 내 점 개수 초기화
@@ -109,6 +118,9 @@ class CrossingGate():
 
     def modeCB(self, msg):
         self.mode = msg.data
+
+    def publish_crossing_gate(self, crossing_gate_done):
+        self.crossing_gate_done_pub.publish(crossing_gate_done)
 
     def publishCtrlCmd(self, motor_msg, servo_msg, flag):
         self.ctrl_cmd_msg.speed = round(motor_msg)  # 모터 속도 설정

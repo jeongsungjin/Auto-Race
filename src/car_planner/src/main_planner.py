@@ -67,7 +67,7 @@ class Controller():
         # 이미지 처리 및 장애물 관련 데이터 구독 걍 미션 별 메시지 타입 하나로 통일 해야겠다!!!!!!!!!!!!!!
         rospy.Subscriber("/motor_lane", Drive_command, self.ctrlLaneCB)  # 카메라 이미지 구독 (차선 인식용)
         rospy.Subscriber("/motor_static", Drive_command, self.ctrlStaticCB)  # LiDAR 기반 객체 탐지 경고 신호 구독 (안전/경고)
-        rospy.Subscriber("/motor_dynamic", Drive_command, self.ctrlDynamicCB)  # 장애물 상태 데이터 구독
+        # rospy.Subscriber("/motor_dynamic", Drive_command, self.ctrlDynamicCB)  # 장애물 상태 데이터 구독
         rospy.Subscriber("/motor_sign", Drive_command, self.ctrlSIGNCB)  # 표지판 ID (어린이 보호구역 신호 등) 구독
         rospy.Subscriber("/motor_rabacon", Drive_command, self.ctrlRabaconCB)  # rabacon 미션용 주행 데이터 구독
         rospy.Subscriber('/motor_roundabout', Drive_command, self.crtlRoundaboutCB)
@@ -226,10 +226,10 @@ class Controller():
         self.ctrl_static.angle = msg.angle
         self.static_mode_flag = msg.flag
 
-    def ctrlDynamicCB(self, msg):
-        self.ctrl_dynamic.speed = msg.speed
-        self.ctrl_dynamic.angle = msg.angle
-        self.dynamic_mode_flag = msg.flag
+    # def ctrlDynamicCB(self, msg):
+    #     self.ctrl_dynamic.speed = msg.speed
+    #     self.ctrl_dynamic.angle = msg.angle
+    #     self.dynamic_mode_flag = msg.flag
 
     def ctrlRabaconCB(self, msg):
         self.ctrl_rabacon.speed = msg.speed

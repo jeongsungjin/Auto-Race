@@ -3,7 +3,7 @@
 
 import rospy
 from obstacle_detector.msg import Obstacles
-from std_msgs.msg import String, Int32
+from std_msgs.msg import String, Int32, Bool
 from sensor_msgs.msg import PointCloud  
 from lane_detection.msg import Drive_command
 import math
@@ -14,6 +14,7 @@ class TUNNEL:
         rospy.Subscriber("/mode", String, self.modeCB)  # /mode를 modeCB로 연결
         rospy.Subscriber("/roi_points_tunnel", PointCloud, self.roiPointsCB)  # /roi_points_tunnel을 roiPointsCB로 연결
         rospy.Subscriber("/yellow_pixel", Int32, self.yellowCB)
+        rospy.Subscriber("/crossing_gate_done", Bool, self.crossing_gate_done_callback)
 
         # Publishers
         self.ctrl_cmd_pub = rospy.Publisher('/motor_tunnel', Drive_command, queue_size=1)
@@ -29,6 +30,7 @@ class TUNNEL:
         self.yellow_pixels = 0  # 노란색 픽셀 개수
         self.speed = 0.3  # 기본 속도
         self.steer = 0.0  # 조향각
+        self.crossing_completed = False
         self.rate = rospy.Rate(30)
 
         # 메인 루프
@@ -45,7 +47,7 @@ class TUNNEL:
             return
 
         # 노란색 픽셀 수와 ROI 포인트 기반 제어
-        if self.yellow_pixels < 3000 and len(self.roi_points) > 0:
+        if self.yellow_pixels < 3000 and len(self.roi_points) > 0 and self.crossing_completed == True:
             if self.roi_points[0][1] < 0 and self.steer < 1000:  # ROI 첫 포인트의 y값이 0보다 작을 경우
                 self.steer += 2
             elif self.roi_points[0][1] > 0 and self.steer > -1000:  # ROI 첫 포인트의 y값이 0보다 클 경우
@@ -55,6 +57,9 @@ class TUNNEL:
             self.publishCtrlCmd(self.speed, self.steer, True)
         else:
             self.publishCtrlCmd(self.speed, self.steer, False)
+
+    def crossing_gate_done_callback(self, msg):
+        self.crossing_completed = msg.data
 
     def roiPointsCB(self, msg):
         """
