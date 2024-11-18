@@ -23,10 +23,10 @@
 
     <param name="frame_id"             value="laser_frame"/>
 
-    <param name="min_x_limit" value="-0.55"/>
-    <param name="max_x_limit" value="0.2"/>
-    <param name="min_y_limit" value="-0.25"/>
-    <param name="max_y_limit" value="0.25"/>
+    <param name="min_x_limit" value="-0.45"/>
+    <param name="max_x_limit" value="0.0"/>
+    <param name="min_y_limit" value="-0.20"/>
+    <param name="max_y_limit" value="0.20"/>
   </node>
   <node name="rviz_tunnel" pkg="rviz" type="rviz" args="-d /home/xytron/rviz_tunnel.rviz" />
 
