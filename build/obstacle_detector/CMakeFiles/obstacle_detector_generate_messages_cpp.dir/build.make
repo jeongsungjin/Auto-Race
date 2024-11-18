@@ -77,11 +77,11 @@ obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp: /home/wego
 
 /home/wego/Auto-Race/devel/include/obstacle_detector/Obstacles.h: /opt/ros/noetic/lib/gencpp/gen_cpp.py
 /home/wego/Auto-Race/devel/include/obstacle_detector/Obstacles.h: /home/wego/Auto-Race/src/obstacle_detector/msg/Obstacles.msg
-/home/wego/Auto-Race/devel/include/obstacle_detector/Obstacles.h: /home/wego/Auto-Race/src/obstacle_detector/msg/CircleObstacle.msg
-/home/wego/Auto-Race/devel/include/obstacle_detector/Obstacles.h: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/wego/Auto-Race/devel/include/obstacle_detector/Obstacles.h: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
 /home/wego/Auto-Race/devel/include/obstacle_detector/Obstacles.h: /home/wego/Auto-Race/src/obstacle_detector/msg/SegmentObstacle.msg
 /home/wego/Auto-Race/devel/include/obstacle_detector/Obstacles.h: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/wego/Auto-Race/devel/include/obstacle_detector/Obstacles.h: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/wego/Auto-Race/devel/include/obstacle_detector/Obstacles.h: /home/wego/Auto-Race/src/obstacle_detector/msg/CircleObstacle.msg
 /home/wego/Auto-Race/devel/include/obstacle_detector/Obstacles.h: /opt/ros/noetic/share/gencpp/msg.h.template
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating C++ code from obstacle_detector/Obstacles.msg"
 	cd /home/wego/Auto-Race/src/obstacle_detector && /home/wego/Auto-Race/build/catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/gencpp/cmake/../../../lib/gencpp/gen_cpp.py /home/wego/Auto-Race/src/obstacle_detector/msg/Obstacles.msg -Iobstacle_detector:/home/wego/Auto-Race/src/obstacle_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p obstacle_detector -o /home/wego/Auto-Race/devel/include/obstacle_detector -e /opt/ros/noetic/share/gencpp/cmake/..

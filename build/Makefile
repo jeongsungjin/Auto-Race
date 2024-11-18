@@ -3236,19 +3236,6 @@ obstacle_extractor_rubbercone_node/fast:
 .PHONY : obstacle_extractor_rubbercone_node/fast
 
 #=============================================================================
-# Target rules for targets named scans_merger_node
-
-# Build rule for target.
-scans_merger_node: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 scans_merger_node
-.PHONY : scans_merger_node
-
-# fast build rule for target.
-scans_merger_node/fast:
-	$(MAKE) -f obstacle_detector/CMakeFiles/scans_merger_node.dir/build.make obstacle_detector/CMakeFiles/scans_merger_node.dir/build
-.PHONY : scans_merger_node/fast
-
-#=============================================================================
 # Target rules for targets named obstacle_extractor_node
 
 # Build rule for target.
@@ -3288,6 +3275,32 @@ obstacle_extractor_tunnel/fast:
 .PHONY : obstacle_extractor_tunnel/fast
 
 #=============================================================================
+# Target rules for targets named scans_merger_node
+
+# Build rule for target.
+scans_merger_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 scans_merger_node
+.PHONY : scans_merger_node
+
+# fast build rule for target.
+scans_merger_node/fast:
+	$(MAKE) -f obstacle_detector/CMakeFiles/scans_merger_node.dir/build.make obstacle_detector/CMakeFiles/scans_merger_node.dir/build
+.PHONY : scans_merger_node/fast
+
+#=============================================================================
+# Target rules for targets named obstacle_extractor_parking
+
+# Build rule for target.
+obstacle_extractor_parking: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 obstacle_extractor_parking
+.PHONY : obstacle_extractor_parking
+
+# fast build rule for target.
+obstacle_extractor_parking/fast:
+	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_parking.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_parking.dir/build
+.PHONY : obstacle_extractor_parking/fast
+
+#=============================================================================
 # Target rules for targets named obstacle_extractor_rubbercone
 
 # Build rule for target.
@@ -3299,6 +3312,19 @@ obstacle_extractor_rubbercone: cmake_check_build_system
 obstacle_extractor_rubbercone/fast:
 	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/build
 .PHONY : obstacle_extractor_rubbercone/fast
+
+#=============================================================================
+# Target rules for targets named obstacle_extractor_parking_node
+
+# Build rule for target.
+obstacle_extractor_parking_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 obstacle_extractor_parking_node
+.PHONY : obstacle_extractor_parking_node
+
+# fast build rule for target.
+obstacle_extractor_parking_node/fast:
+	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_parking_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_parking_node.dir/build
+.PHONY : obstacle_extractor_parking_node/fast
 
 #=============================================================================
 # Target rules for targets named obstacle_detector_genpy
@@ -4290,11 +4316,13 @@ help:
 	@echo "... obstacle_detector_gui"
 	@echo "... obstacle_detector_nodelets"
 	@echo "... obstacle_extractor_rubbercone_node"
-	@echo "... scans_merger_node"
 	@echo "... obstacle_extractor_node"
 	@echo "... obstacle_extractor_static"
 	@echo "... obstacle_extractor_tunnel"
+	@echo "... scans_merger_node"
+	@echo "... obstacle_extractor_parking"
 	@echo "... obstacle_extractor_rubbercone"
+	@echo "... obstacle_extractor_parking_node"
 	@echo "... obstacle_detector_genpy"
 	@echo "... obstacle_detector_generate_messages_py"
 	@echo "... nav_msgs_generate_messages_lisp"

@@ -2,7 +2,7 @@
 #-*- coding: utf-8 -*-
 
 import rospy
-from std_msgs.msg import Int32, String
+from std_msgs.msg import Int32, String, Bool
 from sensor_msgs.msg import Image
 from fiducial_msgs.msg import Fiducial, FiducialArray
 from ackermann_msgs.msg import AckermannDriveStamped  # AckermannDrive 메시지를 퍼블리시하기 위한 import
@@ -13,19 +13,24 @@ class Sign():
     def __init__(self):
         rospy.init_node('sign_slowdown', anonymous=True)  # 노드 초기화 추가
 
-        self.sign_data = ""  # 표지판 데이터 저장
-        self.A_cnt = 0        
-        self.B_cnt = 0
-        self.flag = False 
+
+        self.lane_topic_pub = rospy.Publisher("/lane_topic", String, queue_size=1)  
+        self.tunnel_done_pub = rospy.Publisher('/tunnel_done', Bool, queue_size=1)
+
+        rospy.Subscriber("/ar_pose_marker", AlvarMarkers, self.sign_callback, queue_size=1)
+        rospy.Subscriber("/motor_lane", Drive_command, self.ctrlLaneCB)
+        
         self.lane_topic = ""
         self.lane_dir = ""
         self.speed_lane = 0.7 
         self.steer_lane = 0.0 
         self.ctrl_lane = Drive_command()
-        self.lane_topic_pub = rospy.Publisher("/lane_topic", String, queue_size=1)  
 
-        rospy.Subscriber("/ar_pose_marker", AlvarMarkers, self.sign_callback, queue_size=1)
-        rospy.Subscriber("/motor_lane", Drive_command, self.ctrlLaneCB)
+        self.sign_data = ""  # 표지판 데이터 저장
+        self.A_cnt = 0        
+        self.B_cnt = 0
+        self.flag = False 
+        self.tunnel_done_flag = False
 
         self.no_sign_cnt = 0
         
@@ -40,12 +45,21 @@ class Sign():
     def run(self):
         while not rospy.is_shutdown():
             if (self.A_cnt > self.B_cnt):
+                self.tunnel_done_flag = True
+                self.publish_tunnel_done(self.tunnel_done_flag)
                 # rospy.loginfo("################## ID : {}".format(self.sign_data))            if self.lane_topic:  # self.lane_topic이 None이 아니면 퍼블리시
                 self.lane_dir = "LEFT"
                 self.publish_Lane_topic(self.lane_dir)
             elif (self.A_cnt < self.B_cnt):
+                self.tunnel_done_flag = True
+                self.publish_tunnel_done(self.tunnel_done_flag)
+
                 self.lane_dir = "RIGHT"
                 self.publish_Lane_topic(self.lane_dir)
+            else:
+                self.tunnel_done_flag = False
+                self.publish_tunnel_done(self.tunnel_done_flag)
+
 
             self.rate.sleep()
 
@@ -69,6 +83,9 @@ class Sign():
             self.B_cnt += 1                                
         else:
             rospy.logwarn(f"Unknown marker ID: {self.sign_data}")
+
+    def publish_tunnel_done(self, tunnel_done):
+        self.tunnel_done_pub.publish(tunnel_done)
 
 
 

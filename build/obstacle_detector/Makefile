@@ -213,21 +213,6 @@ obstacle_extractor_rubbercone_node/fast:
 .PHONY : obstacle_extractor_rubbercone_node/fast
 
 # Convenience name for target.
-obstacle_detector/CMakeFiles/scans_merger_node.dir/rule:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/scans_merger_node.dir/rule
-.PHONY : obstacle_detector/CMakeFiles/scans_merger_node.dir/rule
-
-# Convenience name for target.
-scans_merger_node: obstacle_detector/CMakeFiles/scans_merger_node.dir/rule
-
-.PHONY : scans_merger_node
-
-# fast build rule for target.
-scans_merger_node/fast:
-	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/scans_merger_node.dir/build.make obstacle_detector/CMakeFiles/scans_merger_node.dir/build
-.PHONY : scans_merger_node/fast
-
-# Convenience name for target.
 obstacle_detector/CMakeFiles/obstacle_extractor_node.dir/rule:
 	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_node.dir/rule
 .PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_node.dir/rule
@@ -273,6 +258,36 @@ obstacle_extractor_tunnel/fast:
 .PHONY : obstacle_extractor_tunnel/fast
 
 # Convenience name for target.
+obstacle_detector/CMakeFiles/scans_merger_node.dir/rule:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/scans_merger_node.dir/rule
+.PHONY : obstacle_detector/CMakeFiles/scans_merger_node.dir/rule
+
+# Convenience name for target.
+scans_merger_node: obstacle_detector/CMakeFiles/scans_merger_node.dir/rule
+
+.PHONY : scans_merger_node
+
+# fast build rule for target.
+scans_merger_node/fast:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/scans_merger_node.dir/build.make obstacle_detector/CMakeFiles/scans_merger_node.dir/build
+.PHONY : scans_merger_node/fast
+
+# Convenience name for target.
+obstacle_detector/CMakeFiles/obstacle_extractor_parking.dir/rule:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_parking.dir/rule
+.PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_parking.dir/rule
+
+# Convenience name for target.
+obstacle_extractor_parking: obstacle_detector/CMakeFiles/obstacle_extractor_parking.dir/rule
+
+.PHONY : obstacle_extractor_parking
+
+# fast build rule for target.
+obstacle_extractor_parking/fast:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_parking.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_parking.dir/build
+.PHONY : obstacle_extractor_parking/fast
+
+# Convenience name for target.
 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/rule:
 	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/rule
 .PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/rule
@@ -286,6 +301,21 @@ obstacle_extractor_rubbercone: obstacle_detector/CMakeFiles/obstacle_extractor_r
 obstacle_extractor_rubbercone/fast:
 	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_rubbercone.dir/build
 .PHONY : obstacle_extractor_rubbercone/fast
+
+# Convenience name for target.
+obstacle_detector/CMakeFiles/obstacle_extractor_parking_node.dir/rule:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_parking_node.dir/rule
+.PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_parking_node.dir/rule
+
+# Convenience name for target.
+obstacle_extractor_parking_node: obstacle_detector/CMakeFiles/obstacle_extractor_parking_node.dir/rule
+
+.PHONY : obstacle_extractor_parking_node
+
+# fast build rule for target.
+obstacle_extractor_parking_node/fast:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_parking_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_parking_node.dir/build
+.PHONY : obstacle_extractor_parking_node/fast
 
 # Convenience name for target.
 obstacle_detector/CMakeFiles/obstacle_detector_genpy.dir/rule:
@@ -1130,6 +1160,33 @@ src/nodes/obstacle_extractor_node.cpp.s:
 	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_node.dir/src/nodes/obstacle_extractor_node.cpp.s
 .PHONY : src/nodes/obstacle_extractor_node.cpp.s
 
+src/nodes/obstacle_extractor_parking_node.o: src/nodes/obstacle_extractor_parking_node.cpp.o
+
+.PHONY : src/nodes/obstacle_extractor_parking_node.o
+
+# target to build an object file
+src/nodes/obstacle_extractor_parking_node.cpp.o:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_parking_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_parking_node.dir/src/nodes/obstacle_extractor_parking_node.cpp.o
+.PHONY : src/nodes/obstacle_extractor_parking_node.cpp.o
+
+src/nodes/obstacle_extractor_parking_node.i: src/nodes/obstacle_extractor_parking_node.cpp.i
+
+.PHONY : src/nodes/obstacle_extractor_parking_node.i
+
+# target to preprocess a source file
+src/nodes/obstacle_extractor_parking_node.cpp.i:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_parking_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_parking_node.dir/src/nodes/obstacle_extractor_parking_node.cpp.i
+.PHONY : src/nodes/obstacle_extractor_parking_node.cpp.i
+
+src/nodes/obstacle_extractor_parking_node.s: src/nodes/obstacle_extractor_parking_node.cpp.s
+
+.PHONY : src/nodes/obstacle_extractor_parking_node.s
+
+# target to generate assembly for a file
+src/nodes/obstacle_extractor_parking_node.cpp.s:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_parking_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_parking_node.dir/src/nodes/obstacle_extractor_parking_node.cpp.s
+.PHONY : src/nodes/obstacle_extractor_parking_node.cpp.s
+
 src/nodes/obstacle_extractor_rubbercone_node.o: src/nodes/obstacle_extractor_rubbercone_node.cpp.o
 
 .PHONY : src/nodes/obstacle_extractor_rubbercone_node.o
@@ -1318,6 +1375,33 @@ src/obstacle_extractor.s: src/obstacle_extractor.cpp.s
 src/obstacle_extractor.cpp.s:
 	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor.dir/src/obstacle_extractor.cpp.s
 .PHONY : src/obstacle_extractor.cpp.s
+
+src/obstacle_extractor_parking.o: src/obstacle_extractor_parking.cpp.o
+
+.PHONY : src/obstacle_extractor_parking.o
+
+# target to build an object file
+src/obstacle_extractor_parking.cpp.o:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_parking.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_parking.dir/src/obstacle_extractor_parking.cpp.o
+.PHONY : src/obstacle_extractor_parking.cpp.o
+
+src/obstacle_extractor_parking.i: src/obstacle_extractor_parking.cpp.i
+
+.PHONY : src/obstacle_extractor_parking.i
+
+# target to preprocess a source file
+src/obstacle_extractor_parking.cpp.i:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_parking.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_parking.dir/src/obstacle_extractor_parking.cpp.i
+.PHONY : src/obstacle_extractor_parking.cpp.i
+
+src/obstacle_extractor_parking.s: src/obstacle_extractor_parking.cpp.s
+
+.PHONY : src/obstacle_extractor_parking.s
+
+# target to generate assembly for a file
+src/obstacle_extractor_parking.cpp.s:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_parking.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_parking.dir/src/obstacle_extractor_parking.cpp.s
+.PHONY : src/obstacle_extractor_parking.cpp.s
 
 src/obstacle_extractor_rubbercone.o: src/obstacle_extractor_rubbercone.cpp.o
 
@@ -1601,13 +1685,15 @@ help:
 	@echo "... obstacle_detector_gui"
 	@echo "... obstacle_detector_nodelets"
 	@echo "... obstacle_extractor_rubbercone_node"
-	@echo "... scans_merger_node"
 	@echo "... obstacle_extractor_node"
 	@echo "... obstacle_extractor_static"
 	@echo "... obstacle_extractor_tunnel"
+	@echo "... scans_merger_node"
+	@echo "... obstacle_extractor_parking"
 	@echo "... install/strip"
 	@echo "... obstacle_extractor_rubbercone"
 	@echo "... list_install_components"
+	@echo "... obstacle_extractor_parking_node"
 	@echo "... obstacle_detector_genpy"
 	@echo "... obstacle_detector_generate_messages_py"
 	@echo "... nav_msgs_generate_messages_lisp"
@@ -1677,6 +1763,9 @@ help:
 	@echo "... src/nodes/obstacle_extractor_node.o"
 	@echo "... src/nodes/obstacle_extractor_node.i"
 	@echo "... src/nodes/obstacle_extractor_node.s"
+	@echo "... src/nodes/obstacle_extractor_parking_node.o"
+	@echo "... src/nodes/obstacle_extractor_parking_node.i"
+	@echo "... src/nodes/obstacle_extractor_parking_node.s"
 	@echo "... src/nodes/obstacle_extractor_rubbercone_node.o"
 	@echo "... src/nodes/obstacle_extractor_rubbercone_node.i"
 	@echo "... src/nodes/obstacle_extractor_rubbercone_node.s"
@@ -1698,6 +1787,9 @@ help:
 	@echo "... src/obstacle_extractor.o"
 	@echo "... src/obstacle_extractor.i"
 	@echo "... src/obstacle_extractor.s"
+	@echo "... src/obstacle_extractor_parking.o"
+	@echo "... src/obstacle_extractor_parking.i"
+	@echo "... src/obstacle_extractor_parking.s"
 	@echo "... src/obstacle_extractor_rubbercone.o"
 	@echo "... src/obstacle_extractor_rubbercone.i"
 	@echo "... src/obstacle_extractor_rubbercone.s"

@@ -41,14 +41,14 @@ class ROUNDABOUT:
         while not rospy.is_shutdown():
             if self.mode == 'RABACON' or self.mode == 'SIGN' or self.mode == 'DYNAMIC' or self.mode == 'STATIC':
                 continue
+
             print("white count!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1",self.white_cnt)
 
-            if (len(self.obstacles) > 0) and 200 < self.white_cnt < 800:
+            if (len(self.obstacles) > 0) and 250 < self.white_cnt < 800:
                 self.publishCtrlCmd(0.0 , 0.0, True)
                 self.publish_Lane_topic("RIGHT")
-                print("white count!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1",self.white_cnt)
             elif self.white_cnt > 800:
-                self.roundabout_done_flag
+                self.roundabout_done_flag = True
                 self.publish_roundabout_done(self.roundabout_done_flag)
             else:
                 self.publishCtrlCmd(0.0 , 0.0, False)

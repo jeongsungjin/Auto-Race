@@ -5,7 +5,8 @@
 
     <!-- 라바콘 오랜지 인지 코드 -->
     <include file="$(find cv_detect)/launch/rubbercone_orange_detection.launch" />
-    <!-- <include file="$(find obstacle_detector)/launch/lidar_launch.launch"/> -->
+    
+    <include file="$(find cv_detect)/launch/parking_sign_detection.launch" />
 
     <!-- 정적장애물 Clustering -->
     <include file="$(find obstacle_detector)/launch/obstacle_detector_static.launch"/>
@@ -14,6 +15,8 @@
     <include file="$(find obstacle_detector)/launch/obstacle_detector_rubbercone.launch"/>
     
     <include file="$(find obstacle_detector)/launch/obstacle_detector_tunnel.launch"/>
+
+    <include file="$(find obstacle_detector)/launch/obstacle_detector_parking.launch"/>
 
     <include file="$(find ar_track_alvar)/launch/pr2_indiv_no_kinect.launch"/>
 

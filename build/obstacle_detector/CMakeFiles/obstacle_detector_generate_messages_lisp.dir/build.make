@@ -75,11 +75,11 @@ obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp: /home/weg
 
 /home/wego/Auto-Race/devel/share/common-lisp/ros/obstacle_detector/msg/Obstacles.lisp: /opt/ros/noetic/lib/genlisp/gen_lisp.py
 /home/wego/Auto-Race/devel/share/common-lisp/ros/obstacle_detector/msg/Obstacles.lisp: /home/wego/Auto-Race/src/obstacle_detector/msg/Obstacles.msg
-/home/wego/Auto-Race/devel/share/common-lisp/ros/obstacle_detector/msg/Obstacles.lisp: /home/wego/Auto-Race/src/obstacle_detector/msg/CircleObstacle.msg
-/home/wego/Auto-Race/devel/share/common-lisp/ros/obstacle_detector/msg/Obstacles.lisp: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
 /home/wego/Auto-Race/devel/share/common-lisp/ros/obstacle_detector/msg/Obstacles.lisp: /opt/ros/noetic/share/geometry_msgs/msg/Vector3.msg
 /home/wego/Auto-Race/devel/share/common-lisp/ros/obstacle_detector/msg/Obstacles.lisp: /home/wego/Auto-Race/src/obstacle_detector/msg/SegmentObstacle.msg
 /home/wego/Auto-Race/devel/share/common-lisp/ros/obstacle_detector/msg/Obstacles.lisp: /opt/ros/noetic/share/std_msgs/msg/Header.msg
+/home/wego/Auto-Race/devel/share/common-lisp/ros/obstacle_detector/msg/Obstacles.lisp: /opt/ros/noetic/share/geometry_msgs/msg/Point.msg
+/home/wego/Auto-Race/devel/share/common-lisp/ros/obstacle_detector/msg/Obstacles.lisp: /home/wego/Auto-Race/src/obstacle_detector/msg/CircleObstacle.msg
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/wego/Auto-Race/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating Lisp code from obstacle_detector/Obstacles.msg"
 	cd /home/wego/Auto-Race/build/obstacle_detector && ../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genlisp/cmake/../../../lib/genlisp/gen_lisp.py /home/wego/Auto-Race/src/obstacle_detector/msg/Obstacles.msg -Iobstacle_detector:/home/wego/Auto-Race/src/obstacle_detector/msg -Istd_msgs:/opt/ros/noetic/share/std_msgs/cmake/../msg -Igeometry_msgs:/opt/ros/noetic/share/geometry_msgs/cmake/../msg -p obstacle_detector -o /home/wego/Auto-Race/devel/share/common-lisp/ros/obstacle_detector/msg
 

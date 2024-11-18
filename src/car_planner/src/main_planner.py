@@ -61,6 +61,7 @@ class Controller():
         self.ctrl_dynamic = Drive_command()
         self.ctrl_roundabout = Drive_command()
         self.ctrl_tunnel = Drive_command()
+        self.ctrl_parking = Drive_command()
 
         rospy.init_node('main_planner', anonymous=True)  # ROS 노드 초기화
 
@@ -72,6 +73,7 @@ class Controller():
         rospy.Subscriber("/motor_rabacon", Drive_command, self.ctrlRabaconCB)  # rabacon 미션용 주행 데이터 구독
         rospy.Subscriber('/motor_roundabout', Drive_command, self.crtlRoundaboutCB)
         rospy.Subscriber('/motor_tunnel', Drive_command, self.crtlTunnelCB)
+        rospy.Subscriber('/motor_parking', Drive_command, self.crtlParkingCB)
 
         rospy.Subscriber("/obstacles", Obstacles, self.staticObstacle_callback)  # 장애물 데이터 구독
         rospy.Subscriber("/raw_obstacles_rubbercone", Obstacles, self.rubberconeObstacleCB)
@@ -93,6 +95,8 @@ class Controller():
         self.dynamic_mode_flag = False
         self.roundabout_mode_flag = False
         self.tunnel_mode_flag = False
+        self.parking_mode_flag = False
+
         self.lane_mode_flag = True
 
         # mode
@@ -130,6 +134,8 @@ class Controller():
                 self.mode = 'ROUNDABOUT'
             elif self.tunnel_mode_flag == True:
                 self.mode = 'TUNNEL'
+            elif self.parking_mode_flag == True:
+                self.mode = 'PARKING'
             else:
                 self.mode = 'LANE'
 
@@ -157,7 +163,9 @@ class Controller():
                 elif self.mode == "TUNNEL":
                     self.motor = self.ctrl_tunnel.speed
                     self.steer = self.ctrl_tunnel.angle
-
+                elif self.mode == "PARKING":
+                    self.motor = self.ctrl_parking.speed
+                    self.steer = self.ctrl_parking.angle
                 else:               # LANE
                     self.motor = self.ctrl_lane.speed
                     self.steer = self.ctrl_lane.angle
@@ -194,10 +202,10 @@ class Controller():
             rospy.loginfo(f"STEER: {self.steer}")
             rospy.loginfo(f"")
 
-            if self.steer > 110:
-                self.steer = 110
-            elif self.steer < -110:
-                self.steer = -110
+            # if self.steer > 110:
+            #     self.steer = 110
+            # elif self.steer < -110:
+            #     self.steer = -110
                 
             self.publishCtrlCmd(self.motor, self.steer)
 
@@ -250,6 +258,11 @@ class Controller():
         self.ctrl_tunnel.speed = msg.speed
         self.ctrl_tunnel.angle = msg.angle
         self.tunnel_mode_flag = msg.flag
+
+    def crtlParkingCB(self, msg):
+        self.ctrl_parking.speed = msg.speed
+        self.ctrl_parking.angle = msg.angle
+        self.parking_mode_flag = msg.flag
 
     def staticObstacle_callback(self, msg):
         self.static_obstacles = []

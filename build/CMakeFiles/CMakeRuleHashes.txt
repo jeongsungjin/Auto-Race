@@ -4,7 +4,6 @@ a09c13610846f7f3d259bfc923f4274e /home/wego/Auto-Race/devel/include/ar_track_alv
 bfd0fbb910192cdf2c87cca27661828c /home/wego/Auto-Race/devel/include/ar_track_alvar_msgs/AlvarMarker.h
 b392a0236a27558028404d3ffac26ed9 /home/wego/Auto-Race/devel/include/ar_track_alvar_msgs/AlvarMarkers.h
 b5d68503c99e61c628ebaf1467b5c975 /home/wego/Auto-Race/devel/include/aruco_detect/DetectorParamsConfig.h
-abc879fa6f824c95fd34fd0658627bb1 /home/wego/Auto-Race/devel/include/aruco_detection/MarkerArray.h
 a9f0ed021c8f706c1b4ae64c29ce08d9 /home/wego/Auto-Race/devel/include/car_planner/Drive_command.h
 e88007bc551f5a1933b8ec824fbb0ba3 /home/wego/Auto-Race/devel/include/fiducial_msgs/Fiducial.h
 0409a78ff1a46c57c58fefca68a7588c /home/wego/Auto-Race/devel/include/fiducial_msgs/FiducialArray.h
@@ -25,8 +24,6 @@ a9e6c9ca65ab04081b6b61aca3918866 /home/wego/Auto-Race/devel/include/razor_imu_9d
 cba3f4364138a4a895245e26d5b95f7a /home/wego/Auto-Race/devel/lib/python3/dist-packages/ar_track_alvar_msgs/msg/_AlvarMarker.py
 35be0eb5a2fc55e77a3fbafd0928976f /home/wego/Auto-Race/devel/lib/python3/dist-packages/ar_track_alvar_msgs/msg/_AlvarMarkers.py
 ca7f2a859832d85d66b34a19a10c8c5b /home/wego/Auto-Race/devel/lib/python3/dist-packages/ar_track_alvar_msgs/msg/__init__.py
-d4ef03fe7ff8238232c2263e2e61a49c /home/wego/Auto-Race/devel/lib/python3/dist-packages/aruco_detection/msg/_MarkerArray.py
-9da43ab8b5ba3ce2058124aad1670736 /home/wego/Auto-Race/devel/lib/python3/dist-packages/aruco_detection/msg/__init__.py
 d577eed598d13cf011ec8966f52c7cb7 /home/wego/Auto-Race/devel/lib/python3/dist-packages/car_planner/msg/_Drive_command.py
 aab0fa52ff4649426e8edad30d76a751 /home/wego/Auto-Race/devel/lib/python3/dist-packages/car_planner/msg/__init__.py
 643de7eead9bfbbcb5c7e1ec8bb88f74 /home/wego/Auto-Race/devel/lib/python3/dist-packages/fiducial_msgs/msg/_Fiducial.py
@@ -52,7 +49,6 @@ edeb403d93819b01110cd474b06c8322 /home/wego/Auto-Race/devel/lib/python3/dist-pac
 2e70e486bfcb2ab28ee70a151f921bf0 /home/wego/Auto-Race/devel/lib/python3/dist-packages/sign_slowdown/msg/__init__.py
 ca317f8294b90e35f9ee677920b75e05 /home/wego/Auto-Race/devel/share/common-lisp/ros/ar_track_alvar_msgs/msg/AlvarMarker.lisp
 40dc3badf0ecca0dfe4d5cde51c67e13 /home/wego/Auto-Race/devel/share/common-lisp/ros/ar_track_alvar_msgs/msg/AlvarMarkers.lisp
-9f1da9ab29aea9b503643e12ab302dca /home/wego/Auto-Race/devel/share/common-lisp/ros/aruco_detection/msg/MarkerArray.lisp
 98662ba5bd58994a871ac06eb42ebc8f /home/wego/Auto-Race/devel/share/common-lisp/ros/car_planner/msg/Drive_command.lisp
 cf8d37c3096cf1dc76c9d234aa81a324 /home/wego/Auto-Race/devel/share/common-lisp/ros/fiducial_msgs/msg/Fiducial.lisp
 1867404f8d4f4aad3f589ff1c8a73ac2 /home/wego/Auto-Race/devel/share/common-lisp/ros/fiducial_msgs/msg/FiducialArray.lisp
@@ -71,7 +67,6 @@ ccc621a39a23d04ac9e80890d2c43c10 /home/wego/Auto-Race/devel/share/common-lisp/ro
 a24c6d66ad70f237584959153fb24c6c /home/wego/Auto-Race/devel/share/common-lisp/ros/sign_slowdown/msg/Drive_command.lisp
 8c791bc57ba2186fad2ed15fce92e9be /home/wego/Auto-Race/devel/share/gennodejs/ros/ar_track_alvar_msgs/msg/AlvarMarker.js
 2ea21b5011df69eaac1750877e66144a /home/wego/Auto-Race/devel/share/gennodejs/ros/ar_track_alvar_msgs/msg/AlvarMarkers.js
-481943ebb5b4f1f36966e394cca02a55 /home/wego/Auto-Race/devel/share/gennodejs/ros/aruco_detection/msg/MarkerArray.js
 71b225e4946435c13e0e2b3ad93bd355 /home/wego/Auto-Race/devel/share/gennodejs/ros/car_planner/msg/Drive_command.js
 b2cdb9da065dc3ba6dd58e8f5c9a9166 /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg/Fiducial.js
 de266720e9c1a1940e9d0e7f5fa385f7 /home/wego/Auto-Race/devel/share/gennodejs/ros/fiducial_msgs/msg/FiducialArray.js
@@ -91,8 +86,6 @@ b2b29de7663899fa7929e0fdbe76accc /home/wego/Auto-Race/devel/share/gennodejs/ros/
 79fc550cef517c685a3b0fae6897eacf /home/wego/Auto-Race/devel/share/roseus/ros/ar_track_alvar_msgs/manifest.l
 835a36befff88b83aed4cbee053c75e4 /home/wego/Auto-Race/devel/share/roseus/ros/ar_track_alvar_msgs/msg/AlvarMarker.l
 e5b40fe90705c14595b68d17bc609852 /home/wego/Auto-Race/devel/share/roseus/ros/ar_track_alvar_msgs/msg/AlvarMarkers.l
-2c00ac7d454b8ba6fca3601890a002d8 /home/wego/Auto-Race/devel/share/roseus/ros/aruco_detection/manifest.l
-eaff45972af7f922d7a2607907cd0591 /home/wego/Auto-Race/devel/share/roseus/ros/aruco_detection/msg/MarkerArray.l
 e3d378eecc588d40cc0c9d366d0c0316 /home/wego/Auto-Race/devel/share/roseus/ros/car_planner/manifest.l
 ab86ecd1a5205759d9f83ede99e150f4 /home/wego/Auto-Race/devel/share/roseus/ros/car_planner/msg/Drive_command.l
 7511401389c066fb1f25c65daadba993 /home/wego/Auto-Race/devel/share/roseus/ros/fiducial_msgs/manifest.l
@@ -136,8 +129,8 @@ da511073c3398081ce6b4219726f08aa ar_track_alvar/ar_track_alvar/CMakeFiles/run_te
 a09a3b0b0b87415b832559606f760a9b ar_track_alvar/ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_wego_Auto-Race_src_ar_track_alvar_ar_track_alvar_test_marker_arg_config-full.test
 bd428f7181b4a44f3dd8a0ad9a72b9bd ar_track_alvar/ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_wego_Auto-Race_src_ar_track_alvar_ar_track_alvar_test_marker_param_config-basic.test
 5b3b1ed347e4358d10e60bf9d0be9bd6 ar_track_alvar/ar_track_alvar/CMakeFiles/run_tests_ar_track_alvar_roslaunch-check__home_wego_Auto-Race_src_ar_track_alvar_ar_track_alvar_test_marker_param_config-full.test
-d3ee0bc644e00b84ca8e368f37fe014e ar_track_alvar/ar_track_alvar_msgs/CMakeFiles/_ar_track_alvar_msgs_generate_messages_check_deps_AlvarMarker
-3fbda52b7379d1f4efbe0edbfd11d163 ar_track_alvar/ar_track_alvar_msgs/CMakeFiles/_ar_track_alvar_msgs_generate_messages_check_deps_AlvarMarkers
+2de92782836478f891541a892a1e14b4 ar_track_alvar/ar_track_alvar_msgs/CMakeFiles/_ar_track_alvar_msgs_generate_messages_check_deps_AlvarMarker
+9c6105605980948679eba0efbd8d7ece ar_track_alvar/ar_track_alvar_msgs/CMakeFiles/_ar_track_alvar_msgs_generate_messages_check_deps_AlvarMarkers
 d34f7cf94f13c46c314b5c1bd3856ab5 ar_track_alvar/ar_track_alvar_msgs/CMakeFiles/ar_track_alvar_msgs_generate_messages_cpp
 d34f7cf94f13c46c314b5c1bd3856ab5 ar_track_alvar/ar_track_alvar_msgs/CMakeFiles/ar_track_alvar_msgs_generate_messages_eus
 d34f7cf94f13c46c314b5c1bd3856ab5 ar_track_alvar/ar_track_alvar_msgs/CMakeFiles/ar_track_alvar_msgs_generate_messages_lisp
@@ -157,8 +150,8 @@ d514468be598a8fdc70871dfa36602dd fiducials/aruco_detect/CMakeFiles/run_tests_aru
 dbca1caa578eec9aa58f4b5a54987c80 fiducials/fiducial_msgs/CMakeFiles/_fiducial_msgs_generate_messages_check_deps_FiducialArray
 b0af64578d40661b01e00f4e132168b9 fiducials/fiducial_msgs/CMakeFiles/_fiducial_msgs_generate_messages_check_deps_FiducialMapEntry
 11600dc98c98d7f12db1ef0f9a37a4b2 fiducials/fiducial_msgs/CMakeFiles/_fiducial_msgs_generate_messages_check_deps_FiducialMapEntryArray
-b3b63a36eb10f3b9367d1b588dc79f2d fiducials/fiducial_msgs/CMakeFiles/_fiducial_msgs_generate_messages_check_deps_FiducialTransform
-58993f74bd7d582fbfd318168be810d1 fiducials/fiducial_msgs/CMakeFiles/_fiducial_msgs_generate_messages_check_deps_FiducialTransformArray
+f27cbe5ea213bc47d01aff9b76f39ec6 fiducials/fiducial_msgs/CMakeFiles/_fiducial_msgs_generate_messages_check_deps_FiducialTransform
+f2397b6c8f4d61d9f3a72bc18f490253 fiducials/fiducial_msgs/CMakeFiles/_fiducial_msgs_generate_messages_check_deps_FiducialTransformArray
 944a0c9535c44610c1c5c3ac21141c5f fiducials/fiducial_msgs/CMakeFiles/_fiducial_msgs_generate_messages_check_deps_InitializeMap
 01c4788a1689ff1ea4a1dc33773728fa fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_cpp
 01c4788a1689ff1ea4a1dc33773728fa fiducials/fiducial_msgs/CMakeFiles/fiducial_msgs_generate_messages_eus
@@ -188,7 +181,7 @@ fdd4e62ee568073d4c40f7c1d4be5f63 lane_detection/CMakeFiles/_lane_detection_gener
 74926c48a8d592f19460cc89af219868 lane_detection/CMakeFiles/lane_detection_generate_messages_py
 3b60e137b388c4319d12b92af55fd744 obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_CircleObstacle
 4b3eed2b185b9271d9d0bf4597388e0c obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Drive_command
-c801b3c5325f35f5339e86c653ed6502 obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Obstacles
+306caceb49cb8134c556fa16faabc615 obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Obstacles
 339d360edd63298bf657c4fde73f1260 obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_SegmentObstacle
 f9d983f8841f1a3c0cd2bdc2d50fe0eb obstacle_detector/CMakeFiles/_obstacle_detector_generate_messages_check_deps_Waypoint
 14dbaf9615977b4b0586b68da080f4b7 obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_cpp

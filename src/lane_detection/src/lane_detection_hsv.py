@@ -87,7 +87,6 @@ class LaneDetectionROS:
         self.upper_white = np.array([0, 255, 255])
         self.lower_red = np.array([0, 25, 150])
         self.upper_red = np.array([5, 255, 255])
-
         # 트랙바 윈도우 생성
         cv2.namedWindow("Trackbars")
 
@@ -159,7 +158,7 @@ class LaneDetectionROS:
                     cv2.getTrackbarPos("White Upper S", "Trackbars"),
                     cv2.getTrackbarPos("White Upper V", "Trackbars")
                 ])
-                
+                # 트랙바 빨강
                 self.lower_red = np.array([
                     cv2.getTrackbarPos("Red Lower H", "Trackbars"),
                     cv2.getTrackbarPos("Red Lower S", "Trackbars"),
@@ -246,7 +245,7 @@ class LaneDetectionROS:
                     print("빨강빨강~")
 
                 # 미션 3: 흰색 횡단보도 구간에서 정지
-                elif self.stop_count < 220 and np.count_nonzero(warped_img_white) > 40000: # 흰색 픽셀 개수 기준 정지 여부 판단
+                elif self.stop_count < 220 and np.count_nonzero(warped_img_white) > 60000: # 흰색 픽셀 개수 기준 정지 여부 판단
                     print("흰색 만나서 정지한 횟수", self.stop_count)
                     self.motor = 0.0
                     self.stop_count += 1
@@ -264,16 +263,16 @@ class LaneDetectionROS:
                 print(np.count_nonzero(warped_img_white))
 
                 # 결과 표시
-                cv2.imshow('Original Image', frame_resized)
+                # cv2.imshow('Original Image', frame_resized)
                 cv2.imshow("Yellow Mask", filtered_yellow)
                 cv2.imshow("White Mask", filtered_white)
-                cv2.imshow("Red Mask", filtered_red)
-                cv2.imshow("Filtered Image", filtered_img)
-                cv2.imshow("Warped Image", warped_img)
+                # cv2.imshow("Red Mask", filtered_red)
+                # cv2.imshow("Filtered Image", filtered_img)
+                # cv2.imshow("Warped Image", warped_img)
                 cv2.imshow("Output Image", out_img)
-                cv2.imshow("Warped White Stop Line", warped_img_white)
+                # cv2.imshow("Warped White Stop Line", warped_img_white)
 
-                print("x_location", x_location)
+                # print("x_location", x_location)
                 # 화면 업데이트 및 이벤트 처리
                 cv2.waitKey(1)  # 1ms 동안 대기
                 self.publishCtrlCmd(self.motor, self.steer) 
@@ -309,7 +308,6 @@ class LaneDetectionROS:
 
     def publish_white_cnt(self, white_count):
         self.white_cnt.publish(white_count)
-
 
     def publish_yellow_pixel(self, yellow_pixel):
         self.yellow_pixel.publish(yellow_pixel)

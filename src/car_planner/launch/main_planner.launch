@@ -55,13 +55,14 @@
         <param name="version" value="$(arg version)"/>
     </node>
 
-    <!-- <include file="$(find obstacle_detector)/launch/parking_paralle.launch">
+    <include file="$(find obstacle_detector)/launch/parking_paralle.launch">
         <arg name="version" value="$(arg version)"/>
-    </include> -->
+    </include>
 
     <include file="$(find racecar)/launch/teleop.launch"/> 
     <!-- 장애물 탐지 관련 -->
     <include file="$(find obstacle_detector)/launch/nodelets.launch"/>
+
     <include file="$(find aruco_detect)/launch/aruco_detect.launch"/>
 
     <include file="$(find sensor_manager)/launch/sensor_process.launch" />

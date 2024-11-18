@@ -95,7 +95,7 @@ class WaypointMaker:
             leftPivotToConeDistance = self.get_distance(left_point, cone)
             rightPivotToConeDistance = self.get_distance(right_point, cone)
             # ------------------------------ 튜닝 필요 ---------------------------------- #
-            if leftPivotToConeDistance > 0.75 and rightPivotToConeDistance > 0.75:
+            if leftPivotToConeDistance > 0.45 and rightPivotToConeDistance > 0.45:
                 continue
             # ------------------------------ 튜닝 필요 ---------------------------------- #
 
