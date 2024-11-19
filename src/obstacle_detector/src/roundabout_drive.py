@@ -18,6 +18,7 @@ class ROUNDABOUT:
         rospy.Subscriber("/raw_obstacles_roundabout", Obstacles, self.obstacleCB)
         rospy.Subscriber("/mode", String, self.modeCB)
         rospy.Subscriber("/white_cnt", Int32, self.whiteCB)
+        rospy.Subscriber("/sum_of_motor", Int32, self.motor_cntCB)
 
         self.ctrl_cmd_pub = rospy.Publisher('/motor_roundabout', Drive_command, queue_size=1)
         self.lane_topic_pub = rospy.Publisher("/lane_topic", String, queue_size=1)  
@@ -33,6 +34,7 @@ class ROUNDABOUT:
         self.flag = False
         self.roundabout_done_flag = False
         self.speed = 0.5
+        self.sum_of_motor = 0.0
         self.lane_topic = ""
 
         self.white_cnt = 0
@@ -42,19 +44,20 @@ class ROUNDABOUT:
             if self.mode == 'RABACON' or self.mode == 'SIGN' or self.mode == 'DYNAMIC' or self.mode == 'STATIC':
                 continue
 
-            print("white count!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1",self.white_cnt)
+            # print("white count!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1",self.white_cnt)
 
-            if (len(self.obstacles) > 0) and 250 < self.white_cnt < 800:
+            if (len(self.obstacles) > 0) and  0 < self.sum_of_motor < 125 and self.roundabout_done_flag == False:
                 self.publishCtrlCmd(0.0 , 0.0, True)
                 self.publish_Lane_topic("RIGHT")
-            elif self.white_cnt > 800:
+            elif self.white_cnt >= 1000:
                 self.roundabout_done_flag = True
                 self.publish_roundabout_done(self.roundabout_done_flag)
-            else:
                 self.publishCtrlCmd(0.0 , 0.0, False)
 
-
-
+            else:
+                self.publishCtrlCmd(0.0 , 0.0, False)
+                self.roundabout_done_flag = False
+                self.publish_roundabout_done(self.roundabout_done_flag)
 
             self.rate.sleep()
 
@@ -70,11 +73,15 @@ class ROUNDABOUT:
 
         self.obstacles.sort(key=lambda obs: obs.distance)
 
+    def motor_cntCB(self, msg):
+        self.sum_of_motorsum_of_motor = msg.data
+
     def modeCB(self, msg):
         self.mode = msg.data
 
     def whiteCB(self, msg):
         self.white_cnt = msg.data
+
     def publish_roundabout_done(self, roundabout_done):
         self.roundabout_done_pub.publish(roundabout_done)
 

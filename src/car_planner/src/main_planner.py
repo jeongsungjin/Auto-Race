@@ -77,6 +77,8 @@ class Controller():
 
         rospy.Subscriber("/obstacles", Obstacles, self.staticObstacle_callback)  # 장애물 데이터 구독
         rospy.Subscriber("/raw_obstacles_rubbercone", Obstacles, self.rubberconeObstacleCB)
+        rospy.Subscriber("/white_cnt", Int32, self.whiteCB)
+        self.motor_count_pub = rospy.Publisher("/sum_of_motor", Int32, queue_size=1)  
 
         self.drive_pub = rospy.Publisher("high_level/ackermann_cmd_mux/input/nav_0", AckermannDriveStamped, queue_size=1)  # 차량 주행 명령 퍼블리셔
         self.mode_pub = rospy.Publisher('/mode', String, queue_size=1)
@@ -105,7 +107,8 @@ class Controller():
 
         self.start_flag = False
         self.kill_flag = False
-
+        self.white_cnt = 0
+        self.motor_sum = 0
         self.steer_queue_size = 30
         self.steer_queue = np.zeros(self.steer_queue_size, dtype=int)
         
@@ -185,8 +188,10 @@ class Controller():
 
 
             # --------------------------- 장애물 인지시 감속 ---------------------------------------- # 
-
-
+            if self.white_cnt >= 220:
+                self.motor_sum += self.motor
+                print("!!!!!!!!!!!!누적 이동량!!!!!!!!!!!!!!", self.motor_sum)
+                self.publish_sum_of_motor(int(self.motor_sum))
 
             # --------------------------- 라바콘 인지시 감속 --------------------------- # 
             # if len(self.rubbercone_obstacles) > 0:
@@ -279,6 +284,12 @@ class Controller():
         #     self.closest_static_obstacle = self.static_obstacles[0]
         # else:
         #     self.closest_static_obstacle = Obstacle()
+
+    def whiteCB(self, msg):
+        self.white_cnt = msg.data
+
+    def publish_sum_of_motor(self, motor_count):
+        self.motor_count_pub.publish(motor_count)
 
     def rubberconeObstacleCB(self, msg):
         self.rubbercone_obstacles = []

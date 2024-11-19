@@ -16,11 +16,12 @@ class ParkingSingDetection:
 
         try:
             self.bridge = CvBridge()
+            rospy.Subscriber("/tunnel_done", Bool, self.tunnel_done_callback) # 콜백 만들어서 주석 풀어야함!
 
             rospy.Subscriber("/usb_cam/image_raw", Image, self.cameraCB)
             self.is_blue_pub = rospy.Publisher("/is_blue", Bool, queue_size=1)
 
-
+            self.tunnel_done_flag = False
             self.cv_image = None
 
             self.is_blue_msg = Bool()
@@ -53,6 +54,9 @@ class ParkingSingDetection:
         except CvBridgeError as e:
             rospy.logwarn(e)
 
+    def tunnel_done_callback(self, msg):
+        self.tunnel_done_flag = msg.data
+
     def detect_blue(self, image):
         hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
@@ -71,7 +75,7 @@ class ParkingSingDetection:
         # 윤곽선 찾기
         blue_pixel_counts = np.count_nonzero(blue_mask)
         cv2.imshow("blue mask", blue_mask)
-        if blue_pixel_counts > 3000:
+        if blue_pixel_counts > 1000 and self.tunnel_done_flag == True:
             self.is_blue_msg.data = True
         else:
             self.is_blue_msg.data = False

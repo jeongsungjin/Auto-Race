@@ -23,6 +23,7 @@ class PARKING:
 
         # Publishers
         self.ctrl_cmd_pub = rospy.Publisher('/motor_parking', Drive_command, queue_size=1)
+        self.lane_topic_pub = rospy.Publisher("/lane_topic", String, queue_size=1)  
 
         # 메시지 객체 초기화
         self.ctrl_cmd_msg = Drive_command()
@@ -44,9 +45,14 @@ class PARKING:
         self.right_back_done  = False
         self.parking_finish = False
         self.back_mid = False
+        self.i_saw = False
+        self.parking_done = False
+        self.parking_stop_cnt = 0
         self.no_wall_cnt = 0
         self.left_back_cnt = 0
         self.back_mid_cnt = 0
+        self.return_line_cnt = 0
+        self.back_line_cnt = 0
         self.speed = 0.2  # 기본 속도
         self.steer = 0.0  # 조향각
         self.rate = rospy.Rate(30)
@@ -57,74 +63,102 @@ class PARKING:
                 continue
 
             # 1번 로직
-            if self.is_blue == True and self.tunnel_done_flag == True:
+            if self.is_blue == True and self.tunnel_done_flag == True and self.parking_done == False:
                 print("주차 시작! 리얼 파킹 트루!!")
                 self.real_parking_start = True
 
-
-            if self.real_parking_start == True and self.tunnel_done_flag == True:
+            if self.real_parking_start == True and self.tunnel_done_flag == True and self.parking_done == False:
+                self.publish_Lane_topic("RIGHT")
 
                 if len(self.roi_points) > 0:
                     self.publishCtrlCmd(self.ctrl_lane.speed, self.ctrl_lane.angle, True)
-                    # print("라이다 인지 없을때까지 차선 보고 주행!!!!!!")
+                    print("라이다 인지 없을때까지 차선 보고 주행!!!!!!")
+                    self.i_saw = True
+                    
+                elif len(self.roi_points) == 0 and self.i_saw == False:
+                    self.publishCtrlCmd(self.ctrl_lane.speed, self.ctrl_lane.angle, True)
+                    print("없어도 차선 주행")
 
-                elif len(self.roi_points) == 0 and self.no_wall_cnt < 40 and self.right_enter_done == False:                    
+                elif len(self.roi_points) == 0 and self.no_wall_cnt < 27 and self.right_enter_done == False and self.i_saw == True:                    
                     self.no_wall_cnt += 1
-                    self.steer += 70  # 우회전 조향량
+                    self.steer += 60  # 우회전 조향량
                     self.speed = 0.2
                     self.publishCtrlCmd(self.speed, self.steer, True)
                     print("우조향 량, 우조향 직진 카운트", self.speed, self.steer, self.no_wall_cnt)
-                    if self.no_wall_cnt == 40:
+                    if self.no_wall_cnt == 27:
                         self.right_enter_done = True
                         print("우조향 직진 끝!")
                 
-                if (self.right_enter_done == True) and (self.left_back_cnt < 70) and (self.left_back_done == False):                    
+                if (self.right_enter_done == True) and (self.left_back_cnt < 55) and (self.left_back_done == False):                    
                     self.left_back_cnt += 1
                     self.left_steer = -300  # 좌측 조향량
                     self.left_steer -= 70
                     self.speed = -0.2  # 후진 속도
                     self.publishCtrlCmd(self.speed, self.left_steer, True)
                     print("좌측 후진 조향량, 좌측 후진 카운트", self.steer, self.left_back_cnt)
-                    if self.left_back_cnt == 70:
+                    if self.left_back_cnt == 55:
                         self.left_back_done =True
 
                 if self.left_back_done == True and self.right_back_done == False:
-                    if self.back_mid == False and self.back_mid_cnt < 20:
+                    if self.back_mid == False and self.back_mid_cnt < 25:
                         self.back_mid_cnt += 1
                         self.publishCtrlCmd(-0.2, 0.0, True)
                         print("핸들풀고 후진 조향량, 핸들풀고 후진 카운트", 0.0, self.left_back_cnt)
-                        if self.back_mid_cnt == 20:
+                        if self.back_mid_cnt == 25:
                             self.back_mid = True
                     else:
-                        if self.x_points and (self.x_points[0] > 0):
+                        if self.x_points and (self.x_points[0] > 0) and self.parking_stop_cnt < 150:
                             print("후진 하다 멈춤")
-                            while(1):
-                                self.publishCtrlCmd(0.0, 0.0, True)
+                            self.publishCtrlCmd(0.0, 0.0, True)
+                            self.parking_stop_cnt += 1
+                            if self.parking_stop_cnt == 150:
                                 self.right_back_done = True # 우조향 후진 끝
-                                continue
-                        else:
+
+                        elif self.right_back_done == False:
                             self.right_steer = 0
                             self.right_steer += 10
                             self.speed = -0.2
                             self.publishCtrlCmd(self.speed, self.steer, True)
                             print("우조향 후진")
-                        
-                # if self.right_back_done == True and self.parking_finish == False:
-
-                #     if self.x_points[0] < 0:
-                #         self.parking_finish = True # 쑤셔넣기 끝
-                #         self.publishCtrlCmd(0.0, self.steer, True)
-                #         continue
-
-                #     self.left_steer = -100
-                #     self.left_steer -= 10
-                #     self.speed = 0.2
-                #     self.publishCtrlCmd(self.speed, self.steer, True)
-
                             
+                if self.right_back_done == True and self.return_line_cnt < 40:
+                    if self.return_line_cnt < 20:
+                        self.speed = 0.2
+                        self.right_steer += 500
+                        self.return_line_cnt += 1
+                        self.publishCtrlCmd(self.speed, self.right_steer, True)
+                        print("주차공간 탈출을 위해서 우조향 주고 직진중..")
+                    # elif self.x_points and (self.x_points[0] < 0) and self.back_line_cnt < 8 and self.return_line_cnt < 35:
+                    #     self.speed = -0.2
+                    #     self.left_steer -= 50
+                    #     self.back_line_cnt += 1
+                    #     self.publishCtrlCmd(self.speed, self.right_steer, True)
+                    #     print("주차공간 탈출을 위해서 좌조향 후진중..")
+                    #     if self.back_line_cnt == 8:
+                    #         self.return_line_cnt = 35
+                    
+                    elif self.return_line_cnt >= 20:
+                        self.speed = 0.2
+                        self.left_steer = -100
+                        self.return_line_cnt += 1
+                        self.publishCtrlCmd(self.speed, self.left_steer, True)
+                        print("차선 복귀를 위해서 좌조향 주고 직진중..")
+                        if self.return_line_cnt == 35:
+                            self.parking_done = True
+                            self.publishCtrlCmd(0.0, 0.0, False) ## 차선 값으로 줘야함!!!!!!!!!
+
+
+                    # elif self.return_line_cnt >= 40:
+                    #     self.publishCtrlCmd(self.ctrl_lane.speed, self.ctrl_lane.angle, False) ## 차선 값으로 줘야함!!!!!!!!!
+                        # 복귀 끗 결승점!!!!!!!!!
+                # else:
+                #     self.publishCtrlCmd(self.speed, self.steer, False)
+
 
             self.rate.sleep()
 
+    def publish_Lane_topic(self, lane_topic):
+        self.lane_topic_pub.publish(lane_topic)
 
     def headingCB(self, msg):
         self.real_heading = msg.data
@@ -136,6 +170,9 @@ class PARKING:
                 self.local_heading += 360
         else:
             self.local_heading = None
+
+    def publish_Lane_topic(self, lane_topic):
+        self.lane_topic_pub.publish(lane_topic)
 
     def roiPointsCB(self, msg):
         self.roi_points = []  

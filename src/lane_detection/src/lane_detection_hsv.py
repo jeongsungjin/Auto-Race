@@ -263,14 +263,14 @@ class LaneDetectionROS:
                 print(np.count_nonzero(warped_img_white))
 
                 # 결과 표시
-                # cv2.imshow('Original Image', frame_resized)
-                cv2.imshow("Yellow Mask", filtered_yellow)
-                cv2.imshow("White Mask", filtered_white)
-                # cv2.imshow("Red Mask", filtered_red)
-                # cv2.imshow("Filtered Image", filtered_img)
-                # cv2.imshow("Warped Image", warped_img)
-                cv2.imshow("Output Image", out_img)
-                # cv2.imshow("Warped White Stop Line", warped_img_white)
+                # # cv2.imshow('Original Image', frame_resized)
+                # cv2.imshow("Yellow Mask", filtered_yellow)
+                # cv2.imshow("White Mask", filtered_white)
+                # # cv2.imshow("Red Mask", filtered_red)
+                # # cv2.imshow("Filtered Image", filtered_img)
+                # # cv2.imshow("Warped Image", warped_img)
+                # cv2.imshow("Output Image", out_img)
+                # # cv2.imshow("Warped White Stop Line", warped_img_white)
 
                 # print("x_location", x_location)
                 # 화면 업데이트 및 이벤트 처리

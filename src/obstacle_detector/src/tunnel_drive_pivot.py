@@ -13,7 +13,7 @@ class TUNNEL:
         rospy.Subscriber("/mode", String, self.modeCB)
         rospy.Subscriber("/roi_points_tunnel", PointCloud, self.roiPointsCB)
         rospy.Subscriber("/yellow_pixel", Int32, self.yellowCB)
-        rospy.Subscriber("/crossing_gate_done", Int32, self.crossing_gate_done_callback)
+        rospy.Subscriber("/crossing_gate_done", Bool, self.crossing_gate_done_callback)
 
         # Publisher
         self.ctrl_cmd_pub = rospy.Publisher('/motor_tunnel', Drive_command, queue_size=1)
@@ -27,6 +27,7 @@ class TUNNEL:
         self.yellow_pixels = 0
         self.crossing_completed = False
         self.tunnel_done_flag = False
+        self.tunnel_in = False
         self.speed = 0.3
         self.steer = 0.0
         self.max_steer = 100.0  # 조향각 제한
@@ -42,31 +43,33 @@ class TUNNEL:
         # 특정 모드에서는 조향 제어를 하지 않음
         if self.mode in ['RABACON', 'SIGN', 'DYNAMIC', 'STATIC']:
             return
-
+        print("터널이 받는 스태틱 플래그", self.crossing_completed)
         # 노란색 픽셀 및 게이트 상태 확인
-        if self.yellow_pixels < 8000 and self.crossing_completed:
+        if self.yellow_pixels < 1000 and self.crossing_completed == True and self.tunnel_done_flag == False:
+            self.tunnel_in = True
             # ROI 첫 번째 포인트 기준으로 조향 결정
             if self.y_points:
                 if self.y_points[0] < 0:  # 왼쪽 벽에 가까운 경우
                     self.steer += 50
                 elif self.y_points[0] > 0:  # 오른쪽 벽에 가까운 경우
                     self.steer -= 50
-                else:  # 중앙에 가까운 경우
-                    self.steer = 0.0  # 감쇠 적용
-            if self.yellow_pixels > 10000:
-                self.tunnel_done_flag
-                self.publish_tunnel_done(self.tunnel_done_flag)
-            else:
-                self.steer = 0.0  # ROI 데이터가 없을 경우 감쇠 적용
-
+            else:  # 중앙에 가까운 경우
+                self.steer = 0.0  # 감쇠 적용
             # 조향값 제한
             self.steer = max(min(self.steer, self.max_steer), -self.max_steer)
-
             # 제어 명령 퍼블리시
             self.publishCtrlCmd(self.speed, self.steer, True)
+
         else:
             # 조건을 충족하지 못할 경우 제어 비활성화
             self.publishCtrlCmd(self.speed, 0.0, False)
+
+        if self.yellow_pixels >= 3500 and self.tunnel_in == True:
+            self.tunnel_done_flag = True
+            self.publish_tunnel_done(self.tunnel_done_flag)
+            self.publishCtrlCmd(self.speed, self.steer, False)
+
+
 
     def crossing_gate_done_callback(self, msg):
         self.crossing_completed = msg.data
