@@ -390,6 +390,7 @@
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_py.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/nav_msgs_generate_messages_lisp.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/install/local.dir
+/home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/obstacle_extractor_jucha_node.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/nav_msgs_generate_messages_cpp.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/nav_msgs_generate_messages_eus.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/obstacle_detector_generate_messages_lisp.dir
@@ -398,6 +399,7 @@
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/map_msgs_generate_messages_cpp.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/obstacle_publisher_node.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir
+/home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/obstacle_extractor_jucha.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/rviz_generate_messages_nodejs.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/obstacle_extractor.dir
 /home/wego/Auto-Race/build/obstacle_detector/CMakeFiles/rviz_generate_messages_eus.dir

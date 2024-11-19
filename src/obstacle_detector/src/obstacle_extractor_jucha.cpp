@@ -1,39 +1,4 @@
-﻿/*
- * Software License Agreement (BSD License)
- *
- * Copyright (c) 2017, Poznan University of Technology
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- *     * Redistributions of source code must retain the above copyright
- *       notice, this list of conditions and the following disclaimer.
- *     * Redistributions in binary form must reproduce the above copyright
- *       notice, this list of conditions and the following disclaimer in the
- *       documentation and/or other materials provided with the distribution.
- *     * Neither the name of the Poznan University of Technology nor the names
- *       of its contributors may be used to endorse or promote products
- *       derived from this software without specific prior written permission.
- *
- * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
- * AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
- * IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
- * LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
- * CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
- * SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
- * CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
- * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
- * POSSIBILITY OF SUCH DAMAGE.
- */
-
-/*
- * Author: Mateusz Przybyla
- */
-
-#include "obstacle_detector/obstacle_extractor.h"
+﻿#include "obstacle_detector/obstacle_extractor_jucha.h"
 #include "obstacle_detector/utilities/figure_fitting.h"
 #include "obstacle_detector/utilities/math_utilities.h"
 
@@ -44,6 +9,10 @@ ObstacleExtractor::ObstacleExtractor(ros::NodeHandle& nh, ros::NodeHandle& nh_lo
   p_active_ = false;
 
   params_srv_ = nh_local_.advertiseService("params", &ObstacleExtractor::updateParams, this);
+
+  // Initialize the ROI points publisher
+  roi_points_pub_ = nh_.advertise<sensor_msgs::PointCloud>("roi_points_jucha", 10);
+
   initialize();
 }
 
@@ -111,7 +80,7 @@ bool ObstacleExtractor::updateParams(std_srvs::Empty::Request &req, std_srvs::Em
       else if (p_use_pcl_)
         pcl_sub_ = nh_.subscribe("pcl", 10, &ObstacleExtractor::pclCallback, this);
 
-      obstacles_pub_ = nh_.advertise<obstacle_detector::Obstacles>("raw_obstacles", 10);
+      obstacles_pub_ = nh_.advertise<obstacle_detector::Obstacles>("raw_obstacles_jucha", 10);
     }
     else {
       // Send empty message
@@ -134,14 +103,25 @@ void ObstacleExtractor::scanCallback(const sensor_msgs::LaserScan::ConstPtr scan
   stamp_ = scan_msg->header.stamp;
 
   double phi = scan_msg->angle_min;
+  sensor_msgs::PointCloud roi_points;
+  roi_points.header.frame_id = base_frame_id_;
+  roi_points.header.stamp = stamp_;
 
   for (const float r : scan_msg->ranges) {
-    if (r >= scan_msg->range_min && r <= scan_msg->range_max)
-      input_points_.push_back(Point::fromPoolarCoords(r, phi));
-
+    if (r >= scan_msg->range_min && r <= scan_msg->range_max) {
+      Point point = Point::fromPoolarCoords(r, phi);
+      if (point.x > p_min_x_limit_ && point.x < p_max_x_limit_ && point.y > p_min_y_limit_ && point.y < p_max_y_limit_) {
+        input_points_.push_back(point);
+        geometry_msgs::Point32 roi_point;
+        roi_point.x = point.x;
+        roi_point.y = point.y;
+        roi_points.points.push_back(roi_point);
+      }
+    }
     phi += scan_msg->angle_increment;
   }
 
+  roi_points_pub_.publish(roi_points);
   processPoints();
 }
 
@@ -149,9 +129,18 @@ void ObstacleExtractor::pclCallback(const sensor_msgs::PointCloud::ConstPtr pcl_
   base_frame_id_ = pcl_msg->header.frame_id;
   stamp_ = pcl_msg->header.stamp;
 
-  for (const geometry_msgs::Point32& point : pcl_msg->points)
-    input_points_.push_back(Point(point.x, point.y));
+  sensor_msgs::PointCloud roi_points;
+  roi_points.header.frame_id = base_frame_id_;
+  roi_points.header.stamp = stamp_;
 
+  for (const geometry_msgs::Point32& point : pcl_msg->points) {
+    if (point.x > p_min_x_limit_ && point.x < p_max_x_limit_ && point.y > p_min_y_limit_ && point.y < p_max_y_limit_) {
+      input_points_.push_back(Point(point.x, point.y));
+      roi_points.points.push_back(point);
+    }
+  }
+
+  roi_points_pub_.publish(roi_points);
   processPoints();
 }
 
@@ -444,19 +433,16 @@ void ObstacleExtractor::publishObstacles() {
   }
 
   for (const Circle& c : circles_) {
-    if (c.center.x > p_min_x_limit_ && c.center.x < p_max_x_limit_ &&
-        c.center.y > p_min_y_limit_ && c.center.y < p_max_y_limit_) {
-        CircleObstacle circle;
+    CircleObstacle circle;
 
-        circle.center.x = c.center.x;
-        circle.center.y = c.center.y;
-        circle.velocity.x = 0.0;
-        circle.velocity.y = 0.0;
-        circle.radius = c.radius;
-        circle.true_radius = c.radius - p_radius_enlargement_;
+    circle.center.x = c.center.x;
+    circle.center.y = c.center.y;
+    circle.velocity.x = 0.0;
+    circle.velocity.y = 0.0;
+    circle.radius = c.radius;
+    circle.true_radius = c.radius - p_radius_enlargement_;
 
-        obstacles_msg->circles.push_back(circle);
-    }
+    obstacles_msg->circles.push_back(circle);
   }
 
   obstacles_pub_.publish(obstacles_msg);

@@ -7,7 +7,7 @@ from obstacle_detector.msg import Obstacles
 from visualization_msgs.msg import Marker
 from ackermann_msgs.msg import AckermannDriveStamped
 from scipy.stats import linregress
-from std_msgs.msg import String, Bool
+from std_msgs.msg import String, Bool, Int32
 import numpy as np
 from obstacle_detector.msg import Drive_command
 
@@ -41,7 +41,8 @@ class WaypointMaker:
         self.rightPivot = self.reset_pivot("RIGHT")
         
         rospy.Subscriber("/raw_obstacles_rubbercone", Obstacles, self.update_objects)
-        rospy.Subscriber("/is_orange", Bool, self.orangeCB)
+        rospy.Subscriber("/red_pixels", Int32, self.red_pixelCB) #red_pixel topic 개수로 받아서 n개 이상이면 ~ 으로 수정 1120
+        rospy.Subscriber("/tunnel_done", Bool, self.tunnel_doneCB) #red_pixel topic 개수로 받아서 n개 이상이면 ~ 으로 수정 1120
 
         rospy.Subscriber("/mode", String, self.modeCB)
 
@@ -52,7 +53,7 @@ class WaypointMaker:
         self.ctrl_cmd_msg = Drive_command()
 
         self.flag = False
-
+        self.red_pixel = 0
         self.mode = ''
 
         self.is_orange = False
@@ -61,7 +62,8 @@ class WaypointMaker:
         if self.version == 'fast':
             self.motor = 0.7 # 일단
         else:
-            self.motor = 0.25
+            self.motor = 0.2
+
 
         rospy.loginfo(f"RUBBERCONE: {self.version}")
         
@@ -77,9 +79,12 @@ class WaypointMaker:
 
     def modeCB(self, msg):
         self.mode = msg.data
+    
+    def tunnel_doneCB(self, msg):
+        self.tunnel_done_flag = msg.data
 
-    def orangeCB(self, msg):
-        self.is_orange = msg.data
+    def red_pixelCB(self, msg):
+        self.red_pixel = msg.data
         
     def get_distance(self, obj1, obj2):
         return ((obj1.centerX - obj2.centerX) ** 2 + (obj1.centerY - obj2.centerY) ** 2) ** 0.5
@@ -95,7 +100,7 @@ class WaypointMaker:
             leftPivotToConeDistance = self.get_distance(left_point, cone)
             rightPivotToConeDistance = self.get_distance(right_point, cone)
             # ------------------------------ 튜닝 필요 ---------------------------------- #
-            if leftPivotToConeDistance > 0.48 and rightPivotToConeDistance > 0.48:
+            if leftPivotToConeDistance > 0.55 and rightPivotToConeDistance > 0.55:
                 continue
             # ------------------------------ 튜닝 필요 ---------------------------------- #
 
@@ -171,7 +176,7 @@ class WaypointMaker:
             # print("All x values are identical; setting slope to a predefined value.")
             slope = 0  # 미리 정의된 slope 값 설정
             self.flag = False
-        elif not self.is_orange:
+        elif (self.red_pixel < 300) or (self.tunnel_done_flag == True): #self.red_pixel < n: 이면 이즈 오랜지 폴스랑 같은 효과!! 1120
             # rospy.loginfo(f"라바콘 아님. 라바콘 주행 하면 안됨. 주황색 없음")
             slope = 0
             self.flag = False
@@ -180,9 +185,8 @@ class WaypointMaker:
             self.flag = True
 
         angle_rad = math.atan(slope)
-        angle_deg = -7 * math.degrees(angle_rad)
+        angle_deg = -5.5 * math.degrees(angle_rad)
         # print(angle_deg)
-
 
         self.publishCtrlCmd(self.motor, angle_deg, self.flag)
 

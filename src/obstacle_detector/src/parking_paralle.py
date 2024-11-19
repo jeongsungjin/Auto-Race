@@ -13,7 +13,7 @@ class PARKING:
         # Subscribers
         rospy.Subscriber("/mode", String, self.modeCB)  # /mode를 modeCB로 연결
         rospy.Subscriber("/roi_points_parking", PointCloud, self.roiPoints_parkingCB)  # /roi_points_tunnel을 roiPointsCB로 연결
-        rospy.Subscriber("/roi_points_roundabout", PointCloud, self.roiPointsCB)  # /roi_points_tunnel을 roiPointsCB로 연결
+        rospy.Subscriber("/roi_points_jucha", PointCloud, self.roiPointsCB)  # /roi_points_tunnel을 roiPointsCB로 연결
 
         rospy.Subscriber("/is_blue", Bool, self.BlueCB)
         rospy.Subscriber("/tunnel_done", Bool, self.tunnel_done_callback) # 콜백 만들어서 주석 풀어야함!
@@ -41,6 +41,7 @@ class PARKING:
         self.tunnel_done_flag = False #원래 false임!!!
         self.real_parking_start = False
         self.right_enter_done = False
+        self.right_in_flag = False
         self.left_back_done = False
         self.right_back_done  = False
         self.parking_finish = False
@@ -70,22 +71,25 @@ class PARKING:
             if self.real_parking_start == True and self.tunnel_done_flag == True and self.parking_done == False:
                 self.publish_Lane_topic("RIGHT")
 
-                if len(self.roi_points) > 0:
+                if len(self.roi_points) > 0 and self.right_enter_done == False and self.right_in_flag == False:
                     self.publishCtrlCmd(self.ctrl_lane.speed, self.ctrl_lane.angle, True)
                     print("라이다 인지 없을때까지 차선 보고 주행!!!!!!")
                     self.i_saw = True
                     
-                elif len(self.roi_points) == 0 and self.i_saw == False:
+                elif len(self.roi_points) == 0 and self.i_saw == False and self.right_in_flag == False:
                     self.publishCtrlCmd(self.ctrl_lane.speed, self.ctrl_lane.angle, True)
                     print("없어도 차선 주행")
 
-                elif len(self.roi_points) == 0 and self.no_wall_cnt < 27 and self.right_enter_done == False and self.i_saw == True:                    
+                elif len(self.roi_points) == 0 and self.i_saw == True:                    
+                    self.right_in_flag = True
+                    
+                if self.right_in_flag == True and self.no_wall_cnt < 30:
                     self.no_wall_cnt += 1
                     self.steer += 60  # 우회전 조향량
                     self.speed = 0.2
                     self.publishCtrlCmd(self.speed, self.steer, True)
                     print("우조향 량, 우조향 직진 카운트", self.speed, self.steer, self.no_wall_cnt)
-                    if self.no_wall_cnt == 27:
+                    if self.no_wall_cnt == 30:
                         self.right_enter_done = True
                         print("우조향 직진 끝!")
                 
@@ -109,6 +113,7 @@ class PARKING:
                     else:
                         if self.x_points and (self.x_points[0] > 0) and self.parking_stop_cnt < 150:
                             print("후진 하다 멈춤")
+                            
                             self.publishCtrlCmd(0.0, 0.0, True)
                             self.parking_stop_cnt += 1
                             if self.parking_stop_cnt == 150:
@@ -121,7 +126,7 @@ class PARKING:
                             self.publishCtrlCmd(self.speed, self.steer, True)
                             print("우조향 후진")
                             
-                if self.right_back_done == True and self.return_line_cnt < 40:
+                if self.right_back_done == True and self.return_line_cnt < 48:
                     if self.return_line_cnt < 20:
                         self.speed = 0.2
                         self.right_steer += 500
@@ -143,7 +148,7 @@ class PARKING:
                         self.return_line_cnt += 1
                         self.publishCtrlCmd(self.speed, self.left_steer, True)
                         print("차선 복귀를 위해서 좌조향 주고 직진중..")
-                        if self.return_line_cnt == 35:
+                        if self.return_line_cnt == 48:
                             self.parking_done = True
                             self.publishCtrlCmd(0.0, 0.0, False) ## 차선 값으로 줘야함!!!!!!!!!
 

@@ -3,7 +3,7 @@
 
 import rospy
 from obstacle_detector.msg import Obstacles
-from std_msgs.msg import String, Int32, Bool
+from std_msgs.msg import String, Int32, Bool, Float32
 from lane_detection.msg import Drive_command
 import math
 
@@ -18,7 +18,7 @@ class ROUNDABOUT:
         rospy.Subscriber("/raw_obstacles_roundabout", Obstacles, self.obstacleCB)
         rospy.Subscriber("/mode", String, self.modeCB)
         rospy.Subscriber("/white_cnt", Int32, self.whiteCB)
-        rospy.Subscriber("/sum_of_motor", Int32, self.motor_cntCB)
+        rospy.Subscriber("/sum_of_motor", Float32, self.motor_cntCB)
 
         self.ctrl_cmd_pub = rospy.Publisher('/motor_roundabout', Drive_command, queue_size=1)
         self.lane_topic_pub = rospy.Publisher("/lane_topic", String, queue_size=1)  
@@ -46,10 +46,17 @@ class ROUNDABOUT:
 
             # print("white count!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1",self.white_cnt)
 
-            if (len(self.obstacles) > 0) and  0 < self.sum_of_motor < 125 and self.roundabout_done_flag == False:
-                self.publishCtrlCmd(0.0 , 0.0, True)
+            if (5 < self.sum_of_motor < 40) and (self.roundabout_done_flag == False): #sum of motor 조정 해야합니다
                 self.publish_Lane_topic("RIGHT")
-            elif self.white_cnt >= 1000:
+                if (len(self.obstacles) > 0):
+                    self.publishCtrlCmd(0.0 , 0.0, True)
+                else:
+                    self.roundabout_done_flag = False
+                    self.publishCtrlCmd(0.0 , 0.0, False)
+                    self.publish_roundabout_done(self.roundabout_done_flag)
+
+
+            elif self.sum_of_motor >= 40:
                 self.roundabout_done_flag = True
                 self.publish_roundabout_done(self.roundabout_done_flag)
                 self.publishCtrlCmd(0.0 , 0.0, False)
@@ -74,7 +81,7 @@ class ROUNDABOUT:
         self.obstacles.sort(key=lambda obs: obs.distance)
 
     def motor_cntCB(self, msg):
-        self.sum_of_motorsum_of_motor = msg.data
+        self.sum_of_motor = msg.data
 
     def modeCB(self, msg):
         self.mode = msg.data

@@ -3366,6 +3366,19 @@ nav_msgs_generate_messages_lisp/fast:
 .PHONY : nav_msgs_generate_messages_lisp/fast
 
 #=============================================================================
+# Target rules for targets named obstacle_extractor_jucha_node
+
+# Build rule for target.
+obstacle_extractor_jucha_node: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 obstacle_extractor_jucha_node
+.PHONY : obstacle_extractor_jucha_node
+
+# fast build rule for target.
+obstacle_extractor_jucha_node/fast:
+	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_jucha_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_jucha_node.dir/build
+.PHONY : obstacle_extractor_jucha_node/fast
+
+#=============================================================================
 # Target rules for targets named nav_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -3468,6 +3481,19 @@ rviz_generate_messages_py: cmake_check_build_system
 rviz_generate_messages_py/fast:
 	$(MAKE) -f obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/build.make obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/build
 .PHONY : rviz_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named obstacle_extractor_jucha
+
+# Build rule for target.
+obstacle_extractor_jucha: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 obstacle_extractor_jucha
+.PHONY : obstacle_extractor_jucha
+
+# fast build rule for target.
+obstacle_extractor_jucha/fast:
+	$(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_jucha.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_jucha.dir/build
+.PHONY : obstacle_extractor_jucha/fast
 
 #=============================================================================
 # Target rules for targets named rviz_generate_messages_nodejs
@@ -4326,6 +4352,7 @@ help:
 	@echo "... obstacle_detector_genpy"
 	@echo "... obstacle_detector_generate_messages_py"
 	@echo "... nav_msgs_generate_messages_lisp"
+	@echo "... obstacle_extractor_jucha_node"
 	@echo "... nav_msgs_generate_messages_cpp"
 	@echo "... nav_msgs_generate_messages_eus"
 	@echo "... obstacle_detector_generate_messages_lisp"
@@ -4334,6 +4361,7 @@ help:
 	@echo "... map_msgs_generate_messages_cpp"
 	@echo "... obstacle_publisher_node"
 	@echo "... rviz_generate_messages_py"
+	@echo "... obstacle_extractor_jucha"
 	@echo "... rviz_generate_messages_nodejs"
 	@echo "... obstacle_extractor"
 	@echo "... rviz_generate_messages_eus"

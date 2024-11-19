@@ -363,6 +363,21 @@ nav_msgs_generate_messages_lisp/fast:
 .PHONY : nav_msgs_generate_messages_lisp/fast
 
 # Convenience name for target.
+obstacle_detector/CMakeFiles/obstacle_extractor_jucha_node.dir/rule:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_jucha_node.dir/rule
+.PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_jucha_node.dir/rule
+
+# Convenience name for target.
+obstacle_extractor_jucha_node: obstacle_detector/CMakeFiles/obstacle_extractor_jucha_node.dir/rule
+
+.PHONY : obstacle_extractor_jucha_node
+
+# fast build rule for target.
+obstacle_extractor_jucha_node/fast:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_jucha_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_jucha_node.dir/build
+.PHONY : obstacle_extractor_jucha_node/fast
+
+# Convenience name for target.
 obstacle_detector/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule:
 	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
 .PHONY : obstacle_detector/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
@@ -481,6 +496,21 @@ rviz_generate_messages_py: obstacle_detector/CMakeFiles/rviz_generate_messages_p
 rviz_generate_messages_py/fast:
 	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/build.make obstacle_detector/CMakeFiles/rviz_generate_messages_py.dir/build
 .PHONY : rviz_generate_messages_py/fast
+
+# Convenience name for target.
+obstacle_detector/CMakeFiles/obstacle_extractor_jucha.dir/rule:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f CMakeFiles/Makefile2 obstacle_detector/CMakeFiles/obstacle_extractor_jucha.dir/rule
+.PHONY : obstacle_detector/CMakeFiles/obstacle_extractor_jucha.dir/rule
+
+# Convenience name for target.
+obstacle_extractor_jucha: obstacle_detector/CMakeFiles/obstacle_extractor_jucha.dir/rule
+
+.PHONY : obstacle_extractor_jucha
+
+# fast build rule for target.
+obstacle_extractor_jucha/fast:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_jucha.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_jucha.dir/build
+.PHONY : obstacle_extractor_jucha/fast
 
 # Convenience name for target.
 obstacle_detector/CMakeFiles/rviz_generate_messages_nodejs.dir/rule:
@@ -1133,6 +1163,33 @@ src/nodelets/scans_merger_nodelet.cpp.s:
 	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_detector_nodelets.dir/build.make obstacle_detector/CMakeFiles/obstacle_detector_nodelets.dir/src/nodelets/scans_merger_nodelet.cpp.s
 .PHONY : src/nodelets/scans_merger_nodelet.cpp.s
 
+src/nodes/obstacle_extractor_jucha_node.o: src/nodes/obstacle_extractor_jucha_node.cpp.o
+
+.PHONY : src/nodes/obstacle_extractor_jucha_node.o
+
+# target to build an object file
+src/nodes/obstacle_extractor_jucha_node.cpp.o:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_jucha_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_jucha_node.dir/src/nodes/obstacle_extractor_jucha_node.cpp.o
+.PHONY : src/nodes/obstacle_extractor_jucha_node.cpp.o
+
+src/nodes/obstacle_extractor_jucha_node.i: src/nodes/obstacle_extractor_jucha_node.cpp.i
+
+.PHONY : src/nodes/obstacle_extractor_jucha_node.i
+
+# target to preprocess a source file
+src/nodes/obstacle_extractor_jucha_node.cpp.i:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_jucha_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_jucha_node.dir/src/nodes/obstacle_extractor_jucha_node.cpp.i
+.PHONY : src/nodes/obstacle_extractor_jucha_node.cpp.i
+
+src/nodes/obstacle_extractor_jucha_node.s: src/nodes/obstacle_extractor_jucha_node.cpp.s
+
+.PHONY : src/nodes/obstacle_extractor_jucha_node.s
+
+# target to generate assembly for a file
+src/nodes/obstacle_extractor_jucha_node.cpp.s:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_jucha_node.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_jucha_node.dir/src/nodes/obstacle_extractor_jucha_node.cpp.s
+.PHONY : src/nodes/obstacle_extractor_jucha_node.cpp.s
+
 src/nodes/obstacle_extractor_node.o: src/nodes/obstacle_extractor_node.cpp.o
 
 .PHONY : src/nodes/obstacle_extractor_node.o
@@ -1375,6 +1432,33 @@ src/obstacle_extractor.s: src/obstacle_extractor.cpp.s
 src/obstacle_extractor.cpp.s:
 	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor.dir/src/obstacle_extractor.cpp.s
 .PHONY : src/obstacle_extractor.cpp.s
+
+src/obstacle_extractor_jucha.o: src/obstacle_extractor_jucha.cpp.o
+
+.PHONY : src/obstacle_extractor_jucha.o
+
+# target to build an object file
+src/obstacle_extractor_jucha.cpp.o:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_jucha.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_jucha.dir/src/obstacle_extractor_jucha.cpp.o
+.PHONY : src/obstacle_extractor_jucha.cpp.o
+
+src/obstacle_extractor_jucha.i: src/obstacle_extractor_jucha.cpp.i
+
+.PHONY : src/obstacle_extractor_jucha.i
+
+# target to preprocess a source file
+src/obstacle_extractor_jucha.cpp.i:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_jucha.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_jucha.dir/src/obstacle_extractor_jucha.cpp.i
+.PHONY : src/obstacle_extractor_jucha.cpp.i
+
+src/obstacle_extractor_jucha.s: src/obstacle_extractor_jucha.cpp.s
+
+.PHONY : src/obstacle_extractor_jucha.s
+
+# target to generate assembly for a file
+src/obstacle_extractor_jucha.cpp.s:
+	cd /home/wego/Auto-Race/build && $(MAKE) -f obstacle_detector/CMakeFiles/obstacle_extractor_jucha.dir/build.make obstacle_detector/CMakeFiles/obstacle_extractor_jucha.dir/src/obstacle_extractor_jucha.cpp.s
+.PHONY : src/obstacle_extractor_jucha.cpp.s
 
 src/obstacle_extractor_parking.o: src/obstacle_extractor_parking.cpp.o
 
@@ -1698,6 +1782,7 @@ help:
 	@echo "... obstacle_detector_generate_messages_py"
 	@echo "... nav_msgs_generate_messages_lisp"
 	@echo "... install/local"
+	@echo "... obstacle_extractor_jucha_node"
 	@echo "... nav_msgs_generate_messages_cpp"
 	@echo "... nav_msgs_generate_messages_eus"
 	@echo "... obstacle_detector_generate_messages_lisp"
@@ -1706,6 +1791,7 @@ help:
 	@echo "... map_msgs_generate_messages_cpp"
 	@echo "... obstacle_publisher_node"
 	@echo "... rviz_generate_messages_py"
+	@echo "... obstacle_extractor_jucha"
 	@echo "... rviz_generate_messages_nodejs"
 	@echo "... obstacle_extractor"
 	@echo "... rviz_generate_messages_eus"
@@ -1760,6 +1846,9 @@ help:
 	@echo "... src/nodelets/scans_merger_nodelet.o"
 	@echo "... src/nodelets/scans_merger_nodelet.i"
 	@echo "... src/nodelets/scans_merger_nodelet.s"
+	@echo "... src/nodes/obstacle_extractor_jucha_node.o"
+	@echo "... src/nodes/obstacle_extractor_jucha_node.i"
+	@echo "... src/nodes/obstacle_extractor_jucha_node.s"
 	@echo "... src/nodes/obstacle_extractor_node.o"
 	@echo "... src/nodes/obstacle_extractor_node.i"
 	@echo "... src/nodes/obstacle_extractor_node.s"
@@ -1787,6 +1876,9 @@ help:
 	@echo "... src/obstacle_extractor.o"
 	@echo "... src/obstacle_extractor.i"
 	@echo "... src/obstacle_extractor.s"
+	@echo "... src/obstacle_extractor_jucha.o"
+	@echo "... src/obstacle_extractor_jucha.i"
+	@echo "... src/obstacle_extractor_jucha.s"
 	@echo "... src/obstacle_extractor_parking.o"
 	@echo "... src/obstacle_extractor_parking.i"
 	@echo "... src/obstacle_extractor_parking.s"

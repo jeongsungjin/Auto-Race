@@ -17,7 +17,6 @@ class TUNNEL:
 
         # Publisher
         self.ctrl_cmd_pub = rospy.Publisher('/motor_tunnel', Drive_command, queue_size=1)
-        self.tunnel_done_pub = rospy.Publisher('/tunnel_done', Bool, queue_size=1)
 
         # 변수 초기화
         self.roi_points = []
@@ -65,17 +64,10 @@ class TUNNEL:
             self.publishCtrlCmd(self.speed, 0.0, False)
 
         if self.yellow_pixels >= 3500 and self.tunnel_in == True:
-            self.tunnel_done_flag = True
-            self.publish_tunnel_done(self.tunnel_done_flag)
             self.publishCtrlCmd(self.speed, self.steer, False)
-
-
 
     def crossing_gate_done_callback(self, msg):
         self.crossing_completed = msg.data
-
-    def publish_tunnel_done(self, tunnel_done):
-        self.tunnel_done_pub.publish(tunnel_done)
 
     def roiPointsCB(self, msg):
         self.roi_points = []

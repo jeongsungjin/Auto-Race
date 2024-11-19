@@ -78,7 +78,7 @@ class Controller():
         rospy.Subscriber("/obstacles", Obstacles, self.staticObstacle_callback)  # 장애물 데이터 구독
         rospy.Subscriber("/raw_obstacles_rubbercone", Obstacles, self.rubberconeObstacleCB)
         rospy.Subscriber("/white_cnt", Int32, self.whiteCB)
-        self.motor_count_pub = rospy.Publisher("/sum_of_motor", Int32, queue_size=1)  
+        self.motor_count_pub = rospy.Publisher("/sum_of_motor", Float32, queue_size=1)  
 
         self.drive_pub = rospy.Publisher("high_level/ackermann_cmd_mux/input/nav_0", AckermannDriveStamped, queue_size=1)  # 차량 주행 명령 퍼블리셔
         self.mode_pub = rospy.Publisher('/mode', String, queue_size=1)
@@ -191,7 +191,10 @@ class Controller():
             if self.white_cnt >= 220:
                 self.motor_sum += self.motor
                 print("!!!!!!!!!!!!누적 이동량!!!!!!!!!!!!!!", self.motor_sum)
-                self.publish_sum_of_motor(int(self.motor_sum))
+                self.publish_sum_of_motor(self.motor_sum)
+            else:
+                self.publish_sum_of_motor(0.0)
+
 
             # --------------------------- 라바콘 인지시 감속 --------------------------- # 
             # if len(self.rubbercone_obstacles) > 0:

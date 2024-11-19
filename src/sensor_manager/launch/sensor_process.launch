@@ -18,6 +18,8 @@
 
     <include file="$(find obstacle_detector)/launch/obstacle_detector_parking.launch"/>
 
+    <include file="$(find obstacle_detector)/launch/obstacle_detector_jucha.launch"/>
+
     <include file="$(find ar_track_alvar)/launch/pr2_indiv_no_kinect.launch"/>
 
 </launch>

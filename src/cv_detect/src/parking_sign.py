@@ -29,12 +29,12 @@ class ParkingSingDetection:
 
             # 트랙바 윈도우 생성
             cv2.namedWindow('BLUE Trackbars')
-            cv2.createTrackbar('H_min_blue', 'BLUE Trackbars', 0, 179, self.nothing)
-            cv2.createTrackbar('H_max_blue', 'BLUE Trackbars', 17, 179, self.nothing)
-            cv2.createTrackbar('S_min_blue', 'BLUE Trackbars', 133, 255, self.nothing)
-            cv2.createTrackbar('S_max_blue', 'BLUE Trackbars', 205, 255, self.nothing)
-            cv2.createTrackbar('V_min_blue', 'BLUE Trackbars', 113, 255, self.nothing)
-            cv2.createTrackbar('V_max_blue', 'BLUE Trackbars', 161, 255, self.nothing)
+            cv2.createTrackbar('H_min_blue', 'BLUE Trackbars', 15, 179, self.nothing)
+            cv2.createTrackbar('H_max_blue', 'BLUE Trackbars', 150, 179, self.nothing)
+            cv2.createTrackbar('S_min_blue', 'BLUE Trackbars', 170, 255, self.nothing)
+            cv2.createTrackbar('S_max_blue', 'BLUE Trackbars', 255, 255, self.nothing)
+            cv2.createTrackbar('V_min_blue', 'BLUE Trackbars', 200, 255, self.nothing)
+            cv2.createTrackbar('V_max_blue', 'BLUE Trackbars', 255, 255, self.nothing)
             
             rate = rospy.Rate(30)
             while not rospy.is_shutdown():
@@ -62,24 +62,29 @@ class ParkingSingDetection:
         self.blue_pixel_pub.publish(blue_pixel)
 
     def detect_blue(self, image):
-        hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+        frame_resized = cv2.resize(self.cv_image, (640, 480))
 
-        h_min_blue = 100
-        h_max_blue = 130
-        s_min_blue = 100
-        s_max_blue = 255
-        v_min_blue = 50
-        v_max_blue = 255
+        self.lower_blue = np.array([
+            cv2.getTrackbarPos("H_min_blue", "BLUE Trackbars"),
+            cv2.getTrackbarPos("S_min_blue", "BLUE Trackbars"),
+            cv2.getTrackbarPos("V_min_blue", "BLUE Trackbars")
+        ])
+        
+        self.upper_blue = np.array([
+            cv2.getTrackbarPos("H_max_blue", "BLUE Trackbars"),
+            cv2.getTrackbarPos("S_max_blue", "BLUE Trackbars"),
+            cv2.getTrackbarPos("V_max_blue", "BLUE Trackbars")
+        ])
 
-        lower_blue = np.array([h_min_blue, s_min_blue, v_min_blue])
-        upper_blue = np.array([h_max_blue, s_max_blue, v_max_blue])
+        img_hsv = cv2.cvtColor(frame_resized, cv2.COLOR_BGR2HSV)
 
-        blue_mask = cv2.inRange(hsv_image, lower_blue, upper_blue)
+        # 노란색 및 흰색 마스크 생성
+        mask_blue = cv2.inRange(img_hsv, self.lower_blue, self.upper_blue)
 
         # 윤곽선 찾기
-        blue_pixel_counts = np.count_nonzero(blue_mask)
-        cv2.imshow("blue mask", blue_mask)
-        if blue_pixel_counts > 1000 and self.tunnel_done_flag == True:
+        blue_pixel_counts = np.count_nonzero(mask_blue)
+        cv2.imshow("blue mask", mask_blue)
+        if blue_pixel_counts > 1000 :
             self.is_blue_msg.data = True
         else:
             self.is_blue_msg.data = False

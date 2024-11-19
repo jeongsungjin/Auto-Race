@@ -83,6 +83,7 @@ private:
   ros::Subscriber scan_sub_;
   ros::Subscriber pcl_sub_;
   ros::Publisher obstacles_pub_;
+  ros::Publisher roi_points_pub_;
   ros::ServiceServer params_srv_;
 
   ros::Time stamp_;

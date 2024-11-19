@@ -1,0 +1,30 @@
+<launch>
+    <!-- 주행 모드 파라미터 (fast 또는 safe) -->
+    <arg name="version" default="safe"/>
+    <arg name="direction" default="left"/>
+
+    <!-- LANE 기반 주행  hsv-->
+    <!-- <include file="$(find lane_detection)/launch/lane_detection_hsv.launch">
+        <arg name="version" value="$(arg version)"/>
+    </include> -->
+
+    <node name="white_check" type="white_check.py" pkg="lane_detection" output="screen">
+        <param name="version" value="$(arg version)"/>
+    </node>
+
+    <!-- main planner 주행  -->
+    <node name="main_planner" type="main_planner.py" pkg="car_planner" output="screen">
+        <param name="version" value="$(arg version)"/>
+    </node>
+
+
+    <include file="$(find racecar)/launch/teleop.launch"/> 
+    <!-- 장애물 탐지 관련 -->
+    <!-- <include file="$(find obstacle_detector)/launch/nodelets.launch"/> -->
+    <!-- <include file="$(find aruco_detect)/launch/aruco_detect.launch"/> -->
+    <!-- <include file="$(find sensor_manager)/launch/sensor_process.launch" /> -->
+
+
+    <!-- RViz 설정 -->
+    <!-- <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rplidar_ros)/rviz/rplidar.rviz"/> -->
+</launch>

@@ -4,7 +4,7 @@
 import rospy
 from std_msgs.msg import Int32, String, Bool
 from sensor_msgs.msg import Image
-from fiducial_msgs.msg import Fiducial, FiducialArray
+
 from ackermann_msgs.msg import AckermannDriveStamped  # AckermannDrive 메시지를 퍼블리시하기 위한 import
 from sign_slowdown.msg import Drive_command
 from ar_track_alvar_msgs.msg import AlvarMarkers

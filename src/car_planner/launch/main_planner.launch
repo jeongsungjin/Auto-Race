@@ -63,7 +63,7 @@
     <!-- 장애물 탐지 관련 -->
     <include file="$(find obstacle_detector)/launch/nodelets.launch"/>
 
-    <include file="$(find aruco_detect)/launch/aruco_detect.launch"/>
+    <!-- <include file="$(find aruco_detect)/launch/aruco_detect.launch"/> -->
 
     <include file="$(find sensor_manager)/launch/sensor_process.launch" />
 
