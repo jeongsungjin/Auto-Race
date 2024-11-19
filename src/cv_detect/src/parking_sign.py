@@ -8,7 +8,7 @@ from sensor_msgs.msg import Image
 import numpy as np
 from utils import *
 
-from std_msgs.msg import Bool
+from std_msgs.msg import Bool, Int32
 
 class ParkingSingDetection:
     def __init__(self):
@@ -20,6 +20,7 @@ class ParkingSingDetection:
 
             rospy.Subscriber("/usb_cam/image_raw", Image, self.cameraCB)
             self.is_blue_pub = rospy.Publisher("/is_blue", Bool, queue_size=1)
+            self.blue_pixel_pub = rospy.Publisher("/blue_pixels", Int32, queue_size=1)
 
             self.tunnel_done_flag = False
             self.cv_image = None
@@ -56,6 +57,9 @@ class ParkingSingDetection:
 
     def tunnel_done_callback(self, msg):
         self.tunnel_done_flag = msg.data
+    
+    def publish_blue_pixel(self, blue_pixel):
+        self.blue_pixel_pub.publish(blue_pixel)
 
     def detect_blue(self, image):
         hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
@@ -81,7 +85,7 @@ class ParkingSingDetection:
             self.is_blue_msg.data = False
         
         self.is_blue_pub.publish(self.is_blue_msg)
-
+        self.publish_blue_pixel(blue_pixel_counts)
 
 if __name__ == '__main__':
     try:

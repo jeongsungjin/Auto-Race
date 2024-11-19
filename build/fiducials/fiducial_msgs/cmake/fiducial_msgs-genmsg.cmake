@@ -29,12 +29,12 @@ add_custom_target(_fiducial_msgs_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg" NAME_WE)
 add_custom_target(_fiducial_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "fiducial_msgs" "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg" "geometry_msgs/Vector3:geometry_msgs/Transform:geometry_msgs/Quaternion"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "fiducial_msgs" "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg" "geometry_msgs/Quaternion:geometry_msgs/Transform:geometry_msgs/Vector3"
 )
 
 get_filename_component(_filename "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransformArray.msg" NAME_WE)
 add_custom_target(_fiducial_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "fiducial_msgs" "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransformArray.msg" "fiducial_msgs/FiducialTransform:geometry_msgs/Quaternion:geometry_msgs/Vector3:geometry_msgs/Transform:std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "fiducial_msgs" "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransformArray.msg" "fiducial_msgs/FiducialTransform:geometry_msgs/Transform:std_msgs/Header:geometry_msgs/Vector3:geometry_msgs/Quaternion"
 )
 
 get_filename_component(_filename "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntry.msg" NAME_WE)
@@ -49,7 +49,7 @@ add_custom_target(_fiducial_msgs_generate_messages_check_deps_${_filename}
 
 get_filename_component(_filename "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/srv/InitializeMap.srv" NAME_WE)
 add_custom_target(_fiducial_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "fiducial_msgs" "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/srv/InitializeMap.srv" "fiducial_msgs/FiducialMapEntryArray:fiducial_msgs/FiducialMapEntry"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "fiducial_msgs" "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/srv/InitializeMap.srv" "fiducial_msgs/FiducialMapEntry:fiducial_msgs/FiducialMapEntryArray"
 )
 
 #
@@ -73,13 +73,13 @@ _generate_msg_cpp(fiducial_msgs
 _generate_msg_cpp(fiducial_msgs
   "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/fiducial_msgs
 )
 _generate_msg_cpp(fiducial_msgs
   "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransformArray.msg"
   "${MSG_I_FLAGS}"
-  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/fiducial_msgs
 )
 _generate_msg_cpp(fiducial_msgs
@@ -99,7 +99,7 @@ _generate_msg_cpp(fiducial_msgs
 _generate_srv_cpp(fiducial_msgs
   "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/srv/InitializeMap.srv"
   "${MSG_I_FLAGS}"
-  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntryArray.msg;/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntry.msg"
+  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntry.msg;/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntryArray.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/fiducial_msgs
 )
 
@@ -154,13 +154,13 @@ _generate_msg_eus(fiducial_msgs
 _generate_msg_eus(fiducial_msgs
   "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/fiducial_msgs
 )
 _generate_msg_eus(fiducial_msgs
   "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransformArray.msg"
   "${MSG_I_FLAGS}"
-  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/fiducial_msgs
 )
 _generate_msg_eus(fiducial_msgs
@@ -180,7 +180,7 @@ _generate_msg_eus(fiducial_msgs
 _generate_srv_eus(fiducial_msgs
   "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/srv/InitializeMap.srv"
   "${MSG_I_FLAGS}"
-  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntryArray.msg;/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntry.msg"
+  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntry.msg;/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntryArray.msg"
   ${CATKIN_DEVEL_PREFIX}/${geneus_INSTALL_DIR}/fiducial_msgs
 )
 
@@ -235,13 +235,13 @@ _generate_msg_lisp(fiducial_msgs
 _generate_msg_lisp(fiducial_msgs
   "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/fiducial_msgs
 )
 _generate_msg_lisp(fiducial_msgs
   "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransformArray.msg"
   "${MSG_I_FLAGS}"
-  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/fiducial_msgs
 )
 _generate_msg_lisp(fiducial_msgs
@@ -261,7 +261,7 @@ _generate_msg_lisp(fiducial_msgs
 _generate_srv_lisp(fiducial_msgs
   "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/srv/InitializeMap.srv"
   "${MSG_I_FLAGS}"
-  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntryArray.msg;/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntry.msg"
+  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntry.msg;/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntryArray.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/fiducial_msgs
 )
 
@@ -316,13 +316,13 @@ _generate_msg_nodejs(fiducial_msgs
 _generate_msg_nodejs(fiducial_msgs
   "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/fiducial_msgs
 )
 _generate_msg_nodejs(fiducial_msgs
   "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransformArray.msg"
   "${MSG_I_FLAGS}"
-  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/fiducial_msgs
 )
 _generate_msg_nodejs(fiducial_msgs
@@ -342,7 +342,7 @@ _generate_msg_nodejs(fiducial_msgs
 _generate_srv_nodejs(fiducial_msgs
   "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/srv/InitializeMap.srv"
   "${MSG_I_FLAGS}"
-  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntryArray.msg;/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntry.msg"
+  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntry.msg;/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntryArray.msg"
   ${CATKIN_DEVEL_PREFIX}/${gennodejs_INSTALL_DIR}/fiducial_msgs
 )
 
@@ -397,13 +397,13 @@ _generate_msg_py(fiducial_msgs
 _generate_msg_py(fiducial_msgs
   "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg"
   "${MSG_I_FLAGS}"
-  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
+  "/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/fiducial_msgs
 )
 _generate_msg_py(fiducial_msgs
   "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransformArray.msg"
   "${MSG_I_FLAGS}"
-  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg"
+  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Transform.msg;/opt/ros/noetic/share/std_msgs/cmake/../msg/Header.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Vector3.msg;/opt/ros/noetic/share/geometry_msgs/cmake/../msg/Quaternion.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/fiducial_msgs
 )
 _generate_msg_py(fiducial_msgs
@@ -423,7 +423,7 @@ _generate_msg_py(fiducial_msgs
 _generate_srv_py(fiducial_msgs
   "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/srv/InitializeMap.srv"
   "${MSG_I_FLAGS}"
-  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntryArray.msg;/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntry.msg"
+  "/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntry.msg;/home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialMapEntryArray.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/fiducial_msgs
 )
 

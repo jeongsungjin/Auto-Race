@@ -6,7 +6,7 @@ from cv_bridge import CvBridge, CvBridgeError
 import rospy
 from sensor_msgs.msg import Image
 import numpy as np
-from std_msgs.msg import Bool
+from std_msgs.msg import Bool, Int32
 
 class RubberconeOrangeDetection:
     def __init__(self):
@@ -18,6 +18,7 @@ class RubberconeOrangeDetection:
             # ROS 구독 및 퍼블리셔 설정
             rospy.Subscriber("/usb_cam/image_raw", Image, self.cameraCB)
             self.is_orange_pub = rospy.Publisher("/is_orange", Bool, queue_size=1)
+            self.orange_pixels_pub = rospy.Publisher("/orange_pixels", Int32, queue_size=1)
 
             self.cv_image = None
             self.is_orange_msg = Bool()
@@ -53,6 +54,9 @@ class RubberconeOrangeDetection:
         except CvBridgeError as e:
             rospy.logwarn(e)
 
+    def publish_orange_pixel(self, orange_pixel):
+        self.orange_pixels_pub.publish(orange_pixel)
+    
     def detect_orange(self, image):
         # BGR 이미지를 HSV로 변환
         hsv_image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
@@ -84,6 +88,7 @@ class RubberconeOrangeDetection:
 
         # 메시지 퍼블리시
         self.is_orange_pub.publish(self.is_orange_msg)
+
 
 if __name__ == '__main__':
     try:

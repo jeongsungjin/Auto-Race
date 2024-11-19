@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/wego/Auto-Race/build
 include fiducials/fiducial_msgs/CMakeFiles/_fiducial_msgs_generate_messages_check_deps_FiducialTransform.dir/progress.make
 
 fiducials/fiducial_msgs/CMakeFiles/_fiducial_msgs_generate_messages_check_deps_FiducialTransform:
-	cd /home/wego/Auto-Race/build/fiducials/fiducial_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py fiducial_msgs /home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg geometry_msgs/Vector3:geometry_msgs/Transform:geometry_msgs/Quaternion
+	cd /home/wego/Auto-Race/build/fiducials/fiducial_msgs && ../../catkin_generated/env_cached.sh /usr/bin/python3 /opt/ros/noetic/share/genmsg/cmake/../../../lib/genmsg/genmsg_check_deps.py fiducial_msgs /home/wego/Auto-Race/src/fiducials/fiducial_msgs/msg/FiducialTransform.msg geometry_msgs/Quaternion:geometry_msgs/Transform:geometry_msgs/Vector3
 
 _fiducial_msgs_generate_messages_check_deps_FiducialTransform: fiducials/fiducial_msgs/CMakeFiles/_fiducial_msgs_generate_messages_check_deps_FiducialTransform
 _fiducial_msgs_generate_messages_check_deps_FiducialTransform: fiducials/fiducial_msgs/CMakeFiles/_fiducial_msgs_generate_messages_check_deps_FiducialTransform.dir/build.make

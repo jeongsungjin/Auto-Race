@@ -52,6 +52,7 @@ class LaneDetectionROS:
         self.ctrl_cmd_pub = rospy.Publisher('/motor_lane', Drive_command, queue_size=1)
         self.white_cnt = rospy.Publisher('/white_cnt', Int32, queue_size=1)
         self.yellow_pixel = rospy.Publisher('/yellow_pixel', Int32, queue_size=1)
+        self.white_pixel_pub = rospy.Publisher('/white_pixels', Int32, queue_size=1)
 
         self.white_count = 0
         self.ctrl_cmd_msg = Drive_command()  # 모터 제어 메시지 초기화
@@ -259,6 +260,8 @@ class LaneDetectionROS:
                 if self.after_white == True:
                     self.white_count += 1
                     self.publish_white_cnt(self.white_count)
+
+                self.publish_white_pixel(np.count_nonzero(warped_img_white))
                 
                 print(np.count_nonzero(warped_img_white))
 
@@ -308,6 +311,9 @@ class LaneDetectionROS:
 
     def publish_white_cnt(self, white_count):
         self.white_cnt.publish(white_count)
+
+    def publish_white_pixel(self, white_pixel):
+        self.white_pixel_pub.publish(white_pixel)
 
     def publish_yellow_pixel(self, yellow_pixel):
         self.yellow_pixel.publish(yellow_pixel)

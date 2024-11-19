@@ -1,7 +1,7 @@
 <launch>
     
     <!-- IMU 기반 heading 계산기 -->
-    <include file="$(find heading)/launch/imu_heading.launch"/>
+    <!-- <include file="$(find heading)/launch/imu_heading.launch"/> -->
 
     <!-- 라바콘 오랜지 인지 코드 -->
     <include file="$(find cv_detect)/launch/rubbercone_orange_detection.launch" />
