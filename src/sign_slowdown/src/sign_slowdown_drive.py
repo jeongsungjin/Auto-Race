@@ -80,10 +80,8 @@ class Sign():
         # ID를 기준으로 A와 B를 구분하고 카운터를 증가
         if self.sign_data == 0:  # ID가 0인 경우
             self.A_cnt += 1
-            print("!!!!!!!!!!!!!!!!!!!!!!!!!!나 아루코 봄!!!!!!!!!!!!!!!!!!!!!!!!!!!!1")                                
         elif self.sign_data == 4:  # ID가 1인 경우
             self.B_cnt += 1      
-            print("!!!!!!!!!!!!!!!!!!!!!!!!!!나 아루코 봄!!!!!!!!!!!!!!!!!!!!!!!!!!!!1")                                
                           
         else:
             rospy.logwarn(f"Unknown marker ID: {self.sign_data}")

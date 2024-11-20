@@ -190,7 +190,6 @@ class Controller():
             # --------------------------- 장애물 인지시 감속 ---------------------------------------- # 
             if self.white_cnt >= 220:
                 self.motor_sum += self.motor
-                print("!!!!!!!!!!!!누적 이동량!!!!!!!!!!!!!!", self.motor_sum)
                 self.publish_sum_of_motor(self.motor_sum)
             else:
                 self.publish_sum_of_motor(0.0)

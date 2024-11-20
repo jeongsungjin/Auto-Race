@@ -43,8 +43,7 @@ class CrossingGate():
         self.mode = ''
         self.flag= False
         self.stop_flag = False
-        self.forever_true = False
-        self.roundabout_completed = False #임시임!!!!!
+        self.roundabout_completed = False 
         self.crossing_gate_done_flag = False
         self.point_count_in_y_range = 0  # y 범위 내 점 개수
 
@@ -69,7 +68,6 @@ class CrossingGate():
                     self.publishCtrlCmd(0.0 , 0.0, True)
                     self.stop_flag = True
                 elif self.stop_flag == True:
-                    self.forever_true = True
                     self.crossing_gate_done_flag = True
                     self.publishCtrlCmd(self.speed , self.angle, False)
 

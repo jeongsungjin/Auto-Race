@@ -126,8 +126,8 @@ class PARKING:
                             self.publishCtrlCmd(self.speed, self.steer, True)
                             print("우조향 후진")
                             
-                if self.right_back_done == True and self.return_line_cnt < 65:
-                    if self.return_line_cnt < 40:
+                if self.right_back_done == True and self.return_line_cnt < 70:
+                    if self.return_line_cnt < 45:
                         self.speed = 0.2
                         self.right_steer += 500
                         self.return_line_cnt += 1
@@ -142,13 +142,13 @@ class PARKING:
                     #     if self.back_line_cnt == 8:
                     #         self.return_line_cnt = 35
                     
-                    elif self.return_line_cnt >= 40:
+                    elif self.return_line_cnt >= 45:
                         self.speed = 0.2
                         self.left_steer = -100
                         self.return_line_cnt += 1
                         self.publishCtrlCmd(self.speed, self.left_steer, True)
                         print("차선 복귀를 위해서 좌조향 주고 직진중..")
-                        if self.return_line_cnt == 65:
+                        if self.return_line_cnt == 70:
                             self.parking_done = True
                             self.publishCtrlCmd(0.0, 0.0, False) ## 차선 값으로 줘야함!!!!!!!!!
 

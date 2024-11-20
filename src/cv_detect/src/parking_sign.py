@@ -87,7 +87,7 @@ class ParkingSingDetection:
 
         # 윤곽선 찾기
         blue_pixel_counts = np.count_nonzero(mask_blue) 
-        cv2.imshow("blue mask", mask_blue)
+        # cv2.imshow("blue mask", mask_blue)
 
         if self.tunnel_done_flag == True:
             self.aruco_cnt += 1

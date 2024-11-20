@@ -78,7 +78,7 @@ class RubberconeOrangeDetection:
 
         # 마스크에서 오렌지색 픽셀 개수 계산
         orange_pixel_counts = np.count_nonzero(orange_mask)
-        cv2.imshow("Orange Mask", orange_mask)
+        # cv2.imshow("Orange Mask", orange_mask)
 
         # Boolean 메시지 생성
         if orange_pixel_counts > 10000:

@@ -87,7 +87,7 @@ class LaneDetectionROS:
         self.lower_red = np.array([0, 152, 99])
         self.upper_red = np.array([15, 255, 255])
         # 트랙바 윈도우 생성
-        cv2.namedWindow("Trackbars")
+        # cv2.namedWindow("Trackbars")
 
         # 트랙바 생성 (노란색 범위)
         # cv2.createTrackbar("Yellow Lower H", "Trackbars", self.lower_yellow[0], 179, self.nothing)
@@ -105,12 +105,12 @@ class LaneDetectionROS:
         # cv2.createTrackbar("White Upper S", "Trackbars", self.upper_white[1], 255, self.nothing)
         # cv2.createTrackbar("White Upper V", "Trackbars", self.upper_white[2], 255, self.nothing)
 
-        cv2.createTrackbar("Red Lower H", "Trackbars", self.lower_red[0], 179, self.nothing)
-        cv2.createTrackbar("Red Lower S", "Trackbars", self.lower_red[1], 255, self.nothing)
-        cv2.createTrackbar("Red Lower V", "Trackbars", self.lower_red[2], 255, self.nothing)
-        cv2.createTrackbar("Red Upper H", "Trackbars", self.upper_red[0], 179, self.nothing)
-        cv2.createTrackbar("Red Upper S", "Trackbars", self.upper_red[1], 255, self.nothing)
-        cv2.createTrackbar("Red Upper V", "Trackbars", self.upper_red[2], 255, self.nothing)
+        # cv2.createTrackbar("Red Lower H", "Trackbars", self.lower_red[0], 179, self.nothing)
+        # cv2.createTrackbar("Red Lower S", "Trackbars", self.lower_red[1], 255, self.nothing)
+        # cv2.createTrackbar("Red Lower V", "Trackbars", self.lower_red[2], 255, self.nothing)
+        # cv2.createTrackbar("Red Upper H", "Trackbars", self.upper_red[0], 179, self.nothing)
+        # cv2.createTrackbar("Red Upper S", "Trackbars", self.upper_red[1], 255, self.nothing)
+        # cv2.createTrackbar("Red Upper V", "Trackbars", self.upper_red[2], 255, self.nothing)
 
         self.pub_x_location = rospy.Publisher('/lane_x_location', Float32, queue_size=1)
 
@@ -158,16 +158,16 @@ class LaneDetectionROS:
                 #     cv2.getTrackbarPos("White Upper V", "Trackbars")
                 # ])
                 # # 트랙바 빨강
-                self.lower_red = np.array([
-                    cv2.getTrackbarPos("Red Lower H", "Trackbars"),
-                    cv2.getTrackbarPos("Red Lower S", "Trackbars"),
-                    cv2.getTrackbarPos("Red Lower V", "Trackbars")
-                ])
-                self.upper_red = np.array([
-                    cv2.getTrackbarPos("Red Upper H", "Trackbars"),
-                    cv2.getTrackbarPos("Red Upper S", "Trackbars"),
-                    cv2.getTrackbarPos("Red Upper V", "Trackbars")
-                ])
+                # self.lower_red = np.array([
+                #     cv2.getTrackbarPos("Red Lower H", "Trackbars"),
+                #     cv2.getTrackbarPos("Red Lower S", "Trackbars"),
+                #     cv2.getTrackbarPos("Red Lower V", "Trackbars")
+                # ])
+                # self.upper_red = np.array([
+                #     cv2.getTrackbarPos("Red Upper H", "Trackbars"),
+                #     cv2.getTrackbarPos("Red Upper S", "Trackbars"),
+                #     cv2.getTrackbarPos("Red Upper V", "Trackbars")
+                # ])
 
                 # 이미지 처리
                 y, x = frame_resized.shape[0:2]
@@ -244,11 +244,11 @@ class LaneDetectionROS:
                 # 미션 2: 빨간색 차로 구간에서 감속
                 if np.count_nonzero(warped_img_red) > 10000:  # 빨간색 픽셀 개수 기준 감속 여부 판단
                     self.motor = 0.22 # 감속
-                    print("빨강빨강~")
+                    # print("빨강빨강~")
 
                 # 미션 3: 흰색 횡단보도 구간에서 정지
                 elif self.stop_count < 190 and np.count_nonzero(warped_img_white) > 40000: # 흰색 픽셀 개수 기준 정지 여부 판단
-                    print("흰색 만나서 정지한 횟수", self.stop_count)
+                    # print("흰색 만나서 정지한 횟수", self.stop_count)
                     self.motor = 0.0
                     self.stop_count += 1
                     # rospy.sleep(8)  # 8초 동안 정지
@@ -270,12 +270,12 @@ class LaneDetectionROS:
 
                 # 결과 표시
                 cv2.imshow('Original Image', frame_resized)
-                cv2.imshow("Yellow Mask", filtered_yellow)
+                # cv2.imshow("Yellow Mask", filtered_yellow)
                 # cv2.imshow("White Mask", filtered_white)
                 # cv2.imshow("Red Mask", filtered_red)
                 # cv2.imshow('Red warpered mask', warped_img_red)
                 # cv2.imshow("Filtered Image", filtered_img)
-                cv2.imshow("Warped Image", warped_img)
+                # cv2.imshow("Warped Image", warped_img)
                 cv2.imshow("Output Image", out_img)
                 # cv2.imshow("Warped White Stop Line", warped_img_white)
 

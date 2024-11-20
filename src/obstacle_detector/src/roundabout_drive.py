@@ -55,7 +55,7 @@ class ROUNDABOUT:
                     self.publish_roundabout_done(self.roundabout_done_flag)
 
 
-            elif self.sum_of_motor >= 40:
+            elif self.sum_of_motor >= 150:
                 self.roundabout_done_flag = True
                 self.publish_roundabout_done(self.roundabout_done_flag)
                 self.publishCtrlCmd(0.0 , 0.0, False)

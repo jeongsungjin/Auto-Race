@@ -30,7 +30,7 @@
 
     <!-- 실제 트랙 상황, 가벽이 주차선보다 훨씬 넓게 있음 25/30cm -->
     <param name="min_x_limit" value="-0.0"/>
-    <param name="max_x_limit" value="0.5"/>
+    <param name="max_x_limit" value="0.45"/>
     <param name="min_y_limit" value="-0.15"/>
     <param name="max_y_limit" value="0.15"/>
 
