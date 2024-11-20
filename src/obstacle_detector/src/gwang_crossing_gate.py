@@ -65,7 +65,7 @@ class CrossingGate():
                 continue
 
             if (self.x_points) and (self.y_points) and (self.roundabout_completed == True) and (self.crossing_gate_done_flag == False):
-                if (-0.60 < self.x_points[0] < 0) and (-0.15 <= self.y_points[0] <= 0.15) and (len(self.x_points) > 75): # 좌표기반 말고 뭐든지.. 새로운 조건을 and로 주세요 카메라를 쓰던, 라이다클러스터링을 쓰던, 카운터를 쓰던
+                if (-0.55 < self.x_points[0] < 0) and (-0.15 <= self.y_points[0] <= 0.35) and (len(self.x_points) > 55): # 좌표기반 말고 뭐든지.. 새로운 조건을 and로 주세요 카메라를 쓰던, 라이다클러스터링을 쓰던, 카운터를 쓰던
                     self.publishCtrlCmd(0.0 , 0.0, True)
                     self.stop_flag = True
                 elif self.stop_flag == True:

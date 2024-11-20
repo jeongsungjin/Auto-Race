@@ -22,10 +22,18 @@
 
     <param name="frame_id"             value="laser_frame"/>
     
-    <param name="min_x_limit" value="-0.25"/>
+    <!-- 가벽이 주차선 위에 있을때 (좁은 케이스) -->
+    <!-- <param name="min_x_limit" value="-0.25"/>
     <param name="max_x_limit" value="0.2"/>
     <param name="min_y_limit" value="-0.15"/>
+    <param name="max_y_limit" value="0.15"/> -->
+
+    <!-- 실제 트랙 상황, 가벽이 주차선보다 훨씬 넓게 있음 25/30cm -->
+    <param name="min_x_limit" value="-0.0"/>
+    <param name="max_x_limit" value="0.5"/>
+    <param name="min_y_limit" value="-0.15"/>
     <param name="max_y_limit" value="0.15"/>
+
   </node>
   <!-- <node name="rviz_parking" pkg="rviz" type="rviz" args="-d /home/xytron/rviz_parking.rviz" /> -->
 

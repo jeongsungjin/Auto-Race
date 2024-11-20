@@ -29,11 +29,10 @@ class ROUNDABOUT:
         # 변수 초기화
         self.obstacles = []
         self.prev_obstacle = None
-        self.distance_threshold = 0.3
         self.mode = ''
         self.flag = False
         self.roundabout_done_flag = False
-        self.speed = 0.5
+        self.speed = 0.4
         self.sum_of_motor = 0.0
         self.lane_topic = ""
 
@@ -46,7 +45,7 @@ class ROUNDABOUT:
 
             # print("white count!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1",self.white_cnt)
 
-            if (5 < self.sum_of_motor < 40) and (self.roundabout_done_flag == False): #sum of motor 조정 해야합니다
+            if (75 < self.sum_of_motor < 150) and (self.roundabout_done_flag == False): #sum of motor 조정 해야합니다
                 self.publish_Lane_topic("RIGHT")
                 if (len(self.obstacles) > 0):
                     self.publishCtrlCmd(0.0 , 0.0, True)

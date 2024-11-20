@@ -216,7 +216,7 @@ class Controller():
             #     self.steer = -110
                 
             self.publishCtrlCmd(self.motor, self.steer)
-
+            
 
             cv2.waitKey(1)  # 키 입력 대기
             rate.sleep()  # 주기마다 대기
@@ -228,7 +228,8 @@ class Controller():
         self.publishing_data = AckermannDriveStamped()  # AckermannDriveStamped 메시지 객체 생성
         self.publishing_data.header.stamp = rospy.Time.now()  # 메시지에 현재 시간을 기록
         self.publishing_data.header.frame_id = "base_link"  # 메시지의 참조 프레임을 "base_link"로 설정
-        self.publishing_data.drive.steering_angle = -servo_msg * 0.002  # 차선 위치 오차에 따라 조향 각도 결정
+        self.publishing_data.drive.steering_angle = -servo_msg * 0.002  # 차선 위치 오차에 따라 조향 각도 결정\
+
         self.publishing_data.drive.speed = motor_msg  # 차선 주행 속도(speed_lane)를 설정
         self.drive_pub.publish(self.publishing_data)  # 설정한 속도와 조향 각도 메시지를 퍼블리시하여 차량에 적용
 

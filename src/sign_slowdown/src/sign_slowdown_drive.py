@@ -44,18 +44,19 @@ class Sign():
 
     def run(self):
         while not rospy.is_shutdown():
-            if (self.A_cnt > self.B_cnt):
-                self.tunnel_done_flag = True
-                self.publish_tunnel_done(self.tunnel_done_flag)
-                # rospy.loginfo("################## ID : {}".format(self.sign_data))            if self.lane_topic:  # self.lane_topic이 None이 아니면 퍼블리시
-                self.lane_dir = "LEFT"
-                self.publish_Lane_topic(self.lane_dir)
-            elif (self.A_cnt < self.B_cnt):
-                self.tunnel_done_flag = True
-                self.publish_tunnel_done(self.tunnel_done_flag)
+            if (self.A_cnt + self.B_cnt) >= 5:
+                if (self.A_cnt > self.B_cnt):
+                    self.tunnel_done_flag = True
+                    self.publish_tunnel_done(self.tunnel_done_flag)
+                    # rospy.loginfo("################## ID : {}".format(self.sign_data))            if self.lane_topic:  # self.lane_topic이 None이 아니면 퍼블리시
+                    self.lane_dir = "LEFT"
+                    self.publish_Lane_topic(self.lane_dir)
+                else:
+                    self.tunnel_done_flag = True
+                    self.publish_tunnel_done(self.tunnel_done_flag)
 
-                self.lane_dir = "RIGHT"
-                self.publish_Lane_topic(self.lane_dir)
+                    self.lane_dir = "RIGHT"
+                    self.publish_Lane_topic(self.lane_dir)
             else:
                 self.tunnel_done_flag = False
                 self.publish_tunnel_done(self.tunnel_done_flag)
@@ -78,9 +79,12 @@ class Sign():
 
         # ID를 기준으로 A와 B를 구분하고 카운터를 증가
         if self.sign_data == 0:  # ID가 0인 경우
-            self.A_cnt += 1                                
+            self.A_cnt += 1
+            print("!!!!!!!!!!!!!!!!!!!!!!!!!!나 아루코 봄!!!!!!!!!!!!!!!!!!!!!!!!!!!!1")                                
         elif self.sign_data == 4:  # ID가 1인 경우
-            self.B_cnt += 1                                
+            self.B_cnt += 1      
+            print("!!!!!!!!!!!!!!!!!!!!!!!!!!나 아루코 봄!!!!!!!!!!!!!!!!!!!!!!!!!!!!1")                                
+                          
         else:
             rospy.logwarn(f"Unknown marker ID: {self.sign_data}")
 

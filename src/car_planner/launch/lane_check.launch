@@ -14,7 +14,7 @@
     </node>
 
 
-    <include file="$(find racecar)/launch/teleop.launch"/> 
+    <!-- <include file="$(find racecar)/launch/teleop.launch"/>  -->
     <!-- 장애물 탐지 관련 -->
     <!-- <include file="$(find obstacle_detector)/launch/nodelets.launch"/> -->
     <!-- <include file="$(find aruco_detect)/launch/aruco_detect.launch"/> -->

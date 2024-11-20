@@ -42,9 +42,9 @@ class TUNNEL:
         # 특정 모드에서는 조향 제어를 하지 않음
         if self.mode in ['RABACON', 'SIGN', 'DYNAMIC', 'STATIC']:
             return
-        print("터널이 받는 스태틱 플래그", self.crossing_completed)
+        # print("터널이 받는 스태틱 플래그", self.crossing_completed)
         # 노란색 픽셀 및 게이트 상태 확인
-        if self.yellow_pixels < 1000 and self.crossing_completed == True and self.tunnel_done_flag == False:
+        if self.yellow_pixels < 5000 and self.crossing_completed == True and self.tunnel_done_flag == False:
             self.tunnel_in = True
             # ROI 첫 번째 포인트 기준으로 조향 결정
             if self.y_points:

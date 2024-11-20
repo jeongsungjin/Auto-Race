@@ -62,7 +62,7 @@ class WaypointMaker:
         if self.version == 'fast':
             self.motor = 0.7 # 일단
         else:
-            self.motor = 0.2
+            self.motor = 0.3
 
 
         rospy.loginfo(f"RUBBERCONE: {self.version}")
@@ -100,7 +100,7 @@ class WaypointMaker:
             leftPivotToConeDistance = self.get_distance(left_point, cone)
             rightPivotToConeDistance = self.get_distance(right_point, cone)
             # ------------------------------ 튜닝 필요 ---------------------------------- #
-            if leftPivotToConeDistance > 0.55 and rightPivotToConeDistance > 0.55:
+            if leftPivotToConeDistance > 0.70 and rightPivotToConeDistance > 0.70:
                 continue
             # ------------------------------ 튜닝 필요 ---------------------------------- #
 
@@ -176,7 +176,7 @@ class WaypointMaker:
             # print("All x values are identical; setting slope to a predefined value.")
             slope = 0  # 미리 정의된 slope 값 설정
             self.flag = False
-        elif (self.red_pixel < 300) or (self.tunnel_done_flag == True): #self.red_pixel < n: 이면 이즈 오랜지 폴스랑 같은 효과!! 1120
+        elif (self.red_pixel < 5000) or (self.tunnel_done_flag == True): #self.red_pixel < n: 이면 이즈 오랜지 폴스랑 같은 효과!! 1120
             # rospy.loginfo(f"라바콘 아님. 라바콘 주행 하면 안됨. 주황색 없음")
             slope = 0
             self.flag = False
