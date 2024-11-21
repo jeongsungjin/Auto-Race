@@ -91,11 +91,11 @@ class ParkingSingDetection:
 
         if self.tunnel_done_flag == True:
             self.aruco_cnt += 1
-            if self.aruco_cnt >= 270:
+            if self.aruco_cnt >= 240:
                 self.aruco_pass = True
                 print("!!!!!!!!!!!!!!! 지금부터는 진짜 주차표지판 봅니다 !!!!!!!!!!!!!!!!!!!!!11")
         
-        if blue_pixel_counts > 800 and self.tunnel_done_flag == True and self.aruco_pass == True:
+        if blue_pixel_counts > 1000 and self.tunnel_done_flag == True and self.aruco_pass == True:
             self.is_blue_msg.data = True
         else:
             self.is_blue_msg.data = False

@@ -7,7 +7,7 @@ import cv2
 import numpy as np
 import sys
 import os
-from std_msgs.msg import Float32, Float64, String, Int32
+from std_msgs.msg import Float32, Float64, String, Int32, Bool
 from lane_detection.msg import Drive_command
 from obstacle_detector.msg import Obstacles
 
@@ -48,6 +48,7 @@ class LaneDetectionROS:
         rospy.Subscriber("/heading", Float64, self.headingCB)
         rospy.Subscriber("/raw_obstacles", Obstacles, self.obstacleCB)
         rospy.Subscriber('/lane_topic', String, self.lane_topic_callback)
+        rospy.Subscriber("/tunnel_done", Bool, self.tunnel_done_callback) # 콜백 만들어서 주석 풀어야함!
 
         self.ctrl_cmd_pub = rospy.Publisher('/motor_lane', Drive_command, queue_size=1)
         self.white_cnt = rospy.Publisher('/white_cnt', Int32, queue_size=1)
@@ -59,6 +60,8 @@ class LaneDetectionROS:
         self.ctrl_cmd_msg = Drive_command()  # 모터 제어 메시지 초기화
 
         self.after_white = False
+        self.tunnel_done_flag = False #원래 false임!!!
+
         self.stop_count = 0
         self.closest_obstacle = None
         # SlideWindow 객체 초기화
@@ -68,7 +71,7 @@ class LaneDetectionROS:
 
         # ---------------------------튜닝 해야하는 값 ------------------------------#
         self.steer = 0.0  # 조향각 초기화
-        self.motor = 0.5  # 모터 속도 초기화
+        self.motor = 0.45  # 모터 속도 초기화
         self.k_p = 10
 
         if self.version == 'fast':
@@ -80,16 +83,21 @@ class LaneDetectionROS:
         # self.gt_heading_list = []
         self.lane_state = None
         #초기 HSV 범위 설정
-        self.lower_yellow = np.array([23, 125, 110])
-        self.upper_yellow = np.array([32, 255, 220])
+        self.lower_yellow = np.array([10, 108, 125])
+        self.upper_yellow = np.array([35, 255, 255])
+
+        self.lower_left_yellow = np.array([15, 80, 90])
+        self.upper_left_yellow = np.array([30, 255, 235])
+
         self.lower_white = np.array([30, 0, 151])
         self.upper_white = np.array([122, 67, 207])
-        self.lower_red = np.array([0, 152, 99])
-        self.upper_red = np.array([15, 255, 255])
+
+        self.lower_red = np.array([145, 35, 35])
+        self.upper_red = np.array([179, 255, 255])
         # 트랙바 윈도우 생성
         # cv2.namedWindow("Trackbars")
 
-        # 트랙바 생성 (노란색 범위)
+        # # 트랙바 생성 (노란색 범위)
         # cv2.createTrackbar("Yellow Lower H", "Trackbars", self.lower_yellow[0], 179, self.nothing)
         # cv2.createTrackbar("Yellow Lower S", "Trackbars", self.lower_yellow[1], 255, self.nothing)
         # cv2.createTrackbar("Yellow Lower V", "Trackbars", self.lower_yellow[2], 255, self.nothing)
@@ -97,7 +105,15 @@ class LaneDetectionROS:
         # cv2.createTrackbar("Yellow Upper S", "Trackbars", self.upper_yellow[1], 255, self.nothing)
         # cv2.createTrackbar("Yellow Upper V", "Trackbars", self.upper_yellow[2], 255, self.nothing)
 
-        # 트랙바 생성 (흰색 범위)
+        # cv2.createTrackbar("Yellow left Lower H", "Trackbars", self.lower_left_yellow[0], 179, self.nothing)
+        # cv2.createTrackbar("Yellow left Lower S", "Trackbars", self.lower_left_yellow[1], 255, self.nothing)
+        # cv2.createTrackbar("Yellow left Lower V", "Trackbars", self.lower_left_yellow[2], 255, self.nothing)
+        # cv2.createTrackbar("Yellow left Upper H", "Trackbars", self.upper_left_yellow[0], 179, self.nothing)
+        # cv2.createTrackbar("Yellow left Upper S", "Trackbars", self.upper_left_yellow[1], 255, self.nothing)
+        # cv2.createTrackbar("Yellow left Upper V", "Trackbars", self.upper_left_yellow[2], 255, self.nothing)
+
+
+        # # 트랙바 생성 (흰색 범위)
         # cv2.createTrackbar("White Lower H", "Trackbars", self.lower_white[0], 179, self.nothing)
         # cv2.createTrackbar("White Lower S", "Trackbars", self.lower_white[1], 255, self.nothing)
         # cv2.createTrackbar("White Lower V", "Trackbars", self.lower_white[2], 255, self.nothing)
@@ -145,7 +161,17 @@ class LaneDetectionROS:
                 #     cv2.getTrackbarPos("Yellow Upper S", "Trackbars"),
                 #     cv2.getTrackbarPos("Yellow Upper V", "Trackbars")
                 # ])
-
+                # self.lower_left_yellow = np.array([
+                #     cv2.getTrackbarPos("Yellow left Lower H", "Trackbars"),
+                #     cv2.getTrackbarPos("Yellow left Lower S", "Trackbars"),
+                #     cv2.getTrackbarPos("Yellow left Lower V", "Trackbars")
+                # ])
+                
+                # self.upper_left_yellow = np.array([
+                #     cv2.getTrackbarPos("Yellow left Upper H", "Trackbars"),
+                #     cv2.getTrackbarPos("Yellow left Upper S", "Trackbars"),
+                #     cv2.getTrackbarPos("Yellow left Upper V", "Trackbars")
+                # ])
                 # # 트랙바로부터 현재 HSV 범위 가져오기 (흰색)
                 # self.lower_white = np.array([
                 #     cv2.getTrackbarPos("White Lower H", "Trackbars"),
@@ -157,7 +183,7 @@ class LaneDetectionROS:
                 #     cv2.getTrackbarPos("White Upper S", "Trackbars"),
                 #     cv2.getTrackbarPos("White Upper V", "Trackbars")
                 # ])
-                # # 트랙바 빨강
+                # 트랙바 빨강
                 # self.lower_red = np.array([
                 #     cv2.getTrackbarPos("Red Lower H", "Trackbars"),
                 #     cv2.getTrackbarPos("Red Lower S", "Trackbars"),
@@ -177,7 +203,11 @@ class LaneDetectionROS:
                 img_hsv = cv2.cvtColor(frame_resized, cv2.COLOR_BGR2HSV)
 
                 # 노란색 및 흰색 마스크 생성
-                mask_yellow = cv2.inRange(img_hsv, self.lower_yellow, self.upper_yellow)
+                if self.tunnel_done_flag == False:
+                    mask_yellow = cv2.inRange(img_hsv, self.lower_yellow, self.upper_yellow)
+                else:
+                    mask_yellow = cv2.inRange(img_hsv, self.lower_left_yellow, self.upper_left_yellow)
+
                 mask_white = cv2.inRange(img_hsv, self.lower_white, self.upper_white)
 
                 # 빨간색 감속
@@ -238,16 +268,16 @@ class LaneDetectionROS:
                 if self.version == 'fast':
                     self.motor = 0.5 
                 else:
-                    self.motor = 0.4      
+                    self.motor = 0.45   #---------------------원래 0.4했음 라운드 어바웃 좀 빠른거같아서 올렸음------------------
 
                 
                 # 미션 2: 빨간색 차로 구간에서 감속
-                if np.count_nonzero(warped_img_red) > 10000:  # 빨간색 픽셀 개수 기준 감속 여부 판단
-                    self.motor = 0.22 # 감속
+                if np.count_nonzero(warped_img_red) > 30000:  # 빨간색 픽셀 개수 기준 감속 여부 판단
+                    self.motor = 0.2 # 감속
                     # print("빨강빨강~")
 
                 # 미션 3: 흰색 횡단보도 구간에서 정지
-                elif self.stop_count < 190 and np.count_nonzero(warped_img_white) > 40000: # 흰색 픽셀 개수 기준 정지 여부 판단
+                elif self.stop_count < 190 and np.count_nonzero(warped_img_white) > 35000: # 흰색 픽셀 개수 기준 정지 여부 판단
                     # print("흰색 만나서 정지한 횟수", self.stop_count)
                     self.motor = 0.0
                     self.stop_count += 1
@@ -266,17 +296,19 @@ class LaneDetectionROS:
 
                 self.publish_white_pixel(np.count_nonzero(warped_img_white))
                 
-                print(np.count_nonzero(warped_img_white))
+                # print(np.count_nonzero(warped_img_white))
+
+                # print("빨강빨강~~!!!!!!!!!!!!!!!!!!!!!!!!!", np.count_nonzero(warped_img_red))
 
                 # 결과 표시
-                cv2.imshow('Original Image', frame_resized)
+                # cv2.imshow('Original Image', frame_resized)
                 # cv2.imshow("Yellow Mask", filtered_yellow)
                 # cv2.imshow("White Mask", filtered_white)
                 # cv2.imshow("Red Mask", filtered_red)
                 # cv2.imshow('Red warpered mask', warped_img_red)
                 # cv2.imshow("Filtered Image", filtered_img)
                 # cv2.imshow("Warped Image", warped_img)
-                cv2.imshow("Output Image", out_img)
+                # cv2.imshow("Output Image", out_img)
                 # cv2.imshow("Warped White Stop Line", warped_img_white)
 
                 # print("x_location", x_location)
@@ -301,6 +333,9 @@ class LaneDetectionROS:
             self.closest_obstacle = self.obstacles[0]
         else:
             self.closest_obstacle = Obstacle()
+
+    def tunnel_done_callback(self, msg):
+        self.tunnel_done_flag = msg.data
 
     def headingCB(self, msg):
         self.real_heading = msg.data

@@ -25,7 +25,7 @@
     <param name="min_x_limit" value="-0.8"/>
     <param name="max_x_limit" value="0.0"/>
     <param name="min_y_limit" value="-0.7"/>
-    <param name="max_y_limit" value="0.0"/>
+    <param name="max_y_limit" value="0.25"/>
   </node>
   <!-- <node name="rviz_static" pkg="rviz" type="rviz" args="-d /home/xytron/rviz_static.rviz" /> -->
 

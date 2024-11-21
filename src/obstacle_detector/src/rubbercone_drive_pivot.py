@@ -30,7 +30,7 @@ class ConeArray:
         return f"ConeArray(size={self.size}, cones=[{cones_str}])"
     
 # -----------------튜닝 필요 할 수도 있습니다-------------------
-pivot_reset_area = [-0.4, 0.0, 0.7, -0.7]
+pivot_reset_area = [-0.4, 0.0, 0.85, -0.85]
 
 class WaypointMaker:
     def __init__(self):
@@ -100,7 +100,7 @@ class WaypointMaker:
             leftPivotToConeDistance = self.get_distance(left_point, cone)
             rightPivotToConeDistance = self.get_distance(right_point, cone)
             # ------------------------------ 튜닝 필요 ---------------------------------- #
-            if leftPivotToConeDistance > 0.70 and rightPivotToConeDistance > 0.70:
+            if leftPivotToConeDistance > 0.85 and rightPivotToConeDistance > 0.85:
                 continue
             # ------------------------------ 튜닝 필요 ---------------------------------- #
 
@@ -176,7 +176,7 @@ class WaypointMaker:
             # print("All x values are identical; setting slope to a predefined value.")
             slope = 0  # 미리 정의된 slope 값 설정
             self.flag = False
-        elif (self.red_pixel < 5000) or (self.tunnel_done_flag == True): #self.red_pixel < n: 이면 이즈 오랜지 폴스랑 같은 효과!! 1120
+        elif (self.red_pixel < 3000) or (self.tunnel_done_flag == True): #self.red_pixel < n: 이면 이즈 오랜지 폴스랑 같은 효과!! 1120
             # rospy.loginfo(f"라바콘 아님. 라바콘 주행 하면 안됨. 주황색 없음")
             slope = 0
             self.flag = False
@@ -185,7 +185,9 @@ class WaypointMaker:
             self.flag = True
 
         angle_rad = math.atan(slope)
-        angle_deg = -5.5 * math.degrees(angle_rad)
+        # angle_deg = -5.5 * math.degrees(angle_rad)
+        angle_deg = -9.5 * math.degrees(angle_rad)
+
         # print(angle_deg)
 
         self.publishCtrlCmd(self.motor, angle_deg, self.flag)

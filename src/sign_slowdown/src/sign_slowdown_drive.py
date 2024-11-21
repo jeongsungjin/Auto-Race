@@ -19,10 +19,11 @@ class Sign():
 
         rospy.Subscriber("/ar_pose_marker", AlvarMarkers, self.sign_callback, queue_size=1)
         rospy.Subscriber("/motor_lane", Drive_command, self.ctrlLaneCB)
-        
+        rospy.Subscriber("/is_blue", Bool, self.BlueCB)
+
         self.lane_topic = ""
         self.lane_dir = ""
-        self.speed_lane = 0.7 
+        self.speed_lane = 0.4
         self.steer_lane = 0.0 
         self.ctrl_lane = Drive_command()
 
@@ -31,6 +32,8 @@ class Sign():
         self.B_cnt = 0
         self.flag = False 
         self.tunnel_done_flag = False
+        self.is_blue = False
+        self.marker_done = False
 
         self.no_sign_cnt = 0
         
@@ -44,7 +47,10 @@ class Sign():
 
     def run(self):
         while not rospy.is_shutdown():
-            if (self.A_cnt + self.B_cnt) >= 5:
+            if self.is_blue == True:
+                self.marker_done = True
+
+            if (self.A_cnt + self.B_cnt) >= 5 and self.marker_done == False:
                 if (self.A_cnt > self.B_cnt):
                     self.tunnel_done_flag = True
                     self.publish_tunnel_done(self.tunnel_done_flag)
@@ -57,9 +63,18 @@ class Sign():
 
                     self.lane_dir = "RIGHT"
                     self.publish_Lane_topic(self.lane_dir)
-            else:
+
+            elif self.marker_done == True:
+                    # self.lane_dir = "RIGHT"
+                    # self.publish_Lane_topic(self.lane_dir)
+                    self.tunnel_done_flag = True
+                    self.publish_tunnel_done(self.tunnel_done_flag)
+
+            elif (self.A_cnt + self.B_cnt) < 5:
                 self.tunnel_done_flag = False
                 self.publish_tunnel_done(self.tunnel_done_flag)
+            
+                
 
 
             self.rate.sleep()
@@ -88,6 +103,9 @@ class Sign():
 
     def publish_tunnel_done(self, tunnel_done):
         self.tunnel_done_pub.publish(tunnel_done)
+
+    def BlueCB(self, msg):
+        self.is_blue = msg.data
 
 
 
