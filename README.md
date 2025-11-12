@@ -15,4 +15,6 @@
 - 정주광
 
 ## 대회 포스터
-<img width="640" height="886" alt="20240903_111103" src="https://github.com/user-attachments/assets/19fc014e-8bb9-430e-93f5-3d0addc98885" />
+<p align="center">
+  <img width="640" height="886" alt="20240903_111103" src="https://github.com/user-attachments/assets/19fc014e-8bb9-430e-93f5-3d0addc98885" />
+</p>
