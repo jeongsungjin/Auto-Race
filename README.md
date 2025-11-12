@@ -1,3 +1,18 @@
-차 언제와..
-[Uploading 국민대 WeBOT 관련 미션 사항.pdf…]()
-https://cdn.discordapp.com/attachments/1292979764302188626/1305810687834062908/WeBOT_.pdf?ex=67346278&is=673310f8&hm=cc96a636f64078469c6883f0df9fcded95456bea1882df92446a41ff64ed1237&
+## 2024 Auto Race 스케일카 자율주행 경진대회
+
+
+주최: 혁신융합대학 미래자동차사업단
+
+주관: 한국연구재단
+
+팀 이름: 포붕붕
+
+최종: 한국연구재단이사장상 (최우수상)
+
+## 팀원
+- 정성진
+- 김기태
+- 정주광
+
+## 대회 포스터
+<img width="640" height="886" alt="20240903_111103" src="https://github.com/user-attachments/assets/19fc014e-8bb9-430e-93f5-3d0addc98885" />
